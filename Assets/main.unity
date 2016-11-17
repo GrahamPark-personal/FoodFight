@@ -525,6 +525,8 @@ MonoBehaviour:
   mMoveDistance: 2
   mDamageDistance: 2
   mAttackType: 1
+  mFinalPosition: {fileID: 0}
+  mRunPath: 0
 --- !u!23 &44505656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1979,6 +1981,8 @@ MonoBehaviour:
   mMoveDistance: 1
   mDamageDistance: 1
   mAttackType: 0
+  mFinalPosition: {fileID: 0}
+  mRunPath: 0
 --- !u!23 &267179046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3076,6 +3080,8 @@ MonoBehaviour:
   mMoveDistance: 3
   mDamageDistance: 3
   mAttackType: 1
+  mFinalPosition: {fileID: 0}
+  mRunPath: 0
 --- !u!23 &384067141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3415,10 +3421,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 426213727}
-  m_LocalRotation: {x: -0.30360278, y: 0.5624234, z: -0.23296115, w: -0.7329628}
-  m_LocalPosition: {x: 9.01, y: 10.05, z: -3.9}
+  m_LocalRotation: {x: 0.35355496, y: 0.612372, z: -0.3535533, w: 0.6123721}
+  m_LocalPosition: {x: -10.59, y: 18.2, z: -1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 44.996002, y: 284.69098, z: 0}
+  m_LocalEulerAnglesHint: {x: 59.985004, y: 90.00001, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -7880,6 +7886,8 @@ MonoBehaviour:
   mMoveDistance: 4
   mDamageDistance: 1
   mAttackType: 0
+  mFinalPosition: {fileID: 0}
+  mRunPath: 0
 --- !u!1 &941913845
 GameObject:
   m_ObjectHideFlags: 0
@@ -9389,7 +9397,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1149185291}
   m_LocalRotation: {x: 0.7199204, y: 0.13524415, z: -0.07160883, w: 0.67697555}
-  m_LocalPosition: {x: -1.13, y: 7.91, z: 1.15}
+  m_LocalPosition: {x: -1.37, y: 7.95, z: 0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 96.246, y: -47.454987, z: -64.56}
   m_Children: []
@@ -15808,8 +15816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bd422329c27954ebb11178275b776d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDistanceThreshold: 0.5
   mMouseMode: 0
   mCurrGrid: {fileID: 809206665}
+  mEntityMoveSpeed: 15
   mSelectedCell:
     x: 0
     y: 0

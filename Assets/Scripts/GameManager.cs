@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public enum MouseMode
 {
@@ -10,11 +11,16 @@ public enum MouseMode
 
 public class GameManager : MonoBehaviour {
 
+    [HideInInspector]
+    public float moveDistanceThreshold = 0;
+
     public static GameManager sInstance = null;
 
     public MouseMode mMouseMode;
 
     public Grid mCurrGrid;
+
+    public float mEntityMoveSpeed;
 
     [HideInInspector]
     public IntVector2 mSelectedCell;
@@ -56,8 +62,11 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public List<IntVector2> mAttackAreaLocations = new List<IntVector2>();
 
+    Queue<Transform> mPath = new Queue<Transform>();
+
     int MapCellRemoveAmount = 3;
     private float DrawWait = 0.7f;
+
 
     void Awake()
     {
@@ -107,7 +116,12 @@ public class GameManager : MonoBehaviour {
 
         }
     }
-	
+   
+
+    void movePathSeg(Vector3 tempT)
+    {
+        
+    }
 	
 	//void Update ()
  //   {
@@ -129,18 +143,37 @@ public class GameManager : MonoBehaviour {
             {
                 GameObject deleteObj;
 
+                mCharacterObj.mPath.Clear();
+                mPath.Clear();
+
+                FindPath(pos);
+
                 //Change Characters cell position
                 mCurrGrid.rows[mCharacterObj.mCellPos.x].cols[mCharacterObj.mCellPos.y].mTypeOnCell = TypeOnCell.nothing;
                 mCurrGrid.rows[pos.x].cols[pos.y].mTypeOnCell = TypeOnCell.character;
                 mCurrGrid.rows[pos.x].cols[pos.y].mCharacterObj = mCharacterObj;
                 mCharacterObj.mCellPos = pos;
 
-                //change characters physical position
-                mCharacterObj.transform.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position + new Vector3(0, 1, 0);
+
+                
+
+                while (mPath.Count > 0)
+                {
+                    Transform temp = mPath.Dequeue();
+                    mCharacterObj.mPath.Enqueue(temp);
+                }
+
+                //mCharacterObj.mFinalPosition.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position + new Vector3(0, 1, 0);
+
+                mCharacterObj.mRunPath = true;
 
                 mCharacterObj = null;
                 mCharacterSelected = false;
                 mEnemySelected = false;
+
+
+                //change characters physical position
+                //mCharacterObj.transform.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position + new Vector3(0, 1, 0);
 
 
                 //destroy moveArea prefabs
@@ -165,9 +198,104 @@ public class GameManager : MonoBehaviour {
                 mAttackAreaLocations.Clear();
                 mAttackAreaLocations.Clear();
 
+                
+
                 break;
             }
         }
+    }
+
+    void FindPath(IntVector2 newPos)
+    {
+        IntVector2 currPos = mCharacterObj.mCellPos;
+
+        IntVector2 tempPos;
+
+        while((currPos.x != newPos.x) || (currPos.y != newPos.y))
+        {
+            currPos = CheckPathUp(currPos, newPos);
+            currPos = CheckPathDown(currPos, newPos);
+            currPos = CheckPathRight(currPos, newPos);
+            currPos = CheckPathLeft(currPos, newPos);
+
+
+
+        }
+
+    }
+
+    IntVector2 CheckPathRight(IntVector2 currPos, IntVector2 newPos)
+    {
+        IntVector2 tempPos;
+        if (currPos.x < newPos.x)
+        {
+            tempPos.x = currPos.x + 1;
+            tempPos.y = currPos.y;
+
+            if (mMoveAreaLocations.Contains(tempPos))
+            {
+                AddToPath(tempPos);
+                currPos = tempPos;
+            }
+        } 
+        return currPos;
+    }
+    IntVector2 CheckPathLeft(IntVector2 currPos, IntVector2 newPos)
+    {
+        IntVector2 tempPos;
+        if (currPos.x > newPos.x)
+        {
+            tempPos.x = currPos.x - 1;
+            tempPos.y = currPos.y;
+
+            if (mMoveAreaLocations.Contains(tempPos))
+            {
+                AddToPath(tempPos);
+                currPos = tempPos;
+            }
+        }
+        return currPos;
+    }
+
+    IntVector2 CheckPathUp(IntVector2 currPos, IntVector2 newPos)
+    {
+        IntVector2 tempPos;
+        if (currPos.y < newPos.y)
+        {
+            tempPos.x = currPos.x;
+            tempPos.y = currPos.y + 1;
+
+            if (mMoveAreaLocations.Contains(tempPos))
+            {
+                AddToPath(tempPos);
+                currPos = tempPos;
+            }
+        }
+        return currPos;
+    }
+    IntVector2 CheckPathDown(IntVector2 currPos, IntVector2 newPos)
+    {
+        IntVector2 tempPos;
+        if (currPos.y > newPos.y)
+        {
+            tempPos.x = currPos.x;
+            tempPos.y = currPos.y - 1;
+
+            if (mMoveAreaLocations.Contains(tempPos))
+            {
+                AddToPath(tempPos);
+                currPos = tempPos;
+            }
+        }
+        return currPos;
+    }
+
+    void AddToPath(IntVector2 pos)
+    {
+
+        Transform tempT = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform;
+        print(tempT.position.x + " , " + tempT.position.y + " , " + tempT.position.z);
+        mPath.Enqueue(tempT);
     }
 
     public void AttackPos(IntVector2 pos)
@@ -213,6 +341,9 @@ public class GameManager : MonoBehaviour {
                 //clear locations, and objects
                 mAttackAreaLocations.Clear();
                 mAttackAreaLocations.Clear();
+
+                //clear vector2 move
+                mPath.Clear();
 
                 break;
             }
@@ -269,6 +400,9 @@ public class GameManager : MonoBehaviour {
 
         mAttackAreaLocations.Clear();
         mAttackAreaObjArray.Clear();
+
+
+        
 
         //if the selected block is a character show where it can move to
         if (mCharacterSelected)

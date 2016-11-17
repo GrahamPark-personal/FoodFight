@@ -19,7 +19,7 @@ public class Cell : MonoBehaviour {
     [HideInInspector]
     public Enemy mEnemyObj;
 
-    [HideInInspector]
+    
     public IntVector2 mPos;
 
     public bool mCannotMoveHere;
@@ -55,7 +55,7 @@ public class Cell : MonoBehaviour {
                 mEnemyObj = null;
             }
 
-            //print(mPos.x + "," + mPos.y);
+            print(mPos.x + "," + mPos.y);
 
             GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
 

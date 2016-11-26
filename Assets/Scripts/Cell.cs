@@ -55,9 +55,9 @@ public class Cell : MonoBehaviour {
                 mEnemyObj = null;
             }
 
-            print(mPos.x + "," + mPos.y);
+            //print(mPos.x + "," + mPos.y);
 
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
+            //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
 
 
 

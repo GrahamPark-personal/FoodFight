@@ -52,13 +52,11 @@ public class Character : MonoBehaviour {
         {
             Transform tempT;
 
-            print(mPath.Count + " start of char movement ");
             speed = GameManager.sInstance.mEntityMoveSpeed;
 
-            if(mPath.Count > 0 && !mMoving)
+            if (mPath.Count > 0 && !mMoving)
             {
                 tempT = mPath.Dequeue();
-                print(tempT.position.x + " , " + tempT.position.y + " , " + tempT.position.z);
                 tempV = tempT.position + new Vector3(0, 1, 0);
                 mMoving = true;
             }
@@ -77,8 +75,8 @@ public class Character : MonoBehaviour {
         if (mHealth <= 0)
         {
             //Die
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.x].cols[mCellPos.y].mCannotMoveHere = false;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.x].cols[mCellPos.y].mTypeOnCell = TypeOnCell.nothing;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
             Destroy(this.gameObject);
         }
 	}

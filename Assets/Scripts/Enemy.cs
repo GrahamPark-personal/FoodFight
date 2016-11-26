@@ -26,8 +26,8 @@ public class Enemy : MonoBehaviour {
         if (mHealth <= 0)
         {
             //Die
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.x].cols[mCellPos.y].mCannotMoveHere = false;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.x].cols[mCellPos.y].mTypeOnCell = TypeOnCell.nothing;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
             Destroy(this.gameObject);
         }
 

@@ -22,8 +22,8 @@ public class Grid : MonoBehaviour {
 
     void Awake()
     {
-        mSize.x = rows.Length;
-        mSize.y = rows[0].cols.Length;
+        mSize.y = rows.Length;
+        mSize.x = rows[0].cols.Length;
     }
 
     void Start ()
@@ -33,8 +33,8 @@ public class Grid : MonoBehaviour {
         {
             for (int y = 0; y < mSize.y; y++)
             {
-                rows[x].cols[y].mPos.x = x;
-                rows[x].cols[y].mPos.y = y;
+                rows[y].cols[x].mPos.x = x;
+                rows[y].cols[x].mPos.y = y;
             }
         }
 	}
@@ -42,15 +42,15 @@ public class Grid : MonoBehaviour {
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.ResetSelected();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GameManager.sInstance.mMouseMode = MouseMode.Attack;
-            GameManager.sInstance.ResetSelected();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    GameManager.sInstance.mMouseMode = MouseMode.Move;
+        //    GameManager.sInstance.ResetSelected();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    GameManager.sInstance.mMouseMode = MouseMode.Attack;
+        //    GameManager.sInstance.ResetSelected();
+        //}
     }
 }

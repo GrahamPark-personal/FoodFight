@@ -62,11 +62,28 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public List<IntVector2> mAttackAreaLocations = new List<IntVector2>();
 
+    [HideInInspector]
+    public List<IntVector2> mDontGoHere = new List<IntVector2>();
+
     Queue<Transform> mPath = new Queue<Transform>();
 
     int MapCellRemoveAmount = 3;
     private float DrawWait = 0.7f;
 
+    bool CantMoveLeft = false;
+    bool CantMoveRight = false;
+    bool CantMoveUp = false;
+    bool CantMoveDown = false;
+
+    bool canMoveSelectedLeft = true;
+    bool canMoveSelectedRight = true;
+    bool canMoveSelectedUp = true;
+    bool canMoveSelectedDown = true;
+
+    bool moveUp = false;
+    bool moveDown = false;
+    bool moveRight = false;
+    bool moveLeft = false;
 
     void Awake()
     {
@@ -88,9 +105,9 @@ public class GameManager : MonoBehaviour {
             
             if((x <= mCurrGrid.mSize.x && y <= mCurrGrid.mSize.y) && (x >= 0 && y >= 0))
             {
-                mCurrGrid.rows[x].cols[y].mTypeOnCell = TypeOnCell.character;
-                mCurrGrid.rows[x].cols[y].mCharacterObj = mCharacters[i];
-                mCharacters[i].transform.position = mCurrGrid.rows[x].cols[y].transform.position + new Vector3(0, 1, 0);
+                mCurrGrid.rows[y].cols[x].mTypeOnCell = TypeOnCell.character;
+                mCurrGrid.rows[y].cols[x].mCharacterObj = mCharacters[i];
+                mCharacters[i].transform.position = mCurrGrid.rows[y].cols[x].transform.position + new Vector3(0, 1, 0);
             }
             else
             {
@@ -105,9 +122,9 @@ public class GameManager : MonoBehaviour {
 
             if ((x <= mCurrGrid.mSize.x && y <= mCurrGrid.mSize.y) && (x >= 0 && y >= 0))
             {
-                mCurrGrid.rows[x].cols[y].mTypeOnCell = TypeOnCell.enemy;
-                mCurrGrid.rows[x].cols[y].mEnemyObj = mEnemies[i];
-                mEnemies[i].transform.position = mCurrGrid.rows[x].cols[y].transform.position + new Vector3(0, 1, 0);
+                mCurrGrid.rows[y].cols[x].mTypeOnCell = TypeOnCell.enemy;
+                mCurrGrid.rows[y].cols[x].mEnemyObj = mEnemies[i];
+                mEnemies[i].transform.position = mCurrGrid.rows[y].cols[x].transform.position + new Vector3(0, 1, 0);
             }
             else
             {
@@ -130,7 +147,7 @@ public class GameManager : MonoBehaviour {
 
     public void SetHover(IntVector2 pos)
     {
-        mHoverBlock.transform.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position;
+        mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
     }
 
     public void MoveTo(IntVector2 pos)
@@ -149,13 +166,48 @@ public class GameManager : MonoBehaviour {
                 FindPath(pos);
 
                 //Change Characters cell position
-                mCurrGrid.rows[mCharacterObj.mCellPos.x].cols[mCharacterObj.mCellPos.y].mTypeOnCell = TypeOnCell.nothing;
-                mCurrGrid.rows[pos.x].cols[pos.y].mTypeOnCell = TypeOnCell.character;
-                mCurrGrid.rows[pos.x].cols[pos.y].mCharacterObj = mCharacterObj;
+                mCurrGrid.rows[mCharacterObj.mCellPos.y].cols[mCharacterObj.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+                mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
+                mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = mCharacterObj;
                 mCharacterObj.mCellPos = pos;
 
+                IntVector2 tempPos = pos;
 
-                
+                tempPos.x -= 1;
+
+                if(pos.x - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
+                {
+                    canMoveSelectedLeft = true;
+                    print("can move left");
+                }
+
+                tempPos = pos;
+                tempPos.y -= 1;
+
+                if (pos.y - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
+                {
+                    print("can move up");
+                    canMoveSelectedUp = true;
+                }
+
+                tempPos = pos;
+                tempPos.x += 1;
+
+                if (pos.x + 1 <= mCurrGrid.mSize.x && mMoveAreaLocations.Contains(tempPos))
+                {
+                    print("can move right");
+                    canMoveSelectedRight = true;
+                }
+
+                tempPos = pos;
+                tempPos.y += 1;
+
+                if (pos.y + 1 <= mCurrGrid.mSize.y && mMoveAreaLocations.Contains(tempPos))
+                {
+                    print("can move down");
+                    canMoveSelectedDown = true;
+                }
+
 
                 while (mPath.Count > 0)
                 {
@@ -209,20 +261,236 @@ public class GameManager : MonoBehaviour {
     {
         IntVector2 currPos = mCharacterObj.mCellPos;
 
+        mDontGoHere.Clear();
+
         IntVector2 tempPos;
-
-        while((currPos.x != newPos.x) || (currPos.y != newPos.y))
+        AddToPath(currPos);
+        //while ((currPos.x != newPos.x) || (currPos.y != newPos.y))
+        for (int i = 0; i < mMoveAreaLocations.Count; i++)
         {
-            currPos = CheckPathUp(currPos, newPos);
-            currPos = CheckPathDown(currPos, newPos);
-            currPos = CheckPathRight(currPos, newPos);
-            currPos = CheckPathLeft(currPos, newPos);
+            mDontGoHere.Add(currPos);
 
+            GetMoves(currPos);
 
+            if (moveRight && currPos.x < newPos.x)
+            {
+                currPos = CheckPathRight(currPos, newPos);
+                if (currPos.y != newPos.y)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.y < newPos.y && (moveUp))
+                    {
+                        currPos = CheckPathUp(currPos, newPos);
+                    }
+                    else if (currPos.y > newPos.y && (moveDown))
+                    {
+                        currPos = CheckPathDown(currPos, newPos);
+                    }
+                }
+            }
+            else if ((currPos.y == newPos.y) && (!moveUp || !moveDown))
+            {
+                if (currPos.y != newPos.y)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.y < newPos.y && (moveUp))
+                    {
+                        currPos = CheckPathUp(currPos, newPos);
+                    }
+                    else if (currPos.y > newPos.y && (moveDown))
+                    {
+                        currPos = CheckPathDown(currPos, newPos);
+                    }
+                }
+            }
+            if (moveUp && ((currPos.y < newPos.y)))
+            {
+                currPos = CheckPathUp(currPos, newPos);
+                if (currPos.x != newPos.x)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.x < newPos.x && (moveRight))
+                    {
+                        currPos = CheckPathRight(currPos, newPos);
+                    }
+                    else if (currPos.x > newPos.x && (moveLeft))
+                    {
+                        currPos = CheckPathLeft(currPos, newPos);
+                    }
+                }
+            }
+            else if (((currPos.x == newPos.x) && (!moveLeft || !moveRight)))
+            {
+                if (currPos.x != newPos.x)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.x < newPos.x && (moveRight))
+                    {
+                        currPos = CheckPathRight(currPos, newPos);
+                    }
+                    else if (currPos.x > newPos.x && (moveLeft))
+                    {
+                        currPos = CheckPathLeft(currPos, newPos);
+                    }
+                }
+            }
+
+            if (moveLeft && ((currPos.x > newPos.x)))
+            {
+                currPos = CheckPathLeft(currPos, newPos);
+                if (currPos.y != newPos.y)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.y < newPos.y && (moveUp))
+                    {
+                        currPos = CheckPathUp(currPos, newPos);
+                    }
+                    else if (currPos.y > newPos.y && (moveDown))
+                    {
+                        currPos = CheckPathDown(currPos, newPos);
+                    }
+                }
+            }
+            else if (((currPos.y == newPos.y) && (!moveUp || !moveDown)))
+            {
+                if (currPos.y != newPos.y)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.y < newPos.y && (moveUp))
+                    {
+                        currPos = CheckPathUp(currPos, newPos);
+                    }
+                    else if (currPos.y > newPos.y && (moveDown))
+                    {
+                        currPos = CheckPathDown(currPos, newPos);
+                    }
+                }
+            }
+
+            if (moveDown && ((currPos.y > newPos.y)))
+            {
+                currPos = CheckPathDown(currPos, newPos);
+                if (currPos.x == newPos.x)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.x < newPos.x && (moveRight))
+                    {
+                        currPos = CheckPathRight(currPos, newPos);
+                    }
+                    else if (currPos.x > newPos.x && (moveLeft))
+                    {
+                        currPos = CheckPathLeft(currPos, newPos);
+                    }
+                }
+
+            }
+            else if ((currPos.x == newPos.x) && (!moveLeft || !moveRight))
+            {
+                if (currPos.x == newPos.x)
+                {
+                    mDontGoHere.Add(currPos);
+                    GetMoves(currPos);
+
+                    if (currPos.x < newPos.x && (moveRight))
+                    {
+                        currPos = CheckPathRight(currPos, newPos);
+                    }
+                    else if (currPos.x > newPos.x && (moveLeft))
+                    {
+                        currPos = CheckPathLeft(currPos, newPos);
+                    }
+                }
+            }
 
         }
+        AddToPath(newPos);
 
     }
+
+    void GetMoves(IntVector2 currPos)
+    {
+
+        IntVector2 tempPos;
+
+        moveUp = false;
+        moveDown = false;
+        moveRight = false;
+        moveLeft = false;
+
+        tempPos = currPos;
+        tempPos.y -= 1;
+
+        if (mMoveAreaLocations.Contains(tempPos))
+        {
+            moveUp = true;
+        }
+
+        tempPos = currPos;
+        tempPos.y += 1;
+
+        if (mMoveAreaLocations.Contains(tempPos))
+        {
+            moveDown = true;
+        }
+
+        tempPos = currPos;
+        tempPos.x -= 1;
+
+        if (mMoveAreaLocations.Contains(tempPos))
+        {
+            moveLeft = true;
+        }
+
+        tempPos = currPos;
+        tempPos.x += 1;
+
+        if (mMoveAreaLocations.Contains(tempPos))
+        {
+            moveRight = true;
+        }
+    }
+
+    //moveUp = false;
+    //moveDown = false;
+    //moveRight = false;
+    //moveLeft = false;
+
+    //tempPos = currPos;
+    //tempPos.y -= 1;
+
+    //if (mMoveAreaLocations.Contains(tempPos))
+    //{
+
+    //}
+
+    //if ((currPos.y == newPos.y) && (currPos.x != newPos.x) && (!moveRight || !moveLeft))
+    //{
+    //    //move right(and up or down) // currPos.x < newPos.x // currPos.x > newPos.x // move up or down, then move left or right
+    //    if (moveUp && canMoveSelectedUp)
+    //    {
+
+    //    }
+    //    else if(moveDown && canMoveSelectedDown)
+    //    {
+
+    //    }
+    //}
+
+
 
     IntVector2 CheckPathRight(IntVector2 currPos, IntVector2 newPos)
     {
@@ -232,7 +500,7 @@ public class GameManager : MonoBehaviour {
             tempPos.x = currPos.x + 1;
             tempPos.y = currPos.y;
 
-            if (mMoveAreaLocations.Contains(tempPos))
+            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
             {
                 AddToPath(tempPos);
                 currPos = tempPos;
@@ -248,11 +516,12 @@ public class GameManager : MonoBehaviour {
             tempPos.x = currPos.x - 1;
             tempPos.y = currPos.y;
 
-            if (mMoveAreaLocations.Contains(tempPos))
+            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
             {
                 AddToPath(tempPos);
                 currPos = tempPos;
             }
+            
         }
         return currPos;
     }
@@ -262,15 +531,15 @@ public class GameManager : MonoBehaviour {
         IntVector2 tempPos;
         if (currPos.y < newPos.y)
         {
-            tempPos.x = currPos.x;
-            tempPos.y = currPos.y + 1;
+            tempPos = currPos;
+            tempPos.y += 1;
 
-            if (mMoveAreaLocations.Contains(tempPos))
+            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
             {
                 AddToPath(tempPos);
                 currPos = tempPos;
             }
-        }
+        }   
         return currPos;
     }
     IntVector2 CheckPathDown(IntVector2 currPos, IntVector2 newPos)
@@ -281,11 +550,12 @@ public class GameManager : MonoBehaviour {
             tempPos.x = currPos.x;
             tempPos.y = currPos.y - 1;
 
-            if (mMoveAreaLocations.Contains(tempPos))
+            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
             {
                 AddToPath(tempPos);
                 currPos = tempPos;
             }
+           
         }
         return currPos;
     }
@@ -293,8 +563,8 @@ public class GameManager : MonoBehaviour {
     void AddToPath(IntVector2 pos)
     {
 
-        Transform tempT = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform;
-        print(tempT.position.x + " , " + tempT.position.y + " , " + tempT.position.z);
+        Transform tempT = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
+        print(tempT.position.x + " , " + pos.x + " , " + pos.y);
         mPath.Enqueue(tempT);
     }
 
@@ -309,10 +579,10 @@ public class GameManager : MonoBehaviour {
                 GameObject deleteObj;
 
                 //Damage Enemy
-                if(mCurrGrid.rows[pos.x].cols[pos.y].mEnemyObj != null)
+                if(mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null)
                 {
-                    mCurrGrid.rows[pos.x].cols[pos.y].mEnemyObj.mHealth -= mCharacterObj.mDamage;
-                    print("Attacked Enemy(" + mCurrGrid.rows[pos.x].cols[pos.y].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
+                    mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
+                    print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
                 }
 
                 mCharacterObj = null;
@@ -373,7 +643,7 @@ public class GameManager : MonoBehaviour {
     {
         mSelectedCell = pos;
         //move lightblock to selected postion
-        mLightUp.transform.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position;
+        //mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
 
         mCharacterSelected = (objOnCell == TypeOnCell.character);
 
@@ -537,7 +807,7 @@ public class GameManager : MonoBehaviour {
     int CreateAttackCell(IntVector2 tempPosition, int totalTimes,bool Line)
     {
         //print(tempPosition.x + "," + tempPosition.y);
-        if (!mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mCannotMoveHere && mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mTypeOnCell != TypeOnCell.character)
+        if (!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character)
         {
             if (!mAttackAreaLocations.Contains(tempPosition))
             {
@@ -545,7 +815,7 @@ public class GameManager : MonoBehaviour {
                 mAttackAreaLocations.Add(tempPosition);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, transform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -695,7 +965,7 @@ public class GameManager : MonoBehaviour {
     int CreateMapCell(IntVector2 tempPosition, int totalTimes)
     {
         //print(tempPosition.x + "," + tempPosition.y);
-        if (!mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mCannotMoveHere && mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mTypeOnCell != TypeOnCell.character && mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mTypeOnCell != TypeOnCell.enemy)
+        if (!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.enemy)
         {
             if (!mMoveAreaLocations.Contains(tempPosition))
             {
@@ -703,7 +973,7 @@ public class GameManager : MonoBehaviour {
                 mMoveAreaLocations.Add(tempPosition);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, transform.rotation);
 
                 //add the gameobject to the stack
                 mMoveAreaObjArray.Push(movePiece);

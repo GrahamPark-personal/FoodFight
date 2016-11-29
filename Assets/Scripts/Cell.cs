@@ -19,7 +19,16 @@ public class Cell : MonoBehaviour {
     [HideInInspector]
     public Enemy mEnemyObj;
 
-    
+    [HideInInspector]
+    public int F;
+    [HideInInspector]
+    public int G;
+    [HideInInspector]
+    public int H;
+
+    [HideInInspector]
+    public Cell mParent;
+
     public IntVector2 mPos;
 
     public bool mCannotMoveHere;

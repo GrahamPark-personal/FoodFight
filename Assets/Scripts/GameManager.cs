@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public enum MouseMode
 {
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject mAttackBlock;
 
+    public GameObject mPlayerSelectBlock;
+
     [HideInInspector]
     public bool gridChanged = false;
 
@@ -66,6 +69,13 @@ public class GameManager : MonoBehaviour {
     public List<IntVector2> mDontGoHere = new List<IntVector2>();
 
     Queue<Transform> mPath = new Queue<Transform>();
+
+    List<Cell> openList = new List<Cell>();
+    List<Cell> closedList = new List<Cell>();
+
+    Stack<Cell> path = new Stack<Cell>();
+
+    int GCost = 10;
 
     int MapCellRemoveAmount = 3;
     private float DrawWait = 0.7f;
@@ -259,166 +269,224 @@ public class GameManager : MonoBehaviour {
 
     void FindPath(IntVector2 newPos)
     {
-        IntVector2 currPos = mCharacterObj.mCellPos;
 
-        mDontGoHere.Clear();
+        openList.Clear();
+        openList.Capacity = 100;
+        closedList.Clear();
+        closedList.Capacity = 100;
+        path.Clear();
 
-        IntVector2 tempPos;
-        AddToPath(currPos);
-        //while ((currPos.x != newPos.x) || (currPos.y != newPos.y))
-        for (int i = 0; i < mMoveAreaLocations.Count; i++)
+        Cell finalCell = mCurrGrid.rows[newPos.y].cols[newPos.x];
+
+        Cell startCell = mCurrGrid.rows[mSelectedCell.y].cols[mSelectedCell.x];
+
+        Cell tempCell = new Cell();
+
+        Cell parseCell = new Cell();
+
+        Cell currCell = mCurrGrid.rows[mSelectedCell.y].cols[mSelectedCell.x];
+
+        currCell.G = GCost;
+        currCell.H = FindHCost(currCell.mPos, newPos);
+
+        
+
+        currCell.F = currCell.G + currCell.H;
+
+        currCell.mPos = mSelectedCell;
+
+        openList.Add(currCell);
+
+        for (int i = 0; i < 10; i++)
         {
-            mDontGoHere.Add(currPos);
+            tempCell = FindSmallestScore(openList);
+            print(tempCell);
+            closedList.Add(tempCell);
+            openList.Remove(tempCell);
 
-            GetMoves(currPos);
-
-            if (moveRight && currPos.x < newPos.x)
+            if (closedList.Contains(finalCell))
             {
-                currPos = CheckPathRight(currPos, newPos);
-                if (currPos.y != newPos.y)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.y < newPos.y && (moveUp))
-                    {
-                        currPos = CheckPathUp(currPos, newPos);
-                    }
-                    else if (currPos.y > newPos.y && (moveDown))
-                    {
-                        currPos = CheckPathDown(currPos, newPos);
-                    }
-                }
+                //break;
             }
-            else if ((currPos.y == newPos.y) && (!moveUp || !moveDown))
-            {
-                if (currPos.y != newPos.y)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.y < newPos.y && (moveUp))
-                    {
-                        currPos = CheckPathUp(currPos, newPos);
-                    }
-                    else if (currPos.y > newPos.y && (moveDown))
-                    {
-                        currPos = CheckPathDown(currPos, newPos);
-                    }
-                }
-            }
-            if (moveUp && ((currPos.y < newPos.y)))
-            {
-                currPos = CheckPathUp(currPos, newPos);
-                if (currPos.x != newPos.x)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.x < newPos.x && (moveRight))
-                    {
-                        currPos = CheckPathRight(currPos, newPos);
-                    }
-                    else if (currPos.x > newPos.x && (moveLeft))
-                    {
-                        currPos = CheckPathLeft(currPos, newPos);
-                    }
-                }
-            }
-            else if (((currPos.x == newPos.x) && (!moveLeft || !moveRight)))
-            {
-                if (currPos.x != newPos.x)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.x < newPos.x && (moveRight))
-                    {
-                        currPos = CheckPathRight(currPos, newPos);
-                    }
-                    else if (currPos.x > newPos.x && (moveLeft))
-                    {
-                        currPos = CheckPathLeft(currPos, newPos);
-                    }
-                }
-            }
-
-            if (moveLeft && ((currPos.x > newPos.x)))
-            {
-                currPos = CheckPathLeft(currPos, newPos);
-                if (currPos.y != newPos.y)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.y < newPos.y && (moveUp))
-                    {
-                        currPos = CheckPathUp(currPos, newPos);
-                    }
-                    else if (currPos.y > newPos.y && (moveDown))
-                    {
-                        currPos = CheckPathDown(currPos, newPos);
-                    }
-                }
-            }
-            else if (((currPos.y == newPos.y) && (!moveUp || !moveDown)))
-            {
-                if (currPos.y != newPos.y)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.y < newPos.y && (moveUp))
-                    {
-                        currPos = CheckPathUp(currPos, newPos);
-                    }
-                    else if (currPos.y > newPos.y && (moveDown))
-                    {
-                        currPos = CheckPathDown(currPos, newPos);
-                    }
-                }
-            }
-
-            if (moveDown && ((currPos.y > newPos.y)))
-            {
-                currPos = CheckPathDown(currPos, newPos);
-                if (currPos.x == newPos.x)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.x < newPos.x && (moveRight))
-                    {
-                        currPos = CheckPathRight(currPos, newPos);
-                    }
-                    else if (currPos.x > newPos.x && (moveLeft))
-                    {
-                        currPos = CheckPathLeft(currPos, newPos);
-                    }
-                }
-
-            }
-            else if ((currPos.x == newPos.x) && (!moveLeft || !moveRight))
-            {
-                if (currPos.x == newPos.x)
-                {
-                    mDontGoHere.Add(currPos);
-                    GetMoves(currPos);
-
-                    if (currPos.x < newPos.x && (moveRight))
-                    {
-                        currPos = CheckPathRight(currPos, newPos);
-                    }
-                    else if (currPos.x > newPos.x && (moveLeft))
-                    {
-                        currPos = CheckPathLeft(currPos, newPos);
-                    }
-                }
-            }
+            
+            CheckArea1(tempCell, newPos);
+            CheckArea2(tempCell, newPos);
+            CheckArea3(tempCell, newPos);
+            CheckArea4(tempCell, newPos);
 
         }
-        AddToPath(newPos);
 
+        
+
+        //while ((tempCell.mPos.x != mSelectedCell.x) && (tempCell.mPos.y != mSelectedCell.y))
+        //{
+        //    path.Push(tempCell);
+        //    tempCell = tempCell.mParent;
+        //}
+
+        //while (path.Count > 0)
+        //{
+        //    tempCell = path.Pop();
+        //    AddToPath(tempCell.mPos);
+        //}
+
+    }
+
+    void CheckArea1(Cell tempCell,IntVector2 newPos)
+    {
+        Cell parseCell = new Cell();
+
+        parseCell.mPos.x = tempCell.mPos.x;
+        parseCell.mPos.y = tempCell.mPos.y + 1;
+
+        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        {
+            if (!openList.Contains(parseCell))
+            {
+                print("doesnt have");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            else if (parseCell.G < tempCell.G)
+            {
+                print("has");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
+                parseCell.F = parseCell.G + parseCell.H;
+            }
+            print(parseCell.F);
+        }
+    }
+
+    void CheckArea2(Cell tempCell, IntVector2 newPos)
+    {
+        Cell parseCell = new Cell();
+
+        parseCell.mPos.x = tempCell.mPos.x;
+        parseCell.mPos.y = tempCell.mPos.y - 1;
+
+        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        {
+            if (!openList.Contains(parseCell))
+            {
+                print("doesnt have");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            else if (parseCell.G < tempCell.G)
+            {
+                print("has");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            print(parseCell.F);
+        }
+    }
+
+    void CheckArea3(Cell tempCell, IntVector2 newPos)
+    {
+        Cell parseCell = new Cell();
+
+        parseCell.mPos.x = tempCell.mPos.x + 1;
+        parseCell.mPos.y = tempCell.mPos.y;
+
+        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        {
+            if (!openList.Contains(parseCell))
+            {
+                print("doesnt have");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            else if (parseCell.G < tempCell.G)
+            {
+                print("has");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            print(parseCell.F);
+        }
+    }
+
+    void CheckArea4(Cell tempCell, IntVector2 newPos)
+    {
+        Cell parseCell = new Cell();
+
+        parseCell.mPos.x = tempCell.mPos.x - 1;
+        parseCell.mPos.y = tempCell.mPos.y;
+
+        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        {
+            if (!openList.Contains(parseCell))
+            {
+                print("doesnt have");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            else if (parseCell.G < tempCell.G)
+            {
+                print("has");
+                parseCell.mParent = tempCell;
+                parseCell.G = parseCell.mParent.G + GCost;
+                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
+                parseCell.F = parseCell.G + parseCell.H;
+                openList.Add(parseCell);
+            }
+            print(parseCell.F);
+        }
+    }
+
+    bool WithinGrid(Cell parseCell)
+    {
+        if(parseCell.mPos.x >= 0 && parseCell.mPos.x <= mCurrGrid.mSize.x && parseCell.mPos.y <= mCurrGrid.mSize.y && parseCell.mPos.y >= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    Cell FindSmallestScore(List<Cell> open)
+    {
+        Cell ChosenCell = new Cell();
+        ChosenCell.F = 999999;
+
+        foreach(Cell cell in open)
+        {
+            if(cell.F < ChosenCell.F)
+            {
+                ChosenCell = cell;
+            }
+        }
+
+        return ChosenCell;
+    }
+
+    int FindHCost(IntVector2 currPos,IntVector2 newPos)
+    {
+        int tempInt = (Math.Abs(currPos.x - newPos.x) + Math.Abs(currPos.y - newPos.y)) * 10;
+        return tempInt;
     }
 
     void GetMoves(IntVector2 currPos)
@@ -490,7 +558,19 @@ public class GameManager : MonoBehaviour {
     //    }
     //}
 
+    
 
+
+    public void MoveCharacterHover(IntVector2 pos)
+    {
+        HideCharacterHover(true);
+        mPlayerSelectBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+    }
+
+    public void HideCharacterHover(bool hide)
+    {
+        mPlayerSelectBlock.SetActive(hide);
+    }
 
     IntVector2 CheckPathRight(IntVector2 currPos, IntVector2 newPos)
     {
@@ -562,9 +642,7 @@ public class GameManager : MonoBehaviour {
 
     void AddToPath(IntVector2 pos)
     {
-
         Transform tempT = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
-        print(tempT.position.x + " , " + pos.x + " , " + pos.y);
         mPath.Enqueue(tempT);
     }
 
@@ -987,6 +1065,166 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+
+//    IntVector2 currPos = mCharacterObj.mCellPos;
+
+//    mDontGoHere.Clear();
+
+//        IntVector2 tempPos;
+//        AddToPath(currPos);
+//        //while ((currPos.x != newPos.x) || (currPos.y != newPos.y))
+//        for (int i = 0; i<mMoveAreaLocations.Count; i++)
+//        {
+//            mDontGoHere.Add(currPos);
+
+//            GetMoves(currPos);
+
+//            if (moveRight && currPos.x<newPos.x)
+//            {
+//                currPos = CheckPathRight(currPos, newPos);
+//                if (currPos.y != newPos.y)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.y<newPos.y && (moveUp))
+//                    {
+//                        currPos = CheckPathUp(currPos, newPos);
+//}
+//                    else if (currPos.y > newPos.y && (moveDown))
+//                    {
+//                        currPos = CheckPathDown(currPos, newPos);
+//                    }
+//                }
+//            }
+//            else if ((currPos.y == newPos.y) && (!moveUp || !moveDown))
+//            {
+//                if (currPos.y != newPos.y)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.y<newPos.y && (moveUp))
+//                    {
+//                        currPos = CheckPathUp(currPos, newPos);
+//                    }
+//                    else if (currPos.y > newPos.y && (moveDown))
+//                    {
+//                        currPos = CheckPathDown(currPos, newPos);
+//                    }
+//                }
+//            }
+//            if (moveUp && ((currPos.y<newPos.y)))
+//            {
+//                currPos = CheckPathUp(currPos, newPos);
+//                if (currPos.x != newPos.x)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.x<newPos.x && (moveRight))
+//                    {
+//                        currPos = CheckPathRight(currPos, newPos);
+//                    }
+//                    else if (currPos.x > newPos.x && (moveLeft))
+//                    {
+//                        currPos = CheckPathLeft(currPos, newPos);
+//                    }
+//                }
+//            }
+//            else if (((currPos.x == newPos.x) && (!moveLeft || !moveRight)))
+//            {
+//                if (currPos.x != newPos.x)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.x<newPos.x && (moveRight))
+//                    {
+//                        currPos = CheckPathRight(currPos, newPos);
+//                    }
+//                    else if (currPos.x > newPos.x && (moveLeft))
+//                    {
+//                        currPos = CheckPathLeft(currPos, newPos);
+//                    }
+//                }
+//            }
+
+//            if (moveLeft && ((currPos.x > newPos.x)))
+//            {
+//                currPos = CheckPathLeft(currPos, newPos);
+//                if (currPos.y != newPos.y)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.y<newPos.y && (moveUp))
+//                    {
+//                        currPos = CheckPathUp(currPos, newPos);
+//                    }
+//                    else if (currPos.y > newPos.y && (moveDown))
+//                    {
+//                        currPos = CheckPathDown(currPos, newPos);
+//                    }
+//                }
+//            }
+//            else if (((currPos.y == newPos.y) && (!moveUp || !moveDown)))
+//            {
+//                if (currPos.y != newPos.y)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.y<newPos.y && (moveUp))
+//                    {
+//                        currPos = CheckPathUp(currPos, newPos);
+//                    }
+//                    else if (currPos.y > newPos.y && (moveDown))
+//                    {
+//                        currPos = CheckPathDown(currPos, newPos);
+//                    }
+//                }
+//            }
+
+//            if (moveDown && ((currPos.y > newPos.y)))
+//            {
+//                currPos = CheckPathDown(currPos, newPos);
+//                if (currPos.x == newPos.x)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.x<newPos.x && (moveRight))
+//                    {
+//                        currPos = CheckPathRight(currPos, newPos);
+//                    }
+//                    else if (currPos.x > newPos.x && (moveLeft))
+//                    {
+//                        currPos = CheckPathLeft(currPos, newPos);
+//                    }
+//                }
+
+//            }
+//            else if ((currPos.x == newPos.x) && (!moveLeft || !moveRight))
+//            {
+//                if (currPos.x == newPos.x)
+//                {
+//                    mDontGoHere.Add(currPos);
+//                    GetMoves(currPos);
+
+//                    if (currPos.x<newPos.x && (moveRight))
+//                    {
+//                        currPos = CheckPathRight(currPos, newPos);
+//                    }
+//                    else if (currPos.x > newPos.x && (moveLeft))
+//                    {
+//                        currPos = CheckPathLeft(currPos, newPos);
+//                    }
+//                }
+//            }
+
+//        }
+//        AddToPath(newPos);
 
     //flood + old mapping
 

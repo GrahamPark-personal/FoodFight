@@ -118,11 +118,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed character1");
         if(mActiveCharacters >= 1)
         {
-            mPos = GameManager.sInstance.mCharacters[0].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[0]);
-            
+            SelectCharacter(0);
         }
 
     }
@@ -133,11 +129,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed character2");
         if (mActiveCharacters >= 2)
         {
-            mPos = GameManager.sInstance.mCharacters[1].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[1]);
-
+            SelectCharacter(1);
         }
     }
 
@@ -147,11 +139,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed character3");
         if (mActiveCharacters >= 3)
         {
-            mPos = GameManager.sInstance.mCharacters[2].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[2]);
-
+            SelectCharacter(2);
         }
     }
 
@@ -161,11 +149,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed character4");
         if (mActiveCharacters >= 4)
         {
-            mPos = GameManager.sInstance.mCharacters[3].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[3]);
-
+            SelectCharacter(3);
         }
     }
 
@@ -175,11 +159,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed character5");
         if (mActiveCharacters >= 5)
         {
-            mPos = GameManager.sInstance.mCharacters[4].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[4]);
-
+            SelectCharacter(4);
         }
     }
 
@@ -189,11 +169,74 @@ public class UIManager : MonoBehaviour {
         print("Pressed character6");
         if (mActiveCharacters >= 6)
         {
-            mPos = GameManager.sInstance.mCharacters[5].mCellPos;
-            mTypeOnCell = TypeOnCell.character;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[5]);
-
+            SelectCharacter(5);
         }
+    }
+
+    public void OnCharEnter1()
+    {
+        if (mActiveCharacters >= 0)
+        {
+            MoveCharacterHover(0);
+        }
+    }
+
+    public void OnCharEnter2()
+    {
+        if (mActiveCharacters >= 1)
+        {
+            MoveCharacterHover(1);
+        }
+    }
+
+    public void OnCharEnter3()
+    {
+        if (mActiveCharacters >= 2)
+        {
+            MoveCharacterHover(2);
+        }
+    }
+
+    public void OnCharEnter4()
+    {
+        if (mActiveCharacters >= 3)
+        {
+            MoveCharacterHover(3);
+        }
+    }
+
+    public void OnCharEnter5()
+    {
+        if (mActiveCharacters >= 4)
+        {
+            MoveCharacterHover(4);
+        }
+    }
+
+    public void OnCharEnter6()
+    {
+        if (mActiveCharacters >= 5)
+        {
+            MoveCharacterHover(5);
+        }
+    }
+
+    void SelectCharacter(int character)
+    {
+        mPos = GameManager.sInstance.mCharacters[character].mCellPos;
+        mTypeOnCell = TypeOnCell.character;
+        GameManager.sInstance.mMouseMode = MouseMode.Move;
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[character]);
+    }
+
+    void MoveCharacterHover(int character)
+    {
+        IntVector2 tempPos = GameManager.sInstance.mCharacters[character].mCellPos;
+        GameManager.sInstance.MoveCharacterHover(tempPos);
+    }
+
+    public void HideCharacterHover()
+    {
+        GameManager.sInstance.HideCharacterHover(false);
     }
 }

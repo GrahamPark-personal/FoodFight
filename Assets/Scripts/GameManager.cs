@@ -65,19 +65,11 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public List<IntVector2> mAttackAreaLocations = new List<IntVector2>();
 
-    [HideInInspector]
-    public List<IntVector2> mDontGoHere = new List<IntVector2>();
-
     Queue<Transform> mPath = new Queue<Transform>();
-
-    List<Cell> openList = new List<Cell>();
-    List<Cell> closedList = new List<Cell>();
-
-    Stack<Cell> path = new Stack<Cell>();
 
     int GCost = 10;
 
-    int MapCellRemoveAmount = 3;
+    int MapCellRemoveAmount = 10;
     private float DrawWait = 0.7f;
 
     bool CantMoveLeft = false;
@@ -270,223 +262,253 @@ public class GameManager : MonoBehaviour {
     void FindPath(IntVector2 newPos)
     {
 
-        openList.Clear();
-        openList.Capacity = 100;
-        closedList.Clear();
-        closedList.Capacity = 100;
-        path.Clear();
+        List<IntVector2> open = new List<IntVector2>();
+        List<IntVector2> closed = new List<IntVector2>();
 
-        Cell finalCell = mCurrGrid.rows[newPos.y].cols[newPos.x];
+        IntVector2 cursor;
+        IntVector2 tester;
 
-        Cell startCell = mCurrGrid.rows[mSelectedCell.y].cols[mSelectedCell.x];
 
-        Cell tempCell = new Cell();
+        cursor = InitIntVectorValues(0, 0, 0, 0, 0);
+        tester = InitIntVectorValues(0, 0, 0, 0, 0);
 
-        Cell parseCell = new Cell();
-
-        Cell currCell = mCurrGrid.rows[mSelectedCell.y].cols[mSelectedCell.x];
-
-        currCell.G = GCost;
-        currCell.H = FindHCost(currCell.mPos, newPos);
-
+        IntVector2 startPos = mSelectedCell;
         
+        startPos.G = 0;
+        startPos.F = startPos.H;
 
-        currCell.F = currCell.G + currCell.H;
+        open.Add(startPos);
 
-        currCell.mPos = mSelectedCell;
+        int timesThrough = 0;
 
-        openList.Add(currCell);
 
-        for (int i = 0; i < 10; i++)
+        //print(cursor.x + "," + cursor.y);
+
+        while (!closed.Contains(newPos) && open.Count > 0)
         {
-            tempCell = FindSmallestScore(openList);
-            print(tempCell);
-            closedList.Add(tempCell);
-            openList.Remove(tempCell);
 
-            if (closedList.Contains(finalCell))
+            cursor = lowestFScore(open);
+            closed.Add(cursor);
+            open.Remove(cursor);
+
+            if (cursor.x == newPos.x && cursor.y == newPos.y)
             {
-                //break;
+                print("found path");
+                break;
             }
-            
-            CheckArea1(tempCell, newPos);
-            CheckArea2(tempCell, newPos);
-            CheckArea3(tempCell, newPos);
-            CheckArea4(tempCell, newPos);
+
+            tester = CopyValues(cursor);
+            tester.x -= 1;
+
+            if (tester.x >= 0 && !mCurrGrid.rows[tester.y].cols[tester.x].mCannotMoveHere && mCurrGrid.rows[tester.y].cols[tester.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closed, tester))
+            {
+                if (!listContains(open, tester)) 
+                {
+                    //print("not in open");
+                    tester.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
+                    tester.G = cursor.G + GCost;
+                    tester.H = FindH(tester, newPos);
+                    tester.F = tester.G + tester.H;
+                    open.Add(tester);
+                }
+                else if (listContains(open, tester))
+                {
+                    //print("in open list");
+                    if(tester.G < cursor.G)
+                    {
+                        tester.parent[0] = cursor;
+                        tester.G = cursor.G + GCost;
+                        tester.F = tester.G + tester.H;
+                    }
+                }
+            }
+
+            tester = CopyValues(cursor);
+            tester.x += 1;
+
+            if (tester.x < mCurrGrid.mSize.x && !mCurrGrid.rows[tester.y].cols[tester.x].mCannotMoveHere && mCurrGrid.rows[tester.y].cols[tester.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closed, tester))
+            {
+                if (!listContains(open, tester))
+                {
+                    //print("not in open");
+                    tester.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
+                    tester.G = cursor.G + GCost;
+                    tester.H = FindH(tester, newPos);
+                    tester.F = tester.G + tester.H;
+                    open.Add(tester);
+                }
+                else if (listContains(open, tester))
+                {
+                    //print("in open list");
+                    if (tester.G < cursor.G)
+                    {
+                        tester.parent[0] = cursor;
+                        tester.G = cursor.G + GCost;
+                        tester.F = tester.G + tester.H;
+                    }
+                }
+            }
+
+            tester = CopyValues(cursor);
+            tester.y -= 1;
+
+            if (tester.y >= 0 && !mCurrGrid.rows[tester.y].cols[tester.x].mCannotMoveHere && mCurrGrid.rows[tester.y].cols[tester.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closed, tester))
+            {
+                if (!listContains(open, tester))
+                {
+                    //print("not in open");
+                    tester.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
+                    tester.G = cursor.G + GCost;
+                    tester.H = FindH(tester, newPos);
+                    tester.F = tester.G + tester.H;
+                    open.Add(tester);
+                }
+                else if (listContains(open, tester))
+                {
+                    //print("in open list");
+                    if (tester.G < cursor.G)
+                    {
+                        tester.parent[0] = cursor;
+                        tester.G = cursor.G + GCost;
+                        tester.F = tester.G + tester.H;
+                    }
+                }
+            }
+
+            tester = CopyValues(cursor);
+            tester.y += 1;
+
+            if (tester.y < mCurrGrid.mSize.y && !mCurrGrid.rows[tester.y].cols[tester.x].mCannotMoveHere && mCurrGrid.rows[tester.y].cols[tester.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closed,tester))//!closed.Contains(tester) && 
+            {
+                if (!listContains(open, tester))
+                {
+                    //print("not in open");
+                    tester.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
+                    tester.G = cursor.G + GCost;
+                    tester.H = FindH(tester, newPos);
+                    tester.F = tester.G + tester.H;
+                    open.Add(tester);
+                }
+                else if (listContains(open, tester))
+                {
+                    //print("in open list");
+                    if (tester.G < cursor.G)
+                    {
+                        tester.parent[0] = cursor;
+                        tester.G = cursor.G + GCost;
+                        tester.F = tester.G + tester.H;
+                    }
+                }
+            }
 
         }
 
-        
 
-        //while ((tempCell.mPos.x != mSelectedCell.x) && (tempCell.mPos.y != mSelectedCell.y))
-        //{
-        //    path.Push(tempCell);
-        //    tempCell = tempCell.mParent;
-        //}
+        //cursor = end
+        //startpos = start
 
-        //while (path.Count > 0)
-        //{
-        //    tempCell = path.Pop();
-        //    AddToPath(tempCell.mPos);
-        //}
+        Stack<IntVector2> myPath = new Stack<IntVector2>();
+
+        IntVector2 parse = cursor;
+
+        while (parse.x != startPos.x || parse.y != startPos.y)
+        {
+            myPath.Push(parse);
+            parse = parse.parent[0];
+        }
+        myPath.Push(parse);
+
+
+        while (myPath.Count > 0)
+        {
+            parse = myPath.Pop();
+            AddToPath(parse);
+
+        }
+
+
+        print("Open:" + open.Count);
+        print("Closed:" + closed.Count);
+
+        //AddToPath(newPos);
 
     }
 
-    void CheckArea1(Cell tempCell,IntVector2 newPos)
+
+
+    bool listContains(List<IntVector2> tempList,IntVector2 vect)
     {
-        Cell parseCell = new Cell();
+        bool finalDecision = false;
 
-        parseCell.mPos.x = tempCell.mPos.x;
-        parseCell.mPos.y = tempCell.mPos.y + 1;
-
-        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        foreach (IntVector2 item in tempList)
         {
-            if (!openList.Contains(parseCell))
+            if(item.x == vect.x && item.y == vect.y)
             {
-                print("doesnt have");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
+                finalDecision = true;
             }
-            else if (parseCell.G < tempCell.G)
-            {
-                print("has");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
-                parseCell.F = parseCell.G + parseCell.H;
-            }
-            print(parseCell.F);
         }
+
+        return finalDecision;
     }
 
-    void CheckArea2(Cell tempCell, IntVector2 newPos)
+    IntVector2 lowestFScore(List<IntVector2> tempList)
     {
-        Cell parseCell = new Cell();
+        IntVector2 smallF = InitIntVectorValues(0,0,0,0,0);
+        int smallestValue = 999999999;
+        int newValue = 0;
 
-        parseCell.mPos.x = tempCell.mPos.x;
-        parseCell.mPos.y = tempCell.mPos.y - 1;
-
-        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
+        foreach (IntVector2 item in tempList)
         {
-            if (!openList.Contains(parseCell))
+            newValue = Mathf.Min(smallestValue, item.F);
+            if (newValue != smallestValue)
             {
-                print("doesnt have");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
+                smallF = item;
             }
-            else if (parseCell.G < tempCell.G)
-            {
-                print("has");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
-            }
-            print(parseCell.F);
+            smallestValue = newValue;
         }
+
+        return smallF;
     }
 
-    void CheckArea3(Cell tempCell, IntVector2 newPos)
+    int FindH(IntVector2 pos, IntVector2 newPos)
     {
-        Cell parseCell = new Cell();
-
-        parseCell.mPos.x = tempCell.mPos.x + 1;
-        parseCell.mPos.y = tempCell.mPos.y;
-
-        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
-        {
-            if (!openList.Contains(parseCell))
-            {
-                print("doesnt have");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
-            }
-            else if (parseCell.G < tempCell.G)
-            {
-                print("has");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
-            }
-            print(parseCell.F);
-        }
+        int temp = (Math.Abs(newPos.x - pos.x) + Math.Abs(newPos.y - pos.y)) * 10;
+        return temp;
     }
 
-    void CheckArea4(Cell tempCell, IntVector2 newPos)
+    IntVector2 CopyValues(IntVector2 other)
     {
-        Cell parseCell = new Cell();
+        IntVector2 temp;
 
-        parseCell.mPos.x = tempCell.mPos.x - 1;
-        parseCell.mPos.y = tempCell.mPos.y;
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
 
-        if (WithinGrid(parseCell) && !mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mCannotMoveHere && mCurrGrid.rows[parseCell.mPos.y].cols[parseCell.mPos.x].mTypeOnCell == TypeOnCell.nothing && !closedList.Contains(parseCell))
-        {
-            if (!openList.Contains(parseCell))
-            {
-                print("doesnt have");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
-            }
-            else if (parseCell.G < tempCell.G)
-            {
-                print("has");
-                parseCell.mParent = tempCell;
-                parseCell.G = parseCell.mParent.G + GCost;
-                parseCell.H = FindHCost(parseCell.mPos, newPos);//if slow can remove this
-                parseCell.F = parseCell.G + parseCell.H;
-                openList.Add(parseCell);
-            }
-            print(parseCell.F);
-        }
+        temp.x = other.x;
+        temp.y = other.y;
+        temp.F = other.F;
+        temp.G = other.G;
+        temp.H = other.H;
+
+        return temp;
     }
 
-    bool WithinGrid(Cell parseCell)
+    IntVector2 InitIntVectorValues(int sX, int sY, int sF, int sG, int sH)
     {
-        if(parseCell.mPos.x >= 0 && parseCell.mPos.x <= mCurrGrid.mSize.x && parseCell.mPos.y <= mCurrGrid.mSize.y && parseCell.mPos.y >= 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        IntVector2 temp = new IntVector2();
+        temp.x = sX;
+        temp.y = sY;
+        temp.F = sF;
+        temp.G = sG;
+        temp.H = sH;
+        temp.parent = new IntVector2[1];
+
+        return temp;
     }
 
-    Cell FindSmallestScore(List<Cell> open)
+
+    void AddToPath(IntVector2 pos)
     {
-        Cell ChosenCell = new Cell();
-        ChosenCell.F = 999999;
-
-        foreach(Cell cell in open)
-        {
-            if(cell.F < ChosenCell.F)
-            {
-                ChosenCell = cell;
-            }
-        }
-
-        return ChosenCell;
-    }
-
-    int FindHCost(IntVector2 currPos,IntVector2 newPos)
-    {
-        int tempInt = (Math.Abs(currPos.x - newPos.x) + Math.Abs(currPos.y - newPos.y)) * 10;
-        return tempInt;
+        Transform tempT = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
+        mPath.Enqueue(tempT);
     }
 
     void GetMoves(IntVector2 currPos)
@@ -558,9 +580,6 @@ public class GameManager : MonoBehaviour {
     //    }
     //}
 
-    
-
-
     public void MoveCharacterHover(IntVector2 pos)
     {
         HideCharacterHover(true);
@@ -572,79 +591,7 @@ public class GameManager : MonoBehaviour {
         mPlayerSelectBlock.SetActive(hide);
     }
 
-    IntVector2 CheckPathRight(IntVector2 currPos, IntVector2 newPos)
-    {
-        IntVector2 tempPos;
-        if (currPos.x < newPos.x)
-        {
-            tempPos.x = currPos.x + 1;
-            tempPos.y = currPos.y;
-
-            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
-            {
-                AddToPath(tempPos);
-                currPos = tempPos;
-            }
-        } 
-        return currPos;
-    }
-    IntVector2 CheckPathLeft(IntVector2 currPos, IntVector2 newPos)
-    {
-        IntVector2 tempPos;
-        if (currPos.x > newPos.x)
-        {
-            tempPos.x = currPos.x - 1;
-            tempPos.y = currPos.y;
-
-            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
-            {
-                AddToPath(tempPos);
-                currPos = tempPos;
-            }
-            
-        }
-        return currPos;
-    }
-
-    IntVector2 CheckPathUp(IntVector2 currPos, IntVector2 newPos)
-    {
-        IntVector2 tempPos;
-        if (currPos.y < newPos.y)
-        {
-            tempPos = currPos;
-            tempPos.y += 1;
-
-            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
-            {
-                AddToPath(tempPos);
-                currPos = tempPos;
-            }
-        }   
-        return currPos;
-    }
-    IntVector2 CheckPathDown(IntVector2 currPos, IntVector2 newPos)
-    {
-        IntVector2 tempPos;
-        if (currPos.y > newPos.y)
-        {
-            tempPos.x = currPos.x;
-            tempPos.y = currPos.y - 1;
-
-            if (mMoveAreaLocations.Contains(tempPos) && !mDontGoHere.Contains(tempPos))
-            {
-                AddToPath(tempPos);
-                currPos = tempPos;
-            }
-           
-        }
-        return currPos;
-    }
-
-    void AddToPath(IntVector2 pos)
-    {
-        Transform tempT = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
-        mPath.Enqueue(tempT);
-    }
+    
 
     public void AttackPos(IntVector2 pos)
     {
@@ -915,6 +862,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
+
     void NewMap()
     {
         IntVector2 tempPosition = mSelectedCell;
@@ -1061,7 +1009,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            return (totalTimes - MapCellRemoveAmount); //if there is a character, then remove MapCellRemoveAmount(3) to not break the map.
+            return (totalTimes - totalTimes); //if there is a character, then remove MapCellRemoveAmount(3) to not break the map.
         }
     }
 

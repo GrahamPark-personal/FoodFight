@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour {
     public List<IntVector2> mAttackAreaLocations = new List<IntVector2>();
 
     Queue<Transform> mPath = new Queue<Transform>();
+    Queue<IntVector2> mPosPath = new Queue<IntVector2>();
 
     int GCost = 10;
 
@@ -163,7 +164,9 @@ public class GameManager : MonoBehaviour {
                 GameObject deleteObj;
 
                 mCharacterObj.mPath.Clear();
+                mCharacterObj.mPosPath.Clear();
                 mPath.Clear();
+                mPosPath.Clear();
 
                 FindPath(pos);
 
@@ -215,6 +218,8 @@ public class GameManager : MonoBehaviour {
                 {
                     Transform temp = mPath.Dequeue();
                     mCharacterObj.mPath.Enqueue(temp);
+                    IntVector2 intTemp = mPosPath.Dequeue();
+                    mCharacterObj.mPosPath.Enqueue(intTemp);
                 }
 
                 //mCharacterObj.mFinalPosition.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position + new Vector3(0, 1, 0);
@@ -507,8 +512,10 @@ public class GameManager : MonoBehaviour {
 
     void AddToPath(IntVector2 pos)
     {
+
         Transform tempT = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
         mPath.Enqueue(tempT);
+        mPosPath.Enqueue(pos);
     }
 
     void GetMoves(IntVector2 currPos)

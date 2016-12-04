@@ -61,6 +61,11 @@ public class Cell : MonoBehaviour {
     {
         id = Random.Range(0, 100000000);
         mCellTransform = transform;
+
+        if (mCannotMoveHere)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
 	}
 
 
@@ -83,7 +88,7 @@ public class Cell : MonoBehaviour {
 
             //print(mPos.x + "," + mPos.y);
 
-            //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
 
 
 

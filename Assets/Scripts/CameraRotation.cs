@@ -56,19 +56,19 @@ public class CameraRotation : MonoBehaviour {
 
         if (mCamDirection == Direction.pos1)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(0, Vector3.up), mRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(45, Vector3.up), mRotationSpeed * Time.deltaTime);
         }
         else if(mCamDirection == Direction.pos2)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(90, Vector3.up), mRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(135, Vector3.up), mRotationSpeed * Time.deltaTime);
         }
         else if (mCamDirection == Direction.pos3)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(180, Vector3.up), mRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(225, Vector3.up), mRotationSpeed * Time.deltaTime);
         }
         else if (mCamDirection == Direction.pos4)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(270, Vector3.up), mRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(315, Vector3.up), mRotationSpeed * Time.deltaTime);
         }
     }
 }

@@ -12,6 +12,8 @@ public enum MouseMode
 
 public class GameManager : MonoBehaviour {
 
+    public CameraController mCamControl;
+
     [HideInInspector]
     public float moveDistanceThreshold = 0;
 

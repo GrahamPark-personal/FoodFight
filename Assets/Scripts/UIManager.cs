@@ -224,6 +224,9 @@ public class UIManager : MonoBehaviour {
     void SelectCharacter(int character)
     {
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
+
+        Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
+        GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
         mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[character]);

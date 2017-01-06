@@ -35,99 +35,99 @@ public class CameraController : MonoBehaviour {
 
     public void RightWall()
     {
-        print("mouse in right wall");
+        //print("mouse in right wall");
         mMousePosition = new Vector2(1,0);
     }
 
     public void LeftWall()
     {
-        print("mouse in left wall");
+        //print("mouse in left wall");
         mMousePosition = new Vector2(-1, 0);
     }
 
     public void UpWall()
     {
-        print("mouse in up wall");
+        //print("mouse in up wall");
         mMousePosition = new Vector2(0, -1);
     }
 
     public void DownWall()
     {
-        print("mouse in down wall");
+        //print("mouse in down wall");
         mMousePosition = new Vector2(0, 1);
     }
 
 
     public void TopRight()
     {
-        print("mouse in TopRight");
+        //print("mouse in TopRight");
         mMousePosition = new Vector2(1, -1);
     }
 
     public void TopLeft()
     {
-        print("mouse in TopLeft");
+        //print("mouse in TopLeft");
         mMousePosition = new Vector2(-1, -1);
     }
 
     public void BottomRight()
     {
-        print("mouse in BottomRight");
+        //print("mouse in BottomRight");
         mMousePosition = new Vector2(1, 1);
     }
 
     public void BottomLeft()
     {
-        print("mouse in BottomLeft");
+        //print("mouse in BottomLeft");
         mMousePosition = new Vector2(-1, 1);
     }
 
 
     public void ExitRightWall()
     {
-        print("mouse exited right wall");
+        //print("mouse exited right wall");
         mMousePosition = new Vector2(0, 0);
     }
     public void ExitLeftWall()
     {
-        print("mouse exited left wall");
+        //print("mouse exited left wall");
         mMousePosition = new Vector2(0, 0);
     }
 
     public void ExitUpWall()
     {
-        print("mouse exited up wall");
+        //print("mouse exited up wall");
         mMousePosition = new Vector2(0, 0);
     }
 
     public void ExitDownWall()
     {
-        print("mouse exited down wall");
+        //print("mouse exited down wall");
         mMousePosition = new Vector2(0, 0);
     }
 
 
     public void ExitTopRight()
     {
-        print("mouse exited in TopRight");
+        //print("mouse exited in TopRight");
         mMousePosition = new Vector2(0, 0);
     }
 
     public void ExitTopLeft()
     {
-        print("mouse exited in TopLeft");
+        //print("mouse exited in TopLeft");
         mMousePosition = new Vector2(0, 0);
     }
 
     public void ExitBottomRight()
     {
-        print("mouse exited in BottomRight");
+        //print("mouse exited in BottomRight");
         mMousePosition = new Vector2(0, 0);
     }
 
     public void ExitBottomLeft()
     {
-        print("mouse exited in BottomLeft");
+       //print("mouse exited in BottomLeft");
         mMousePosition = new Vector2(0, 0);
     }
 

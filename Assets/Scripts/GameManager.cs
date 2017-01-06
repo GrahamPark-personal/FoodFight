@@ -10,14 +10,24 @@ public enum MouseMode
     Attack
 }
 
+public enum GameTurn
+{
+    Player = 0,
+    Enemy
+}
+
 public class GameManager : MonoBehaviour {
 
     public CameraController mCamControl;
+
+    public UIManager mUIManager;
 
     [HideInInspector]
     public float moveDistanceThreshold = 0;
 
     public static GameManager sInstance = null;
+
+    public GameTurn mGameTurn = GameTurn.Player;
 
     public MouseMode mMouseMode;
 
@@ -90,6 +100,13 @@ public class GameManager : MonoBehaviour {
     bool moveRight = false;
     bool moveLeft = false;
 
+    [HideInInspector]
+    public int mPlayersMoved = 0;
+    [HideInInspector]
+    public int mPlayersAttacked = 0;
+    [HideInInspector]
+    public int mTotalPlayers = 0;
+
     void Awake()
     {
         if (sInstance == null)
@@ -98,17 +115,19 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void Start ()
+    void Start()
     {
         int x, y;
+
+        mTotalPlayers = mCharacters.Length;
 
         for (int i = 0; i < mCharacters.Length; i++)
         {
             x = mCharacters[i].mCellPos.x;
             y = mCharacters[i].mCellPos.y;
 
-            
-            if((x <= mCurrGrid.mSize.x && y <= mCurrGrid.mSize.y) && (x >= 0 && y >= 0))
+
+            if ((x <= mCurrGrid.mSize.x && y <= mCurrGrid.mSize.y) && (x >= 0 && y >= 0))
             {
                 mCurrGrid.rows[y].cols[x].mTypeOnCell = TypeOnCell.character;
                 mCurrGrid.rows[y].cols[x].mCharacterObj = mCharacters[i];
@@ -138,21 +157,60 @@ public class GameManager : MonoBehaviour {
 
         }
     }
-   
+
 
     void movePathSeg(Vector3 tempT)
     {
-        
-    }
-	
-	//void Update ()
- //   {
 
- //   }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            FinishEnemyTurn();
+        }
+    }
 
     public void SetHover(IntVector2 pos)
     {
         mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+    }
+
+    public void FinishPlayerTurn()
+    {
+        if (mGameTurn == GameTurn.Player)
+        {
+            mGameTurn = GameTurn.Enemy;
+            for (int i = 0; i < mCharacters.Length; i++)
+            {
+                mCharacters[i].EndCharacterTurn();
+            }
+            ResetSelected();
+        }
+        else
+        {
+            Debug.Log("Cannot finish player turn if it is the enemies");
+
+        }
+    }
+
+    public void FinishEnemyTurn()
+    {
+        if(mGameTurn == GameTurn.Enemy)
+        {
+            mGameTurn = GameTurn.Player;
+
+            for (int i = 0; i < mCharacters.Length; i++)
+            {
+                mCharacters[i].ResetTurn();
+            }
+
+        }
+        else
+        {
+            Debug.Log("Cannot finish enemy turn if it is the players");
+        }
     }
 
     public void MoveTo(IntVector2 pos)
@@ -215,6 +273,7 @@ public class GameManager : MonoBehaviour {
                     canMoveSelectedDown = true;
                 }
 
+                mCharacterObj.RemoveMoves(mPath.Count - 1);
 
                 while (mPath.Count > 0)
                 {
@@ -227,6 +286,8 @@ public class GameManager : MonoBehaviour {
                 //mCharacterObj.mFinalPosition.position = mCurrGrid.rows[pos.x].cols[pos.y].mCellTransform.position + new Vector3(0, 1, 0);
 
                 mCharacterObj.mRunPath = true;
+                
+
 
                 mCharacterObj = null;
                 mCharacterSelected = false;
@@ -258,8 +319,6 @@ public class GameManager : MonoBehaviour {
                 //clear locations, and objects
                 mAttackAreaLocations.Clear();
                 mAttackAreaLocations.Clear();
-
-                
 
                 break;
             }
@@ -618,7 +677,7 @@ public class GameManager : MonoBehaviour {
                     mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
                     print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
                 }
-
+                mCharacterObj.mAttacked = true;
                 mCharacterObj = null;
                 mCharacterSelected = false;
                 mEnemySelected = false;
@@ -677,7 +736,7 @@ public class GameManager : MonoBehaviour {
     {
         mSelectedCell = pos;
         //move lightblock to selected postion
-        //mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+        mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
 
         mCharacterSelected = (objOnCell == TypeOnCell.character);
 
@@ -709,16 +768,16 @@ public class GameManager : MonoBehaviour {
         
 
         //if the selected block is a character show where it can move to
-        if (mCharacterSelected)
+        if (mCharacterSelected && mGameTurn == GameTurn.Player)
         {
             mCharacterObj = charObj;
             //MapMoveArea();
 
-            if(mMouseMode == MouseMode.Move)
+            if(mMouseMode == MouseMode.Move && !mCharacterObj.mMoved)
             {
                 NewMap();
             }
-            else if(mMouseMode == MouseMode.Attack)
+            else if(mMouseMode == MouseMode.Attack && !mCharacterObj.mAttacked)
             {
                 //attack
                 if(charObj.mAttackType == AttackType.Melee)

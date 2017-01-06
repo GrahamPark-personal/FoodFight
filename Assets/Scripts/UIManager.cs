@@ -28,20 +28,36 @@ public class UIManager : MonoBehaviour {
     [Space(10)]
 
     public Texture2D[] mCharTexture;
-    
+
+    [Space(10)]
+
+    public Texture2D[] mCharHiddenTexture;
+
     [HideInInspector]
     public int mActiveCharacters;
+
+
 
 
     IntVector2 mPos;
 
     TypeOnCell mTypeOnCell;
 
+    int mCurrentCharacter = 0;
+
+    Texture2D[] mSavedCharImage;
+
 
     void Start ()
     {
         mActiveCharacters = GameManager.sInstance.mCharacters.Length;
 
+        mSavedCharImage = new Texture2D[mCharTexture.Length];
+
+        for (int i = 0; i < mCharTexture.Length; i++)
+        {
+            mSavedCharImage[i] = mCharTexture[i];
+        }
     }
 	
 
@@ -55,6 +71,20 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < mCharFrame.Length; i++)
         {
             mCharImage[i].texture = mCharTexture[i];
+
+            
+        }
+
+        for (int i = 0; i < mCharFrame.Length; i++)
+        {
+            if(GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+            {
+                mCharImage[i].texture = mCharHiddenTexture[i];
+            }
+            else if(mCharImage[i].texture == mCharHiddenTexture[i])
+            {
+                mCharImage[i].texture = mCharTexture[i];
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -102,6 +132,7 @@ public class UIManager : MonoBehaviour {
         print("Pressed attack");
         GameManager.sInstance.mMouseMode = MouseMode.Attack;
         GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
 
     }
 
@@ -109,6 +140,14 @@ public class UIManager : MonoBehaviour {
     {
         //end turn
         print("Pressed end turn");
+        if(GameManager.sInstance.mGameTurn == GameTurn.Player)
+        {
+            GameManager.sInstance.FinishPlayerTurn();
+        }
+        else
+        {
+            Debug.Log("Cannot finish player turn if it is the enemies");
+        }
 
     }
 
@@ -221,8 +260,10 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    void SelectCharacter(int character)
+    public void SelectCharacter(int character)
     {
+
+        mCurrentCharacter = character;
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
 
         Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
@@ -230,6 +271,27 @@ public class UIManager : MonoBehaviour {
         mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[character]);
+    }
+
+    public void SelectCharacter(IntVector2 mPos)
+    {
+        Character temp = GameManager.sInstance.mCurrGrid.rows[mPos.x].cols[mPos.y].mCharacterObj;
+
+        for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
+        {
+            if(temp == GameManager.sInstance.mCharacters[i])
+            {
+                mCurrentCharacter = i;
+                break;
+            }
+        }
+        this.mPos = mPos;
+
+        Vector3 camMovePos = GameManager.sInstance.mCharacters[mCurrentCharacter].mPosition.position;
+        GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
+        mTypeOnCell = TypeOnCell.character;
+        GameManager.sInstance.mMouseMode = MouseMode.Move;
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
     }
 
     void MoveCharacterHover(int character)

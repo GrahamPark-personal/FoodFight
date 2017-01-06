@@ -32,6 +32,8 @@ public class Character : MonoBehaviour {
 
     int mCurrDirection;
 
+    int mTotalMove;
+
     [HideInInspector]
     public Queue<Transform> mPath = new Queue<Transform>();
     public Queue<IntVector2> mPosPath = new Queue<IntVector2>();
@@ -48,13 +50,44 @@ public class Character : MonoBehaviour {
     IntVector2 nextBlock;
     IntVector2 lastBlock;
 
+    [HideInInspector]
+    public bool mMoved = false;
+    [HideInInspector]
+    public bool mAttacked = false;
+
     bool mMoving = false;
 
     void Start ()
     {
         mPosition = transform;
         mFinalPosition = transform;
-	}
+
+        mTotalMove = mMoveDistance;
+
+    }
+
+    public void ResetTurn()
+    {
+        mMoveDistance = mTotalMove;
+        mMoved = false;
+        mAttacked = false;
+    }
+
+    public void EndCharacterTurn()
+    {
+        mMoveDistance = 0;
+        mMoved = true;
+        mAttacked = true;
+    }
+
+    public void RemoveMoves(int amount)
+    {
+        mMoveDistance -= amount;
+        if(mMoveDistance <= 0)
+        {
+            mMoved = true;
+        }
+    }
 
 	void Update ()
     {
@@ -70,7 +103,7 @@ public class Character : MonoBehaviour {
                 tempT = mPath.Dequeue();
                 nextBlock = mPosPath.Dequeue();
                 tempV = tempT.position + new Vector3(0, 1, 0);
-                print(nextBlock.x + "," + nextBlock.y + "|" + lastBlock.x + "," + lastBlock.y + "|||" + mCellPos.x + "," + mCellPos.y);
+                //print(nextBlock.x + "," + nextBlock.y + "|" + lastBlock.x + "," + lastBlock.y + "|||" + mCellPos.x + "," + mCellPos.y);
                 mMoving = true;
             }
             if (mPath.Count == 0 && !mMoving)

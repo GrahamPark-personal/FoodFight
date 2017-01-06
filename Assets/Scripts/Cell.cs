@@ -87,9 +87,8 @@ public class Cell : MonoBehaviour {
             }
 
             //print(mPos.x + "," + mPos.y);
-
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
-
+            //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
+            
 
 
         }
@@ -97,14 +96,20 @@ public class Cell : MonoBehaviour {
         //move
         if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected)
         {
-            GameManager.sInstance.MoveTo(mPos);
+            if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+            {
+                GameManager.sInstance.MoveTo(mPos);
+            }
         }
 
 
         //attack
-        if(Input.GetMouseButtonDown(1) && mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
+        if(Input.GetMouseButtonDown(1) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
         {
-            GameManager.sInstance.AttackPos(mPos);
+            if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+            {
+                GameManager.sInstance.AttackPos(mPos);
+            }
         }
     }
 }

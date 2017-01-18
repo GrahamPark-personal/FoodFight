@@ -89,32 +89,32 @@ public class UIManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            OnCharacter1Down();
+            OnCharacter1Down(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            OnCharacter2Down();
+            OnCharacter2Down(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            OnCharacter3Down();
+            OnCharacter3Down(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            OnCharacter4Down();
+            OnCharacter4Down(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            OnCharacter5Down();
+            OnCharacter5Down(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            OnCharacter6Down();
+            OnCharacter6Down(true);
         }
     }
 
@@ -151,64 +151,64 @@ public class UIManager : MonoBehaviour {
 
     }
 
-    public void OnCharacter1Down()
+    public void OnCharacter1Down(bool moveCam)
     {
         //character 1
         print("Pressed character1");
         if(mActiveCharacters >= 1)
         {
-            SelectCharacter(0);
+            SelectCharacter(0, moveCam);
         }
 
     }
 
-    public void OnCharacter2Down()
+    public void OnCharacter2Down(bool moveCam)
     {
         //character 2
         print("Pressed character2");
         if (mActiveCharacters >= 2)
         {
-            SelectCharacter(1);
+            SelectCharacter(1, moveCam);
         }
     }
 
-    public void OnCharacter3Down()
+    public void OnCharacter3Down(bool moveCam)
     {
         //character 3
         print("Pressed character3");
         if (mActiveCharacters >= 3)
         {
-            SelectCharacter(2);
+            SelectCharacter(2, moveCam);
         }
     }
 
-    public void OnCharacter4Down()
+    public void OnCharacter4Down(bool moveCam)
     {
         //character 4
         print("Pressed character4");
         if (mActiveCharacters >= 4)
         {
-            SelectCharacter(3);
+            SelectCharacter(3, moveCam);
         }
     }
 
-    public void OnCharacter5Down()
+    public void OnCharacter5Down(bool moveCam)
     {
         //character 5
         print("Pressed character5");
         if (mActiveCharacters >= 5)
         {
-            SelectCharacter(4);
+            SelectCharacter(4, moveCam);
         }
     }
 
-    public void OnCharacter6Down()
+    public void OnCharacter6Down(bool moveCam)
     {
         //character 6
         print("Pressed character6");
         if (mActiveCharacters >= 6)
         {
-            SelectCharacter(5);
+            SelectCharacter(5, moveCam);
         }
     }
 
@@ -260,22 +260,25 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void SelectCharacter(int character)
+    public void SelectCharacter(int character, bool moveCam)
     {
 
         mCurrentCharacter = character;
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-        Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
-        GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
+        if (moveCam)
+        {
+            Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
+            GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
+        }
         mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[character]);
     }
 
-    public void SelectCharacter(IntVector2 mPos)
+    public void SelectCharacter(IntVector2 mNewPos)
     {
-        Character temp = GameManager.sInstance.mCurrGrid.rows[mPos.x].cols[mPos.y].mCharacterObj;
+        Character temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.x].cols[mNewPos.y].mCharacterObj;
 
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {
@@ -285,13 +288,31 @@ public class UIManager : MonoBehaviour {
                 break;
             }
         }
-        this.mPos = mPos;
 
-        Vector3 camMovePos = GameManager.sInstance.mCharacters[mCurrentCharacter].mPosition.position;
-        GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
-        mTypeOnCell = TypeOnCell.character;
-        GameManager.sInstance.mMouseMode = MouseMode.Move;
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
+
+        switch (number)
+        {
+            case 0:
+                OnCharacter1Down(false);
+                break;
+            case 1:
+                OnCharacter2Down(false);
+                break;
+            case 2:
+                OnCharacter3Down(false);
+                break;
+            case 3:
+                OnCharacter4Down(false);
+                break;
+            case 4:
+                OnCharacter5Down(false);
+                break;
+            case 5:
+                OnCharacter6Down(false);
+                break;
+
+        }
     }
 
     void MoveCharacterHover(int character)

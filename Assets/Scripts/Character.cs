@@ -16,6 +16,8 @@ public class Character : MonoBehaviour {
 
     public IntVector2 mCellPos;
 
+    public int mCharNumber;
+
     public int mHealth;
 
     public int mDamage;

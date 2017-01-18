@@ -126,12 +126,13 @@ public class GameManager : MonoBehaviour {
             x = mCharacters[i].mCellPos.x;
             y = mCharacters[i].mCellPos.y;
 
-
+            mCharacters[i].mCharNumber = i;
             if ((x <= mCurrGrid.mSize.x && y <= mCurrGrid.mSize.y) && (x >= 0 && y >= 0))
             {
                 mCurrGrid.rows[y].cols[x].mTypeOnCell = TypeOnCell.character;
                 mCurrGrid.rows[y].cols[x].mCharacterObj = mCharacters[i];
                 mCharacters[i].transform.position = mCurrGrid.rows[y].cols[x].transform.position + new Vector3(0, 1, 0);
+
             }
             else
             {

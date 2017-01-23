@@ -244,7 +244,7 @@ public class GameManager : MonoBehaviour {
                 if(pos.x - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
                 {
                     canMoveSelectedLeft = true;
-                    print("can move left");
+                    //print("can move left");
                 }
 
                 tempPos = pos;
@@ -252,7 +252,7 @@ public class GameManager : MonoBehaviour {
 
                 if (pos.y - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
                 {
-                    print("can move up");
+                    //print("can move up");
                     canMoveSelectedUp = true;
                 }
 
@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour {
 
                 if (pos.x + 1 <= mCurrGrid.mSize.x && mMoveAreaLocations.Contains(tempPos))
                 {
-                    print("can move right");
+                    //print("can move right");
                     canMoveSelectedRight = true;
                 }
 
@@ -270,7 +270,7 @@ public class GameManager : MonoBehaviour {
 
                 if (pos.y + 1 <= mCurrGrid.mSize.y && mMoveAreaLocations.Contains(tempPos))
                 {
-                    print("can move down");
+                    //print("can move down");
                     canMoveSelectedDown = true;
                 }
 
@@ -360,7 +360,7 @@ public class GameManager : MonoBehaviour {
 
             if (cursor.x == newPos.x && cursor.y == newPos.y)
             {
-                print("found path");
+                //print("found path");
                 break;
             }
 
@@ -494,8 +494,8 @@ public class GameManager : MonoBehaviour {
         }
 
 
-        print("Open:" + open.Count);
-        print("Closed:" + closed.Count);
+        //print("Open:" + open.Count);
+        //print("Closed:" + closed.Count);
 
         //AddToPath(newPos);
 
@@ -676,7 +676,7 @@ public class GameManager : MonoBehaviour {
                 if(mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null)
                 {
                     mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
-                    print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
+                    //print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
                 }
                 mCharacterObj.mAttacked = true;
                 mCharacterObj = null;

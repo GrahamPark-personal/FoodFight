@@ -78,7 +78,7 @@ public class Character : MonoBehaviour {
 
     List<StatusAilment> statusAilments = new List<StatusAilment>();
 
-    void AddAilment(AilmentID ID, int duration, int extra)
+    public void AddAilment(AilmentID ID, int duration, int extra)
     {
         StatusAilment ailment;
         ailment.ID = ID;
@@ -95,10 +95,12 @@ public class Character : MonoBehaviour {
         }
 
         statusAilments.Add(ailment);
+        print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
     }
 
-    void clearAilments()
+    public void clearAilments()
     {
+
         for(int i = 0; i < statusAilments.Count; i++)
         {
             StatusAilment temp = statusAilments[i];
@@ -108,19 +110,22 @@ public class Character : MonoBehaviour {
             {            
                 statusAilments.Remove(statusAilments[i]);
             }
+            
         }
 
 
     }
 
-    void checkAilments()
+    public void checkAilments()
     {
         for(int i = 0; i < statusAilments.Count; i++)
         {
             if(statusAilments[i].ID == AilmentID.Stun)
             {
+                print("did ailment");
                 mAttacked = true;
                 mMoved = true;
+                mMoveDistance = 0;
             }
             if (statusAilments[i].ID == AilmentID.Poison)
             {
@@ -159,8 +164,6 @@ public class Character : MonoBehaviour {
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
-
-        clearAilments();
 
 
     }

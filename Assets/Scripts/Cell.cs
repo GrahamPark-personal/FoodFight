@@ -96,6 +96,15 @@ public class Cell : MonoBehaviour {
 
         }
 
+        if(mTypeOnCell == TypeOnCell.character)
+        {
+            if (Input.GetMouseButtonDown(2))
+            {
+                print("hello");
+                mCharacterObj.AddAilment(AilmentID.Stun, 3, 0);
+            }
+        }
+
         //move
         if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected)
         {

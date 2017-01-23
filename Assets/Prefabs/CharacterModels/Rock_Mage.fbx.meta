@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: dba28f52382fb674fad2f934df46563e
+timeCreated: 1485205866
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Char_a_1
+    100002: Char_c_1
+    100004: Char_e_1
+    100006: Char_g_1
+    100008: Char_k_1
+    100010: Char_M_1
+    100012: Char_o_1
+    100014: Char_R_1
+    100016: curve1
+    100018: curve10
+    100020: curve11
+    100022: curve12
+    100024: curve13
+    100026: curve14
+    100028: curve15
+    100030: curve16
+    100032: curve17
+    100034: curve18
+    100036: curve19
+    100038: curve2
+    100040: curve20
+    100042: curve21
+    100044: curve22
+    100046: curve23
+    100048: curve24
+    100050: curve25
+    100052: curve26
+    100054: curve3
+    100056: curve4
+    100058: curve5
+    100060: curve6
+    100062: curve7
+    100064: curve8
+    100066: curve9
+    100068: group1
+    100070: mirroredCutMesh1
+    100072: nurbsCircle1
+    100074: pCube1
+    100076: polySurface3
+    100078: polySurface4
+    100080: polySurface5
+    100082: pSphere1
+    100084: pSphere3
+    100086: pSphere4
+    100088: //RootNode
+    100090: Text_RockxMage_1
+    100092: transform1
+    100094: transform2
+    400000: Char_a_1
+    400002: Char_c_1
+    400004: Char_e_1
+    400006: Char_g_1
+    400008: Char_k_1
+    400010: Char_M_1
+    400012: Char_o_1
+    400014: Char_R_1
+    400016: curve1
+    400018: curve10
+    400020: curve11
+    400022: curve12
+    400024: curve13
+    400026: curve14
+    400028: curve15
+    400030: curve16
+    400032: curve17
+    400034: curve18
+    400036: curve19
+    400038: curve2
+    400040: curve20
+    400042: curve21
+    400044: curve22
+    400046: curve23
+    400048: curve24
+    400050: curve25
+    400052: curve26
+    400054: curve3
+    400056: curve4
+    400058: curve5
+    400060: curve6
+    400062: curve7
+    400064: curve8
+    400066: curve9
+    400068: group1
+    400070: mirroredCutMesh1
+    400072: nurbsCircle1
+    400074: pCube1
+    400076: polySurface3
+    400078: polySurface4
+    400080: polySurface5
+    400082: pSphere1
+    400084: pSphere3
+    400086: pSphere4
+    400088: //RootNode
+    400090: Text_RockxMage_1
+    400092: transform1
+    400094: transform2
+    2300000: polySurface3
+    2300002: polySurface4
+    2300004: polySurface5
+    2300006: pSphere1
+    2300008: pSphere4
+    3300000: polySurface3
+    3300002: polySurface4
+    3300004: polySurface5
+    3300006: pSphere1
+    3300008: pSphere4
+    4300000: polySurface3
+    4300002: pSphere1
+    4300004: polySurface4
+    4300006: polySurface5
+    4300008: pSphere4
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

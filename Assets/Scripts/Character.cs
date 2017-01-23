@@ -9,7 +9,24 @@ public enum AttackType
     Ranged
 }
 
+public enum AilmentID
+{
+    Stun = 0,
+    Poison,
+    Slow
+}
+
 public class Character : MonoBehaviour {
+
+    struct StatusAilment
+    {
+
+        public AilmentID ID;
+        public int duration;
+        public int turnsPassed;
+        public int extra;
+    }
+
 
     [HideInInspector]
     public Transform mPosition;
@@ -59,6 +76,64 @@ public class Character : MonoBehaviour {
 
     bool mMoving = false;
 
+    List<StatusAilment> statusAilments = new List<StatusAilment>();
+
+    void AddAilment(AilmentID ID, int duration, int extra)
+    {
+        StatusAilment ailment;
+        ailment.ID = ID;
+        ailment.duration = duration;
+        ailment.turnsPassed = 0;
+        ailment.extra = extra;
+
+        for(int i = 0; i < statusAilments.Count; i++)
+        {
+            if(statusAilments[i].ID == ailment.ID )
+            {
+                statusAilments.Remove(statusAilments[i]);                
+            }
+        }
+
+        statusAilments.Add(ailment);
+    }
+
+    void clearAilments()
+    {
+        for(int i = 0; i < statusAilments.Count; i++)
+        {
+            StatusAilment temp = statusAilments[i];
+            temp.turnsPassed++;
+            statusAilments[i] = temp;
+            if(statusAilments[i].duration < statusAilments[i].turnsPassed)
+            {            
+                statusAilments.Remove(statusAilments[i]);
+            }
+        }
+
+
+    }
+
+    void checkAilments()
+    {
+        for(int i = 0; i < statusAilments.Count; i++)
+        {
+            if(statusAilments[i].ID == AilmentID.Stun)
+            {
+                mAttacked = true;
+                mMoved = true;
+            }
+            if (statusAilments[i].ID == AilmentID.Poison)
+            {
+                mHealth -= statusAilments[i].extra;
+            }
+            if (statusAilments[i].ID == AilmentID.Slow)
+            {
+                mTotalMove -= statusAilments[i].extra;
+            }
+        }
+    }
+
+
     void Start ()
     {
         mPosition = transform;
@@ -73,6 +148,10 @@ public class Character : MonoBehaviour {
         mMoveDistance = mTotalMove;
         mMoved = false;
         mAttacked = false;
+
+        clearAilments();
+        checkAilments();
+
     }
 
     public void EndCharacterTurn()
@@ -80,6 +159,10 @@ public class Character : MonoBehaviour {
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
+
+        clearAilments();
+
+
     }
 
     public void RemoveMoves(int amount)

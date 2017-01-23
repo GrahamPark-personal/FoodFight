@@ -17,7 +17,7 @@ public class Cell : MonoBehaviour {
     public Character mCharacterObj;
 
     [HideInInspector]
-    public Enemy mEnemyObj;
+    public Character mEnemyObj;
 
     [HideInInspector]
     public int F;

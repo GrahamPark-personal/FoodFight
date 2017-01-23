@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
 
     public Character[] mCharacters;
 
-    public Enemy[] mEnemies;
+    public Character[] mEnemies;
 
     [HideInInspector]
     public Stack<GameObject> mMoveAreaObjArray = new Stack<GameObject>();

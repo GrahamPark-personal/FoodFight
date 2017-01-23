@@ -8,7 +8,8 @@ public enum TypeOnCell
     enemy
 }
 
-public class Cell : MonoBehaviour {
+public class Cell : MonoBehaviour
+{
 
     [HideInInspector]
     public Transform mCellTransform;
@@ -57,7 +58,7 @@ public class Cell : MonoBehaviour {
         return id; //or id.GetHashCode();
     }
 
-    void Start ()
+    void Start()
     {
         id = Random.Range(0, 100000000);
         mCellTransform = transform;
@@ -66,7 +67,7 @@ public class Cell : MonoBehaviour {
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
-	}
+    }
 
 
     void OnMouseOver()
@@ -91,19 +92,38 @@ public class Cell : MonoBehaviour {
 
             //print(mPos.x + "," + mPos.y);
             //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
-            
+
 
 
         }
 
-        if(mTypeOnCell == TypeOnCell.character)
+        if (mTypeOnCell == TypeOnCell.character)
         {
             if (Input.GetMouseButtonDown(2))
             {
-                print("hello");
+                Debug.Log("Middle Mouse Button Pressed");
                 mCharacterObj.AddAilment(AilmentID.Stun, 3, 0);
             }
         }
+
+        if (mTypeOnCell == TypeOnCell.character)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                Debug.Log("S Key pressed.");
+                mCharacterObj.AddAilment(AilmentID.Slow, 3, 3);
+            }
+        }
+
+        if (mTypeOnCell == TypeOnCell.character)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Debug.Log("X Key pressed.");
+                mCharacterObj.AddAilment(AilmentID.Poison, 3, 3);
+            }
+        }
+
 
         //move
         if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected)
@@ -116,7 +136,7 @@ public class Cell : MonoBehaviour {
 
 
         //attack
-        if(Input.GetMouseButtonDown(1) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
+        if (Input.GetMouseButtonDown(1) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+
 public enum AttackType
 {
     Melee = 0,
@@ -27,6 +28,8 @@ public class Character : MonoBehaviour {
         public int extra;
     }
 
+
+    public GameManager mGM = null;
 
     [HideInInspector]
     public Transform mPosition;
@@ -122,18 +125,21 @@ public class Character : MonoBehaviour {
         {
             if(statusAilments[i].ID == AilmentID.Stun)
             {
-                print("did ailment");
+                print("Stun Code Executed");
                 mAttacked = true;
                 mMoved = true;
                 mMoveDistance = 0;
             }
-            if (statusAilments[i].ID == AilmentID.Poison)
-            {
-                mHealth -= statusAilments[i].extra;
-            }
             if (statusAilments[i].ID == AilmentID.Slow)
             {
-                mTotalMove -= statusAilments[i].extra;
+                Debug.Log("Slow Code Executed");
+                mMoveDistance -= statusAilments[i].extra;
+            }
+            if (statusAilments[i].ID == AilmentID.Poison)
+            {
+                Debug.Log("Poison Code Executed");
+                mHealth -= statusAilments[i].extra;
+                
             }
         }
     }
@@ -145,6 +151,7 @@ public class Character : MonoBehaviour {
         mFinalPosition = transform;
 
         mTotalMove = mMoveDistance;
+        
 
     }
 
@@ -156,7 +163,7 @@ public class Character : MonoBehaviour {
 
         clearAilments();
         checkAilments();
-
+        
     }
 
     public void EndCharacterTurn()

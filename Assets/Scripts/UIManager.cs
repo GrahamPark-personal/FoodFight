@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
     public Button mMenuB;
     public Button mBasicAttack;
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour {
 
     [Space(10)]
 
-    [Range(0,1)]
+    [Range(0, 1)]
     public float[] mCharSlideAmount;
 
     [Space(10)]
@@ -36,6 +37,8 @@ public class UIManager : MonoBehaviour {
     [HideInInspector]
     public int mActiveCharacters;
 
+    public Character[] mCharacters;
+
 
 
 
@@ -48,7 +51,7 @@ public class UIManager : MonoBehaviour {
     Texture2D[] mSavedCharImage;
 
 
-    void Start ()
+    void Start()
     {
         mActiveCharacters = GameManager.sInstance.mCharacters.Length;
 
@@ -59,29 +62,29 @@ public class UIManager : MonoBehaviour {
             mSavedCharImage[i] = mCharTexture[i];
         }
     }
-	
 
-	void Update ()
+
+    void Update()
     {
         for (int i = 0; i < mCharHealth.Length; i++)
-        {
-            mCharHealth[i].value = mCharSlideAmount[i];
+        {          
+            mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
         for (int i = 0; i < mCharFrame.Length; i++)
         {
             mCharImage[i].texture = mCharTexture[i];
 
-            
+
         }
 
         for (int i = 0; i < mCharFrame.Length; i++)
         {
-            if(GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+            if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
             {
                 mCharImage[i].texture = mCharHiddenTexture[i];
             }
-            else if(mCharImage[i].texture == mCharHiddenTexture[i])
+            else if (mCharImage[i].texture == mCharHiddenTexture[i])
             {
                 mCharImage[i].texture = mCharTexture[i];
             }
@@ -140,7 +143,7 @@ public class UIManager : MonoBehaviour {
     {
         //end turn
         print("Pressed end turn");
-        if(GameManager.sInstance.mGameTurn == GameTurn.Player)
+        if (GameManager.sInstance.mGameTurn == GameTurn.Player)
         {
             GameManager.sInstance.FinishPlayerTurn();
         }
@@ -155,7 +158,7 @@ public class UIManager : MonoBehaviour {
     {
         //character 1
         print("Pressed character1");
-        if(mActiveCharacters >= 1)
+        if (mActiveCharacters >= 1)
         {
             SelectCharacter(0, moveCam);
         }
@@ -282,13 +285,12 @@ public class UIManager : MonoBehaviour {
 
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {
-            if(temp == GameManager.sInstance.mCharacters[i])
+            if (temp == GameManager.sInstance.mCharacters[i])
             {
                 mCurrentCharacter = i;
                 break;
             }
         }
-
         int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
 
         switch (number)

@@ -23,8 +23,8 @@ public class UIManager : MonoBehaviour
 
     [Space(10)]
 
-    [Range(0, 1)]
-    public float[] mCharSlideAmount;
+    //[Range(0, 1)]
+    //public float[] mCharSlideAmount;
 
     [Space(10)]
 
@@ -66,16 +66,17 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("UI Update Called");
         for (int i = 0; i < mCharHealth.Length; i++)
-        {          
+        {
+            Debug.Log("Health Updated");
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
         for (int i = 0; i < mCharFrame.Length; i++)
         {
             mCharImage[i].texture = mCharTexture[i];
-
-
         }
 
         for (int i = 0; i < mCharFrame.Length; i++)

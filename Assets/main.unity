@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43745208, g: 0.4852627, b: 0.56553674, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374517, g: 0.48526227, b: 0.565536, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4244,6 +4244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 1
@@ -11205,6 +11206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 3
@@ -14228,6 +14230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -23148,9 +23151,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -27512,9 +27515,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -32622,6 +32625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 2
@@ -37413,13 +37417,6 @@ MonoBehaviour:
   - {fileID: 826796849}
   - {fileID: 1161189649}
   - {fileID: 1555972045}
-  mCharSlideAmount:
-  - 0.26
-  - 0.71
-  - 0.27
-  - 1
-  - 0.15
-  - 0.53
   mCharTexture:
   - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
   - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
@@ -37435,6 +37432,13 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
   - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
   mActiveCharacters: 0
+  mCharacters:
+  - {fileID: 384067140}
+  - {fileID: 44505655}
+  - {fileID: 927284058}
+  - {fileID: 267179045}
+  - {fileID: 1716735077}
+  - {fileID: 1505749547}
 --- !u!1 &1080578015
 GameObject:
   m_ObjectHideFlags: 0
@@ -42025,9 +42029,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -49260,9 +49264,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -54012,6 +54016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -55730,6 +55735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 5
@@ -56946,6 +56952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -57563,9 +57570,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -59554,6 +59561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -60759,6 +60767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -63801,6 +63810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGM: {fileID: 0}
   mPosition: {fileID: 0}
   mCellPos:
     x: 4
@@ -69415,7 +69425,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -494599225
+  randomSeed: 920612824
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -73193,9 +73203,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -75227,6 +75237,7 @@ MonoBehaviour:
   - {fileID: 384067140}
   - {fileID: 1716735077}
   - {fileID: 1505749547}
+  mCharacterHealthBars: []
   mEnemies:
   - {fileID: 1410854275}
   - {fileID: 1642047797}

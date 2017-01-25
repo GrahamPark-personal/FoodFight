@@ -1,0 +1,98 @@
+2017-01-25 03:42:13: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 03:42:13: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 03:42:13: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 03:55:35: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 03:55:36: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 03:55:36: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 03:55:36: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 03:55:36: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 03:55:36: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 03:55:36: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 03:55:36: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 03:55:37: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 03:55:37: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 03:55:37: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 03:55:37: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 03:59:30: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 03:59:32: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 03:59:32: LOG: [WARNING] Complex animation baked -  - 
+ 309 attributes had complex animation. Complex animation was exported as baked curves. (92700 evaluations done)
+2017-01-25 03:59:32: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:02:23: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:02:25: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:02:25: LOG: [WARNING] Complex animation baked -  - 
+ 309 attributes had complex animation. Complex animation was exported as baked curves. (92700 evaluations done)
+2017-01-25 04:02:25: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:02:36: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:02:38: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:02:38: LOG: [WARNING] Complex animation baked -  - 
+ 309 attributes had complex animation. Complex animation was exported as baked curves. (92700 evaluations done)
+2017-01-25 04:02:38: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:05:35: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:05:35: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:05:35: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 04:05:35: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:05:55: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:05:57: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:05:57: LOG: [WARNING] Complex animation baked -  - 
+ 309 attributes had complex animation. Complex animation was exported as baked curves. (92700 evaluations done)
+2017-01-25 04:05:57: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:08:08: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:08:08: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:08:08: LOG: [WARNING] Constraints export failed - The scene contains constraints. Activate the Export constraints or Bake Animation options before exporting.
+
+2017-01-25 04:08:08: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	
+2017-01-25 04:09:27: LOG: Export: D:/gram/Unity/FOODFI~1/Temp/ExportedFBXFile.fbx
+2017-01-25 04:09:29: LOG: [WARNING] Skin Definition - The plug-in has found the following skin definition problems :  Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... r_Jnt / Lft_Elbow_Jnt / Lft_Wrst_Jnt / Lft_Pinky_Jnt / Lft_Pinky_Jnt_2 / Lft_Pinky_Jnt_3. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 /  ... cle_Jnt / Rgt_Shldr_Jnt / Rgt_Elbow_Jnt / Rgt_Wrst_Jnt / Rgt_Pinky_Jnt / Rgt_Pinky_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Neck_Jnt / Neck_Jnt_2. No bind poses in the hierarchy containing the object will be exported. Unable to find the bind pose for :  / Ball_Leg_Jnt / Ball_Leg_Jnt_2 / COG_Jnt / Spine_Jnt_1 / Spine_Jnt_2 / Spine_Jnt_3 / Lft_Clavicle_Jnt 
+2017-01-25 04:09:29: LOG: [WARNING] Complex animation baked -  - 
+ 309 attributes had complex animation. Complex animation was exported as baked curves. (92700 evaluations done)
+2017-01-25 04:09:29: LOG: [WARNING] Geometry conversion - Because the 'Split per-vertex Normals' option is activated, some vertices on exported geometries were 
+	duplicated so that the correct number of normals are defined. To keep the original 
+	number of vertices with the geometry, disable this option. 
+	Note: Hard edges and smoothing groups are also lost. 
+	

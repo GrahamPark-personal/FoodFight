@@ -28,6 +28,7 @@ public class Character : MonoBehaviour {
         public int extra;
     }
 
+    public CharacterAnimationControl mAnimControl;
 
     public GameManager mGM = null;
 
@@ -163,7 +164,11 @@ public class Character : MonoBehaviour {
 
         clearAilments();
         checkAilments();
-        
+        if(mAnimControl != null)
+        {
+            mAnimControl.ChangeState(CharAnimState.Idle);
+        }
+
     }
 
     public void EndCharacterTurn()
@@ -171,6 +176,10 @@ public class Character : MonoBehaviour {
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
+        if(mAnimControl != null)
+        {
+            mAnimControl.ChangeState(CharAnimState.PoweredDown);
+        }
 
 
     }
@@ -186,6 +195,11 @@ public class Character : MonoBehaviour {
 
 	void Update ()
     {
+        if(mAttacked && mMoved)
+        {
+            EndCharacterTurn();
+        }
+
         if (mRunPath)
         {
             Transform tempT;

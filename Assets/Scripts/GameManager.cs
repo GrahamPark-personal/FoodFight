@@ -785,10 +785,10 @@ public class GameManager : MonoBehaviour
 
     public void SetSelected(IntVector2 pos, TypeOnCell objOnCell, Character charObj)
     {
-        if(objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player)
+        if(objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player && mMouseMode != MouseMode.Attack)
         {
             mUIManager.ResetPopUp(true);
-        }else
+        }else if(mMouseMode != MouseMode.Attack)
         {
             mUIManager.ResetPopUp(false);
         }

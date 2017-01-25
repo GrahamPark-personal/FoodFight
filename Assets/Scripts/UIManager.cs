@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
+    [HideInInspector]
+    public bool mEnemyPopUpBarShown = false;
+
     public Button mMenuB;
     public Button mBasicAttack;
     public Button mEndTurn;
@@ -67,6 +70,11 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            mEnemyPopUpBarShown = !mEnemyPopUpBarShown;
+        }
+
         //Debug.Log("UI Update Called");
         for (int i = 0; i < mCharHealth.Length; i++)
         {
@@ -120,6 +128,27 @@ public class UIManager : MonoBehaviour
         {
             OnCharacter6Down(true);
         }
+    }
+
+    public void ResetPopUp(bool open)
+    {
+        if (open)
+        {
+            mEnemyPopUpBarShown = false;
+            //change images
+            StartCoroutine(WaitForReset());
+        }
+        else
+        {
+            print(false);
+            mEnemyPopUpBarShown = false;
+        }
+    }
+
+    IEnumerator WaitForReset()
+    {
+        yield return new WaitForSeconds(0.3f);
+        mEnemyPopUpBarShown = true;
     }
 
     public void OnMenuDown()

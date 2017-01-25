@@ -785,6 +785,13 @@ public class GameManager : MonoBehaviour
 
     public void SetSelected(IntVector2 pos, TypeOnCell objOnCell, Character charObj)
     {
+        if(objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player)
+        {
+            mUIManager.ResetPopUp(true);
+        }else
+        {
+            mUIManager.ResetPopUp(false);
+        }
         mSelectedCell = pos;
         //move lightblock to selected postion
         mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;

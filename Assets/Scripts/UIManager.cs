@@ -67,10 +67,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("UI Update Called");
+        //Debug.Log("UI Update Called");
         for (int i = 0; i < mCharHealth.Length; i++)
         {
-            Debug.Log("Health Updated");
+            //Debug.Log("Health Updated");
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 

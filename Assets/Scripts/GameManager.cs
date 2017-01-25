@@ -20,6 +20,9 @@ public enum GameTurn
 public class GameManager : MonoBehaviour
 {
 
+    public bool mCanControlEnemies = false;
+    Character mEnemyControlled;
+
     public CameraController mCamControl;
 
     public UIManager mUIManager;
@@ -175,6 +178,22 @@ public class GameManager : MonoBehaviour
         {
             FinishEnemyTurn();
         }
+
+        if (mCanControlEnemies)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                if(mMouseMode == MouseMode.Attack)
+                {
+                    mMouseMode = MouseMode.Move;
+                }
+                else if (mMouseMode == MouseMode.Move)
+                {
+                    mMouseMode = MouseMode.Attack;
+                }
+            }
+        }
+
     }
 
     public void SetHover(IntVector2 pos)
@@ -191,6 +210,12 @@ public class GameManager : MonoBehaviour
             {
                 mCharacters[i].EndCharacterTurn();
             }
+
+            for (int i = 0; i < mEnemies.Length; i++)
+            {
+                mEnemies[i].ResetTurn();
+            }
+
             ResetSelected();
         }
         else
@@ -209,10 +234,12 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < mCharacters.Length; i++)
             {
                 mCharacters[i].ResetTurn();
-                
+            }
 
-
-                    }
+            for (int i = 0; i < mEnemies.Length; i++)
+            {
+                mEnemies[i].EndCharacterTurn();
+            }
 
         }
         else
@@ -240,8 +267,16 @@ public class GameManager : MonoBehaviour
 
                 //Change Characters cell position
                 mCurrGrid.rows[mCharacterObj.mCellPos.y].cols[mCharacterObj.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-                mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
-                mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = mCharacterObj;
+                if(mCanControlEnemies && mGameTurn == GameTurn.Enemy)
+                {
+                    mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.enemy;
+                    mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj = mCharacterObj;
+                }
+                else
+                {
+                    mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
+                    mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = mCharacterObj;
+                }
                 mCharacterObj.mCellPos = pos;
 
                 IntVector2 tempPos = pos;
@@ -680,9 +715,17 @@ public class GameManager : MonoBehaviour
                 GameObject deleteObj;
 
                 //Damage Enemy
-                if (mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null)
+                if ((mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null) || (mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj != null && mCanControlEnemies && mGameTurn == GameTurn.Enemy))
                 {
-                    mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
+                    
+                    if(mCanControlEnemies && mGameTurn == GameTurn.Enemy)
+                    {
+                        mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj.mHealth -= mCharacterObj.mDamage;
+                    }
+                    else
+                    {
+                        mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
+                    }
                     //print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
                 }
                 mCharacterObj.mAttacked = true;
@@ -776,14 +819,17 @@ public class GameManager : MonoBehaviour
 
 
         //if the selected block is a character show where it can move to
-        if (mCharacterSelected && mGameTurn == GameTurn.Player)
+        if ((mCharacterSelected && mGameTurn == GameTurn.Player) || (mEnemySelected && mGameTurn == GameTurn.Enemy && mCanControlEnemies && mEnemySelected))
         {
             mCharacterObj = charObj;
             //MapMoveArea();
 
-            if (mMouseMode == MouseMode.Move && !mCharacterObj.mMoved)
+            if (mMouseMode == MouseMode.Move)
             {
-                NewMap();
+                if (!mCharacterObj.mMoved)
+                {
+                    NewMap();
+                }
             }
             else if (mMouseMode == MouseMode.Attack && !mCharacterObj.mAttacked)
             {
@@ -908,9 +954,12 @@ public class GameManager : MonoBehaviour
     int CreateAttackCell(IntVector2 tempPosition, int totalTimes, bool Line)
     {
         //print(tempPosition.x + "," + tempPosition.y);
-        if (!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character)
+        //CHANGED SO ENEMIES COULD ATTACK PLAYER
+
+        //(!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && !Line) && 
+        if (((mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character)||(mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.enemy && mGameTurn == GameTurn.Enemy && mCanControlEnemies)))
         {
-            if (!mAttackAreaLocations.Contains(tempPosition))
+            if (!mAttackAreaLocations.Contains(tempPosition) && !mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere)
             {
                 //add the location
                 mAttackAreaLocations.Add(tempPosition);

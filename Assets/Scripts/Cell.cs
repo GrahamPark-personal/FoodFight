@@ -74,6 +74,11 @@ public class Cell : MonoBehaviour
     {
         GameManager.sInstance.SetHover(mPos);
 
+        if (Input.GetMouseButtonDown(2))
+        {
+            Debug.Log(mPos.x + "," + mPos.y);
+        }
+
         //select block
         if (Input.GetMouseButton(0) && !mCannotMoveHere)
         {
@@ -88,7 +93,19 @@ public class Cell : MonoBehaviour
             }
 
 
-            GameManager.sInstance.mUIManager.SelectCharacter(mPos);
+            if(GameManager.sInstance.mGameTurn == GameTurn.Player && mCharacterObj != null)
+            {
+                GameManager.sInstance.mUIManager.SelectCharacter(mPos);
+            }
+
+            if (GameManager.sInstance.mCanControlEnemies)
+            {
+                if(mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
+                }
+            }
 
             //print(mPos.x + "," + mPos.y);
             //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
@@ -97,11 +114,12 @@ public class Cell : MonoBehaviour
 
         }
 
+
         if (mTypeOnCell == TypeOnCell.character)
         {
-            if (Input.GetMouseButtonDown(2))
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                Debug.Log("Middle Mouse Button Pressed");
+                Debug.Log("C Key Pressed");
                 mCharacterObj.AddAilment(AilmentID.Stun, 3, 0);
             }
         }
@@ -134,6 +152,17 @@ public class Cell : MonoBehaviour
             }
         }
 
+        if (GameManager.sInstance.mCanControlEnemies)
+        {
+            if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mEnemySelected)
+            {
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.MoveTo(mPos);
+                }
+            }
+        }
+
 
         //attack
         if (Input.GetMouseButtonDown(1) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
@@ -143,5 +172,19 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.AttackPos(mPos);
             }
         }
+
+        if (GameManager.sInstance.mCanControlEnemies)
+        {
+            if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mEnemySelected)
+            {
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.AttackPos(mPos);
+                }
+            }
+        }
+
+
+
     }
 }

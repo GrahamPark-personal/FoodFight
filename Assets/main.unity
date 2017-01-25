@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43745148, g: 0.48526227, b: 0.5655361, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374517, g: 0.48526227, b: 0.565536, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -37718,19 +37718,19 @@ MonoBehaviour:
   - {fileID: 1161189649}
   - {fileID: 1555972045}
   mCharTexture:
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
-  - {fileID: 2800000, guid: 99db85e4ca98ca842acb3f5536c92045, type: 3}
+  - {fileID: 2800000, guid: f340c63787b5d5d43801f495daa895c9, type: 3}
+  - {fileID: 2800000, guid: 57c4d7c35602f6149b6a4be92bf39218, type: 3}
+  - {fileID: 2800000, guid: 37feba8e52196b5449f0efcf2c4dd754, type: 3}
+  - {fileID: 2800000, guid: 0d8065b2a496207468da1d6b3158253f, type: 3}
+  - {fileID: 2800000, guid: 5b1361251602a804f8da6544d4839982, type: 3}
+  - {fileID: 2800000, guid: d04968ff1d308cc438871bc859706ebe, type: 3}
   mCharHiddenTexture:
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
-  - {fileID: 2800000, guid: eb20b97a5c79bc742a91f681acbf3958, type: 3}
+  - {fileID: 2800000, guid: 30fc2ef7fb0e297408a21dc8f1c8a106, type: 3}
+  - {fileID: 2800000, guid: 0a193b661c14a1a499cc694eb3e2aeb6, type: 3}
+  - {fileID: 2800000, guid: b928a3f9a979faa4db875c8231d3854f, type: 3}
+  - {fileID: 2800000, guid: 1fe8e1bb78be32f48a2ea4546e2eef32, type: 3}
+  - {fileID: 2800000, guid: 3b1f59adc484504498bad0c0b32362a3, type: 3}
+  - {fileID: 2800000, guid: 7c97e667619d2ad4283055d9e461a5cb, type: 3}
   mActiveCharacters: 0
   mCharacters:
   - {fileID: 384067140}

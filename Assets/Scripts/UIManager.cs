@@ -42,8 +42,7 @@ public class UIManager : MonoBehaviour
 
     public Character[] mCharacters;
 
-
-
+    public GameManager GM;
 
     IntVector2 mPos;
 
@@ -60,9 +59,12 @@ public class UIManager : MonoBehaviour
 
         mSavedCharImage = new Texture2D[mCharTexture.Length];
 
+        GM = GameManager.sInstance;
+
         for (int i = 0; i < mCharTexture.Length; i++)
         {
             mSavedCharImage[i] = mCharTexture[i];
+            mCharHealth[i].maxValue = mCharacters[i].mHealth;
         }
     }
 
@@ -75,19 +77,19 @@ public class UIManager : MonoBehaviour
             mEnemyPopUpBarShown = !mEnemyPopUpBarShown;
         }
 
-        //Debug.Log("UI Update Called");
+
         for (int i = 0; i < mCharHealth.Length; i++)
         {
-            //Debug.Log("Health Updated");
+            
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
-        for (int i = 0; i < mCharFrame.Length; i++)
+        for (int i = 0; i <  GM.mCharacters.Length; i++)
         {
             mCharImage[i].texture = mCharTexture[i];
         }
 
-        for (int i = 0; i < mCharFrame.Length; i++)
+        for (int i = 0; i < GM.mCharacters.Length; i++)
         {
             if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
             {
@@ -357,4 +359,23 @@ public class UIManager : MonoBehaviour
     {
         GameManager.sInstance.HideCharacterHover(false);
     }
+
+
+
+
+    void OnAttack1Down(int character)
+    {
+        //Depending on character input execute different abilities
+        
+        //character1:
+            //do damage
+            //stun target
+
+        //character2
+    }
+
+
+
 }
+
+

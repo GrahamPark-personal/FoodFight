@@ -89,8 +89,6 @@ public class GameManager : MonoBehaviour
 
     int GCost = 10;
 
-    int numChars;
-
     int MapCellRemoveAmount = 10;
     private float DrawWait = 0.7f;
 
@@ -116,9 +114,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int mTotalPlayers = 0;
 
-    public AudioClip SoundTrack;
-
-
     void Awake()
     {
         if (sInstance == null)
@@ -127,22 +122,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator StartAudio()
-    {
-        AudioSource audio = GetComponent<AudioSource>();
-
-        audio.Play();
-        yield return new WaitForSeconds(audio.clip.length);
-        audio.clip = SoundTrack;
-        audio.Play();
-    }
-
-
     void Start()
     {
         int x, y;
-
-        StartCoroutine(StartAudio());
 
         mTotalPlayers = mCharacters.Length;
 
@@ -182,8 +164,6 @@ public class GameManager : MonoBehaviour
             }
 
         }
-
-
     }
 
 
@@ -203,7 +183,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                if (mMouseMode == MouseMode.Attack)
+                if(mMouseMode == MouseMode.Attack)
                 {
                     mMouseMode = MouseMode.Move;
                 }
@@ -287,7 +267,7 @@ public class GameManager : MonoBehaviour
 
                 //Change Characters cell position
                 mCurrGrid.rows[mCharacterObj.mCellPos.y].cols[mCharacterObj.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-                if (mCanControlEnemies && mGameTurn == GameTurn.Enemy)
+                if(mCanControlEnemies && mGameTurn == GameTurn.Enemy)
                 {
                     mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.enemy;
                     mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj = mCharacterObj;
@@ -350,8 +330,6 @@ public class GameManager : MonoBehaviour
 
                 mCharacterObj.mRunPath = true;
 
-                SetSelected(pos, mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell, mCharacterObj);
-                mUIManager.SelectCharacter(pos);
 
 
                 mCharacterObj = null;
@@ -387,7 +365,6 @@ public class GameManager : MonoBehaviour
 
                 break;
             }
-
         }
     }
 
@@ -740,8 +717,8 @@ public class GameManager : MonoBehaviour
                 //Damage Enemy
                 if ((mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null) || (mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj != null && mCanControlEnemies && mGameTurn == GameTurn.Enemy))
                 {
-
-                    if (mCanControlEnemies && mGameTurn == GameTurn.Enemy)
+                    
+                    if(mCanControlEnemies && mGameTurn == GameTurn.Enemy)
                     {
                         mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj.mHealth -= mCharacterObj.mDamage;
                     }
@@ -808,11 +785,10 @@ public class GameManager : MonoBehaviour
 
     public void SetSelected(IntVector2 pos, TypeOnCell objOnCell, Character charObj)
     {
-        if (objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player && mMouseMode != MouseMode.Attack)
+        if(objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player && mMouseMode != MouseMode.Attack)
         {
             mUIManager.ResetPopUp(true);
-        }
-        else if (mMouseMode != MouseMode.Attack)
+        }else if(mMouseMode != MouseMode.Attack)
         {
             mUIManager.ResetPopUp(false);
         }
@@ -988,7 +964,7 @@ public class GameManager : MonoBehaviour
         //CHANGED SO ENEMIES COULD ATTACK PLAYER
 
         //(!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && !Line) && 
-        if (((mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character) || (mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.enemy && mGameTurn == GameTurn.Enemy && mCanControlEnemies)))
+        if (((mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character)||(mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.enemy && mGameTurn == GameTurn.Enemy && mCanControlEnemies)))
         {
             if (!mAttackAreaLocations.Contains(tempPosition) && !mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere)
             {

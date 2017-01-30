@@ -80,7 +80,7 @@ public class Cell : MonoBehaviour
         }
 
         //select block
-        if (Input.GetMouseButton(0) && !mCannotMoveHere)
+        if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character)
         {
             if (mTypeOnCell != TypeOnCell.character)
             {
@@ -144,7 +144,7 @@ public class Cell : MonoBehaviour
 
 
         //move
-        if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected)
+        if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -154,7 +154,7 @@ public class Cell : MonoBehaviour
 
         if (GameManager.sInstance.mCanControlEnemies)
         {
-            if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mEnemySelected)
+            if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mEnemySelected && mTypeOnCell != TypeOnCell.enemy)
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -165,7 +165,7 @@ public class Cell : MonoBehaviour
 
 
         //attack
-        if (Input.GetMouseButtonDown(1) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected)
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -175,7 +175,7 @@ public class Cell : MonoBehaviour
 
         if (GameManager.sInstance.mCanControlEnemies)
         {
-            if (Input.GetMouseButtonDown(1) && !mCannotMoveHere && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mEnemySelected)
+            if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mEnemySelected && mTypeOnCell != TypeOnCell.enemy)
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {

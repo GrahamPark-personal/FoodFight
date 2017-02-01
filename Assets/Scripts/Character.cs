@@ -17,6 +17,16 @@ public enum AilmentID
     Slow
 }
 
+[System.Serializable]
+public struct DualAbilities
+{
+    public Attack mDuoAbility1;
+    public Attack mDuoAbility2;
+    public Attack mDuoAbility3;
+    public Attack mDuoAbility4;
+    public Attack mDuoAbility5;
+}
+
 public class Character : MonoBehaviour {
 
     struct StatusAilment
@@ -32,9 +42,17 @@ public class Character : MonoBehaviour {
 
     public GameManager mGM = null;
 
+
+    [Space(30)]
+    public Attack mBasicAbility;
+
+    [Space(10)]
+    public DualAbilities mDualAbilities;
+
     [HideInInspector]
     public Transform mPosition;
 
+    [Space(30)]
     public IntVector2 mCellPos;
 
     public int mCharNumber;
@@ -120,7 +138,7 @@ public class Character : MonoBehaviour {
 
     }
 
-    public void checkAilments()
+    public void CheckAilments()
     {
         for(int i = 0; i < statusAilments.Count; i++)
         {
@@ -163,7 +181,7 @@ public class Character : MonoBehaviour {
         mAttacked = false;
 
         clearAilments();
-        checkAilments();
+        CheckAilments();
         if(mAnimControl != null)
         {
             mAnimControl.ChangeState(CharAnimState.Idle);

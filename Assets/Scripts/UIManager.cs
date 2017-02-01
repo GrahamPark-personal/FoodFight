@@ -70,11 +70,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            mEnemyPopUpBarShown = !mEnemyPopUpBarShown;
-        }
-
         //Debug.Log("UI Update Called");
         for (int i = 0; i < mCharHealth.Length; i++)
         {
@@ -291,6 +286,42 @@ public class UIManager : MonoBehaviour
         {
             MoveCharacterHover(5);
         }
+    }
+
+
+    public void OnBasicAbilityDown()
+    {
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+    }
+
+    public void OnDuoAbility1Down()
+    {
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+    }
+    public void OnDuoAbility2Down()
+    {
+
+    }
+    public void OnDuoAbility3Down()
+    {
+
+    }
+    public void OnDuoAbility4Down()
+    {
+
+    }
+
+    public void OnDuoAbility5Down()
+    {
+
     }
 
     public void SelectCharacter(int character, bool moveCam)

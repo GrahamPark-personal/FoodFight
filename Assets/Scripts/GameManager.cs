@@ -8,7 +8,8 @@ using System.Linq;
 public enum MouseMode
 {
     Move = 0,
-    Attack
+    Attack,
+    AbilityAttack
 }
 
 public enum GameTurn
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool gridChanged = false;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Character mCharacterObj = null;
 
     public Character[] mCharacters;
@@ -113,6 +114,9 @@ public class GameManager : MonoBehaviour
     public int mPlayersAttacked = 0;
     [HideInInspector]
     public int mTotalPlayers = 0;
+
+
+    public int mCurrentRange;
 
     void Awake()
     {
@@ -241,6 +245,7 @@ public class GameManager : MonoBehaviour
                 mEnemies[i].EndCharacterTurn();
             }
 
+            ResetSelected();
         }
         else
         {
@@ -847,8 +852,13 @@ public class GameManager : MonoBehaviour
                 }
                 else if (charObj.mAttackType == AttackType.Ranged)
                 {
-                    AreaAttack();
+                    AreaAttack(mCharacterObj.mDamageDistance);
                 }
+            }
+            else if (mMouseMode == MouseMode.AbilityAttack && !mCharacterObj.mAttacked)
+            {
+                
+                AreaAttack(mCurrentRange);
             }
         }
         else
@@ -872,10 +882,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void AreaAttack()
+    public void AreaAttack(int distance)
     {
+        
         IntVector2 tempPosition = mSelectedCell;
-        int totalTimes = mCharacterObj.mDamageDistance;
+        int totalTimes = distance;
 
         int currTimes = 0;//for y transversal
 

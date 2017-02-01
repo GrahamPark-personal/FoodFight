@@ -98,20 +98,21 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.mUIManager.SelectCharacter(mPos);
             }
 
-            if (GameManager.sInstance.mCanControlEnemies)
-            {
-                if(mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-                {
-                    
-                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
-                }
-            }
 
             //print(mPos.x + "," + mPos.y);
             //GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mCharacterObj);
 
 
 
+        }
+
+        if (GameManager.sInstance.mCanControlEnemies && Input.GetMouseButton(0) && !mCannotMoveHere)
+        {
+            if(mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                    
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
+            }
         }
 
 
@@ -172,6 +173,29 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.AttackPos(mPos);
             }
         }
+
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
+        {
+            if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+            {
+                for (int i = 0; i < GameManager.sInstance.mAttackAreaLocations.Count; i++)
+                {
+                    //check if selected position is in the list of moveable locations
+                    if (GameManager.sInstance.mAttackAreaLocations[i].x == mPos.x && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
+                    {
+                        AttackManager.sInstance.RunAttack(mPos);
+                        GameManager.sInstance.mMouseMode = MouseMode.Move;
+                        GameManager.sInstance.mCharacterObj.mAttacked = true;
+                        GameManager.sInstance.mCharacterObj = null;
+                        GameManager.sInstance.mCharacterSelected = false;
+                        GameManager.sInstance.mEnemySelected = false;
+                        GameManager.sInstance.ResetSelected();
+
+                    }
+                }
+            }
+        }
+
 
         if (GameManager.sInstance.mCanControlEnemies)
         {

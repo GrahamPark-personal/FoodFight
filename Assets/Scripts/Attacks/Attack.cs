@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour {
 
     int Damage = 0;
+    int Health = 0;
     int Slow = 0;
     int Stun = 0;
     int Poison = 0;
@@ -42,6 +43,7 @@ public class Attack : MonoBehaviour {
     public int GetEffectDuration() { return EffectDuration; }
     public int GetDamageDuration() { return DamageDuration; }
     public int GetID() { return id; }
+    public int GetHealth() { return Health; }
 
     #endregion
 
@@ -56,6 +58,8 @@ public class Attack : MonoBehaviour {
     public void SetAOE(int amount) { AOE = amount; }
     public void SetEffectDuration(int amount) { EffectDuration = amount; }
     public void SetDamageDuration(int amount) { DamageDuration = amount; }
+    public void SetHealth(int amount) { Health = amount; }
+
 
     #endregion
 }

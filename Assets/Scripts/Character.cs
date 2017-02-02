@@ -182,6 +182,7 @@ public class Character : MonoBehaviour {
 
         clearAilments();
         CheckAilments();
+
         if(mAnimControl != null)
         {
             mAnimControl.ChangeState(CharAnimState.Idle);

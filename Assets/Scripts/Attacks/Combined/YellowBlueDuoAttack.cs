@@ -5,12 +5,11 @@ using UnityEngine;
 public class YellowBlueDuoAttack : Attack {
 
     Cell mCell;
-    public GameObject mElectricHailStormPrefab;
 
     public override void Init()
     {
         CreateID();
-
+        SetHealth(0);
         SetDamage(5);
         SetRange(5);
         SetSlow(1);
@@ -30,66 +29,22 @@ public class YellowBlueDuoAttack : Attack {
     public override void Execute(IntVector2 pos)
     {
 
-        mCell = GameManager.sInstance.mCurrGrid.rows[pos.x].cols[pos.y];
+        mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
-        GameObject temp = Instantiate(mElectricHailStormPrefab);
-        SquareDamageDuration mDmgDur = temp.GetComponent<SquareDamageDuration>();
-        mDmgDur.mDamage = GetDamage();
-        mDmgDur.mSlow = GetSlow();
-        mDmgDur.mTurnsLeft = GetEffectDuration();
+        EffectParameters effectParm = new EffectParameters();
 
-        GameObject[] visualLocations = new GameObject[GetAOE()];
-        Cell[] cellLocations = new Cell[GetAOE()];
+        effectParm.Damage = GetDamage();
+        effectParm.Slow = GetSlow();
+        effectParm.Health = GetHealth();
+        effectParm.Poison = GetPoison();
+        effectParm.EffectDuration = GetEffectDuration();
+        effectParm.DamageDuration = GetDamageDuration();
+        effectParm.Stun = GetStun();
+        effectParm.ID = GetID();
 
-        int parcer = 0;
+        GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm);
 
-        //cellLocations[parcer] = GetCell(pos.x, pos.y);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x + 1, pos.y);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x, pos.y + 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x + 1, pos.y + 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x - 1, pos.y);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x, pos.y - 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x - 1, pos.y - 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x + 1, pos.y - 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
-
-        //cellLocations[parcer] = GetCell(pos.x - 1, pos.y + 1);
-        //visualLocations[parcer] = GetObject(cellLocations, parcer);
-        //parcer++;
 
 
     }
-
-    Cell GetCell(int x, int y)
-    {
-        return GameManager.sInstance.mCurrGrid.rows[x].cols[y];
-    }
-
-    GameObject GetObject(Cell[] cellLocations, int i)
-    {
-        return Instantiate(GameManager.sInstance.mLightUp, cellLocations[i].gameObject.transform.position, cellLocations[i].gameObject.transform.rotation);
-    }
-
 }

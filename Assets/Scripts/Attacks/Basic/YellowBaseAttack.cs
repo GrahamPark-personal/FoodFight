@@ -29,7 +29,7 @@ public class YellowBaseAttack : Attack {
     public override void Execute(IntVector2 pos)
     {
 
-        mCell = GameManager.sInstance.mCurrGrid.rows[pos.x].cols[pos.y];
+        mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
         if (mCell.mTypeOnCell == TypeOnCell.character)
         {

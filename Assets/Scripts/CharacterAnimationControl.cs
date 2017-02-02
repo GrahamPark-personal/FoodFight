@@ -44,5 +44,16 @@ public class CharacterAnimationControl : MonoBehaviour {
         {
             ChangeState(CharAnimState.Idle);
         }
+
+        if(mState == CharAnimState.Attack)
+        {
+            StartCoroutine(ResetAnim());
+        }
+    }
+
+    IEnumerator ResetAnim()
+    {
+        yield return new WaitForSeconds(0.1f);
+        mState = CharAnimState.Idle;
     }
 }

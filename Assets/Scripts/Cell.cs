@@ -87,7 +87,6 @@ public class Cell : MonoBehaviour
 
     public void CheckEffects()
     {
-        //print("count: " + mEffectParameters.Count);
         for (int i = 0; i < mEffectParameters.Count; i++)
         {
             
@@ -149,6 +148,13 @@ public class Cell : MonoBehaviour
             EffectParameters temp = mEffectParameters[i];
             temp.EffectDuration--;
             mEffectParameters[i] = temp;
+
+            if(mEffectParameters[i].EffectDuration <= 0)
+            {
+                mEffectParameters.Remove(mEffectParameters[i]);
+                Destroy(AreaEffectBlock.gameObject);
+                AreaEffectBlock = null;
+            }
             //print(mEffectParameters[i].EffectDuration + "00");
         }
 

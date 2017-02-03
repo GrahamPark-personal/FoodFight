@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 using System.Linq;
 
@@ -90,6 +91,10 @@ public class GameManager : MonoBehaviour
     Queue<Transform> mPath = new Queue<Transform>();
     Queue<IntVector2> mPosPath = new Queue<IntVector2>();
 
+    public Image mWinScreen1;
+    public Image mLoseScreen1;
+
+
     int GCost = 10;
 
     int MapCellRemoveAmount = 10;
@@ -126,6 +131,8 @@ public class GameManager : MonoBehaviour
         {
             sInstance = this;
         }
+        mWinScreen1.enabled = false;
+        mLoseScreen1.enabled = false;
     }
 
     void Start()
@@ -207,6 +214,33 @@ public class GameManager : MonoBehaviour
         mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
     }
 
+    public bool CheckWin()
+    {
+        foreach (Character var in mEnemies)
+        {
+            if (var != null && var.tag == "Boss")
+            {
+                return false;
+            }
+        }
+        mWinScreen1.enabled = true;
+        return true;
+    }
+
+    public bool CheckLose()
+    {
+        foreach (Character var in mCharacters)
+        {
+            if(var != null)
+            {
+                return false;
+            }
+        }
+        mLoseScreen1.enabled = true;
+        return true;
+    }
+
+
     public void FinishPlayerTurn()
     {
         if (mGameTurn == GameTurn.Player)
@@ -228,7 +262,7 @@ public class GameManager : MonoBehaviour
                 //        mCurrGrid.rows[j].cols[k].CheckEffects();
                 //    }
                 //}
-                
+
             }
 
             ResetSelected();
@@ -246,15 +280,15 @@ public class GameManager : MonoBehaviour
         {
             mGameTurn = GameTurn.Player;
 
+            for (int j = 0; j < mCurrGrid.rows.Length; j++)
+            {
+                for (int k = 0; k < mCurrGrid.rows[0].cols.Length; k++)
+                {
+                    mCurrGrid.rows[j].cols[k].CheckEffects();
+                }
+            }
             for (int i = 0; i < mCharacters.Length; i++)
             {
-                for (int j = 0; j < mCurrGrid.rows.Length; j++)
-                {
-                    for (int k = 0; k < mCurrGrid.rows[0].cols.Length; k++)
-                    {
-                        mCurrGrid.rows[j].cols[k].CheckEffects();
-                    }
-                }
                 mCharacters[i].ResetTurn();
             }
 

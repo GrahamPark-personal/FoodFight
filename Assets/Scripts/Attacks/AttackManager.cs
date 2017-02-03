@@ -36,6 +36,8 @@ public class AttackManager : MonoBehaviour {
             mCurrentAttack.Execute(pos);
             RemoveAttack();
         }
+        GameManager.sInstance.CheckLose();
+        GameManager.sInstance.CheckWin();
     }
 
     public void SetAttack(Attack attack)

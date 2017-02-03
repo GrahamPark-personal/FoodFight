@@ -342,7 +342,7 @@ public class UIManager : MonoBehaviour
 
     public void SelectCharacter(IntVector2 mNewPos)
     {
-        Character temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.x].cols[mNewPos.y].mCharacterObj;
+        Character temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
 
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {

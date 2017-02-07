@@ -17,6 +17,17 @@ public enum AilmentID
     Slow
 }
 
+public enum CharacterType
+{
+    Yellow,
+    Blue,
+    Brown,
+    Red,
+    Green,
+    Black,
+    None
+}
+
 [System.Serializable]
 public struct DualAbilities
 {
@@ -64,6 +75,8 @@ public class Character : MonoBehaviour {
     public int mMoveDistance;
 
     public int mDamageDistance;
+
+    public CharacterType mCharacterType;
 
     public AttackType mAttackType;
 

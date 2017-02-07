@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour {
     int Health = 0;
     int Slow = 0;
     int Stun = 0;
+    int Taunt = 0;
     int Poison = 0;
     int Range = 0;
     int Radius = 0;
@@ -36,6 +37,7 @@ public class Attack : MonoBehaviour {
     public int GetDamage() { return Damage; }
     public int GetSlow() { return Slow; }
     public int GetStun() { return Stun; }
+    public int GetTaunt() { return Taunt; }
     public int GetPoison() { return Poison; }
     public int GetRange() { return Range; }
     public int GetRadius() { return Radius; }
@@ -52,6 +54,7 @@ public class Attack : MonoBehaviour {
     public void SetDamage(int amount) { Damage = amount; }
     public void SetSlow(int amount) { Slow = amount; }
     public void SetStun(int amount) { Stun = amount; }
+    public void SetTaunt(int amount) { Taunt = amount; }
     public void SetPoison(int amount) { Poison = amount; }
     public void SetRange(int amount) { Range = amount; }
     public void SetRadius(int amount) { Radius = amount; }

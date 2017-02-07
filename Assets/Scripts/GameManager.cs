@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int mTotalPlayers = 0;
 
-
     public int mCurrentRange;
 
     void Awake()
@@ -231,7 +230,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (Character var in mCharacters)
         {
-            if(var != null)
+            if (var != null)
             {
                 return false;
             }
@@ -425,11 +424,138 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    List<IntVector2> GetNeighbors(IntVector2 pos, List<IntVector2> closedList)
+    {
+        List<IntVector2> temp = new List<IntVector2>();
+
+        IntVector2 cursor;
+
+        cursor = CopyValues(pos);
+        cursor.x -= 1;
+        if (pos.x >= 0 && !mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere && mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closedList, pos))
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.x += 1;
+        if (pos.x < mCurrGrid.mSize.x && !mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere && mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closedList, pos))
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.y -= 1;
+        if (pos.y >= 0 && !mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere && mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closedList, pos))
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.y += 1;
+        if (pos.y < mCurrGrid.mSize.y && !mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere && mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing && !listContains(closedList, pos))//!closed.Contains(tester) && 
+        {
+            temp.Add(cursor);
+        }
+
+        return temp;
+
+    }
+
+    Queue<IntVector2> FindPath(IntVector2 Start, IntVector2 End)
+    {
+        List<IntVector2> openList = new List<IntVector2>();
+        List<IntVector2> closedList = new List<IntVector2>();
+        List<IntVector2> NeighborList = new List<IntVector2>();
+
+
+        IntVector2 cursor;
+
+        IntVector2 calculationVector;
+
+        cursor = InitIntVectorValues(0, 0, 0, 0, 0);
+        calculationVector = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        openList.Add(Start);
+
+        while (!closedList.Contains(End) && openList.Count > 0)
+        {
+            cursor = lowestFScore(openList);
+
+            closedList.Add(cursor);
+            openList.Remove(cursor);
+
+            calculationVector = CopyValues(cursor);
+            calculationVector.x -= 1;
+
+            NeighborList = GetNeighbors(cursor, closedList);
+
+            //parse through the neighbors
+
+            IntVector2 parcer;
+
+            foreach (IntVector2 item in NeighborList)
+            {
+                parcer = item;
+                if (!listContains(openList, parcer))
+                {
+                    //print("not in open");
+                    parcer.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
+                    parcer.G = cursor.G + GCost;
+                    parcer.H = FindH(item, End);
+                    parcer.F = item.G + item.H;
+                    openList.Add(parcer);
+                }
+                else if (listContains(openList, parcer))
+                {
+                    openList.Remove(parcer);
+                    //print("in open list");
+                    if (item.G < cursor.G)
+                    {
+                        parcer.parent[0] = cursor;
+                        parcer.G = cursor.G + GCost;
+                        parcer.F = item.G + item.H;
+                    }
+                    openList.Add(parcer);
+                }
+
+            }
+
+
+        }
+
+        Stack<IntVector2> myPath = new Stack<IntVector2>();
+
+        Queue<IntVector2> mFinalPath = new Queue<IntVector2>();
+
+        IntVector2 parse = cursor;
+
+        while (parse.x != Start.x || parse.y != Start.y)
+        {
+            myPath.Push(parse);
+            parse = parse.parent[0];
+        }
+        myPath.Push(parse);
+
+
+        while (myPath.Count > 0)
+        {
+            parse = myPath.Pop();
+            mFinalPath.Enqueue(parse);
+        }
+
+        return mFinalPath;
+
+
+    }
+
+
     void FindPath(IntVector2 newPos)
     {
 
         List<IntVector2> open = new List<IntVector2>();
         List<IntVector2> closed = new List<IntVector2>();
+
 
         IntVector2 cursor;
         IntVector2 tester;
@@ -910,7 +1036,6 @@ public class GameManager : MonoBehaviour
             }
             else if (mMouseMode == MouseMode.AbilityAttack && !mCharacterObj.mAttacked)
             {
-
                 AreaAttack(mCurrentRange);
             }
         }

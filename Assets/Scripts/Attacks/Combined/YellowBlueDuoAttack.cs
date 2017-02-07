@@ -9,8 +9,8 @@ public class YellowBlueDuoAttack : Attack {
     public override void Init()
     {
         CreateID();
-        SetHealth(0);
         SetDamage(5);
+        SetHealth(0);
         SetRange(5);
         SetSlow(1);
         SetRadius(2);
@@ -37,6 +37,7 @@ public class YellowBlueDuoAttack : Attack {
         effectParm.Slow = GetSlow();
         effectParm.Health = GetHealth();
         effectParm.Poison = GetPoison();
+        effectParm.Taunt = GetTaunt();
         effectParm.EffectDuration = GetEffectDuration();
         effectParm.DamageDuration = GetDamageDuration();
         effectParm.Stun = GetStun();

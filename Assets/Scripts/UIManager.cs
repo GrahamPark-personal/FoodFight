@@ -308,20 +308,36 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility2Down()
     {
-
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
     }
     public void OnDuoAbility3Down()
     {
-
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
     }
     public void OnDuoAbility4Down()
     {
-
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
     }
 
     public void OnDuoAbility5Down()
     {
-
+        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
+        AttackManager.sInstance.SetAttack(temp);
+        GameManager.sInstance.ResetSelected();
+        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
     }
 
     public void SelectCharacter(int character, bool moveCam)

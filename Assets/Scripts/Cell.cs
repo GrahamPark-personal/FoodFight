@@ -21,6 +21,7 @@ public struct EffectParameters
     public int Health;
     public int Slow;
     public int Stun;
+    public int Taunt;
     public int Poison;
     public int Range;
     public int Radius;

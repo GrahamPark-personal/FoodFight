@@ -46,6 +46,7 @@ public class Attack : MonoBehaviour {
     public int GetDamageDuration() { return DamageDuration; }
     public int GetID() { return id; }
     public int GetHealth() { return Health; }
+    public IntVector2 GetStartPos() { return mAttackPos; }
 
     #endregion
 
@@ -62,6 +63,7 @@ public class Attack : MonoBehaviour {
     public void SetEffectDuration(int amount) { EffectDuration = amount; }
     public void SetDamageDuration(int amount) { DamageDuration = amount; }
     public void SetHealth(int amount) { Health = amount; }
+    public void SetStartPos(IntVector2 pos) { mAttackPos = pos; }
 
 
     #endregion

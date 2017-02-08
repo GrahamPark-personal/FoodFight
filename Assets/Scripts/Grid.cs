@@ -24,6 +24,7 @@ public class Grid : MonoBehaviour {
     {
         mSize.y = rows.Length;
         mSize.x = rows[0].cols.Length;
+        print("mSize: " + mSize.x + "," + mSize.y);
     }
 
     void Start ()

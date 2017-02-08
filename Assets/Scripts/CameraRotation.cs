@@ -35,7 +35,7 @@ public class CameraRotation : MonoBehaviour {
             {
                 mCurrentDirection = 0;
             }
-            print(mCurrentDirection);
+
             mCamDirection = (Direction)mCurrentDirection;
         }
 
@@ -50,7 +50,6 @@ public class CameraRotation : MonoBehaviour {
             {
                 mCurrentDirection = 3;
             }
-            print(mCurrentDirection);
             mCamDirection = (Direction)mCurrentDirection;
         }
 

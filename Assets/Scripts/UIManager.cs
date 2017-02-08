@@ -149,7 +149,6 @@ public class UIManager : MonoBehaviour
     public void OnMenuDown()
     {
         //menu
-        print("Pressed Menu");
         Application.Quit();
 
     }
@@ -157,7 +156,6 @@ public class UIManager : MonoBehaviour
     public void OnBasicAttackDown()
     {
         //basic attack
-        print("Pressed attack");
         GameManager.sInstance.mMouseMode = MouseMode.Attack;
         GameManager.sInstance.ResetSelected();
         GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
@@ -167,7 +165,6 @@ public class UIManager : MonoBehaviour
     public void OnEndTurnDown()
     {
         //end turn
-        print("Pressed end turn");
         if (GameManager.sInstance.mGameTurn == GameTurn.Player)
         {
             GameManager.sInstance.FinishPlayerTurn();
@@ -182,7 +179,6 @@ public class UIManager : MonoBehaviour
     public void OnCharacter1Down(bool moveCam)
     {
         //character 1
-        print("Pressed character1");
         if (mActiveCharacters >= 1)
         {
             SelectCharacter(0, moveCam);
@@ -193,7 +189,7 @@ public class UIManager : MonoBehaviour
     public void OnCharacter2Down(bool moveCam)
     {
         //character 2
-        print("Pressed character2");
+
         if (mActiveCharacters >= 2)
         {
             SelectCharacter(1, moveCam);
@@ -203,7 +199,6 @@ public class UIManager : MonoBehaviour
     public void OnCharacter3Down(bool moveCam)
     {
         //character 3
-        print("Pressed character3");
         if (mActiveCharacters >= 3)
         {
             SelectCharacter(2, moveCam);
@@ -213,7 +208,6 @@ public class UIManager : MonoBehaviour
     public void OnCharacter4Down(bool moveCam)
     {
         //character 4
-        print("Pressed character4");
         if (mActiveCharacters >= 4)
         {
             SelectCharacter(3, moveCam);
@@ -223,7 +217,6 @@ public class UIManager : MonoBehaviour
     public void OnCharacter5Down(bool moveCam)
     {
         //character 5
-        print("Pressed character5");
         if (mActiveCharacters >= 5)
         {
             SelectCharacter(4, moveCam);
@@ -233,7 +226,6 @@ public class UIManager : MonoBehaviour
     public void OnCharacter6Down(bool moveCam)
     {
         //character 6
-        print("Pressed character6");
         if (mActiveCharacters >= 6)
         {
             SelectCharacter(5, moveCam);

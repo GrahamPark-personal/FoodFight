@@ -135,7 +135,6 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            print(false);
             mEnemyPopUpBarShown = false;
         }
     }

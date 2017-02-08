@@ -19,6 +19,12 @@ public enum GameTurn
     Enemy
 }
 
+public enum AttackShape
+{
+    Area,
+    Cross
+}
+
 public class GameManager : MonoBehaviour
 {
 
@@ -37,6 +43,9 @@ public class GameManager : MonoBehaviour
     public GameTurn mGameTurn = GameTurn.Player;
 
     public MouseMode mMouseMode;
+
+    [HideInInspector]
+    public AttackShape mAttackShape;
 
     public Grid mCurrGrid;
 
@@ -424,7 +433,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    List<IntVector2> GetNeighbors(IntVector2 pos, List<IntVector2> closedList)
+    public bool IsMovableBlock(IntVector2 pos)
+    {
+        if(pos.x >= 0 && pos.x <= mCurrGrid.mSize.x){}
+        else
+        {
+            return false;
+        }
+
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y){}
+        else
+        {
+            return false;
+        }
+
+        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere){}
+        else
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing){}
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    List<IntVector2> GetNeighbors(IntVector2 pos)
     {
         List<IntVector2> temp = new List<IntVector2>();
 
@@ -468,6 +506,9 @@ public class GameManager : MonoBehaviour
 
     public Queue<IntVector2> FindPath(IntVector2 Start, IntVector2 End)
     {
+        print("Start:" + Start.x + "," + Start.y);
+        print("End: " + End.x + "," + End.y);
+
         List<IntVector2> openList = new List<IntVector2>();
         List<IntVector2> closedList = new List<IntVector2>();
         List<IntVector2> NeighborList = new List<IntVector2>();
@@ -487,46 +528,46 @@ public class GameManager : MonoBehaviour
             cursor = lowestFScore(openList);
 
             closedList.Add(cursor);
-            openList.Remove(cursor); 
-             
-
-            calculationVector = CopyValues(cursor);
-            calculationVector.x -= 1;
+            openList.Remove(cursor);
 
             NeighborList.Clear();
-            NeighborList = GetNeighbors(cursor, closedList);
+            NeighborList = GetNeighbors(cursor);
+
+            //print("openList SIZE: " + openList.Count);
 
             //parse through the neighbors
 
             IntVector2 parcer;
+
             foreach (IntVector2 item in NeighborList)
             {
+                //print("parsing: " + item.x + "," + item.y);
+
                 parcer = item;
                 if (!listContains(openList, parcer) && !listContains(closedList, parcer))
                 {
-
                     //print("not in open");
                     parcer.parent[0] = cursor; //might have to use cells to hold the parent if it doesnt work
                     parcer.G = cursor.G + GCost;
-                    parcer.H = FindH(item, End);
-                    parcer.F = item.G + item.H;
+                    parcer.H = FindH(parcer, cursor);
+                    parcer.F = parcer.G + parcer.H;
                     openList.Add(parcer);
                 }
                 else if (listContains(openList, parcer))
                 {
 
                     //print("in open list");
-                    if (item.G < cursor.G)
+                    if (parcer.G < cursor.G)
                     {
                         openList.Remove(parcer);
                         parcer.parent[0] = cursor;
                         parcer.G = cursor.G + GCost;
-                        parcer.F = item.G + item.H;
-                        openList.Add(parcer);
+                        parcer.F = parcer.G + parcer.H;
                     }
                 }
 
             }
+
 
 
         }
@@ -548,6 +589,7 @@ public class GameManager : MonoBehaviour
         while (myPath.Count > 0)
         {
             parse = myPath.Pop();
+            //print("parsing: " + parse.x + "," + parse.y);
             mFinalPath.Enqueue(parse);
         }
 
@@ -1058,6 +1100,19 @@ public class GameManager : MonoBehaviour
     {
         IntVector2 tempPosition = mSelectedCell;
         int maxDistance = mCharacterObj.mDamageDistance;
+        int currTimes = 0;
+
+        AttackLineRight(currTimes, maxDistance, tempPosition);
+        AttackLineLeft(currTimes, maxDistance, tempPosition);
+        AttackLineUp(currTimes, maxDistance, tempPosition);
+        AttackLineDown(currTimes, maxDistance, tempPosition);
+
+    }
+
+    void CrossAttack(int Range)
+    {
+        IntVector2 tempPosition = mSelectedCell;
+        int maxDistance = Range;
         int currTimes = 0;
 
         AttackLineRight(currTimes, maxDistance, tempPosition);

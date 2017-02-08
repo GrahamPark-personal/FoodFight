@@ -33,25 +33,26 @@ public class BrownBlueDuoAttack : Attack {
         mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
         Character tempChar = mCell.mEnemyObj;
-        tempChar.mPath.Clear();
-        tempChar.mPosPath.Clear();
 
-        GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-        tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = null;
-        tempChar.mCellPos = pos;
+        IntVector2 newPos = new IntVector2();
 
-        tempChar.transform.position = tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].transform.position + new Vector3(0, 1, 0);
-        tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = tempChar;
-        GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.enemy;
+        newPos = GetStartPos();
+        //tempChar.mPath.Clear();
+        //tempChar.mPosPath.Clear();
 
-        //Queue<IntVector2> movementPath = GameManager.sInstance.FindPath(pos, GetStartPos());
+        //GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+        //tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = null;
+        //tempChar.mCellPos = pos;
+        
+
+        //Queue<IntVector2> movementPath = GameManager.sInstance.FindPath(GetStartPos(), pos);
 
         //tempChar.RemoveMoves(movementPath.Count - 1);
 
         //print("count: " + movementPath.Count);
 
 
-        //while (movementPath.Count > 1)
+        //while (movementPath.Count >= 1)
         //{
         //    IntVector2 intTemp = movementPath.Dequeue();
         //    tempChar.mPosPath.Enqueue(intTemp);
@@ -60,6 +61,13 @@ public class BrownBlueDuoAttack : Attack {
         //}
 
         //tempChar.mRunPath = true;
+
+
+        //tempChar.transform.position = tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].transform.position + new Vector3(0, 1, 0);
+        //tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = tempChar;
+        //GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.enemy;
+
+
 
     }
 }

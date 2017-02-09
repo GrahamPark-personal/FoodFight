@@ -25,7 +25,7 @@ public class BrownBlueDuoAttack : Attack {
 
     public override void Exit()
     {
-
+        GameManager.sInstance.mAttackShape = AttackShape.Area;
     }
 
     public override void Execute(IntVector2 pos)
@@ -92,6 +92,6 @@ public class BrownBlueDuoAttack : Attack {
 
 
 
-        GameManager.sInstance.mAttackShape = AttackShape.Area;
+        
     }
 }

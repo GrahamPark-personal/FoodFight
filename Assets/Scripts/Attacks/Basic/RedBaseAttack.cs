@@ -21,6 +21,7 @@ namespace Assets.Scripts.Attacks.Basic
             SetAOE(1);
 
             SetStartPos(GameManager.sInstance.mSelectedCell);
+            GameManager.sInstance.mAttackShape = AttackShape.Area;
 
             GameManager.sInstance.mCurrentRange = GetRange();
         }

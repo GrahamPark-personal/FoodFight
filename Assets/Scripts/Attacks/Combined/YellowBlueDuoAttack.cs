@@ -17,6 +17,7 @@ public class YellowBlueDuoAttack : Attack {
         SetAOE(9);
         SetEffectDuration(3);
         SetDamageDuration(3);
+        GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 
     }

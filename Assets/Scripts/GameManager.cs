@@ -996,6 +996,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void ResetSelected()
     {
         TypeOnCell tempType = TypeOnCell.character;
@@ -1085,7 +1086,14 @@ public class GameManager : MonoBehaviour
             }
             else if (mMouseMode == MouseMode.AbilityAttack && !mCharacterObj.mAttacked)
             {
-                AreaAttack(mCurrentRange);
+                if(mAttackShape == AttackShape.Area)
+                {
+                    AreaAttack(mCurrentRange);
+                }
+                else if(mAttackShape == AttackShape.Cross)
+                {
+                    CrossAttack(mCurrentRange);
+                }
             }
         }
         else

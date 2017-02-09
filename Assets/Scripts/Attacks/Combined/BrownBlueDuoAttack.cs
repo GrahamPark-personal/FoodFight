@@ -17,6 +17,8 @@ public class BrownBlueDuoAttack : Attack {
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 
+        GameManager.sInstance.mAttackShape = AttackShape.Cross;
+
         GameManager.sInstance.mCurrentRange = GetRange();
 
     }
@@ -32,42 +34,64 @@ public class BrownBlueDuoAttack : Attack {
 
         mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
-        Character tempChar = mCell.mEnemyObj;
+        Character tempEnemy = mCell.mEnemyObj;
 
         IntVector2 newPos = new IntVector2();
 
         newPos = GetStartPos();
-        //tempChar.mPath.Clear();
-        //tempChar.mPosPath.Clear();
 
-        //GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-        //tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = null;
-        //tempChar.mCellPos = pos;
+        IntVector2 targetCell;
+
+        do
+        {
+            targetCell = GetStartPos();
+            targetCell.x -= 1;
+            if (GameManager.sInstance.IsMovableBlock(targetCell))
+            {
+                break;
+            }
+
+            targetCell = GetStartPos();
+            targetCell.x += 1;
+            if (GameManager.sInstance.IsMovableBlock(targetCell))
+            {
+                break;
+            }
+
+            targetCell = GetStartPos();
+            targetCell.y += 1;
+            if (GameManager.sInstance.IsMovableBlock(targetCell))
+            {
+                break;
+            }
+
+            targetCell = GetStartPos();
+            targetCell.y -= 1;
+            if (GameManager.sInstance.IsMovableBlock(targetCell))
+            {
+                break;
+            }
+
+        }
+        while (false);
+
+        GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.nothing;
+        GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere = false;
+        GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj = null;
+
+
+        tempEnemy.mPosition.position = GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].transform.position + new Vector3(0, 1, 0);
+
+        tempEnemy.mCellPos = targetCell;
         
-
-        //Queue<IntVector2> movementPath = GameManager.sInstance.FindPath(GetStartPos(), pos);
-
-        //tempChar.RemoveMoves(movementPath.Count - 1);
-
-        //print("count: " + movementPath.Count);
-
-
-        //while (movementPath.Count >= 1)
-        //{
-        //    IntVector2 intTemp = movementPath.Dequeue();
-        //    tempChar.mPosPath.Enqueue(intTemp);
-        //    Transform temp = tempGM.mCurrGrid.rows[intTemp.y].cols[intTemp.x].mCellTransform;
-        //    tempChar.mPath.Enqueue(temp);
-        //}
-
-        //tempChar.mRunPath = true;
-
-
-        //tempChar.transform.position = tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].transform.position + new Vector3(0, 1, 0);
-        //tempGM.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mCharacterObj = tempChar;
-        //GameManager.sInstance.mCurrGrid.rows[tempChar.mCellPos.y].cols[tempChar.mCellPos.x].mTypeOnCell = TypeOnCell.enemy;
+        GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mTypeOnCell = TypeOnCell.enemy;
+        GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mEnemyObj = tempEnemy;
 
 
 
+
+
+
+        GameManager.sInstance.mAttackShape = AttackShape.Area;
     }
 }

@@ -14,7 +14,8 @@ public enum AilmentID
 {
     Stun = 0,
     Poison,
-    Slow
+    Slow,
+    
 }
 
 public enum CharacterType
@@ -85,6 +86,12 @@ public class Character : MonoBehaviour {
     public float mRotationSpeed;
 
     int mCurrDirection;
+
+    [HideInInspector]
+    public Cell returnLocation;
+
+    [HideInInspector]
+    public bool needsToReturn;
 
     int mTotalMove;
 
@@ -192,6 +199,36 @@ public class Character : MonoBehaviour {
         mMoveDistance = mTotalMove;
         mMoved = false;
         mAttacked = false;
+
+        if(needsToReturn)
+        {
+            bool isStunned = false;
+            foreach (var ailment in statusAilments)
+            {
+                if(ailment.ID == AilmentID.Stun)
+                {
+                    isStunned = true;
+                    break;
+                }
+
+            }
+            if(!isStunned)
+            {
+                GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+                GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+
+                mPosition.position = GameManager.sInstance.mCurrGrid.rows[returnLocation.mPos.y].cols[returnLocation.mPos.x].transform.position + new Vector3(0, 1, 0);
+                mCellPos = returnLocation.mPos;
+                //targetcell is now the end position
+
+                GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.character;
+                GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+                GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCharacterObj = this;
+
+
+                needsToReturn = false;
+            }
+        }
 
         clearAilments();
         CheckAilments();

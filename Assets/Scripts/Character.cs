@@ -15,6 +15,7 @@ public enum AilmentID
     Stun = 0,
     Poison,
     Slow,
+    Taunt
     
 }
 
@@ -118,6 +119,10 @@ public class Character : MonoBehaviour {
 
     bool mMoving = false;
 
+    public Character mTarget;
+
+    public Character mTauntCharacter;
+
     List<StatusAilment> statusAilments = new List<StatusAilment>();
 
     public void AddAilment(AilmentID ID, int duration, int extra)
@@ -160,6 +165,7 @@ public class Character : MonoBehaviour {
 
     public void CheckAilments()
     {
+        
         for(int i = 0; i < statusAilments.Count; i++)
         {
             if(statusAilments[i].ID == AilmentID.Stun)
@@ -180,9 +186,27 @@ public class Character : MonoBehaviour {
                 mHealth -= statusAilments[i].extra;
                 
             }
+            
         }
     }
 
+
+    void GetTarget()
+    {
+        //do AI Stuff
+        mTarget = null;
+
+        foreach (var ailment in statusAilments)
+        {
+            if (ailment.ID == AilmentID.Taunt)
+            {
+                mTarget = mTauntCharacter;
+                break;
+            }
+
+        }
+
+    }
 
     void Start ()
     {
@@ -200,7 +224,9 @@ public class Character : MonoBehaviour {
         mMoved = false;
         mAttacked = false;
 
-        if(needsToReturn)
+        GetTarget();
+
+        if (needsToReturn)
         {
             bool isStunned = false;
             foreach (var ailment in statusAilments)

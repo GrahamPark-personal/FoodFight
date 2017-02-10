@@ -38,10 +38,10 @@ public class Cell : MonoBehaviour
     [HideInInspector]
     public Transform mCellTransform;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Character mCharacterObj;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Character mEnemyObj;
 
     [HideInInspector]
@@ -84,6 +84,23 @@ public class Cell : MonoBehaviour
         AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
 
         mEffectParameters.Add(parm);
+    }
+
+
+
+    public Character GetCharacterObject()
+    {
+        if (mTypeOnCell == TypeOnCell.character)
+        {
+            return mCharacterObj;
+        }
+        else if(mTypeOnCell == TypeOnCell.enemy)
+        {
+            return mEnemyObj;
+        }else
+        {
+            return null;
+        }
     }
 
     public void CheckEffects()

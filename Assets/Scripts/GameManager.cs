@@ -23,6 +23,7 @@ public enum AttackShape
 {
     Area,
     Cross
+
 }
 
 public class GameManager : MonoBehaviour
@@ -426,7 +427,7 @@ public class GameManager : MonoBehaviour
 
                 //clear locations, and objects
                 mAttackAreaLocations.Clear();
-                mAttackAreaLocations.Clear();
+                mAttackAreaObjArray.Clear();
 
                 break;
             }
@@ -986,7 +987,7 @@ public class GameManager : MonoBehaviour
 
                 //clear locations, and objects
                 mAttackAreaLocations.Clear();
-                mAttackAreaLocations.Clear();
+                mAttackAreaObjArray.Clear();
 
                 //clear vector2 move
                 mPath.Clear();
@@ -1053,6 +1054,7 @@ public class GameManager : MonoBehaviour
         mMoveAreaLocations.Clear();
         mMoveAreaObjArray.Clear();
 
+
         mAttackAreaLocations.Clear();
         mAttackAreaObjArray.Clear();
 
@@ -1106,6 +1108,7 @@ public class GameManager : MonoBehaviour
 
     void CrossAttack()
     {
+        mAttackAreaLocations.Clear();
         IntVector2 tempPosition = mSelectedCell;
         int maxDistance = mCharacterObj.mDamageDistance;
         int currTimes = 0;
@@ -1119,6 +1122,7 @@ public class GameManager : MonoBehaviour
 
     void CrossAttack(int Range)
     {
+        mAttackAreaLocations.Clear();
         IntVector2 tempPosition = mSelectedCell;
         int maxDistance = Range;
         int currTimes = 0;
@@ -1132,7 +1136,7 @@ public class GameManager : MonoBehaviour
 
     public void AreaAttack(int distance)
     {
-
+        mAttackAreaLocations.Clear();
         IntVector2 tempPosition = mSelectedCell;
         int totalTimes = distance;
 

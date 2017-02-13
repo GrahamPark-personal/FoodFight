@@ -22,7 +22,8 @@ public enum GameTurn
 public enum AttackShape
 {
     Area,
-    Cross
+    Cross,
+    OnCell
 
 }
 
@@ -296,16 +297,15 @@ public class GameManager : MonoBehaviour
                     mCurrGrid.rows[j].cols[k].CheckEffects();
                 }
             }
+            
             for (int i = 0; i < mCharacters.Length; i++)
             {
                 mCharacters[i].ResetTurn();
             }
-
             for (int i = 0; i < mEnemies.Length; i++)
             {
                 mEnemies[i].EndCharacterTurn();
             }
-
             ResetSelected();
         }
         else
@@ -1106,6 +1106,13 @@ public class GameManager : MonoBehaviour
         //mLightUp.transform.position += new Vector3(0, 1, 0);
     }
 
+    void CellHeal()
+    {
+
+    }
+
+    
+
     void CrossAttack()
     {
         mAttackAreaLocations.Clear();
@@ -1133,6 +1140,29 @@ public class GameManager : MonoBehaviour
         AttackLineDown(currTimes, maxDistance, tempPosition);
 
     }
+
+    public List<Character> GetCharactersInArea()
+    {
+        List<Character> temp = new List<Character>();
+        foreach (IntVector2 item in mAttackAreaLocations)
+        {
+            if(mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell != TypeOnCell.nothing)
+            {
+                if(mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell == TypeOnCell.character)
+                {
+                    temp.Add(mCurrGrid.rows[item.y].cols[item.x].mCharacterObj);
+                }
+                else if (mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell == TypeOnCell.enemy)
+                {
+                    temp.Add(mCurrGrid.rows[item.y].cols[item.x].mEnemyObj);
+                }
+            }
+        }
+
+        return temp;
+    }
+
+
 
     public void AreaAttack(int distance)
     {
@@ -1269,6 +1299,168 @@ public class GameManager : MonoBehaviour
                 CreateAttackCell(temp);
             }
         }
+    }
+
+    //josh
+    //3 * X :: used for Scorched Electric Avenue in the attack use start at the StartPos, and end as pos. look at yellow blue attack for a reference. this is a cross attack.
+    public void CreateRowEffect(IntVector2 Start, IntVector2 End, EffectParameters effectParm)
+    {
+        string dir = "";
+        if(Start.x > End.x)
+        {
+            dir = "Left";
+        }
+        else if(Start.x > End.x)
+        {
+            dir = "Right";
+        }
+        else if (Start.y > End.y)
+        {
+            dir = "Up";
+        }
+        else if (Start.y < End.y)
+        {
+            dir = "Left";
+        }
+
+        IntVector2 temp = new IntVector2();
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        if(dir == "Left")
+        {
+            for (int i = Start.x; i > End.x; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if(IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Right")
+        {
+            for (int i = Start.x; i < End.x; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Up")
+        {
+            for (int i = Start.y; i > End.y; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i - 1;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i + 1;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Down")
+        {
+            for (int i = Start.y; i < End.y; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i - 1;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i + 1;
+                temp.y = i;
+
+                if (IsMovableBlock(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+
+        //for (int i = pos.x - radius + 1; i < pos.x + radius; i++)
+        //{
+        //    for (int j = pos.y - radius + 1; j < pos.y + radius; j++)
+        //    {
+        //        temp.x = i;
+        //        temp.y = j;
+        //        mCurrGrid.rows[j].cols[i].AddEffect(effectParm);
+        //        CreateAttackCell(temp);
+        //    }
+        //}
     }
 
     void CreateVisualCell(IntVector2 tempPosition)

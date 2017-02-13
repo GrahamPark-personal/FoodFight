@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BrownBaseAttack : Attack
 {
-
-    Cell mCell;
-
     public override void Init()
     {
 
@@ -30,33 +27,16 @@ public class BrownBaseAttack : Attack
 
     public override void Execute(IntVector2 pos)
     {
-        List<IntVector2> attackPos = GameManager.sInstance.mAttackAreaLocations;
 
-        List<IntVector2> characterList = new List<IntVector2>();
+        Character mCharOnCell = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].mCharacterObj;
 
-        Character temp = null;
+        List<Character> mCharacters = GameManager.sInstance.GetCharactersInArea();
 
-        mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
-
-        Character mCharacter = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].mCharacterObj;
-
-
-        foreach (IntVector2 item in attackPos)
+        foreach (Character item in mCharacters)
         {
-            if (item.x != GetStartPos().x && item.y != GetStartPos().y)
-            {
-                characterList.Add(item);
-
-                Character tempChar = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x].GetCharacterObject();
-
-                print("Character of temp: " + tempChar);
-                if (tempChar != null)
-                {
-                    tempChar.mTauntCharacter = mCharacter;
-                    tempChar.AddAilment(AilmentID.Taunt, GetEffectDuration(), 0);
-                }
-
-            }
+            print(item.mCellPos.x + "," + item.mCellPos.y);
+            item.mTauntCharacter = mCharOnCell;
+            item.AddAilment(AilmentID.Taunt, GetEffectDuration(), 0);
         }
 
 

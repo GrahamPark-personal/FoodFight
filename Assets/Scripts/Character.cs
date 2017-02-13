@@ -15,7 +15,8 @@ public enum AilmentID
     Stun = 0,
     Poison,
     Slow,
-    Taunt
+    Taunt,
+    Heal
     
 }
 
@@ -72,6 +73,8 @@ public class Character : MonoBehaviour {
 
     public int mHealth;
 
+    private int mMaxHealth;
+
     public int mDamage;
 
     public int mMoveDistance;
@@ -123,6 +126,8 @@ public class Character : MonoBehaviour {
 
     public Character mTauntCharacter;
 
+    int mAilmentHealth = 0;
+
     List<StatusAilment> statusAilments = new List<StatusAilment>();
 
     public void AddAilment(AilmentID ID, int duration, int extra)
@@ -140,7 +145,11 @@ public class Character : MonoBehaviour {
                 statusAilments.Remove(statusAilments[i]);                
             }
         }
-
+        if(ID == AilmentID.Heal)
+        {
+            mAilmentHealth = extra;
+            mHealth += extra;
+        }
         statusAilments.Add(ailment);
         print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
     }
@@ -155,7 +164,16 @@ public class Character : MonoBehaviour {
             statusAilments[i] = temp;
             if(statusAilments[i].duration < statusAilments[i].turnsPassed)
             {            
+                if(statusAilments[i].ID == AilmentID.Heal)
+                {
+                    if(mHealth > mMaxHealth)
+                    {
+                        mHealth = mMaxHealth;
+                    }
+                }
+
                 statusAilments.Remove(statusAilments[i]);
+
             }
             
         }
@@ -165,7 +183,6 @@ public class Character : MonoBehaviour {
 
     public void CheckAilments()
     {
-        
         for(int i = 0; i < statusAilments.Count; i++)
         {
             if(statusAilments[i].ID == AilmentID.Stun)
@@ -212,7 +229,7 @@ public class Character : MonoBehaviour {
     {
         mPosition = transform;
         mFinalPosition = transform;
-
+        mMaxHealth = mHealth;
         mTotalMove = mMoveDistance;
         
 

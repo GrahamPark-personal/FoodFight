@@ -94,10 +94,11 @@ public class Cell : MonoBehaviour
         {
             return mCharacterObj;
         }
-        else if(mTypeOnCell == TypeOnCell.enemy)
+        else if (mTypeOnCell == TypeOnCell.enemy)
         {
             return mEnemyObj;
-        }else
+        }
+        else
         {
             return null;
         }
@@ -107,7 +108,7 @@ public class Cell : MonoBehaviour
     {
         for (int i = 0; i < mEffectParameters.Count; i++)
         {
-            
+
             if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
                 mCharacterObj.mHealth -= mEffectParameters[i].Damage;
@@ -167,7 +168,7 @@ public class Cell : MonoBehaviour
             temp.EffectDuration--;
             mEffectParameters[i] = temp;
 
-            if(mEffectParameters[i].EffectDuration <= 0)
+            if (mEffectParameters[i].EffectDuration <= 0)
             {
                 mEffectParameters.Remove(mEffectParameters[i]);
                 Destroy(AreaEffectBlock.gameObject);
@@ -317,7 +318,7 @@ public class Cell : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.OnCell)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -339,6 +340,18 @@ public class Cell : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && GameManager.sInstance.mAttackShape == AttackShape.OnCell)
+        {
+            AttackManager.sInstance.RunAttack(mPos);
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
+            //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
+            GameManager.sInstance.mCharacterObj.mAttacked = true;
+            GameManager.sInstance.mCharacterObj = null;
+            GameManager.sInstance.mCharacterSelected = false;
+            GameManager.sInstance.mEnemySelected = false;
+            GameManager.sInstance.ResetSelected();
         }
 
 

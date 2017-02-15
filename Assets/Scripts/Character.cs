@@ -207,6 +207,10 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public int GetMaxHealth()
+    {
+        return mMaxHealth;
+    }
 
     void GetTarget()
     {

@@ -23,7 +23,8 @@ public enum AttackShape
 {
     Area,
     Cross,
-    OnCell
+    OnCell,
+    Heal
 
 }
 
@@ -455,6 +456,36 @@ public class GameManager : MonoBehaviour
         }
 
         if (mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing){}
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool IsMovableBlock(Cell cellPos)
+    {
+        IntVector2 pos = cellPos.mPos;
+        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
+        else
+        {
+            return false;
+        }
+
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
+        else
+        {
+            return false;
+        }
+
+        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere) { }
+        else
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing) { }
         else
         {
             return false;
@@ -1096,6 +1127,10 @@ public class GameManager : MonoBehaviour
                 {
                     CrossAttack(mCurrentRange);
                 }
+                else if(mAttackShape == AttackShape.Heal)
+                {   
+                    createHealAttack(mSelectedCell, mCurrentRange);
+                }
             }
         }
         else
@@ -1162,7 +1197,28 @@ public class GameManager : MonoBehaviour
         return temp;
     }
 
+    void createHealAttack(IntVector2 pos, int radius)
+    {
+        List<Cell> mCells = new List<Cell>();
 
+        mCells = GetCellsInRange(pos, radius);
+
+        foreach (Cell item in mCells)
+        {
+            if(!item.mCannotMoveHere)
+            {
+                //add the location
+                mAttackAreaLocations.Add(item.mPos);
+
+                //create the visual movement GameObject
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+
+                //add the gameobject to the stack
+                mAttackAreaObjArray.Push(movePiece);
+            }
+        }
+
+    }
 
     public void AreaAttack(int distance)
     {
@@ -1646,6 +1702,51 @@ public class GameManager : MonoBehaviour
         {
             return (totalTimes - totalTimes); //if there is a character, then remove MapCellRemoveAmount(3) to not break the map.
         }
+    }
+
+    public List<Cell> GetCellsInRange(IntVector2 start, int radius)
+    {
+        List<Cell> tempList = new List<Cell>();
+
+        int colRadius;
+        IntVector2 tempVector = new IntVector2();
+
+        //for (int i = (radius + 1); i > 0; i--)
+        //{
+        //    colRadius = radius - i;
+        //    for (int j = (-colRadius - 1); j < (colRadius + 1); j++)
+        //    {
+
+        //        tempVector.x = start.x + j;
+        //        tempVector.y = start.y + i;
+        //        print("test pos: " + tempVector.x + "," + tempVector.y);
+        //        if (IsMovableBlock(tempVector))
+        //        {
+        //            print("Working Kinda");
+        //            tempList.Add(mCurrGrid.rows[tempVector.y].cols[tempVector.x]);
+        //        }
+        //    }
+        //}
+
+        for (int i = (radius + 1); i > (-radius - 1); i--)
+        {
+
+            colRadius = radius - Math.Abs(i);
+            for (int j = -colRadius; j < (colRadius + 1); j++)
+            {
+
+                tempVector.x = start.x + j;
+                tempVector.y = start.y + i;
+                if(IsMovableBlock(tempVector) || mCurrGrid.rows[tempVector.y].cols[tempVector.x].mTypeOnCell == TypeOnCell.character)
+                {
+                    tempList.Add(mCurrGrid.rows[tempVector.y].cols[tempVector.x]);
+                }
+            }
+        }
+
+
+
+        return tempList;
     }
 
 

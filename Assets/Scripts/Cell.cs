@@ -222,7 +222,7 @@ public class Cell : MonoBehaviour
         }
 
         //select block
-        if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character)
+        if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.Heal)
         {
             if (mTypeOnCell != TypeOnCell.character)
             {
@@ -250,7 +250,7 @@ public class Cell : MonoBehaviour
 
         if (GameManager.sInstance.mCanControlEnemies && Input.GetMouseButton(0) && !mCannotMoveHere)
         {
-            if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy && GameManager.sInstance.mAttackShape != AttackShape.Heal)
             {
 
                 GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
@@ -258,32 +258,32 @@ public class Cell : MonoBehaviour
         }
 
 
-        if (mTypeOnCell == TypeOnCell.character)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Debug.Log("C Key Pressed");
-                mCharacterObj.AddAilment(AilmentID.Stun, 3, 0);
-            }
-        }
+        //if (mTypeOnCell == TypeOnCell.character)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.C))
+        //    {
+        //        Debug.Log("C Key Pressed");
+        //        mCharacterObj.AddAilment(AilmentID.Stun, 3, 0);
+        //    }
+        //}
 
-        if (mTypeOnCell == TypeOnCell.character)
-        {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Debug.Log("S Key pressed.");
-                mCharacterObj.AddAilment(AilmentID.Slow, 3, 3);
-            }
-        }
+        //if (mTypeOnCell == TypeOnCell.character)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.S))
+        //    {
+        //        Debug.Log("S Key pressed.");
+        //        mCharacterObj.AddAilment(AilmentID.Slow, 3, 3);
+        //    }
+        //}
 
-        if (mTypeOnCell == TypeOnCell.character)
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                Debug.Log("X Key pressed.");
-                mCharacterObj.AddAilment(AilmentID.Poison, 3, 3);
-            }
-        }
+        //if (mTypeOnCell == TypeOnCell.character)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.X))
+        //    {
+        //        Debug.Log("X Key pressed.");
+        //        mCharacterObj.AddAilment(AilmentID.Poison, 3, 3);
+        //    }
+        //}
 
 
         //move
@@ -318,7 +318,7 @@ public class Cell : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.OnCell)
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.OnCell && GameManager.sInstance.mAttackShape != AttackShape.Heal)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -351,6 +351,19 @@ public class Cell : MonoBehaviour
             GameManager.sInstance.mCharacterObj = null;
             GameManager.sInstance.mCharacterSelected = false;
             GameManager.sInstance.mEnemySelected = false;
+            GameManager.sInstance.ResetSelected();
+        }
+
+        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && GameManager.sInstance.mAttackShape == AttackShape.Heal)
+        {
+            AttackManager.sInstance.RunAttack(mPos);
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
+            GameManager.sInstance.mAttackShape = AttackShape.Area;
+            GameManager.sInstance.mCharacterObj.mAttacked = true;
+            GameManager.sInstance.mCharacterObj = null;
+            GameManager.sInstance.mCharacterSelected = false;
+            GameManager.sInstance.mEnemySelected = false;
+            GameManager.sInstance.ResetSelected();
             GameManager.sInstance.ResetSelected();
         }
 

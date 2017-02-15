@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BlueBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BrownBaseAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Basic\GreenBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\RedBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\YellowBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlueDuoAttack.cs" />

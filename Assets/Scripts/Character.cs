@@ -16,7 +16,8 @@ public enum AilmentID
     Poison,
     Slow,
     Taunt,
-    Heal
+    Heal,
+    None
     
 }
 
@@ -110,7 +111,11 @@ public class Character : MonoBehaviour {
     public bool mRunPath = false;
 
     Vector3 tempV;
-    float speed;
+
+    [HideInInspector]
+    public float speed;
+
+    float StartSpeed;
 
     IntVector2 nextBlock;
     IntVector2 lastBlock;
@@ -214,8 +219,8 @@ public class Character : MonoBehaviour {
 
     void GetTarget()
     {
-        //do AI Stuff
         mTarget = null;
+        //do AI Stuff
 
         foreach (var ailment in statusAilments)
         {
@@ -235,8 +240,9 @@ public class Character : MonoBehaviour {
         mFinalPosition = transform;
         mMaxHealth = mHealth;
         mTotalMove = mMoveDistance;
-        
 
+        StartSpeed = GameManager.sInstance.mEntityMoveSpeed;
+        speed = StartSpeed;
     }
 
     public void ResetTurn()
@@ -319,18 +325,29 @@ public class Character : MonoBehaviour {
         if (mRunPath)
         {
             Transform tempT;
-
-            speed = GameManager.sInstance.mEntityMoveSpeed;
+            
 
             if (mPath.Count > 0 && !mMoving)
             {
                 lastBlock = nextBlock;
                 tempT = mPath.Dequeue();
                 nextBlock = mPosPath.Dequeue();
+
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Fire)
+                {
+                    //set player on fire
+                    if(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
+                    {
+                        mHealth -= GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage;
+                    }
+                }
+
+
                 tempV = tempT.position + new Vector3(0, 1, 0);
                 //print(nextBlock.x + "," + nextBlock.y + "|" + lastBlock.x + "," + lastBlock.y + "|||" + mCellPos.x + "," + mCellPos.y);
                 mMoving = true;
             }
+
             if (mPath.Count == 0 && !mMoving)
             {
                 mRunPath = false;
@@ -338,6 +355,8 @@ public class Character : MonoBehaviour {
 
         }
         
+        //changes direction of character
+
         if (nextBlock.x > lastBlock.x)
         {
             mDirection = Direction.pos2;
@@ -358,6 +377,7 @@ public class Character : MonoBehaviour {
 
         if (transform.position == tempV)
         {
+            speed = StartSpeed;
             mMoving = false;
         }
 
@@ -369,7 +389,7 @@ public class Character : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-
+        //actual rotation of the character
         if (mDirection == Direction.pos1)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(0, Vector3.up), mRotationSpeed * Time.deltaTime);

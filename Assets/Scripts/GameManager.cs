@@ -24,7 +24,8 @@ public enum AttackShape
     Area,
     Cross,
     OnCell,
-    Heal
+    Heal,
+    OtherCharacter
 
 }
 
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviour
     public int mTotalPlayers = 0;
 
     public int mCurrentRange;
+
+    [HideInInspector]
+    public Character[] mTargetChars = new Character[2];
 
     void Awake()
     {
@@ -298,7 +302,7 @@ public class GameManager : MonoBehaviour
                     mCurrGrid.rows[j].cols[k].CheckEffects();
                 }
             }
-            
+
             for (int i = 0; i < mCharacters.Length; i++)
             {
                 mCharacters[i].ResetTurn();
@@ -345,43 +349,6 @@ public class GameManager : MonoBehaviour
                     mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = mCharacterObj;
                 }
                 mCharacterObj.mCellPos = pos;
-
-                IntVector2 tempPos = pos;
-
-                tempPos.x -= 1;
-
-                if (pos.x - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
-                {
-                    canMoveSelectedLeft = true;
-                    //print("can move left");
-                }
-
-                tempPos = pos;
-                tempPos.y -= 1;
-
-                if (pos.y - 1 >= 0 && mMoveAreaLocations.Contains(tempPos))
-                {
-                    //print("can move up");
-                    canMoveSelectedUp = true;
-                }
-
-                tempPos = pos;
-                tempPos.x += 1;
-
-                if (pos.x + 1 <= mCurrGrid.mSize.x && mMoveAreaLocations.Contains(tempPos))
-                {
-                    //print("can move right");
-                    canMoveSelectedRight = true;
-                }
-
-                tempPos = pos;
-                tempPos.y += 1;
-
-                if (pos.y + 1 <= mCurrGrid.mSize.y && mMoveAreaLocations.Contains(tempPos))
-                {
-                    //print("can move down");
-                    canMoveSelectedDown = true;
-                }
 
                 mCharacterObj.RemoveMoves(mPath.Count - 1);
 
@@ -437,25 +404,42 @@ public class GameManager : MonoBehaviour
 
     public bool IsMovableBlock(IntVector2 pos)
     {
-        if(pos.x >= 0 && pos.x <= mCurrGrid.mSize.x){}
+        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
         else
         {
             return false;
         }
 
-        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y){}
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
         else
         {
             return false;
         }
 
-        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere){}
+        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere) { }
         else
         {
             return false;
         }
 
-        if (mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing){}
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell == TypeOnCell.nothing) { }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool IsOnGrid(IntVector2 pos)
+    {
+        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
+        else
+        {
+            return false;
+        }
+
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
         else
         {
             return false;
@@ -1119,17 +1103,21 @@ public class GameManager : MonoBehaviour
             }
             else if (mMouseMode == MouseMode.AbilityAttack && !mCharacterObj.mAttacked)
             {
-                if(mAttackShape == AttackShape.Area)
+                if (mAttackShape == AttackShape.Area)
                 {
                     AreaAttack(mCurrentRange);
                 }
-                else if(mAttackShape == AttackShape.Cross)
+                else if (mAttackShape == AttackShape.Cross)
                 {
                     CrossAttack(mCurrentRange);
                 }
-                else if(mAttackShape == AttackShape.Heal)
-                {   
+                else if (mAttackShape == AttackShape.Heal)
+                {
                     createHealAttack(mSelectedCell, mCurrentRange);
+                }
+                else if (mAttackShape == AttackShape.OtherCharacter)
+                {
+                    CreateTargetAttack(mSelectedCell, mCurrentRange);
                 }
             }
         }
@@ -1146,7 +1134,45 @@ public class GameManager : MonoBehaviour
 
     }
 
-    
+    void CreateTargetAttack(IntVector2 pos, int radius)
+    {
+        Character tempCharacter;
+        if (mTargetChars[0] == mCharacterObj)
+        {
+            tempCharacter = mTargetChars[1];
+        }
+        else
+        {
+            tempCharacter = mTargetChars[0];
+        }
+
+        List<Cell> mCells = new List<Cell>();
+
+        mCells = GetCellsInRange(pos, radius);
+
+        foreach (Cell item in mCells)
+        {
+            if (!item.mCannotMoveHere)
+            {
+                Character mParseChar = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCharacterObj;
+                if(mParseChar == tempCharacter)
+                {
+                    mAttackAreaLocations.Add(item.mPos);
+
+                    //create the visual movement GameObject
+                    GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+
+                    //add the gameobject to the stack
+                    mAttackAreaObjArray.Push(movePiece);
+                }
+            }
+
+        }
+
+
+    }
+
+
 
     void CrossAttack()
     {
@@ -1181,9 +1207,9 @@ public class GameManager : MonoBehaviour
         List<Character> temp = new List<Character>();
         foreach (IntVector2 item in mAttackAreaLocations)
         {
-            if(mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell != TypeOnCell.nothing)
+            if (mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell != TypeOnCell.nothing)
             {
-                if(mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell == TypeOnCell.character)
+                if (mCurrGrid.rows[item.y].cols[item.x].mTypeOnCell == TypeOnCell.character)
                 {
                     temp.Add(mCurrGrid.rows[item.y].cols[item.x].mCharacterObj);
                 }
@@ -1205,7 +1231,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Cell item in mCells)
         {
-            if(!item.mCannotMoveHere)
+            if (!item.mCannotMoveHere)
             {
                 //add the location
                 mAttackAreaLocations.Add(item.mPos);
@@ -1359,61 +1385,78 @@ public class GameManager : MonoBehaviour
 
     //josh
     //3 * X :: used for Scorched Electric Avenue in the attack use start at the StartPos, and end as pos. look at yellow blue attack for a reference. this is a cross attack.
-    public void CreateRowEffect(IntVector2 Start, IntVector2 End, EffectParameters effectParm)
+    public void CreateRowEffect(IntVector2 Start, IntVector2 End, CellTag tag, int damage)
     {
         string dir = "";
-        if(Start.x > End.x)
+        if (Start.x > End.x)
         {
-            dir = "Left";
+            dir = "Down";
         }
-        else if(Start.x > End.x)
+        else if (Start.x > End.x)
         {
-            dir = "Right";
+            dir = "Up";
         }
         else if (Start.y > End.y)
         {
-            dir = "Up";
+            dir = "Right";
         }
         else if (Start.y < End.y)
         {
             dir = "Left";
         }
 
+        print("Direction: " + dir);
+
         IntVector2 temp = new IntVector2();
         temp = InitIntVectorValues(0, 0, 0, 0, 0);
 
-        if(dir == "Left")
+        if (dir == "Up")
         {
+            print("Start: " + Start.x + "," + Start.y);
+            print("End: " + End.x + "," + End.y);
+
             for (int i = Start.x; i > End.x; i--)
             {
+                print("Got here!!");
+
                 //for each one from up to down add one if there is a space to.
 
                 temp.x = i;
                 temp.y = Start.y;
 
-                if(IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    // mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    //mCellDamage
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                 }
 
                 temp.x = i;
                 temp.y = Start.y - 1;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
                 temp.x = i;
                 temp.y = Start.y + 1;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
             }
         }
-        else if (dir == "Right")
+        else if (dir == "Down")
         {
             for (int i = Start.x; i < End.x; i++)
             {
@@ -1422,87 +1465,115 @@ public class GameManager : MonoBehaviour
                 temp.x = i;
                 temp.y = Start.y;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
                 temp.x = i;
                 temp.y = Start.y - 1;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
                 temp.x = i;
                 temp.y = Start.y + 1;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
             }
         }
-        else if (dir == "Up")
+        else if (dir == "Right")
         {
             for (int i = Start.y; i > End.y; i--)
             {
                 //for each one from up to down add one if there is a space to.
 
-                temp.x = i;
+                temp.x = Start.x;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
-                temp.x = i - 1;
+                temp.x = Start.x - 1;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
-                temp.x = i + 1;
+                temp.x = Start.x + 1;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
             }
         }
-        else if (dir == "Down")
+        else if (dir == "Left")
         {
             for (int i = Start.y; i < End.y; i++)
             {
+                print("Got here");
                 //for each one from up to down add one if there is a space to.
 
-                temp.x = i;
+                temp.x = Start.x;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
-                temp.x = i - 1;
+                temp.x = Start.x - 1;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
 
-                temp.x = i + 1;
+                temp.x = Start.x + 1;
                 temp.y = i;
 
-                if (IsMovableBlock(temp))
+                if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
+                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
             }
         }
@@ -1737,7 +1808,7 @@ public class GameManager : MonoBehaviour
 
                 tempVector.x = start.x + j;
                 tempVector.y = start.y + i;
-                if(IsMovableBlock(tempVector) || mCurrGrid.rows[tempVector.y].cols[tempVector.x].mTypeOnCell == TypeOnCell.character)
+                if (IsMovableBlock(tempVector) || mCurrGrid.rows[tempVector.y].cols[tempVector.x].mTypeOnCell == TypeOnCell.character)
                 {
                     tempList.Add(mCurrGrid.rows[tempVector.y].cols[tempVector.x]);
                 }

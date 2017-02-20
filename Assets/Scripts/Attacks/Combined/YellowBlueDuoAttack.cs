@@ -34,6 +34,8 @@ public class YellowBlueDuoAttack : Attack {
 
         EffectParameters effectParm = new EffectParameters();
 
+        effectParm.Effect = cellEffect.ElectricHailStorm;
+        effectParm.CellAction = CellActionType.EveryStep;
         effectParm.Damage = GetDamage();
         effectParm.Slow = GetSlow();
         effectParm.Health = GetHealth();
@@ -44,7 +46,7 @@ public class YellowBlueDuoAttack : Attack {
         effectParm.Stun = GetStun();
         effectParm.ID = GetID();
 
-        GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm);
+        GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm, false);
 
 
 

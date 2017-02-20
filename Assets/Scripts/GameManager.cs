@@ -25,7 +25,8 @@ public enum AttackShape
     Cross,
     OnCell,
     Heal,
-    OtherCharacter
+    OtherCharacter,
+    AreaNoCharacters
 
 }
 
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
     public GameObject mPlayerSelectBlock;
 
     public GameObject mAreaEffectBlock;
+
+    public GameObject mWallBlock;
 
     [HideInInspector]
     public bool gridChanged = false;
@@ -447,6 +450,31 @@ public class GameManager : MonoBehaviour
 
         return true;
     }
+
+    public bool IsOnGridAndCanMoveTo(IntVector2 pos)
+    {
+        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
+        else
+        {
+            return false;
+        }
+
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
+        else
+        {
+            return false;
+        }
+
+        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere) { }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+
 
     public bool IsMovableBlock(Cell cellPos)
     {
@@ -1082,7 +1110,7 @@ public class GameManager : MonoBehaviour
             mCharacterObj = charObj;
             //MapMoveArea();
 
-            if (mMouseMode == MouseMode.Move)
+            if (mMouseMode == MouseMode.Move && mCharacterObj != null)
             {
                 if (!mCharacterObj.mMoved)
                 {
@@ -1118,6 +1146,10 @@ public class GameManager : MonoBehaviour
                 else if (mAttackShape == AttackShape.OtherCharacter)
                 {
                     CreateTargetAttack(mSelectedCell, mCurrentRange);
+                }
+                else if(mAttackShape == AttackShape.AreaNoCharacters)
+                {
+                    createAreaNoCharacterAttack(mSelectedCell, mCurrentRange);
                 }
             }
         }
@@ -1221,6 +1253,29 @@ public class GameManager : MonoBehaviour
         }
 
         return temp;
+    }
+
+    void createAreaNoCharacterAttack(IntVector2 pos, int radius)
+    {
+        List<Cell> mCells = new List<Cell>();
+
+        mCells = GetCellsInRange(pos, radius);
+
+        foreach (Cell item in mCells)
+        {
+            if (!item.mCannotMoveHere)
+            {
+                //add the location
+                mAttackAreaLocations.Add(item.mPos);
+
+                //create the visual movement GameObject
+                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+
+                //add the gameobject to the stack
+                mAttackAreaObjArray.Push(movePiece);
+            }
+        }
+
     }
 
     void createHealAttack(IntVector2 pos, int radius)
@@ -1368,7 +1423,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreateAttackSquare(IntVector2 pos, int radius, EffectParameters effectParm)
+    public void CreateAttackSquare(IntVector2 pos, int radius, EffectParameters effectParm, bool ignoreMiddle)
     {
         IntVector2 temp = new IntVector2();
         for (int i = pos.x - radius + 1; i < pos.x + radius; i++)
@@ -1377,14 +1432,18 @@ public class GameManager : MonoBehaviour
             {
                 temp.x = i;
                 temp.y = j;
-                mCurrGrid.rows[j].cols[i].AddEffect(effectParm);
-                CreateAttackCell(temp);
+                if(IsOnGridAndCanMoveTo(temp))
+                {
+                    mCurrGrid.rows[j].cols[i].AddEffect(effectParm);
+                }
+                
+                //CreateAttackCell(temp);
             }
         }
     }
 
-    //josh
-    //3 * X :: used for Scorched Electric Avenue in the attack use start at the StartPos, and end as pos. look at yellow blue attack for a reference. this is a cross attack.
+
+
     public void CreateRowEffect(IntVector2 Start, IntVector2 End, CellTag tag, int damage)
     {
         string dir = "";
@@ -1821,646 +1880,5 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //    IntVector2 currPos = mCharacterObj.mCellPos;
 
-    //    mDontGoHere.Clear();
-
-    //        IntVector2 tempPos;
-    //        AddToPath(currPos);
-    //        //while ((currPos.x != newPos.x) || (currPos.y != newPos.y))
-    //        for (int i = 0; i<mMoveAreaLocations.Count; i++)
-    //        {
-    //            mDontGoHere.Add(currPos);
-
-    //            GetMoves(currPos);
-
-    //            if (moveRight && currPos.x<newPos.x)
-    //            {
-    //                currPos = CheckPathRight(currPos, newPos);
-    //                if (currPos.y != newPos.y)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.y<newPos.y && (moveUp))
-    //                    {
-    //                        currPos = CheckPathUp(currPos, newPos);
-    //}
-    //                    else if (currPos.y > newPos.y && (moveDown))
-    //                    {
-    //                        currPos = CheckPathDown(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-    //            else if ((currPos.y == newPos.y) && (!moveUp || !moveDown))
-    //            {
-    //                if (currPos.y != newPos.y)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.y<newPos.y && (moveUp))
-    //                    {
-    //                        currPos = CheckPathUp(currPos, newPos);
-    //                    }
-    //                    else if (currPos.y > newPos.y && (moveDown))
-    //                    {
-    //                        currPos = CheckPathDown(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-    //            if (moveUp && ((currPos.y<newPos.y)))
-    //            {
-    //                currPos = CheckPathUp(currPos, newPos);
-    //                if (currPos.x != newPos.x)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.x<newPos.x && (moveRight))
-    //                    {
-    //                        currPos = CheckPathRight(currPos, newPos);
-    //                    }
-    //                    else if (currPos.x > newPos.x && (moveLeft))
-    //                    {
-    //                        currPos = CheckPathLeft(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-    //            else if (((currPos.x == newPos.x) && (!moveLeft || !moveRight)))
-    //            {
-    //                if (currPos.x != newPos.x)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.x<newPos.x && (moveRight))
-    //                    {
-    //                        currPos = CheckPathRight(currPos, newPos);
-    //                    }
-    //                    else if (currPos.x > newPos.x && (moveLeft))
-    //                    {
-    //                        currPos = CheckPathLeft(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-
-    //            if (moveLeft && ((currPos.x > newPos.x)))
-    //            {
-    //                currPos = CheckPathLeft(currPos, newPos);
-    //                if (currPos.y != newPos.y)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.y<newPos.y && (moveUp))
-    //                    {
-    //                        currPos = CheckPathUp(currPos, newPos);
-    //                    }
-    //                    else if (currPos.y > newPos.y && (moveDown))
-    //                    {
-    //                        currPos = CheckPathDown(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-    //            else if (((currPos.y == newPos.y) && (!moveUp || !moveDown)))
-    //            {
-    //                if (currPos.y != newPos.y)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.y<newPos.y && (moveUp))
-    //                    {
-    //                        currPos = CheckPathUp(currPos, newPos);
-    //                    }
-    //                    else if (currPos.y > newPos.y && (moveDown))
-    //                    {
-    //                        currPos = CheckPathDown(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-
-    //            if (moveDown && ((currPos.y > newPos.y)))
-    //            {
-    //                currPos = CheckPathDown(currPos, newPos);
-    //                if (currPos.x == newPos.x)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.x<newPos.x && (moveRight))
-    //                    {
-    //                        currPos = CheckPathRight(currPos, newPos);
-    //                    }
-    //                    else if (currPos.x > newPos.x && (moveLeft))
-    //                    {
-    //                        currPos = CheckPathLeft(currPos, newPos);
-    //                    }
-    //                }
-
-    //            }
-    //            else if ((currPos.x == newPos.x) && (!moveLeft || !moveRight))
-    //            {
-    //                if (currPos.x == newPos.x)
-    //                {
-    //                    mDontGoHere.Add(currPos);
-    //                    GetMoves(currPos);
-
-    //                    if (currPos.x<newPos.x && (moveRight))
-    //                    {
-    //                        currPos = CheckPathRight(currPos, newPos);
-    //                    }
-    //                    else if (currPos.x > newPos.x && (moveLeft))
-    //                    {
-    //                        currPos = CheckPathLeft(currPos, newPos);
-    //                    }
-    //                }
-    //            }
-
-    //        }
-    //        AddToPath(newPos);
-
-    //flood + old mapping
-
-    //IEnumerator CellDraw()
-    //{
-
-    //    for (int i = 0; i < mMoveAreaLocations.Count; i++)
-    //    {
-    //        yield return new WaitForSeconds(DrawWait);
-    //        IntVector2 tempPosition = mMoveAreaLocations[i];
-    //        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.x].cols[tempPosition.y].mCellTransform.position, transform.rotation);
-    //        mMoveAreaObjArray.Push(movePiece);
-
-    //    }
-    //    //create the visual movement GameObject
-
-
-    //    //add the gameobject to the stack
-
-    //}
-
-    //OldMapping
-    //void MapMoveArea()
-    //{
-    //    //set temp move to the selected one
-    //    IntVector2 moveObj = mSelectedCell;
-    //    IntVector2 moveObj2;
-    //    int times;
-
-    //    //checkUp(within play area, that you can move there, that it doesnt have a character, it is in range of moveDistance)
-    //    moveObj.y--;
-    //    while (moveObj.y >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCannotMoveHere && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && (Mathf.Abs(moveObj.y - mSelectedCell.y) <= mCharacterObj.mMoveDistance))
-    //    {
-    //        //add the location
-    //        mMoveAreaLocations.Add(moveObj);
-
-    //        //create the visual movement GameObject
-    //        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCellTransform.position, transform.rotation);
-
-    //        //add the gameobject to the stack
-    //        mMoveAreaObjArray.Push(movePiece);
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.y - mSelectedCell.y);
-    //        moveObj2.x--;
-    //        times++;
-    //        while (moveObj2.x >= 0 && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.x - 1 < 0)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.x--;
-    //        }
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.y - mSelectedCell.y);
-    //        moveObj2.x++;
-    //        times++;
-    //        while (moveObj2.x < mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.x + 1 > mCurrGrid.mSize.x)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.x++;
-    //        }
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.x - mSelectedCell.x);
-    //        moveObj2.y++;
-    //        times++;
-    //        while (moveObj2.y < mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.y + 1 > mCurrGrid.mSize.y)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.y++;
-    //        }
-
-    //        //change the block to check
-    //        if (moveObj.y + 1 < 0)
-    //        {
-    //            break;
-    //        }
-    //        moveObj.y--;
-    //    }
-    //    moveObj.y++;
-    //    if (mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && mCharacterObj.mMoveDistance >= 4)
-    //    {
-    //        IntVector2 temp = moveObj;
-    //        if (temp.y - 2 >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y - 2].mCharacterOnCell)
-    //        {
-    //            temp.y -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.y + 2 <= mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj.x].cols[moveObj.y + 2].mCharacterOnCell)
-    //        {
-    //            temp.y += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x - 2 >= 0 && !mCurrGrid.rows[moveObj.x - 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x + 2 <= mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj.x + 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //    }
-
-    //    //checkDown(within play area, that you can move there, that it doesnt have a character, it is in range of moveDistance)
-    //    moveObj = mSelectedCell;
-    //    moveObj.y++;
-    //    while (moveObj.y < mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCannotMoveHere && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && (Mathf.Abs(moveObj.y - mSelectedCell.y) <= mCharacterObj.mMoveDistance))
-    //    {
-    //        //add the location
-    //        mMoveAreaLocations.Add(moveObj);
-
-    //        //create the visual movement GameObject
-    //        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCellTransform.position, transform.rotation);
-
-    //        //add the gameobject to the stack
-    //        mMoveAreaObjArray.Push(movePiece);
-
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.y - mSelectedCell.y);
-    //        moveObj2.x--;
-    //        times++;
-    //        while (moveObj2.x >= 0 && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.x - 1 < 0)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.x--;
-    //        }
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.y - mSelectedCell.y);
-    //        moveObj2.x++;
-    //        times++;
-    //        while (moveObj2.x < mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.x + 1 > mCurrGrid.mSize.x)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.x++;
-    //        }
-
-
-    //        //change the block to check
-    //        if (moveObj.y + 1 > mCurrGrid.mSize.y)
-    //        {
-    //            break;
-    //        }
-    //        moveObj.y++;
-    //    }
-    //    moveObj.y--;
-    //    if (mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && mCharacterObj.mMoveDistance >= 4)
-    //    {
-    //        IntVector2 temp = moveObj;
-    //        if (temp.y - 2 >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y - 2].mCharacterOnCell)
-    //        {
-    //            temp.y -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.y + 2 <= mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj.x].cols[moveObj.y + 2].mCharacterOnCell)
-    //        {
-    //            temp.y += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x - 2 >= 0 && !mCurrGrid.rows[moveObj.x - 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x + 2 <= mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj.x + 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //    }
-
-    //    //checkLeft(within play area, that you can move there, that it doesnt have a character, it is in range of moveDistance)
-    //    moveObj = mSelectedCell;
-    //    moveObj.x--;
-    //    while (moveObj.x >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCannotMoveHere && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && (Mathf.Abs(moveObj.x - mSelectedCell.x) <= mCharacterObj.mMoveDistance))
-    //    {
-    //        //add the location
-    //        mMoveAreaLocations.Add(moveObj);
-
-    //        //create the visual movement GameObject
-    //        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCellTransform.position, transform.rotation);
-
-    //        //add the gameobject to the stack
-    //        mMoveAreaObjArray.Push(movePiece);
-
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.x - mSelectedCell.x);
-    //        moveObj2.y--;
-    //        times++;
-    //        while (moveObj2.y >= 0 && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.y - 1 < 0)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.y--;
-    //        }
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.x - mSelectedCell.x);
-    //        moveObj2.y++;
-    //        times++;
-    //        while (moveObj2.y < mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.y + 1 > mCurrGrid.mSize.y)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.y++;
-    //        }
-
-
-
-
-    //        //change the block to check
-    //        if (moveObj.x - 1 < 0)
-    //        {
-    //            break;
-    //        }
-    //        moveObj.x--;
-    //    }
-    //    moveObj.x++;
-    //    if (mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && mCharacterObj.mMoveDistance >= 4)
-    //    {
-    //        IntVector2 temp = moveObj;
-    //        if (temp.y - 2 >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y - 2].mCharacterOnCell)
-    //        {
-    //            temp.y -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.y + 2 <= mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj.x].cols[moveObj.y + 2].mCharacterOnCell)
-    //        {
-    //            temp.y += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x - 2 >= 0 && !mCurrGrid.rows[moveObj.x - 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x + 2 <= mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj.x + 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //    }
-
-    //    //checkRight(within play area, that you can move there, that it doesnt have a character, it is in range of moveDistance)
-    //    moveObj = mSelectedCell;
-    //    moveObj.x++;
-    //    while (moveObj.x < mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCannotMoveHere && !mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && (Mathf.Abs(moveObj.x - mSelectedCell.x) <= mCharacterObj.mMoveDistance))
-    //    {
-    //        //add the location
-    //        mMoveAreaLocations.Add(moveObj);
-
-    //        //create the visual movement GameObject
-    //        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCellTransform.position, transform.rotation);
-
-    //        //add the gameobject to the stack
-    //        mMoveAreaObjArray.Push(movePiece);
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.x - mSelectedCell.x);
-    //        moveObj2.y--;
-    //        times++;
-    //        while (moveObj2.y >= 0 && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.y - 1 < 0)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.y--;
-    //        }
-
-    //        moveObj2 = moveObj;
-
-    //        times = Mathf.Abs(moveObj2.x - mSelectedCell.x);
-    //        moveObj2.y++;
-    //        times++;
-    //        while (moveObj2.y < mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCannotMoveHere && !mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCharacterOnCell && (times <= mCharacterObj.mMoveDistance))
-    //        {
-    //            mMoveAreaLocations.Add(moveObj2);
-
-    //            //create the visual movement GameObject
-    //            GameObject movePiece2 = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[moveObj2.x].cols[moveObj2.y].mCellTransform.position, transform.rotation);
-
-    //            //add the gameobject to the stack
-    //            mMoveAreaObjArray.Push(movePiece2);
-
-    //            //change the block to check
-    //            if (moveObj2.y + 1 > mCurrGrid.mSize.y)
-    //            {
-    //                break;
-    //            }
-    //            times++;
-    //            moveObj2.y++;
-    //        }
-
-    //        //change the block to check
-    //        if (moveObj.x + 1 > mCurrGrid.mSize.x)
-    //        {
-    //            break;
-    //        }
-    //        moveObj.x++;
-    //    }
-    //    moveObj.x--;
-    //    if (mCurrGrid.rows[moveObj.x].cols[moveObj.y].mCharacterOnCell && mCharacterObj.mMoveDistance >= 4)
-    //    {
-    //        IntVector2 temp = moveObj;
-    //        if (temp.y - 2 >= 0 && !mCurrGrid.rows[moveObj.x].cols[moveObj.y - 2].mCharacterOnCell)
-    //        {
-    //            temp.y -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.y + 2 <= mCurrGrid.mSize.y && !mCurrGrid.rows[moveObj.x].cols[moveObj.y + 2].mCharacterOnCell)
-    //        {
-    //            temp.y += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x - 2 >= 0 && !mCurrGrid.rows[moveObj.x - 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x -= 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //        temp = moveObj;
-    //        if (temp.x + 2 <= mCurrGrid.mSize.x && !mCurrGrid.rows[moveObj.x + 2].cols[moveObj.y].mCharacterOnCell)
-    //        {
-    //            temp.x += 2;
-    //            mMoveAreaLocations.Add(temp);
-    //            GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[temp.x].cols[temp.y].mCellTransform.position, transform.rotation);
-    //            mMoveAreaObjArray.Push(movePiece);
-    //        }
-    //    }
-
-    //}
 }

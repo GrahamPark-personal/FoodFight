@@ -373,20 +373,11 @@ public class Character : MonoBehaviour {
         {
             mDirection = Direction.pos1;
         }
-        
 
         if (transform.position == tempV)
         {
             speed = StartSpeed;
             mMoving = false;
-        }
-
-        if (mHealth <= 0)
-        {
-            //Die
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-            Destroy(this.gameObject);
         }
 
         //actual rotation of the character
@@ -409,6 +400,32 @@ public class Character : MonoBehaviour {
 
     }
 
+    public void Damage(int amount)
+    {
+        //TODO:: Deal with attack based abilities
+
+        mHealth -= amount;
+        if(mHealth <= 0)
+        {
+            mHealth = 0;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        //TODO:: Deal with heal based abilities
+
+        mHealth += amount;
+        if (mHealth > mMaxHealth)
+        {
+            mHealth = mMaxHealth;
+        }
+
+
+    }
 
     void FixedUpdate()
     {

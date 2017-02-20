@@ -19,11 +19,22 @@ public enum CellTag
 public enum cellEffect
 {
     nothing = 0,
-    ElectricHailStorm = 1
+    ElectricHailStorm = 1,
+    LightningRod,
+    Wall
+}
+
+public enum CellActionType
+{
+    Nothing = 0,
+    StartOfTurn,
+    EveryStep
 }
 
 public struct EffectParameters
 {
+    public CellActionType CellAction;
+    public cellEffect Effect;
     public int Damage;
     public int Health;
     public int Slow;
@@ -79,6 +90,8 @@ public class Cell : MonoBehaviour
 
     GameObject AreaEffectBlock;
 
+    GameObject WallBlock;
+
     int effectDuration;
 
     public void AddEffect(EffectParameters parm)
@@ -92,8 +105,12 @@ public class Cell : MonoBehaviour
                 mEffectParameters.Remove(item);
             }
         }
-        effectDuration = parm.EffectDuration;
         AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+        if(parm.Effect == cellEffect.Wall)
+        {
+            WallBlock = Instantiate(GameManager.sInstance.mWallBlock, transform.position + new Vector3(0, 1, 0), transform.rotation);
+            mCannotMoveHere = true;
+        }
 
         mEffectParameters.Add(parm);
     }
@@ -132,63 +149,103 @@ public class Cell : MonoBehaviour
         }
         for (int i = 0; i < mEffectParameters.Count; i++)
         {
-
-            if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
+            if(mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
             {
+                if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
+                {
+                    if(mEffectParameters[i].Damage != 0)
+                    {
+                        mCharacterObj.Damage(mEffectParameters[i].Damage);
+                    }
+                    if(mEffectParameters[i].Health != 0)
+                    {
+                        mCharacterObj.Heal(mEffectParameters[i].Health);
+                    }
 
-                mCharacterObj.mHealth -= mEffectParameters[i].Damage;
-                mCharacterObj.mHealth += mEffectParameters[i].Health;
+                    if (mEffectParameters[i].Poison != 0)
+                    {
+                        mCharacterObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                    }
+                    if (mEffectParameters[i].Stun != 0)
+                    {
+                        mCharacterObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                    }
+                    if (mEffectParameters[i].Slow != 0)
+                    {
+                        mCharacterObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                    }
+                    //EffectParameters temp = mEffectParameters[i];
+                    //temp.EffectDuration--;
+                    //mEffectParameters[i] = temp;
+                    ////print(temp.EffectDuration);
+                    //if (mEffectParameters[i].EffectDuration <= 0)
+                    //{
+                    //    mEffectParameters.Remove(mEffectParameters[i]);
+                    //    Destroy(AreaEffectBlock);
+                    //    AreaEffectBlock = null;
+                    //}
+                }
+                else if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    if (mEffectParameters[i].Damage != 0)
+                    {
+                        mEnemyObj.Damage(mEffectParameters[i].Damage);
+                    }
+                    if (mEffectParameters[i].Health != 0)
+                    {
+                        mEnemyObj.Heal(mEffectParameters[i].Health);
+                    }
 
-                if (mEffectParameters[i].Poison != 0)
-                {
-                    mCharacterObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                    if (mEffectParameters[i].Poison != 0)
+                    {
+                        mEnemyObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                    }
+                    if (mEffectParameters[i].Stun != 0)
+                    {
+                        mEnemyObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                    }
+                    if (mEffectParameters[i].Slow != 0)
+                    {
+                        mEnemyObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                    }
+                    //EffectParameters temp = mEffectParameters[i];
+                    //temp.EffectDuration--;
+                    //mEffectParameters[i] = temp;
+                    ////print(temp.EffectDuration);
+                    //if (mEffectParameters[i].EffectDuration <= 0)
+                    //{
+                    //    mEffectParameters.Remove(mEffectParameters[i]);
+                    //    Destroy(AreaEffectBlock);
+                    //    AreaEffectBlock = null;
+                    //}
                 }
-                if (mEffectParameters[i].Stun != 0)
-                {
-                    mCharacterObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
-                }
-                if (mEffectParameters[i].Slow != 0)
-                {
-                    mCharacterObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
-                }
-                //EffectParameters temp = mEffectParameters[i];
-                //temp.EffectDuration--;
-                //mEffectParameters[i] = temp;
-                ////print(temp.EffectDuration);
-                //if (mEffectParameters[i].EffectDuration <= 0)
-                //{
-                //    mEffectParameters.Remove(mEffectParameters[i]);
-                //    Destroy(AreaEffectBlock);
-                //    AreaEffectBlock = null;
-                //}
+
+
+
             }
-            else if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            else if (mEffectParameters[i].Effect == cellEffect.LightningRod)
             {
-                mEnemyObj.mHealth -= mEffectParameters[i].Damage;
-                mEnemyObj.mHealth += mEffectParameters[i].Health;
-                if (mEffectParameters[i].Poison != 0)
+                print("effect noticed");
+                if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
-                    mEnemyObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                    print("effect and player turn noticed");
+                    if (mEffectParameters[i].Health != 0)
+                    {
+                        print("heal activated");
+                        mCharacterObj.Heal(mEffectParameters[i].Health);
+                    }
                 }
-                if (mEffectParameters[i].Stun != 0)
+                if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
-                    mEnemyObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                    if (mEffectParameters[i].Stun != 0)
+                    {
+                        mEnemyObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                    }
                 }
-                if (mEffectParameters[i].Slow != 0)
-                {
-                    mEnemyObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
-                }
-                //EffectParameters temp = mEffectParameters[i];
-                //temp.EffectDuration--;
-                //mEffectParameters[i] = temp;
-                ////print(temp.EffectDuration);
-                //if (mEffectParameters[i].EffectDuration <= 0)
-                //{
-                //    mEffectParameters.Remove(mEffectParameters[i]);
-                //    Destroy(AreaEffectBlock);
-                //    AreaEffectBlock = null;
-                //}
+
             }
+            
+            //TODO::here goes the different types of effects
 
             EffectParameters temp = mEffectParameters[i];
             temp.EffectDuration--;
@@ -196,6 +253,11 @@ public class Cell : MonoBehaviour
 
             if (mEffectParameters[i].EffectDuration <= 0)
             {
+                if (mEffectParameters[i].Effect == cellEffect.Wall)
+                {
+                    Destroy(WallBlock.gameObject);
+                    mCannotMoveHere = false;
+                }
                 mEffectParameters.Remove(mEffectParameters[i]);
                 Destroy(AreaEffectBlock.gameObject);
                 AreaEffectBlock = null;
@@ -346,6 +408,7 @@ public class Cell : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.OnCell && GameManager.sInstance.mAttackShape != AttackShape.Heal && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter)
         {
+
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
                 for (int i = 0; i < GameManager.sInstance.mAttackAreaLocations.Count; i++)

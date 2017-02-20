@@ -39,7 +39,7 @@ public class GreenBaseAttack : Attack
         if (mCell.mTypeOnCell == TypeOnCell.character)
         {
             Character mCharacter = mCell.mCharacterObj;
-            mCharacter.mHealth += GetHealth();
+            mCharacter.Heal(GetHealth());
 
             if (mCharacter.mHealth > mCharacter.GetMaxHealth())
             {
@@ -77,7 +77,7 @@ public class GreenBaseAttack : Attack
                 closedList.Add(var);
                 openList.Remove(var);
 
-                var.mHealth += GetHealth();
+                var.Heal(GetHealth());
 
                 if (var.mHealth > var.GetMaxHealth())
                 {

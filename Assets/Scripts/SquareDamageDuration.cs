@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquareDamageDuration : GroundDur {
+public class SquareDamageDuration : GroundDir {
 
     public int mTurnsLeft;
     public GameObject[] mVisualSquares;

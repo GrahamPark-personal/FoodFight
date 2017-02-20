@@ -108,7 +108,7 @@ namespace Assets.Scripts.Attacks.Basic
 
             if (GameManager.sInstance.mCurrGrid.rows[destination.y].cols[destination.x].mTypeOnCell == TypeOnCell.enemy)
             {
-                mCell.mEnemyObj.mHealth -= GetDamage();
+                mCell.mEnemyObj.Damage(GetDamage());
             }
 
 

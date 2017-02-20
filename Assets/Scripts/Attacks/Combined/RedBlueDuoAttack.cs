@@ -122,7 +122,7 @@ class RedBlueDuoAttack : Attack
                 }
                 else if(ID == AilmentID.None)
                 {
-                    nextEnemy.mHealth -= GetDamage();
+                    nextEnemy.Damage(GetDamage());
                 }
             }
         }

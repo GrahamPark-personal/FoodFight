@@ -17,8 +17,9 @@ public enum AilmentID
     Slow,
     Taunt,
     Heal,
+    Link,
     None
-    
+
 }
 
 public enum CharacterType
@@ -42,7 +43,8 @@ public struct DualAbilities
     public Attack mDuoAbility5;
 }
 
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour
+{
 
     struct StatusAilment
     {
@@ -135,6 +137,12 @@ public class Character : MonoBehaviour {
 
     List<StatusAilment> statusAilments = new List<StatusAilment>();
 
+    //[HideInInspector]
+    public bool Linked = false;
+
+    //[HideInInspector]
+    public Character CharacterLink;
+
     public void AddAilment(AilmentID ID, int duration, int extra)
     {
         StatusAilment ailment;
@@ -143,17 +151,17 @@ public class Character : MonoBehaviour {
         ailment.turnsPassed = 0;
         ailment.extra = extra;
 
-        for(int i = 0; i < statusAilments.Count; i++)
+        for (int i = 0; i < statusAilments.Count; i++)
         {
-            if(statusAilments[i].ID == ailment.ID )
+            if (statusAilments[i].ID == ailment.ID)
             {
-                statusAilments.Remove(statusAilments[i]);                
+                statusAilments.Remove(statusAilments[i]);
             }
         }
-        if(ID == AilmentID.Heal)
+        if (ID == AilmentID.Heal)
         {
             mAilmentHealth = extra;
-            mHealth += extra;
+            Heal(extra);
         }
         statusAilments.Add(ailment);
         print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
@@ -162,25 +170,30 @@ public class Character : MonoBehaviour {
     public void clearAilments()
     {
 
-        for(int i = 0; i < statusAilments.Count; i++)
+        for (int i = 0; i < statusAilments.Count; i++)
         {
             StatusAilment temp = statusAilments[i];
             temp.turnsPassed++;
             statusAilments[i] = temp;
-            if(statusAilments[i].duration < statusAilments[i].turnsPassed)
-            {            
-                if(statusAilments[i].ID == AilmentID.Heal)
+            if (statusAilments[i].duration < statusAilments[i].turnsPassed)
+            {
+                if (statusAilments[i].ID == AilmentID.Heal)
                 {
-                    if(mHealth > mMaxHealth)
+                    if (mHealth > mMaxHealth)
                     {
                         mHealth = mMaxHealth;
                     }
+                }
+                else if (statusAilments[i].ID == AilmentID.Link)
+                {
+                    Linked = false;
+                    CharacterLink = null;
                 }
 
                 statusAilments.Remove(statusAilments[i]);
 
             }
-            
+
         }
 
 
@@ -188,9 +201,9 @@ public class Character : MonoBehaviour {
 
     public void CheckAilments()
     {
-        for(int i = 0; i < statusAilments.Count; i++)
+        for (int i = 0; i < statusAilments.Count; i++)
         {
-            if(statusAilments[i].ID == AilmentID.Stun)
+            if (statusAilments[i].ID == AilmentID.Stun)
             {
                 print("Stun Code Executed");
                 mAttacked = true;
@@ -205,10 +218,9 @@ public class Character : MonoBehaviour {
             if (statusAilments[i].ID == AilmentID.Poison)
             {
                 Debug.Log("Poison Code Executed");
-                mHealth -= statusAilments[i].extra;
-                
+                Damage(statusAilments[i].extra);
             }
-            
+
         }
     }
 
@@ -234,7 +246,7 @@ public class Character : MonoBehaviour {
 
     }
 
-    void Start ()
+    void Start()
     {
         mPosition = transform;
         mFinalPosition = transform;
@@ -258,14 +270,14 @@ public class Character : MonoBehaviour {
             bool isStunned = false;
             foreach (var ailment in statusAilments)
             {
-                if(ailment.ID == AilmentID.Stun)
+                if (ailment.ID == AilmentID.Stun)
                 {
                     isStunned = true;
                     break;
                 }
 
             }
-            if(!isStunned)
+            if (!isStunned)
             {
                 GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
                 GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
@@ -286,7 +298,7 @@ public class Character : MonoBehaviour {
         clearAilments();
         CheckAilments();
 
-        if(mAnimControl != null)
+        if (mAnimControl != null)
         {
             mAnimControl.ChangeState(CharAnimState.Idle);
         }
@@ -298,7 +310,7 @@ public class Character : MonoBehaviour {
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
-        if(mAnimControl != null)
+        if (mAnimControl != null)
         {
             mAnimControl.ChangeState(CharAnimState.PoweredDown);
         }
@@ -309,15 +321,20 @@ public class Character : MonoBehaviour {
     public void RemoveMoves(int amount)
     {
         mMoveDistance -= amount;
-        if(mMoveDistance <= 0)
+        if (mMoveDistance <= 0)
         {
             mMoved = true;
         }
     }
 
-	void Update ()
+    void Update()
     {
-        if(mAttacked && mMoved)
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.sInstance.mCharacters[0].Damage(5);
+        }
+
+        if (mAttacked && mMoved)
         {
             EndCharacterTurn();
         }
@@ -325,7 +342,7 @@ public class Character : MonoBehaviour {
         if (mRunPath)
         {
             Transform tempT;
-            
+
 
             if (mPath.Count > 0 && !mMoving)
             {
@@ -336,9 +353,9 @@ public class Character : MonoBehaviour {
                 if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Fire)
                 {
                     //set player on fire
-                    if(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
+                    if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
                     {
-                        mHealth -= GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage;
+                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage);
                     }
                 }
 
@@ -354,7 +371,7 @@ public class Character : MonoBehaviour {
             }
 
         }
-        
+
         //changes direction of character
 
         if (nextBlock.x > lastBlock.x)
@@ -404,8 +421,13 @@ public class Character : MonoBehaviour {
     {
         //TODO:: Deal with attack based abilities
 
+        if (Linked && CharacterLink != null)
+        {
+            CharacterLink.Heal(amount);
+        }
+
         mHealth -= amount;
-        if(mHealth <= 0)
+        if (mHealth <= 0)
         {
             mHealth = 0;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;

@@ -66,117 +66,6 @@ class YellowRedDuoAttack : Attack
         GameManager.sInstance.CreateRowEffect(GetStartPos(), pos, CellTag.Fire, GetDamage());
 
         tempCharacter.mCellPos = pos;
-        //tempCharacter.mPosition.position = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0);
-
-        
-
-        
-
-
-        //while (temp.mCellPos.x != mCell.mPos.x || temp.mCellPos.y != mCell.mPos.y)
-        //{
-
-        //    //While current position is not the same as destination
-        //    // move the character towards the destination 1 square (either x++ or y++)
-
-        //    // whichever axis you are traveling along( x or y ) do the following for each cell
-
-        //    // fireCells.pushback(currentPos.x, currentPos.y - 1)
-        //    // fireCells.pushback(currentPos.x, currentPos.y + 0)
-        //    // fireCells.pushback(currentPos.x, currentPos.y + 1)
-
-        //    // OR
-
-        //    // fireCells.pushback(currentPos.x - 1, currentPos.y)
-        //    // fireCells.pushback(currentPos.x + 0, currentPos.y)
-        //    // fireCells.pushback(currentPos.x + 1, currentPos.y)
-
-        //    IntVector2 tempCell = temp.mCellPos;
-        //    if (temp.mCellPos.x == mCell.mPos.x)
-        //    {
-        //        tempCell.x--;
-        //        fireCells.Add(tempCell);
-
-        //        tempCell.x++;
-        //        fireCells.Add(tempCell);
-
-        //        tempCell.x++;
-        //        fireCells.Add(tempCell);
-
-        //        temp.mCellPos.y++;
-        //        Debug.Log("Temp Cell Pos : " + temp.mCellPos.x + ", " + temp.mCellPos.y);
-        //    }
-        //    if (temp.mCellPos.y == mCell.mPos.y)
-        //    {
-
-        //        tempCell.y--;
-        //        fireCells.Add(tempCell);
-
-        //        tempCell.y++;
-        //        fireCells.Add(tempCell);
-
-        //        tempCell.y++;
-        //        fireCells.Add(tempCell);
-
-        //        temp.mCellPos.x++;
-        //    }
-        //}
-
-        //foreach (var cell in fireCells)
-        //{
-        //    int i = 1;
-        //    Debug.Log("FireCell #" + i + " : " + cell.x + " , " + cell.y);
-        //    i++;
-        //}
-
-        //IntVector2 targetCell = temp.mCellPos;
-
-        //GameManager.sInstance.IsMovableBlock(targetCell);
-        //do
-        //{
-        //    targetCell = pos;
-        //    targetCell.x -= 1;
-        //    if (GameManager.sInstance.IsMovableBlock(targetCell))
-        //    {
-        //        break;
-        //    }
-
-        //    targetCell = pos;
-        //    targetCell.x += 1;
-        //    if (GameManager.sInstance.IsMovableBlock(targetCell))
-        //    {
-        //        break;
-        //    }
-
-        //    targetCell = pos;
-        //    targetCell.y += 1;
-        //    if (GameManager.sInstance.IsMovableBlock(targetCell))
-        //    {
-        //        break;
-        //    }
-
-        //    targetCell = pos;
-        //    targetCell.y -= 1;
-        //    if (GameManager.sInstance.IsMovableBlock(targetCell))
-        //    {
-        //        break;
-        //    }
-
-        //}
-        //while (false);
-
-        //temp.mPosition.position = GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].transform.position + new Vector3(0, 1, 0);
-
-        ////targetcell is now the end position
-        //temp.mCellPos = targetCell;
-
-
-        //GameManager.sInstance.mCurrGrid.rows[temp.mCellPos.y].cols[temp.mCellPos.x].mTypeOnCell = TypeOnCell.character;
-        //GameManager.sInstance.mCurrGrid.rows[temp.mCellPos.y].cols[temp.mCellPos.x].mCannotMoveHere = true;
-        //GameManager.sInstance.mCurrGrid.rows[temp.mCellPos.y].cols[temp.mCellPos.x].mCharacterObj = temp;
-
-        //// Move Character to Target Location
-        //// Applies Damage
 
     }
 
@@ -211,7 +100,7 @@ class YellowRedDuoAttack : Attack
 
             if (nextEnemy != null)
             {
-                nextEnemy.mHealth -= GetDamage();
+                nextEnemy.Damage(GetDamage());
                 nextEnemy.mMoveDistance -= GetSlow();
             }
         }

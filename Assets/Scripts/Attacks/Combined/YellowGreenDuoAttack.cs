@@ -9,13 +9,12 @@ public class YellowGreenDuoAttack : Attack {
     public override void Init()
     {
         CreateID();
-        SetStun(2);
-        SetHealth(5);
+        SetStun(1);
+        SetHealth(6);
         SetRange(5);
         SetRadius(2);
         SetAOE(9);
-        SetEffectDuration(3);
-        SetDamageDuration(3);
+        SetEffectDuration(2);
         GameManager.sInstance.mAttackShape = AttackShape.AreaNoCharacters;
         GameManager.sInstance.mCurrentRange = GetRange();
 
@@ -50,8 +49,6 @@ public class YellowGreenDuoAttack : Attack {
         effectParm.DamageDuration = GetDamageDuration();
         effectParm.Stun = GetStun();
         effectParm.ID = GetID();
-
-        print("Fine before here?");
 
         GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm, true);
 

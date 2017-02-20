@@ -35,13 +35,13 @@ public class YellowBaseAttack : Attack {
         if (mCell.mTypeOnCell == TypeOnCell.character)
         {
             mCell.mCharacterObj.AddAilment(AilmentID.Stun, GetEffectDuration(), 0);
-            mCell.mCharacterObj.mHealth -= GetDamage();
+            mCell.mCharacterObj.Damage(GetDamage());
         }
         else if (mCell.mTypeOnCell == TypeOnCell.enemy)
         {
             print(GetEffectDuration() + "," + GetStun());
             mCell.mEnemyObj.AddAilment(AilmentID.Stun, GetEffectDuration(), 0);
-            mCell.mEnemyObj.mHealth -= GetDamage();
+            mCell.mEnemyObj.Damage(GetDamage());
         }
 
     }

@@ -26,7 +26,8 @@ public enum AttackShape
     OnCell,
     Heal,
     OtherCharacter,
-    AreaNoCharacters
+    AreaNoCharacters,
+    AllCharacters
 
 }
 
@@ -978,7 +979,31 @@ public class GameManager : MonoBehaviour
         mPlayerSelectBlock.SetActive(hide);
     }
 
+    public void ClearAttack()
+    {
+        GameObject deleteObj;
 
+        //destroy moveArea/attackArea prefabs
+        while (mMoveAreaObjArray.Count > 0)
+        {
+            deleteObj = mMoveAreaObjArray.Pop();
+            Destroy(deleteObj.gameObject);
+        }
+
+        while (mAttackAreaObjArray.Count > 0)
+        {
+            deleteObj = mAttackAreaObjArray.Pop();
+            Destroy(deleteObj.gameObject);
+        }
+
+        //clear locations, and objects
+        mMoveAreaLocations.Clear();
+        mMoveAreaObjArray.Clear();
+
+
+        mAttackAreaLocations.Clear();
+        mAttackAreaObjArray.Clear();
+    }
 
     public void AttackPos(IntVector2 pos)
     {
@@ -996,13 +1021,12 @@ public class GameManager : MonoBehaviour
 
                     if (mCanControlEnemies && mGameTurn == GameTurn.Enemy)
                     {
-                        mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj.mHealth -= mCharacterObj.mDamage;
+                        mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj.Damage(mCharacterObj.mDamage);
                     }
                     else
                     {
-                        mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth -= mCharacterObj.mDamage;
+                        mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.Damage(mCharacterObj.mDamage);
                     }
-                    //print("Attacked Enemy(" + mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj.mHealth + " HP) with " + mCharacterObj.mDamage + "damage");
                 }
                 mCharacterObj.mAttacked = true;
                 mCharacterObj = null;
@@ -1151,6 +1175,10 @@ public class GameManager : MonoBehaviour
                 {
                     createAreaNoCharacterAttack(mSelectedCell, mCurrentRange);
                 }
+                else if(mAttackShape == AttackShape.AllCharacters)
+                {
+                    CreateCharacterTargets(mSelectedCell);
+                }
             }
         }
         else
@@ -1164,6 +1192,28 @@ public class GameManager : MonoBehaviour
     void CellHeal()
     {
 
+    }
+
+    void CreateCharacterTargets(IntVector2 pos)
+    {
+        print("Pos: " + pos.x + "," + +pos.y);
+
+        foreach (Character item in mCharacters)
+        {
+            print("Name: " + item);
+            print("itemPos: " + item.mCellPos.x + "," + +item.mCellPos.y);
+            Character mParseChar = mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCharacterObj;
+            if (mParseChar != mCharacterObj)
+            {
+                mAttackAreaLocations.Add(item.mCellPos);
+
+                //create the visual movement GameObject
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, transform.rotation);
+
+                //add the gameobject to the stack
+                mAttackAreaObjArray.Push(movePiece);
+            }
+        }
     }
 
     void CreateTargetAttack(IntVector2 pos, int radius)

@@ -33,6 +33,12 @@ public enum CharacterType
     None
 }
 
+public enum BuffID
+{
+    ThunderCloak = 0
+}
+
+
 [System.Serializable]
 public struct DualAbilities
 {
@@ -55,10 +61,22 @@ public class Character : MonoBehaviour
         public int extra;
     }
 
+    public struct Buff
+    {
+        public BuffID ID;
+        public int duration;
+        public int turnsPassed;
+        public int returnedDamage;
+        public int slow;
+        public int shield;
+    }
+
+
     public CharacterAnimationControl mAnimControl;
 
     public GameManager mGM = null;
 
+    bool damageOnce = true;
 
     [Space(30)]
     public Attack mBasicAbility;
@@ -137,6 +155,8 @@ public class Character : MonoBehaviour
 
     List<StatusAilment> statusAilments = new List<StatusAilment>();
 
+    List<Buff> buffs = new List<Buff>();
+
     //[HideInInspector]
     public bool Linked = false;
 
@@ -165,6 +185,27 @@ public class Character : MonoBehaviour
         }
         statusAilments.Add(ailment);
         print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
+    }
+
+    public void AddBuff(BuffID id, int duration, int slow, int dmg)
+    {
+        Buff buff = new Buff();
+        buff.ID = id;
+        buff.duration = duration;
+        buff.turnsPassed = 0;
+        buff.slow = slow;
+        buff.returnedDamage = dmg;
+
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            if (buffs[i].ID == buff.ID)
+            {
+                buffs.Remove(buffs[i]);
+            }
+        }
+
+        buffs.Add(buff);
+
     }
 
     public void clearAilments()
@@ -199,6 +240,23 @@ public class Character : MonoBehaviour
 
     }
 
+    public void clearBuffs()
+    {
+
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            Buff temp = buffs[i];
+            temp.turnsPassed++;
+            buffs[i] = temp;
+            if (buffs[i].duration < buffs[i].turnsPassed)
+            {
+                buffs.Remove(buffs[i]);
+            }
+
+        }
+
+    }
+
     public void CheckAilments()
     {
         for (int i = 0; i < statusAilments.Count; i++)
@@ -223,6 +281,23 @@ public class Character : MonoBehaviour
 
         }
     }
+
+
+    public void CheckBuffs(Character attacker)
+    {
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            if (buffs[i].ID == BuffID.ThunderCloak)
+            {
+                print("ThunderCloak Code Activated");
+                attacker.mMoved = true;
+                attacker.mMoveDistance = 0;
+                attacker.mHealth -= buffs[i].returnedDamage;
+            }
+        }
+    }
+
+
 
     public int GetMaxHealth()
     {
@@ -329,10 +404,14 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            GameManager.sInstance.mCharacters[0].Damage(5);
-        }
+
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                GameManager.sInstance.mCharacters[0].Damage(1);
+         
+            }
+    
 
         if (mAttacked && mMoved)
         {
@@ -346,6 +425,33 @@ public class Character : MonoBehaviour
 
             if (mPath.Count > 0 && !mMoving)
             {
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Ice)
+                {
+                    //set player to sliding
+                    if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.nothing)
+                    {
+
+                        IntVector2 temp = nextBlock;
+                        if (mDirection == Direction.pos2)
+                        {
+                            temp.x--;
+                        }
+                        if (mDirection == Direction.pos3)
+                        {
+                            temp.y++;
+                            if (mDirection == Direction.pos1)
+                            {
+                                temp.x++;
+                            }
+                        }
+                        if (mDirection == Direction.pos4)
+                        {
+                            temp.y--;
+                        }
+                        nextBlock = temp;
+                    }
+                }
+
                 lastBlock = nextBlock;
                 tempT = mPath.Dequeue();
                 nextBlock = mPosPath.Dequeue();
@@ -358,6 +464,23 @@ public class Character : MonoBehaviour
                         Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage);
                     }
                 }
+
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Enchanted)
+                {
+                    //set player on fire
+                    if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
+                    {
+                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage);
+                    }
+                    if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.character)
+                    {
+                        Heal(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage - 2);
+                    }
+                }
+
+
+
+
 
 
                 tempV = tempT.position + new Vector3(0, 1, 0);
@@ -435,6 +558,24 @@ public class Character : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+
+    public void Damage(Character attacker, int amount)
+    {
+
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            if (buffs[i].ID == BuffID.ThunderCloak)
+            {
+                amount -= buffs[i].shield;
+                attacker.mMoveDistance = 0;
+                attacker.mHealth -= buffs[i].returnedDamage;
+            }
+        }
+
+        Damage(amount);
+    }
+
 
     public void Heal(int amount)
     {

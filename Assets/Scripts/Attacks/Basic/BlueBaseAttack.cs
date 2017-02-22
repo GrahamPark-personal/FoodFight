@@ -33,12 +33,12 @@ public class BlueBaseAttack : Attack{
             if (mCell.mTypeOnCell == TypeOnCell.character)
             {
                 mCell.mCharacterObj.AddAilment(AilmentID.Slow, GetEffectDuration(), GetSlow());
-                mCell.mCharacterObj.Damage(GetDamage());
+                mCell.mCharacterObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
             }
             else if(mCell.mTypeOnCell == TypeOnCell.enemy)
             {
                 mCell.mEnemyObj.AddAilment(AilmentID.Slow, GetEffectDuration(), GetSlow());
-                mCell.mEnemyObj.Damage(GetDamage());
+                mCell.mEnemyObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
             }
         
     }

@@ -51,7 +51,6 @@ class YellowRedDuoAttack : Attack
 
         //List<IntVector2> fireCells = new List<IntVector2>();
 
-
         tempCharacter.speed = tempCharacter.speed * 4;
 
         tempCharacter.mPath.Enqueue(GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform);
@@ -69,41 +68,4 @@ class YellowRedDuoAttack : Attack
 
     }
 
-
-
-
-    public void GetNeighbors(Character character, List<IntVector2> neighbors)
-    {
-        for (int i = character.mCellPos.x - 1; i < character.mCellPos.x + 1; i++)
-        {
-            for (int j = character.mCellPos.y - 1; j < character.mCellPos.y + 1; j++)
-            {
-                if (character.mCellPos.x != i || character.mCellPos.y != j)
-                {
-                    IntVector2 nextNeighbor = new IntVector2();
-                    nextNeighbor.x = character.mCellPos.x + i;
-                    nextNeighbor.y = character.mCellPos.y + j;
-
-                    neighbors.Add(nextNeighbor);
-                }
-
-            }
-        }
-    }
-
-    public void CheckNeighbors(List<IntVector2> neighbors)
-    {
-
-        foreach (var cellPos in neighbors)
-        {
-            Character nextEnemy = GameManager.sInstance.mCurrGrid.rows[cellPos.y].cols[cellPos.x].mEnemyObj;
-
-            if (nextEnemy != null)
-            {
-                nextEnemy.Damage(GetDamage());
-                nextEnemy.mMoveDistance -= GetSlow();
-            }
-        }
-
-    }
 }

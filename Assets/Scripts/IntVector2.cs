@@ -4,7 +4,6 @@ using System.Collections;
 [System.Serializable]
 public struct IntVector2
 {
-
     public int x;
     public int y;
 
@@ -13,6 +12,4 @@ public struct IntVector2
     public int H;
 
     public IntVector2[] parent;
-
-
 }

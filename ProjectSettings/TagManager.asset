@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cell
   - Boss
+  - Banana
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,10 @@ public enum TypeOnCell
 public enum CellTag
 {
     None = 0,
-    Fire
+    Fire,
+    Ice,
+    Enchanted
+
 }
 
 
@@ -48,6 +51,8 @@ public struct EffectParameters
     public int DamageDuration;
     public int ID;
 }
+
+
 
 
 public class Cell : MonoBehaviour
@@ -89,8 +94,9 @@ public class Cell : MonoBehaviour
     List<EffectParameters> mEffectParameters = new List<EffectParameters>();
 
     GameObject AreaEffectBlock;
-
     GameObject WallBlock;
+
+    GameObject Banana;
 
     int effectDuration;
 
@@ -118,7 +124,11 @@ public class Cell : MonoBehaviour
     public void AddVisualBlock()
     {
         AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+    }
 
+    public void AddBanana()
+    {              
+        Banana = Instantiate(GameManager.sInstance.mBanana, transform.position + new Vector3(0,1,0), transform.rotation);
     }
 
 

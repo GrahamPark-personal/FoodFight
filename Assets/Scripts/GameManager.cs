@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     public Image mLoseScreen1;
 
     public int mCurrentRange;
-    
+
     #region ManagersAndClassReferences
 
     public CameraController mCamControl;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     public bool mEnemySelected = false;
 
     public Character mCharacterObj = null;
-    
+
     #endregion
 
     #region VisualBlocks
@@ -97,6 +97,8 @@ public class GameManager : MonoBehaviour
     public GameObject mAreaEffectBlock;
 
     public GameObject mWallBlock;
+
+    public GameObject mBanana;
 
     #endregion
 
@@ -871,7 +873,7 @@ public class GameManager : MonoBehaviour
             if (!item.mCannotMoveHere)
             {
                 Character mParseChar = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCharacterObj;
-                if(mParseChar == tempCharacter)
+                if (mParseChar == tempCharacter)
                 {
                     mAttackAreaLocations.Add(item.mPos);
 
@@ -1024,11 +1026,11 @@ public class GameManager : MonoBehaviour
             {
                 temp.x = i;
                 temp.y = j;
-                if(IsOnGridAndCanMoveTo(temp))
+                if (IsOnGridAndCanMoveTo(temp))
                 {
                     mCurrGrid.rows[j].cols[i].AddEffect(effectParm);
                 }
-                
+
                 //CreateAttackCell(temp);
             }
         }
@@ -1067,7 +1069,7 @@ public class GameManager : MonoBehaviour
 
             for (int i = Start.x; i > End.x; i--)
             {
-                print("Got here!!");
+                //print("Got here!!");
 
                 //for each one from up to down add one if there is a space to.
 
@@ -1239,6 +1241,191 @@ public class GameManager : MonoBehaviour
         //    }
         //}
     }
+
+
+    public void CreateBananas(IntVector2 Start, IntVector2 End)
+    {
+        string dir = "";
+        if (Start.x > End.x)
+        {
+            dir = "Down";
+        }
+        else if (Start.x > End.x)
+        {
+            dir = "Up";
+        }
+        else if (Start.y > End.y)
+        {
+            dir = "Right";
+        }
+        else if (Start.y < End.y)
+        {
+            dir = "Left";
+        }
+
+        print("Direction: " + dir);
+
+        IntVector2 temp = new IntVector2();
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        if (dir == "Up")
+        {
+            print("Start: " + Start.x + "," + Start.y);
+            print("End: " + End.x + "," + End.y);
+
+            for (int i = Start.x; i > End.x; i--)
+            {
+                //print("Got here!!");
+
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                
+
+                if (IsOnGrid(temp))
+                {
+
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+            }
+        }
+        else if (dir == "Down")
+        {
+            for (int i = Start.x; i < End.x; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+            }
+        }
+        else if (dir == "Right")
+        {
+            for (int i = Start.y; i > End.y; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+            }
+        }
+        else if (dir == "Left")
+        {
+            for (int i = Start.y; i < End.y; i++)
+            {
+                print("Got here");
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
+                }
+            }
+        }
+
+
+    }
+
+
+
+    //public void CreateBananas(IntVector2 Start, IntVector2 End)
+    //{     
+    //    Debug.Log("Start = " + Start.x + " , " + Start.y);
+    //    Debug.Log("End = " + End.x + " , " + End.y);
+
+    //    for (int i = 0; i < End.y - Start.y; i++)
+    //    {
+    //        for (int j = 0; j <= 1; j++)
+    //        {
+    //            //Cell currentCell = mCurrGrid.rows[Start.x].cols[Start.y + j];
+
+    //            Debug.Log("Banana Created at " + Start.x + i + " , " + End.x + j);
+    //            mCurrGrid.rows[Start.x + i].cols[Start.y + j].AddBanana();
+    //        }
+    //    }
+
+    //}
+
+
 
     #endregion
 
@@ -1686,11 +1873,11 @@ public class GameManager : MonoBehaviour
                 {
                     CreateTargetAttack(mSelectedCell, mCurrentRange);
                 }
-                else if(mAttackShape == AttackShape.AreaNoCharacters)
+                else if (mAttackShape == AttackShape.AreaNoCharacters)
                 {
                     createAreaNoCharacterAttack(mSelectedCell, mCurrentRange);
                 }
-                else if(mAttackShape == AttackShape.AllCharacters)
+                else if (mAttackShape == AttackShape.AllCharacters)
                 {
                     CreateCharacterTargets(mSelectedCell);
                 }

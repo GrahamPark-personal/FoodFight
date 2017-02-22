@@ -122,7 +122,7 @@ class RedBlueDuoAttack : Attack
                 }
                 else if(ID == AilmentID.None)
                 {
-                    nextEnemy.Damage(GetDamage());
+                    nextEnemy.Damage(gameObject.GetComponent<Character>(), GetDamage());
                 }
             }
         }

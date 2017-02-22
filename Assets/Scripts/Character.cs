@@ -18,6 +18,7 @@ public enum AilmentID
     Taunt,
     Heal,
     Link,
+    SpawnMinion,
     None
 
 }
@@ -160,8 +161,12 @@ public class Character : MonoBehaviour
     //[HideInInspector]
     public bool Linked = false;
 
+    public bool mHasSpawnedMinion = false;
+
     //[HideInInspector]
     public Character CharacterLink;
+
+    public Character SpawnedMinion;
 
     public void AddAilment(AilmentID ID, int duration, int extra)
     {
@@ -229,6 +234,15 @@ public class Character : MonoBehaviour
                 {
                     Linked = false;
                     CharacterLink = null;
+                }
+                else if (statusAilments[i].ID == AilmentID.SpawnMinion)
+                {
+                    print("Got here");
+                    mHasSpawnedMinion = false;
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mCharacterObj = null;
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+                    Destroy(SpawnedMinion.gameObject);
+                    SpawnedMinion = null;
                 }
 
                 statusAilments.Remove(statusAilments[i]);

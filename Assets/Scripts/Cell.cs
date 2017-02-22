@@ -6,7 +6,8 @@ public enum TypeOnCell
 {
     nothing = 0,
     character,
-    enemy
+    enemy,
+    playerMinion
 }
 
 public enum CellTag

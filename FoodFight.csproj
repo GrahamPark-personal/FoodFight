@@ -83,16 +83,20 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Attacks\Attack.cs" />
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Basic\BlackBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BlueBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BrownBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\GreenBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\RedBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\YellowBaseAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\BlueGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlueDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\RedBlueDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\RedGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowBlueDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\YellowBrownDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />

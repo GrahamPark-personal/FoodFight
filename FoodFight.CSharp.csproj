@@ -77,16 +77,23 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Attacks\Attack.cs" />
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Basic\BlackBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BlueBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BrownBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\GreenBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\RedBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\YellowBaseAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\BlueGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlueDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\BrownGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\RedBlueDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\RedGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowBlueDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\YellowBrownDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\YellowGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CameraSetUp.cs" />
@@ -96,8 +103,9 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
-    <Compile Include="Assets\Scripts\GroundDur.cs" />
+    <Compile Include="Assets\Scripts\GroundDir.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />
+    <Compile Include="Assets\Scripts\LevelSelectControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />

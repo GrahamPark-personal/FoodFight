@@ -11,15 +11,13 @@ public class YellowBrownDuoAttack : Attack
     public override void Init()
     {
         CreateID();
-        SetDamage(5);
-        SetHealth(0);
+        SetDamage(4);
         SetRange(5);
-        SetSlow(1);
-        SetRadius(2);
-        SetAOE(9);
-        SetEffectDuration(3);
-        SetDamageDuration(3);
-        GameManager.sInstance.mAttackShape = AttackShape.Area;
+        SetSlow(6);
+        SetRange(1);
+        SetEffectDuration(2);
+
+        GameManager.sInstance.mAttackShape = AttackShape.OnCell;
         GameManager.sInstance.mCurrentRange = GetRange();
 
     }

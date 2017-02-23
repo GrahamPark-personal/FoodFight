@@ -852,6 +852,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    void CreateOnCellTarget(IntVector2 pos)
+    {
+        mAttackAreaLocations.Add(pos);
+
+        //create the visual movement GameObject
+        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, transform.rotation);
+
+        //add the gameobject to the stack
+        mAttackAreaObjArray.Push(movePiece);
+    }
     void CreateTargetAttack(IntVector2 pos, int radius)
     {
         Character tempCharacter;
@@ -1240,6 +1251,165 @@ public class GameManager : MonoBehaviour
         //        CreateAttackCell(temp);
         //    }
         //}
+    }
+
+    public void CreateRowEffect(IntVector2 Start, IntVector2 End, EffectParameters effectParm)
+    {
+        string dir = "";
+        if (Start.x > End.x)
+        {
+            dir = "Down";
+        }
+        else if (Start.x > End.x)
+        {
+            dir = "Up";
+        }
+        else if (Start.y > End.y)
+        {
+            dir = "Right";
+        }
+        else if (Start.y < End.y)
+        {
+            dir = "Left";
+        }
+
+        print("Direction: " + dir);
+
+        IntVector2 temp = new IntVector2();
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        if (dir == "Up")
+        {
+            print("Start: " + Start.x + "," + Start.y);
+            print("End: " + End.x + "," + End.y);
+
+            for (int i = Start.x; i > End.x; i--)
+            {
+                //print("Got here!!");
+
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Down")
+        {
+            for (int i = Start.x; i < End.x; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Right")
+        {
+            for (int i = Start.y; i > End.y; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Left")
+        {
+            for (int i = Start.y; i < End.y; i++)
+            {
+                print("Got here");
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
     }
 
 
@@ -1880,6 +2050,10 @@ public class GameManager : MonoBehaviour
                 else if (mAttackShape == AttackShape.AllCharacters)
                 {
                     CreateCharacterTargets(mSelectedCell);
+                }
+                else if(mAttackShape == AttackShape.OnCell)
+                {
+                    CreateOnCellTarget(mSelectedCell);
                 }
             }
         }

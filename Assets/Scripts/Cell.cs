@@ -25,7 +25,8 @@ public enum cellEffect
     nothing = 0,
     ElectricHailStorm = 1,
     LightningRod,
-    Wall
+    Wall,
+    Ice
 }
 
 public enum CellActionType
@@ -97,7 +98,8 @@ public class Cell : MonoBehaviour
     GameObject AreaEffectBlock;
     GameObject WallBlock;
 
-    GameObject Banana;
+    [HideInInspector]
+    public GameObject Banana;
 
     int effectDuration;
 
@@ -113,12 +115,15 @@ public class Cell : MonoBehaviour
             }
         }
         AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
-        if(parm.Effect == cellEffect.Wall)
+        if (parm.Effect == cellEffect.Wall)
         {
             WallBlock = Instantiate(GameManager.sInstance.mWallBlock, transform.position + new Vector3(0, 1, 0), transform.rotation);
             mCannotMoveHere = true;
         }
-
+        else if (parm.Effect == cellEffect.Ice)
+        {
+            mCellTag = CellTag.Ice;
+        }
         mEffectParameters.Add(parm);
     }
 
@@ -128,8 +133,8 @@ public class Cell : MonoBehaviour
     }
 
     public void AddBanana()
-    {              
-        Banana = Instantiate(GameManager.sInstance.mBanana, transform.position + new Vector3(0,1,0), transform.rotation);
+    {
+        Banana = Instantiate(GameManager.sInstance.mBanana, transform.position + new Vector3(0, 1, 0), transform.rotation);
     }
 
 
@@ -151,7 +156,7 @@ public class Cell : MonoBehaviour
 
     public void CheckEffects()
     {
-        if(mCellTag == CellTag.Fire)
+        if (mCellTag == CellTag.Fire)
         {
             mCellDamage = 0;
             mCellTag = CellTag.None;
@@ -160,15 +165,15 @@ public class Cell : MonoBehaviour
         }
         for (int i = 0; i < mEffectParameters.Count; i++)
         {
-            if(mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
+            if (mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
             {
                 if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
-                    if(mEffectParameters[i].Damage != 0)
+                    if (mEffectParameters[i].Damage != 0)
                     {
                         mCharacterObj.Damage(mEffectParameters[i].Damage);
                     }
-                    if(mEffectParameters[i].Health != 0)
+                    if (mEffectParameters[i].Health != 0)
                     {
                         mCharacterObj.Heal(mEffectParameters[i].Health);
                     }
@@ -255,7 +260,7 @@ public class Cell : MonoBehaviour
                 }
 
             }
-            
+
             //TODO::here goes the different types of effects
 
             EffectParameters temp = mEffectParameters[i];
@@ -269,6 +274,17 @@ public class Cell : MonoBehaviour
                     Destroy(WallBlock.gameObject);
                     mCannotMoveHere = false;
                 }
+                else if (mEffectParameters[i].Effect == cellEffect.Ice)
+                {
+                    mCellTag = CellTag.None;
+                    if(Banana != null)
+                    {
+                        Destroy(Banana.gameObject);
+                        Banana = null;
+                    }
+                    
+                }
+
                 mEffectParameters.Remove(mEffectParameters[i]);
                 Destroy(AreaEffectBlock.gameObject);
                 AreaEffectBlock = null;
@@ -321,7 +337,11 @@ public class Cell : MonoBehaviour
         }
 
         //select block
-        if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character && (GameManager.sInstance.mAttackShape != AttackShape.Heal && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters))
+        if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character
+            && (GameManager.sInstance.mAttackShape != AttackShape.Heal
+            && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter
+            && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters
+            && GameManager.sInstance.mAttackShape != AttackShape.OnCell))
         {
             if (mTypeOnCell != TypeOnCell.character)
             {
@@ -349,7 +369,12 @@ public class Cell : MonoBehaviour
 
         if (GameManager.sInstance.mCanControlEnemies && Input.GetMouseButton(0) && !mCannotMoveHere)
         {
-            if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy && (GameManager.sInstance.mAttackShape != AttackShape.Heal && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters))
+            if (mTypeOnCell == TypeOnCell.enemy
+                && GameManager.sInstance.mGameTurn == GameTurn.Enemy
+                && (GameManager.sInstance.mAttackShape != AttackShape.Heal
+                && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter
+                && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters
+                && GameManager.sInstance.mAttackShape != AttackShape.OnCell))
             {
 
                 GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
@@ -386,7 +411,10 @@ public class Cell : MonoBehaviour
 
 
         //move
-        if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
+        if (Input.GetMouseButtonUp(0) && !mCannotMoveHere
+            && mTypeOnCell != TypeOnCell.character
+            && GameManager.sInstance.mCharacterSelected
+            && mTypeOnCell != TypeOnCell.character)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -396,7 +424,11 @@ public class Cell : MonoBehaviour
 
         if (GameManager.sInstance.mCanControlEnemies)
         {
-            if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mEnemySelected && mTypeOnCell != TypeOnCell.enemy)
+            if (Input.GetMouseButtonUp(0)
+                && !mCannotMoveHere
+                && mTypeOnCell != TypeOnCell.character
+                && GameManager.sInstance.mEnemySelected
+                && mTypeOnCell != TypeOnCell.enemy)
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -407,7 +439,10 @@ public class Cell : MonoBehaviour
 
 
         //attack
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.Attack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character)
+        if (Input.GetMouseButtonUp(0)
+            && GameManager.sInstance.mMouseMode == MouseMode.Attack
+            && GameManager.sInstance.mCharacterSelected
+            && mTypeOnCell != TypeOnCell.character)
         {
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
@@ -417,7 +452,14 @@ public class Cell : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && mTypeOnCell != TypeOnCell.character && GameManager.sInstance.mAttackShape != AttackShape.OnCell && GameManager.sInstance.mAttackShape != AttackShape.Heal && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters)
+        if (Input.GetMouseButtonUp(0)
+            && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack
+            && GameManager.sInstance.mCharacterSelected
+            && mTypeOnCell != TypeOnCell.character
+            && GameManager.sInstance.mAttackShape != AttackShape.OnCell
+            && GameManager.sInstance.mAttackShape != AttackShape.Heal
+            && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter
+            && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters)
         {
 
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
@@ -425,7 +467,8 @@ public class Cell : MonoBehaviour
                 for (int i = 0; i < GameManager.sInstance.mAttackAreaLocations.Count; i++)
                 {
                     //check if selected position is in the list of moveable locations
-                    if (GameManager.sInstance.mAttackAreaLocations[i].x == mPos.x && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
+                    if (GameManager.sInstance.mAttackAreaLocations[i].x == mPos.x
+                        && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
                     {
                         AttackManager.sInstance.RunAttack(mPos);
                         GameManager.sInstance.mMouseMode = MouseMode.Move;
@@ -442,7 +485,10 @@ public class Cell : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && GameManager.sInstance.mAttackShape == AttackShape.OnCell)
+        if (Input.GetMouseButtonUp(0)
+            && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack
+            && GameManager.sInstance.mCharacterSelected
+            && GameManager.sInstance.mAttackShape == AttackShape.OnCell)
         {
             AttackManager.sInstance.RunAttack(mPos);
             GameManager.sInstance.mMouseMode = MouseMode.Move;
@@ -454,7 +500,12 @@ public class Cell : MonoBehaviour
             GameManager.sInstance.ResetSelected();
         }
 
-        if (Input.GetMouseButtonUp(0) && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mCharacterSelected && (GameManager.sInstance.mAttackShape == AttackShape.Heal || GameManager.sInstance.mAttackShape == AttackShape.OtherCharacter || GameManager.sInstance.mAttackShape == AttackShape.AllCharacters))
+        if (Input.GetMouseButtonUp(0)
+            && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack
+            && GameManager.sInstance.mCharacterSelected
+            && (GameManager.sInstance.mAttackShape == AttackShape.Heal
+            || GameManager.sInstance.mAttackShape == AttackShape.OtherCharacter
+            || GameManager.sInstance.mAttackShape == AttackShape.AllCharacters))
         {
             //attack based on clicking on another character
             AttackManager.sInstance.RunAttack(mPos);

@@ -168,6 +168,8 @@ public class Character : MonoBehaviour
 
     public Character SpawnedMinion;
 
+    bool onIce = false;
+
     public void AddAilment(AilmentID ID, int duration, int extra)
     {
         StatusAilment ailment;
@@ -237,7 +239,6 @@ public class Character : MonoBehaviour
                 }
                 else if (statusAilments[i].ID == AilmentID.SpawnMinion)
                 {
-                    print("Got here");
                     mHasSpawnedMinion = false;
                     GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mCharacterObj = null;
                     GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
@@ -416,16 +417,19 @@ public class Character : MonoBehaviour
         }
     }
 
+
+
+
     void Update()
     {
 
 
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                GameManager.sInstance.mCharacters[0].Damage(1);
-         
-            }
-    
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.sInstance.mCharacters[0].Damage(1);
+
+        }
+
 
         if (mAttacked && mMoved)
         {
@@ -439,36 +443,23 @@ public class Character : MonoBehaviour
 
             if (mPath.Count > 0 && !mMoving)
             {
-                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Ice)
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].Banana != null)
                 {
-                    //set player to sliding
-                    if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.nothing)
-                    {
-
-                        IntVector2 temp = nextBlock;
-                        if (mDirection == Direction.pos2)
-                        {
-                            temp.x--;
-                        }
-                        if (mDirection == Direction.pos3)
-                        {
-                            temp.y++;
-                            if (mDirection == Direction.pos1)
-                            {
-                                temp.x++;
-                            }
-                        }
-                        if (mDirection == Direction.pos4)
-                        {
-                            temp.y--;
-                        }
-                        nextBlock = temp;
-                    }
+                    int bananaHeal = 3;
+                    Heal(bananaHeal);
+                    Destroy(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].Banana.gameObject);
                 }
 
                 lastBlock = nextBlock;
                 tempT = mPath.Dequeue();
+                tempV = tempT.position + new Vector3(0, 1, 0);
                 nextBlock = mPosPath.Dequeue();
+
+                IntVector2 direction = new IntVector2();
+
+                direction.x = nextBlock.x - lastBlock.x;
+                direction.y = nextBlock.y - lastBlock.y;
+                print("direction: " + direction.x + "," + direction.y);
 
                 if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Fire)
                 {
@@ -493,18 +484,14 @@ public class Character : MonoBehaviour
                 }
 
 
-
-
-
-
-                tempV = tempT.position + new Vector3(0, 1, 0);
-                //print(nextBlock.x + "," + nextBlock.y + "|" + lastBlock.x + "," + lastBlock.y + "|||" + mCellPos.x + "," + mCellPos.y);
                 mMoving = true;
             }
+
 
             if (mPath.Count == 0 && !mMoving)
             {
                 mRunPath = false;
+                onIce = false;
             }
 
         }
@@ -583,7 +570,8 @@ public class Character : MonoBehaviour
             {
                 amount -= buffs[i].shield;
                 attacker.mMoveDistance = 0;
-                attacker.mHealth -= buffs[i].returnedDamage;
+                attacker.mMoved = true;
+                attacker.Damage(buffs[i].returnedDamage);
             }
         }
 
@@ -608,6 +596,7 @@ public class Character : MonoBehaviour
     {
         if (mMoving)
         {
+
             transform.position = Vector3.MoveTowards(transform.position, tempV, speed * Time.deltaTime);
         }
     }

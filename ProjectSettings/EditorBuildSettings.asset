@@ -6,4 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/main.unity
+    path: Assets/LevelSelect.unity
+  - enabled: 1
+    path: Assets/RockLevel.unity
+  - enabled: 1
+    path: Assets/FireLevel.unity
+  - enabled: 1
+    path: Assets/NatureLevel.unity

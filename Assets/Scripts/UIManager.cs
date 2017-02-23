@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
 
@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour
     public void OnMenuDown()
     {
         //menu
-        Application.Quit();
+        SceneManager.LoadScene(0);
 
     }
 

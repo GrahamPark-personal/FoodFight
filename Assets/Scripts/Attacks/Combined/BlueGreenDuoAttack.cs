@@ -16,11 +16,10 @@ class BlueGreenDuoAttack : Attack
 
         //TODO Set real values
         CreateID();
-        SetDamage(4);
-        SetRange(6);
+        SetHealth(3);
+        SetRange(5);
         SetRadius(2);
-        SetAOE(9);
-
+        SetEffectDuration(2);
 
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
@@ -60,7 +59,20 @@ class BlueGreenDuoAttack : Attack
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = tempCharacter;
 
-        GameManager.sInstance.CreateRowEffect(GetStartPos(), pos, CellTag.Ice, GetDamage());
+        EffectParameters effectParm = new EffectParameters();
+        effectParm.Effect = cellEffect.Ice;
+        effectParm.CellAction = CellActionType.StartOfTurn;
+        effectParm.Damage = GetDamage();
+        effectParm.Slow = GetSlow();
+        effectParm.Health = GetHealth();
+        effectParm.Poison = GetPoison();
+        effectParm.Taunt = GetTaunt();
+        effectParm.EffectDuration = GetEffectDuration();
+        effectParm.DamageDuration = GetDamageDuration();
+        effectParm.Stun = GetStun();
+        effectParm.ID = GetID();
+
+        GameManager.sInstance.CreateRowEffect(GetStartPos(), pos, effectParm);
         GameManager.sInstance.CreateBananas(GetStartPos(), pos);
 
         tempCharacter.mCellPos = pos;

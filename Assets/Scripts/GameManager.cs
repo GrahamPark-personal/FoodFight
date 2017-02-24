@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject mBanana;
 
+    public GameObject mGridSquare;
+
     #endregion
 
     #region CharacterAndEnemyArrays

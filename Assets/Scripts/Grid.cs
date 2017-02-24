@@ -36,6 +36,13 @@ public class Grid : MonoBehaviour {
             {
                 rows[y].cols[x].mPos.x = x;
                 rows[y].cols[x].mPos.y = y;
+
+                if (!rows[y].cols[x].mCannotMoveHere)
+                {
+                    Transform pos = rows[y].cols[x].transform;
+                    Instantiate(GameManager.sInstance.mGridSquare, pos.position + new Vector3(0,.08f,0), pos.rotation);
+                }
+
             }
         }
 	}

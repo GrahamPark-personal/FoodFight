@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Attacks\Basic\RedBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\YellowBaseAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BlueGreenDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlackDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlueDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\BrownRedDuoAttack.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowBrownDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
+    <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CameraSetUp.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\GroundDir.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />
+    <Compile Include="Assets\Scripts\LevelSelectControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />

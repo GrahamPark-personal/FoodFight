@@ -166,7 +166,8 @@ public class Character : MonoBehaviour
     //[HideInInspector]
     public Character CharacterLink;
 
-    public Character SpawnedMinion;
+    public Character SpawnedMinion1;
+    public Character SpawnedMinion2;
 
     bool onIce = false;
 
@@ -240,10 +241,15 @@ public class Character : MonoBehaviour
                 else if (statusAilments[i].ID == AilmentID.SpawnMinion)
                 {
                     mHasSpawnedMinion = false;
-                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mCharacterObj = null;
-                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion.mCellPos.y].cols[SpawnedMinion.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-                    Destroy(SpawnedMinion.gameObject);
-                    SpawnedMinion = null;
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion1.mCellPos.y].cols[SpawnedMinion1.mCellPos.x].mCharacterObj = null;
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion1.mCellPos.y].cols[SpawnedMinion1.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+                    Destroy(SpawnedMinion1.gameObject);
+                    SpawnedMinion1 = null;
+
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion2.mCellPos.y].cols[SpawnedMinion2.mCellPos.x].mCharacterObj = null;
+                    GameManager.sInstance.mCurrGrid.rows[SpawnedMinion2.mCellPos.y].cols[SpawnedMinion2.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+                    Destroy(SpawnedMinion2.gameObject);
+                    SpawnedMinion2 = null;
                 }
 
                 statusAilments.Remove(statusAilments[i]);
@@ -484,7 +490,7 @@ public class Character : MonoBehaviour
                 }
 
 
-                mMoving = true;
+                    mMoving = true;
             }
 
 

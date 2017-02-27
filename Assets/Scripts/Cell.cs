@@ -15,7 +15,8 @@ public enum CellTag
     None = 0,
     Fire,
     Ice,
-    Enchanted
+    Enchanted,
+    Poison
 
 }
 
@@ -26,7 +27,8 @@ public enum cellEffect
     ElectricHailStorm = 1,
     LightningRod,
     Wall,
-    Ice
+    Ice,
+    Poison
 }
 
 public enum CellActionType
@@ -123,6 +125,10 @@ public class Cell : MonoBehaviour
         else if (parm.Effect == cellEffect.Ice)
         {
             mCellTag = CellTag.Ice;
+        }
+        else if (parm.Effect == cellEffect.Poison)
+        {
+            mCellTag = CellTag.Poison;
         }
         mEffectParameters.Add(parm);
     }
@@ -283,6 +289,10 @@ public class Cell : MonoBehaviour
                         Banana = null;
                     }
                     
+                }
+                else if (mEffectParameters[i].Effect == cellEffect.Poison)
+                {
+                    mCellTag = CellTag.None;
                 }
 
                 mEffectParameters.Remove(mEffectParameters[i]);

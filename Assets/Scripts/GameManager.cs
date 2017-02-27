@@ -815,6 +815,7 @@ public class GameManager : MonoBehaviour
     public void SetHover(IntVector2 pos)
     {
         mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+        mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
     }
 
     public void MoveCharacterHover(IntVector2 pos)
@@ -846,7 +847,7 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(item.mCellPos);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -860,7 +861,7 @@ public class GameManager : MonoBehaviour
         mAttackAreaLocations.Add(pos);
 
         //create the visual movement GameObject
-        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, transform.rotation);
+        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
         //add the gameobject to the stack
         mAttackAreaObjArray.Push(movePiece);
@@ -891,7 +892,7 @@ public class GameManager : MonoBehaviour
                     mAttackAreaLocations.Add(item.mPos);
 
                     //create the visual movement GameObject
-                    GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+                    GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
                     //add the gameobject to the stack
                     mAttackAreaObjArray.Push(movePiece);
@@ -945,7 +946,7 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(item.mPos);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -968,7 +969,7 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(item.mPos);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -1009,7 +1010,7 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(tempPosition);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mAttackBlock, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -1836,7 +1837,7 @@ public class GameManager : MonoBehaviour
                 mMoveAreaLocations.Add(tempPosition);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, transform.rotation);
+                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mMoveAreaObjArray.Push(movePiece);
@@ -1971,6 +1972,7 @@ public class GameManager : MonoBehaviour
         mSelectedCell = pos;
         //move lightblock to selected postion
         mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+        mLightUp.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
 
         mCharacterSelected = (objOnCell == TypeOnCell.character);
 
@@ -2117,3 +2119,4 @@ public class GameManager : MonoBehaviour
     #endregion
 
 }
+

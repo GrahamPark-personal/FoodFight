@@ -19,6 +19,7 @@ public enum AilmentID
     Heal,
     Link,
     SpawnMinion,
+    Virus,
     None
 
 }
@@ -50,10 +51,11 @@ public struct DualAbilities
     public Attack mDuoAbility5;
 }
 
+
 public class Character : MonoBehaviour
 {
 
-    struct StatusAilment
+    public struct StatusAilment
     {
 
         public AilmentID ID;
@@ -169,6 +171,15 @@ public class Character : MonoBehaviour
     public Character SpawnedMinion1;
     public Character SpawnedMinion2;
 
+    [HideInInspector]
+    public StatusAilment mVirusAilment;
+
+    [HideInInspector]
+    public bool patientZero = false;
+
+    [HideInInspector]
+    public bool hasVirus = false;
+
     bool onIce = false;
 
     public void AddAilment(AilmentID ID, int duration, int extra)
@@ -190,6 +201,11 @@ public class Character : MonoBehaviour
         {
             mAilmentHealth = extra;
             Heal(extra);
+        }
+        if(ID == AilmentID.Virus)
+        {
+            mVirusAilment = ailment;
+            hasVirus = true;
         }
         statusAilments.Add(ailment);
         print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
@@ -251,6 +267,11 @@ public class Character : MonoBehaviour
                     Destroy(SpawnedMinion2.gameObject);
                     SpawnedMinion2 = null;
                 }
+                else if (statusAilments[i].ID == AilmentID.Virus)
+                {
+                    hasVirus = false;
+                    patientZero = false;
+                }
 
                 statusAilments.Remove(statusAilments[i]);
 
@@ -299,9 +320,14 @@ public class Character : MonoBehaviour
                 Debug.Log("Poison Code Executed");
                 Damage(statusAilments[i].extra);
             }
+            if(statusAilments[i].ID == AilmentID.Virus)
+            {
+                Damage(statusAilments[i].extra);
+            }
 
         }
     }
+
 
 
     public void CheckBuffs(Character attacker)
@@ -489,6 +515,22 @@ public class Character : MonoBehaviour
                     }
                 }
 
+                if(patientZero)
+                {
+                    //find characters around
+                    List<Character> charactersAround = aroundCharacter(nextBlock);
+                    //add virus ailment
+                    foreach (Character item in charactersAround)
+                    {
+                        if(item != this)
+                        {
+                            item.AddAilment(AilmentID.Virus, mVirusAilment.duration, mVirusAilment.extra);
+                            print("added virus to: " + item);
+                        }
+                    }
+
+                }
+
 
                     mMoving = true;
             }
@@ -545,6 +587,61 @@ public class Character : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(270, Vector3.up), mRotationSpeed * Time.deltaTime);
         }
 
+    }
+
+    List<Character> aroundCharacter(IntVector2 pos)
+    {
+        List<Character> characters = new List<Character>();
+
+        IntVector2 tempPos;
+
+        Character tempChar;
+
+        tempPos = pos;
+        tempPos.x++;
+        if(GameManager.sInstance.IsOnGrid(tempPos))
+        {
+            tempChar = GameManager.sInstance.mCurrGrid.rows[tempPos.y].cols[tempPos.x].GetCharacterObject();
+            if(tempChar != null)
+            {
+                characters.Add(tempChar);
+            }
+        }
+
+        tempPos = pos;
+        tempPos.x--;
+        if (GameManager.sInstance.IsOnGrid(tempPos))
+        {
+            tempChar = GameManager.sInstance.mCurrGrid.rows[tempPos.y].cols[tempPos.x].GetCharacterObject();
+            if (tempChar != null)
+            {
+                characters.Add(tempChar);
+            }
+        }
+
+        tempPos = pos;
+        tempPos.y++;
+        if (GameManager.sInstance.IsOnGrid(tempPos))
+        {
+            tempChar = GameManager.sInstance.mCurrGrid.rows[tempPos.y].cols[tempPos.x].GetCharacterObject();
+            if (tempChar != null)
+            {
+                characters.Add(tempChar);
+            }
+        }
+
+        tempPos = pos;
+        tempPos.y--;
+        if (GameManager.sInstance.IsOnGrid(tempPos))
+        {
+            tempChar = GameManager.sInstance.mCurrGrid.rows[tempPos.y].cols[tempPos.x].GetCharacterObject();
+            if (tempChar != null)
+            {
+                characters.Add(tempChar);
+            }
+        }
+
+        return characters;
     }
 
     public void Damage(int amount)

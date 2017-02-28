@@ -814,8 +814,11 @@ public class GameManager : MonoBehaviour
 
     public void SetHover(IntVector2 pos)
     {
-        mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
-        mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
+        if(IsOnGridAndCanMoveTo(pos))
+        {
+            mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+            mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
+        }
     }
 
     public void MoveCharacterHover(IntVector2 pos)

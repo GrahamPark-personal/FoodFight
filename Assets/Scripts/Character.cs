@@ -20,6 +20,7 @@ public enum AilmentID
     Link,
     SpawnMinion,
     Virus,
+    TimeBomb,
     None
 
 }
@@ -37,7 +38,7 @@ public enum CharacterType
 
 public enum BuffID
 {
-    ThunderCloak = 0
+    ThunderCloak = 0,
 }
 
 
@@ -202,7 +203,7 @@ public class Character : MonoBehaviour
             mAilmentHealth = extra;
             Heal(extra);
         }
-        if(ID == AilmentID.Virus)
+        if (ID == AilmentID.Virus)
         {
             mVirusAilment = ailment;
             hasVirus = true;
@@ -272,6 +273,26 @@ public class Character : MonoBehaviour
                     hasVirus = false;
                     patientZero = false;
                 }
+                else if (statusAilments[i].ID == AilmentID.TimeBomb)
+                {
+                    Character[] neighbors = new Character[4];
+                    neighbors[0] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y - 1].cols[mCellPos.x].mEnemyObj;
+                    neighbors[1] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y + 1].cols[mCellPos.x].mEnemyObj;
+                    neighbors[2] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x - 1].mEnemyObj;
+                    neighbors[3] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x + 1].mEnemyObj;
+
+                    for (int neighborIndex = 0; neighborIndex < 4; neighborIndex++)
+                    {
+
+                        Debug.Log("Inside Neighbor check");
+                        if (neighbors[neighborIndex] != null)
+                        {
+                            Debug.Log("Applying final bomb damage.");
+                            neighbors[neighborIndex].Damage(statusAilments[i].extra * 2);
+                        }
+                    }
+                        Damage(statusAilments[i].extra * 2);
+                }
 
                 statusAilments.Remove(statusAilments[i]);
 
@@ -320,9 +341,31 @@ public class Character : MonoBehaviour
                 Debug.Log("Poison Code Executed");
                 Damage(statusAilments[i].extra);
             }
-            if(statusAilments[i].ID == AilmentID.Virus)
+            if (statusAilments[i].ID == AilmentID.Virus)
             {
                 Damage(statusAilments[i].extra);
+            }
+            if (statusAilments[i].ID == AilmentID.Heal)
+            {
+                Heal(statusAilments[i].extra);
+            }
+            if (statusAilments[i].ID == AilmentID.TimeBomb)
+            {
+                Character[] neighbors = new Character[4];
+                neighbors[0] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y - 1].cols[mCellPos.x].mEnemyObj;
+                neighbors[1] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y + 1].cols[mCellPos.x].mEnemyObj;
+                neighbors[2] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x - 1].mEnemyObj;
+                neighbors[3] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x + 1].mEnemyObj;
+
+                for (int neighborIndex = 0; neighborIndex < 4; neighborIndex++)
+                {
+
+                    if (neighbors[neighborIndex] != null)
+                    {
+                        neighbors[neighborIndex].Damage(statusAilments[i].extra);
+                    }
+                }
+
             }
 
         }
@@ -412,7 +455,6 @@ public class Character : MonoBehaviour
                 GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
                 GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCharacterObj = this;
 
-
                 needsToReturn = false;
             }
         }
@@ -458,7 +500,7 @@ public class Character : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            GameManager.sInstance.mCharacters[0].Damage(1);
+            GameManager.sInstance.mCharacters[4].Damage(1);
 
         }
 
@@ -515,14 +557,14 @@ public class Character : MonoBehaviour
                     }
                 }
 
-                if(patientZero)
+                if (patientZero)
                 {
                     //find characters around
                     List<Character> charactersAround = aroundCharacter(nextBlock);
                     //add virus ailment
                     foreach (Character item in charactersAround)
                     {
-                        if(item != this)
+                        if (item != this)
                         {
                             item.AddAilment(AilmentID.Virus, mVirusAilment.duration, mVirusAilment.extra);
                             print("added virus to: " + item);
@@ -532,7 +574,7 @@ public class Character : MonoBehaviour
                 }
 
 
-                    mMoving = true;
+                mMoving = true;
             }
 
 
@@ -599,10 +641,10 @@ public class Character : MonoBehaviour
 
         tempPos = pos;
         tempPos.x++;
-        if(GameManager.sInstance.IsOnGrid(tempPos))
+        if (GameManager.sInstance.IsOnGrid(tempPos))
         {
             tempChar = GameManager.sInstance.mCurrGrid.rows[tempPos.y].cols[tempPos.x].GetCharacterObject();
-            if(tempChar != null)
+            if (tempChar != null)
             {
                 characters.Add(tempChar);
             }

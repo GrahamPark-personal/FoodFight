@@ -17,6 +17,7 @@ public class YellowBaseAttack : Attack {
         SetAOE(1);
         SetEffectDuration(2);
         SetDamageDuration(1);
+
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 

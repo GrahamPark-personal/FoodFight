@@ -276,10 +276,10 @@ public class Character : MonoBehaviour
                 else if (statusAilments[i].ID == AilmentID.TimeBomb)
                 {
                     Character[] neighbors = new Character[4];
-                    neighbors[0] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y - 1].cols[mCellPos.x].mEnemyObj;
-                    neighbors[1] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y + 1].cols[mCellPos.x].mEnemyObj;
-                    neighbors[2] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x - 1].mEnemyObj;
-                    neighbors[3] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x + 1].mEnemyObj;
+                    neighbors[0] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y - 1].cols[mCellPos.x].GetCharacterObject();
+                    neighbors[1] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y + 1].cols[mCellPos.x].GetCharacterObject();
+                    neighbors[2] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x - 1].GetCharacterObject();
+                    neighbors[3] = GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x + 1].GetCharacterObject();
 
                     for (int neighborIndex = 0; neighborIndex < 4; neighborIndex++)
                     {
@@ -288,7 +288,7 @@ public class Character : MonoBehaviour
                         if (neighbors[neighborIndex] != null)
                         {
                             Debug.Log("Applying final bomb damage.");
-                            neighbors[neighborIndex].Damage(statusAilments[i].extra * 2);
+                            neighbors[neighborIndex].Damage(statusAilments[i].extra * 3);
                         }
                     }
                         Damage(statusAilments[i].extra * 2);
@@ -503,6 +503,7 @@ public class Character : MonoBehaviour
             GameManager.sInstance.mCharacters[4].Damage(1);
 
         }
+        
 
 
         if (mAttacked && mMoved)
@@ -698,6 +699,12 @@ public class Character : MonoBehaviour
         mHealth -= amount;
         if (mHealth <= 0)
         {
+            if(this.tag == "Boss")
+            {
+                GameManager.sInstance.GameFinished = true;
+                GameManager.sInstance.GameWon = true;
+                GameManager.sInstance.mWinScreen1.enabled = true;
+            }
             mHealth = 0;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;

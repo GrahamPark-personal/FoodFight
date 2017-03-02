@@ -11,12 +11,14 @@ public class RedBlackDuoAttack : Attack
         SetDamage(3);
         SetRange(5);        
         SetRadius(1);
-        SetEffectDuration(3);        
+        SetEffectDuration(2);        
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 
-        GameManager.sInstance.mAttackShape = AttackShape.OtherCharacter;
+        GameManager.sInstance.mAttackShape = AttackShape.OnCell;
         GameManager.sInstance.mCurrentRange = GetRange();
+
+
 
     }
 

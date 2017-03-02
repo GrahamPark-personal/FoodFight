@@ -36,6 +36,13 @@ public class GameManager : MonoBehaviour
 
     public bool mCanControlEnemies = false;
 
+    [HideInInspector]
+    public bool GameFinished = false;
+    [HideInInspector]
+    public bool GameWon = false;
+    [HideInInspector]
+    public bool GameLost = false;
+
     public Grid mCurrGrid;
 
     public float mEntityMoveSpeed;
@@ -44,6 +51,8 @@ public class GameManager : MonoBehaviour
     public Image mLoseScreen1;
 
     public int mCurrentRange;
+
+    public Character mBoss;
 
     #region ManagersAndClassReferences
 
@@ -227,6 +236,20 @@ public class GameManager : MonoBehaviour
             FinishEnemyTurn();
         }
 
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            mMouseMode = MouseMode.Attack;
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            mMouseMode = MouseMode.Move;
+        }
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            AttackManager.sInstance.SetAttack(mBoss.mBasicAbility);
+            mMouseMode = MouseMode.AbilityAttack;
+        }
+
     }
 
     #endregion
@@ -235,13 +258,17 @@ public class GameManager : MonoBehaviour
 
     public bool CheckWin()
     {
+
         foreach (Character var in mEnemies)
         {
+
             if (var != null && var.tag == "Boss")
             {
+
                 return false;
             }
         }
+
         mWinScreen1.enabled = true;
         return true;
     }
@@ -255,6 +282,7 @@ public class GameManager : MonoBehaviour
                 return false;
             }
         }
+
         mLoseScreen1.enabled = true;
         return true;
     }
@@ -267,6 +295,9 @@ public class GameManager : MonoBehaviour
     {
         if (mGameTurn == GameTurn.Player)
         {
+            sInstance.CheckLose();
+            sInstance.CheckWin();
+
             mGameTurn = GameTurn.Enemy;
             for (int i = 0; i < mCharacters.Length; i++)
             {
@@ -300,6 +331,9 @@ public class GameManager : MonoBehaviour
     {
         if (mGameTurn == GameTurn.Enemy)
         {
+            sInstance.CheckLose();
+            sInstance.CheckWin();
+
             mGameTurn = GameTurn.Player;
 
             for (int j = 0; j < mCurrGrid.rows.Length; j++)

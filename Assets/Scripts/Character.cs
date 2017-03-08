@@ -534,7 +534,6 @@ public class Character : MonoBehaviour
 
                 direction.x = nextBlock.x - lastBlock.x;
                 direction.y = nextBlock.y - lastBlock.y;
-                print("direction: " + direction.x + "," + direction.y);
 
                 if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Fire)
                 {

@@ -33,4 +33,10 @@ public class LevelSelectControl : MonoBehaviour {
 
     }
 
+    public void LoadDarkLevel()
+    {
+        SceneManager.LoadScene(4);
+
+    }
+
 }

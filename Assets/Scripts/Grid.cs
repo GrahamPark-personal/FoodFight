@@ -40,7 +40,8 @@ public class Grid : MonoBehaviour {
                 if (!rows[y].cols[x].mCannotMoveHere)
                 {
                     Transform pos = rows[y].cols[x].transform;
-                    Instantiate(GameManager.sInstance.mGridSquare, pos.position + new Vector3(0,.08f,0), pos.rotation);
+                    GameObject Spawn = Instantiate(GameManager.sInstance.mGridSquare, pos.position, pos.rotation); // + new Vector3(0,.08f,0)
+                    Spawn.transform.localScale = pos.localScale;
                 }
 
             }

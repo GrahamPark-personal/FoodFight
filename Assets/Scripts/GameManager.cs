@@ -1088,16 +1088,185 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public List<IntVector2> GetRowLocations(IntVector2 Start, IntVector2 End)
+    {
+        List<IntVector2> locations = new List<IntVector2>();
+
+        string dir = "";
+        if (Start.x > End.x)
+        {
+            dir = "Up";
+        }
+        else if (Start.x < End.x)
+        {
+            dir = "Down";
+        }
+        else if (Start.y > End.y)
+        {
+            dir = "Right";
+        }
+        else if (Start.y < End.y)
+        {
+            dir = "Left";
+        }
+
+
+        IntVector2 temp = new IntVector2();
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        if (dir == "Up")
+        {
+
+            for (int i = Start.x; i > End.x; i--)
+            {
+                //print("Got here!!");
+
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+            }
+        }
+        else if (dir == "Down")
+        {
+            for (int i = Start.x; i < End.x; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+            }
+        }
+        else if (dir == "Right")
+        {
+            for (int i = Start.y; i > End.y; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+            }
+        }
+        else if (dir == "Left")
+        {
+            for (int i = Start.y; i < End.y; i++)
+            {
+                print("Got here");
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    locations.Add(temp);
+
+                }
+            }
+        }
+
+        return locations;
+    }
+
     public void CreateRowEffect(IntVector2 Start, IntVector2 End, CellTag tag, int damage)
     {
         string dir = "";
         if (Start.x > End.x)
         {
-            dir = "Down";
-        }
-        else if (Start.x > End.x)
-        {
             dir = "Up";
+        }
+        else if (Start.x < End.x)
+        {
+            dir = "Down";
         }
         else if (Start.y > End.y)
         {
@@ -1300,7 +1469,7 @@ public class GameManager : MonoBehaviour
         {
             dir = "Down";
         }
-        else if (Start.x > End.x)
+        else if (Start.x < End.x)
         {
             dir = "Up";
         }
@@ -1460,7 +1629,7 @@ public class GameManager : MonoBehaviour
         {
             dir = "Down";
         }
-        else if (Start.x > End.x)
+        else if (Start.x < End.x)
         {
             dir = "Up";
         }
@@ -2149,6 +2318,28 @@ public class GameManager : MonoBehaviour
 
 
         return tempList;
+    }
+
+    public void MoveCharacterSlot(IntVector2 newPos, Character ch)
+    {
+        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mCharacterObj = null;
+
+        ch.mCellPos = newPos;
+
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mTypeOnCell = TypeOnCell.character;
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mCharacterObj = ch;
+    }
+
+    public void MoveEnemySlot(IntVector2 newPos, Character ch)
+    {
+        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mCharacterObj = null;
+
+        ch.mCellPos = newPos;
+
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mTypeOnCell = TypeOnCell.character;
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mCharacterObj = ch;
     }
 
     #endregion

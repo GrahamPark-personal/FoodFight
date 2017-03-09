@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowGreenDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
+    <Compile Include="Assets\Scripts\Attacks\WhiteMage\WhiteBaseAttack.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CameraSetUp.cs" />

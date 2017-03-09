@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/FireLevel.unity
+- path: Assets/DarkLevel.unity
   isLoaded: 1
   isActive: 1

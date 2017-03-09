@@ -884,7 +884,9 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(item.mCellPos);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.rotation);
+                GameObject tempObject = mMoveAreaPrefab;
+                tempObject.transform.localScale = mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.localScale;
+                GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -898,7 +900,9 @@ public class GameManager : MonoBehaviour
         mAttackAreaLocations.Add(pos);
 
         //create the visual movement GameObject
-        GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
+        GameObject tempObject = mMoveAreaPrefab;
+        tempObject.transform.localScale = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.localScale;
+        GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
         //add the gameobject to the stack
         mAttackAreaObjArray.Push(movePiece);
@@ -929,7 +933,9 @@ public class GameManager : MonoBehaviour
                     mAttackAreaLocations.Add(item.mPos);
 
                     //create the visual movement GameObject
-                    GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
+                    GameObject tempObject = mMoveAreaPrefab;
+                    tempObject.transform.localScale = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.localScale;
+                    GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
                     //add the gameobject to the stack
                     mAttackAreaObjArray.Push(movePiece);
@@ -1006,7 +1012,9 @@ public class GameManager : MonoBehaviour
                 mAttackAreaLocations.Add(item.mPos);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.rotation);
+                GameObject tempObject = mMoveAreaPrefab;
+                tempObject.transform.localScale = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.localScale;
+                GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mAttackAreaObjArray.Push(movePiece);
@@ -2043,7 +2051,9 @@ public class GameManager : MonoBehaviour
                 mMoveAreaLocations.Add(tempPosition);
 
                 //create the visual movement GameObject
-                GameObject movePiece = (GameObject)Instantiate(mMoveAreaPrefab, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.rotation);
+                GameObject tempObject = mMoveAreaPrefab;
+                tempObject.transform.localScale = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.localScale;
+                GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
                 mMoveAreaObjArray.Push(movePiece);

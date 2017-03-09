@@ -6,10 +6,13 @@ using UnityEngine;
 public enum CharAnimState
 {
     Idle = 0,
-    Attack = 1,
-    PoweredDown = 2,
-    Moving = 3,
+    BasicAttack = 1,
+    Attack1 = 2,
+    Attack2 = 3,
+    Attack3 = 4
+    
 }
+
 
 
 public class CharacterAnimationControl : MonoBehaviour {
@@ -34,21 +37,21 @@ public class CharacterAnimationControl : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            ChangeState(CharAnimState.PoweredDown);
+            //ChangeState(CharAnimState.PoweredDown);
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            ChangeState(CharAnimState.Attack);
+            //ChangeState(CharAnimState.Attack);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
             ChangeState(CharAnimState.Idle);
         }
 
-        if(mState == CharAnimState.Attack)
-        {
-            StartCoroutine(ResetAnim());
-        }
+        //if(mState == CharAnimState.Attack)
+        //{
+        //    StartCoroutine(ResetAnim());
+        //}
     }
 
     IEnumerator ResetAnim()

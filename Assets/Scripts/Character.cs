@@ -476,7 +476,7 @@ public class Character : MonoBehaviour
         mAttacked = true;
         if (mAnimControl != null)
         {
-            mAnimControl.ChangeState(CharAnimState.PoweredDown);
+            //mAnimControl.ChangeState(CharAnimState.PoweredDown);
         }
 
 

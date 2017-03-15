@@ -852,6 +852,7 @@ public class GameManager : MonoBehaviour
         {
             mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
             mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
+            mHoverBlock.transform.localScale = new Vector3(mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.x, mHoverBlock.transform.localScale.y, mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.z);
         }
     }
 

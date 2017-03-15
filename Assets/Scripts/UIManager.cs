@@ -2,6 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public struct CharacterAttackImages
+{
+    public Texture2D[] images;
+}
+
 public class UIManager : MonoBehaviour
 {
 
@@ -42,7 +49,9 @@ public class UIManager : MonoBehaviour
 
     public Character[] mCharacters;
 
-
+    public RawImage[] mAttackImages;
+    
+    public CharacterAttackImages[] mTexturesForAttacks;
 
 
     IntVector2 mPos;
@@ -131,6 +140,12 @@ public class UIManager : MonoBehaviour
         {
             mEnemyPopUpBarShown = false;
             //change images
+
+            for (int i = 0; i < mAttackImages.Length; i++)
+            {
+                mAttackImages[i].texture = mTexturesForAttacks[mCurrentCharacter].images[i];
+            }
+
             StartCoroutine(WaitForReset());
         }
         else

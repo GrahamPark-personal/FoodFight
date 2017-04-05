@@ -39,10 +39,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -54,17 +54,23 @@
      <Compile Include="Assets\Scripts\Attacks\Basic\GreenBaseAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Basic\RedBaseAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Basic\YellowBaseAttack.cs" />
+     <Compile Include="Assets\Scripts\Attacks\Combined\BlueBlackDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\BlueGreenDuoAttack.cs" />
+     <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlackDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\BrownBlueDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\BrownGreenDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\BrownRedDuoAttack.cs" />
+     <Compile Include="Assets\Scripts\Attacks\Combined\GreenBlackDuoAttack.cs" />
+     <Compile Include="Assets\Scripts\Attacks\Combined\RedBlackDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\RedBlueDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\RedGreenDuoAttack.cs" />
+     <Compile Include="Assets\Scripts\Attacks\Combined\YellowBlackDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\YellowBlueDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\YellowBrownDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\YellowGreenDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
      <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
+     <Compile Include="Assets\Scripts\Attacks\WhiteMage\WhiteBaseAttack.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraRotation.cs" />
      <Compile Include="Assets\Scripts\CameraSetUp.cs" />
@@ -77,26 +83,27 @@
      <Compile Include="Assets\Scripts\GroundDir.cs" />
      <Compile Include="Assets\Scripts\IntVector2.cs" />
      <Compile Include="Assets\Scripts\LevelSelectControl.cs" />
+     <Compile Include="Assets\Scripts\MenuUIControl.cs" />
      <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
      <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.PlaymodeTestsRunner">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>F:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>E:/Unity5.5.0f3/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

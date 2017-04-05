@@ -429,6 +429,7 @@ public class Cell : MonoBehaviour
             if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
                 GameManager.sInstance.MoveTo(mPos);
+                GameManager.sInstance.mUIManager.SelectCharacter(mPos);
             }
         }
 

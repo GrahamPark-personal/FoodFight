@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 
     public CameraController mCamControl;
 
+    public CameraRotation mCamRotation;
+
     public UIManager mUIManager;
 
     public static GameManager sInstance = null;

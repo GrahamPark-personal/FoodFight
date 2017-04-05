@@ -4,17 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelSelectControl : MonoBehaviour {
+public class LevelSelectControl : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Animator mAnimator;
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
+
+    public void OpenLevelSelect()
+    {
+        mAnimator.SetInteger("anim", 1);
+    }
+
+    public void CloseLevelSelect()
+    {
+        mAnimator.SetInteger("anim", 0);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
     public void LoadIntroLevel()
     {

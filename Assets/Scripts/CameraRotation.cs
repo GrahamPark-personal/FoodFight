@@ -22,7 +22,34 @@ public class CameraRotation : MonoBehaviour {
         mCurrentDirection = (int)mCamDirection;
 	}
 
-	void Update ()
+    public void RotateLeft()
+    {
+        if (mCurrentDirection < 3)
+        {
+            mCurrentDirection++;
+        }
+        else
+        {
+            mCurrentDirection = 0;
+        }
+
+        mCamDirection = (Direction)mCurrentDirection;
+    }
+
+    public void RotateRight()
+    {
+        if (mCurrentDirection > 0)
+        {
+            mCurrentDirection--;
+        }
+        else
+        {
+            mCurrentDirection = 3;
+        }
+        mCamDirection = (Direction)mCurrentDirection;
+    }
+
+    void Update ()
     {
 
         //left

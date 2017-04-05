@@ -410,4 +410,24 @@ public class UIManager : MonoBehaviour
     {
         GameManager.sInstance.HideCharacterHover(false);
     }
+
+    public void Rotate(string direction)
+    {
+
+        if (direction == "left")
+        {
+            GameManager.sInstance.mCamRotation.RotateLeft();
+        }
+        else if (direction == "right")
+        {
+            GameManager.sInstance.mCamRotation.RotateRight();
+        }
+
+    }
+
+    public void EndEnemyTurn()
+    {
+        GameManager.sInstance.FinishEnemyTurn();
+    }
+
 }

@@ -76,9 +76,9 @@ public class Character : MonoBehaviour
     }
 
 
-    public CharacterAnimationControl mAnimControl;
+    public Animator mAnimator;
 
-    public GameManager mGM = null;
+    //public GameManager mGM = null;
 
     bool damageOnce = true;
 
@@ -413,6 +413,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+
         mPosition = transform;
         mFinalPosition = transform;
         mMaxHealth = mHealth;
@@ -462,11 +463,6 @@ public class Character : MonoBehaviour
         clearAilments();
         CheckAilments();
 
-        if (mAnimControl != null)
-        {
-            mAnimControl.ChangeState(CharAnimState.Idle);
-        }
-
     }
 
     public void EndCharacterTurn()
@@ -474,10 +470,6 @@ public class Character : MonoBehaviour
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
-        if (mAnimControl != null)
-        {
-            //mAnimControl.ChangeState(CharAnimState.PoweredDown);
-        }
 
 
     }

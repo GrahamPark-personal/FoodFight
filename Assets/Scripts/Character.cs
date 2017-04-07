@@ -496,16 +496,6 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            GameManager.sInstance.mCharacters[4].Damage(1);
-
-        }
-        
-
-
         if (mAttacked && mMoved)
         {
             EndCharacterTurn();

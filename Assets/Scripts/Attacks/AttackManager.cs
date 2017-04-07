@@ -31,8 +31,10 @@ public class AttackManager : MonoBehaviour {
     
     public void RunAttack(IntVector2 pos)
     {
+
         if(mCurrentAttack != null)
         {
+
             mCurrentAttack.Execute(pos);
             RemoveAttack();
         }

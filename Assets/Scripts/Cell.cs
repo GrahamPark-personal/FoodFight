@@ -339,6 +339,8 @@ public class Cell : MonoBehaviour
 
     void OnMouseOver()
     {
+        
+        GameManager.sInstance.mOverBlock = true;
         GameManager.sInstance.SetHover(mPos);
 
         if (Input.GetMouseButtonDown(2))
@@ -426,10 +428,10 @@ public class Cell : MonoBehaviour
             && GameManager.sInstance.mCharacterSelected
             && mTypeOnCell != TypeOnCell.character)
         {
-            if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+            if (GameManager.sInstance.mGameTurn == GameTurn.Player && !GameManager.sInstance.mLoadingSquares)
             {
+                StartCoroutine(waitToReset());
                 GameManager.sInstance.MoveTo(mPos);
-                GameManager.sInstance.mUIManager.SelectCharacter(mPos);
             }
         }
 
@@ -443,6 +445,7 @@ public class Cell : MonoBehaviour
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
+                    StartCoroutine(waitToReset());
                     GameManager.sInstance.MoveTo(mPos);
                 }
             }
@@ -537,12 +540,56 @@ public class Cell : MonoBehaviour
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
-                    GameManager.sInstance.AttackPos(mPos);
+                    if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
+                    {
+                        GameManager.sInstance.AttackPos(mPos);
+                    }
+                }
+            }
+
+            if (Input.GetMouseButtonUp(0) && !mCannotMoveHere && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack && GameManager.sInstance.mEnemySelected && mTypeOnCell != TypeOnCell.enemy)
+            {
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
+                    {
+                        
+                        AttackManager.sInstance.RunAttack(mPos);
+                    }
                 }
             }
         }
 
 
+
+    }
+
+    void OnMouseEnter()
+    {
+        if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere)
+        {
+            GameManager.sInstance.mHoverBlock.SetActive(false);
+            GameManager.sInstance.mHoverBlock.SetActive(true);
+        }
+    }
+
+    void OnMouseExit()
+    {
+        GameManager.sInstance.mOverBlock = false;
+    }
+
+    IEnumerator waitToReset()
+    {
+        Character tempChar = GameManager.sInstance.mCharacterObj;
+        yield return new WaitForSeconds(0.1f);
+        if(tempChar != null)
+        {
+            GameManager.sInstance.mUIManager.SelectCharacter(tempChar.mCellPos);
+        }
+        else
+        {
+            Debug.Log("character object is null");
+        }
 
     }
 }

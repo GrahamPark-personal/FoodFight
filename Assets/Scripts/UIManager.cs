@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     public Character[] mCharacters;
 
     public RawImage[] mAttackImages;
-    
+
     public CharacterAttackImages[] mTexturesForAttacks;
 
 
@@ -93,13 +93,16 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < mCharFrame.Length; i++)
         {
-            if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+            if (i < GameManager.sInstance.mCharacters.Length)
             {
-                mCharImage[i].texture = mCharHiddenTexture[i];
-            }
-            else if (mCharImage[i].texture == mCharHiddenTexture[i])
-            {
-                mCharImage[i].texture = mCharTexture[i];
+                if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+                {
+                    mCharImage[i].texture = mCharHiddenTexture[i];
+                }
+                else if (mCharImage[i].texture == mCharHiddenTexture[i])
+                {
+                    mCharImage[i].texture = mCharTexture[i];
+                }
             }
         }
 
@@ -301,7 +304,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
 
     public void OnDuoAbility1Down()
@@ -310,7 +320,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
     public void OnDuoAbility2Down()
     {
@@ -318,7 +335,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
     public void OnDuoAbility3Down()
     {
@@ -326,7 +350,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
     public void OnDuoAbility4Down()
     {
@@ -334,7 +365,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
 
     public void OnDuoAbility5Down()
@@ -343,7 +381,14 @@ public class UIManager : MonoBehaviour
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
         AttackManager.sInstance.SetAttack(temp);
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+        }
+        else
+        {
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
     }
 
     public void SelectCharacter(int character, bool moveCam)
@@ -364,7 +409,24 @@ public class UIManager : MonoBehaviour
 
     public void SelectCharacter(IntVector2 mNewPos)
     {
-        Character temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
+
+        Character temp = null;
+
+        if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+        {
+            temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
+        }
+        else if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            temp = GameManager.sInstance.mBoss;
+        }
+
+        if (temp == null)
+        {
+            Debug.Log("Selecting a null character");
+            return;
+        }
+
 
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {
@@ -374,7 +436,9 @@ public class UIManager : MonoBehaviour
                 break;
             }
         }
-        int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
+
+        int number = temp.mCharNumber;
+        //int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
 
         switch (number)
         {
@@ -402,8 +466,11 @@ public class UIManager : MonoBehaviour
 
     void MoveCharacterHover(int character)
     {
-        IntVector2 tempPos = GameManager.sInstance.mCharacters[character].mCellPos;
-        GameManager.sInstance.MoveCharacterHover(tempPos);
+        if (character < GameManager.sInstance.mCharacters.Length)
+        {
+            IntVector2 tempPos = GameManager.sInstance.mCharacters[character].mCellPos;
+            GameManager.sInstance.MoveCharacterHover(tempPos);
+        }
     }
 
     public void HideCharacterHover()
@@ -425,9 +492,43 @@ public class UIManager : MonoBehaviour
 
     }
 
+    //debug area
+
     public void EndEnemyTurn()
     {
         GameManager.sInstance.FinishEnemyTurn();
+    }
+
+    public void ChangeEnemyToMove()
+    {
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.ChangeEnemyToMove();
+        }
+    }
+
+    public void ChangeEnemyToBasicAttack()
+    {
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.ChangeEnemyToBasicAttack();
+        }
+    }
+
+    public void ChangeEnemyToAbilityAttack()
+    {
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            GameManager.sInstance.ChangeEnemyToBasicAbility();
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+            AttackManager.sInstance.SetAttack(temp);
+
+
+            GameManager.sInstance.ResetSelected();
+        }
+
     }
 
 }

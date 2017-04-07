@@ -64,6 +64,12 @@ public class GameManager : MonoBehaviour
 
     public static GameManager sInstance = null;
 
+    [HideInInspector]
+    public bool mLoadingSquares = false;
+
+    [HideInInspector]
+    public bool mOverBlock = false;
+
     #endregion
 
     #region Enums
@@ -175,6 +181,27 @@ public class GameManager : MonoBehaviour
 
     #region Functions
 
+    #region DebugArea
+
+    public void ChangeEnemyToMove()
+    {
+        mMouseMode = MouseMode.Move;
+        ResetSelected();
+    }
+    public void ChangeEnemyToBasicAttack()
+    {
+        mMouseMode = MouseMode.Attack;
+        ResetSelected();
+    }
+    public void ChangeEnemyToBasicAbility()
+    {
+        AttackManager.sInstance.SetAttack(mBoss.mBasicAbility);
+        mMouseMode = MouseMode.AbilityAttack;
+        //ResetSelected();
+    }
+
+    #endregion
+
     #region AwakeStartUpdate
 
     void Awake()
@@ -233,25 +260,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            FinishEnemyTurn();
-        }
+        Debug.Log("OverBlock: " + mOverBlock);
 
-        if(Input.GetKeyDown(KeyCode.M))
+        if(mOverBlock)
         {
-            mMouseMode = MouseMode.Attack;
+            mHoverBlock.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        else
         {
-            mMouseMode = MouseMode.Move;
+            mHoverBlock.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            AttackManager.sInstance.SetAttack(mBoss.mBasicAbility);
-            mMouseMode = MouseMode.AbilityAttack;
-        }
+    }
 
+    void FixedUpdate()
+    {
+        //mOverBlock = false;
     }
 
     #endregion
@@ -850,12 +873,13 @@ public class GameManager : MonoBehaviour
 
     public void SetHover(IntVector2 pos)
     {
-        if(IsOnGridAndCanMoveTo(pos))
+        if(IsOnGridAndCanMoveTo(pos) && mOverBlock)
         {
             mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
             mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
             mHoverBlock.transform.localScale = new Vector3(mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.x, mHoverBlock.transform.localScale.y, mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.z);
         }
+        
     }
 
     public void MoveCharacterHover(IntVector2 pos)
@@ -1928,9 +1952,17 @@ public class GameManager : MonoBehaviour
         RightCheck(currTimes, totalTimes, tempPosition, true);
         LeftCheck(currTimes, totalTimes, tempPosition, true);
 
+        StartCoroutine(WaitToAllowInput());
+
         //for flood
         //StartCoroutine(CellDraw());
 
+    }
+
+    IEnumerator WaitToAllowInput()
+    {
+        yield return new WaitForSeconds(0.1f);
+        mLoadingSquares = false;
     }
 
     void UpCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move)
@@ -2233,6 +2265,7 @@ public class GameManager : MonoBehaviour
             {
                 if (!mCharacterObj.mMoved)
                 {
+                    mLoadingSquares = true;
                     NewMap();
                 }
             }

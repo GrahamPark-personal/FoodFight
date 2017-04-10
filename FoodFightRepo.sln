@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFightRepo.CSharp", "FoodFightRepo.CSharp.csproj", "{244DFCE7-5D56-FB07-533D-B2C9CA4E9876}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFightRepo.CSharp.Editor", "FoodFightRepo.CSharp.Editor.csproj", "{78D41390-E8CC-E65F-AAE1-903324BD3FF5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{244DFCE7-5D56-FB07-533D-B2C9CA4E9876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244DFCE7-5D56-FB07-533D-B2C9CA4E9876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{244DFCE7-5D56-FB07-533D-B2C9CA4E9876}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78D41390-E8CC-E65F-AAE1-903324BD3FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78D41390-E8CC-E65F-AAE1-903324BD3FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78D41390-E8CC-E65F-AAE1-903324BD3FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78D41390-E8CC-E65F-AAE1-903324BD3FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

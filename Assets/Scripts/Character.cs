@@ -78,6 +78,8 @@ public class Character : MonoBehaviour
 
     public Animator mAnimator;
 
+    public Renderer[] mMaterialRend;
+
     //public GameManager mGM = null;
 
     bool damageOnce = true;
@@ -488,6 +490,12 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            Damage(0);
+        }
+
         if (mAttacked && mMoved)
         {
             EndCharacterTurn();
@@ -668,9 +676,32 @@ public class Character : MonoBehaviour
         return characters;
     }
 
+
+    IEnumerator ChangeColor()
+    {
+        Color[] colorList = new Color[mMaterialRend.Length];
+
+        for (int i = 0; i < mMaterialRend.Length; i++)
+        {
+            colorList[i] = mMaterialRend[i].material.GetColor("_Color");
+            mMaterialRend[i].material.SetColor("_Color", Color.red);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        for (int i = 0; i < mMaterialRend.Length; i++)
+        {
+            mMaterialRend[i].material.SetColor("_Color", colorList[i]);
+        }
+    }
+
     public void Damage(int amount)
     {
         //TODO:: Deal with attack based abilities
+        if(mMaterialRend != null)
+        {
+            StartCoroutine(ChangeColor());
+        }
 
         if (Linked && CharacterLink != null)
         {

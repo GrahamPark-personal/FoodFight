@@ -11,7 +11,6 @@ public class BrownBlueDuoAttack : Attack {
         CreateID();
         SetRange(6);
         SetRadius(1);
-        SetAOE(1);
         SetEffectDuration(1);
         SetDamageDuration(1);
 

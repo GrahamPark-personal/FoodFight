@@ -21,7 +21,7 @@ class RedBlueDuoAttack : Attack
         SetRange(7);
         SetDamage(4);
         SetRadius(2);
-        SetAOE(9);
+        SetSlow(2);
         SetEffectDuration(1);
         SetDamageDuration(1);
 

@@ -10,11 +10,9 @@ public class YellowBlueDuoAttack : Attack {
     {
         CreateID();
         SetDamage(5);
-        SetHealth(0);
-        SetRange(5);
         SetSlow(1);
+        SetRange(5);
         SetRadius(2);
-        SetAOE(9);
         SetEffectDuration(3);
         SetDamageDuration(3);
         GameManager.sInstance.mAttackShape = AttackShape.Area;

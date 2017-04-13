@@ -11,9 +11,8 @@ public class YellowGreenDuoAttack : Attack {
         CreateID();
         SetStun(1);
         SetHealth(6);
-        SetRange(5);
+        SetRange(2);
         SetRadius(2);
-        SetAOE(9);
         SetEffectDuration(2);
         GameManager.sInstance.mAttackShape = AttackShape.AreaNoCharacters;
         GameManager.sInstance.mCurrentRange = GetRange();

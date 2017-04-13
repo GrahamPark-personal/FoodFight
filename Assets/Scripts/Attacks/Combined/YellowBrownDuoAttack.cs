@@ -12,8 +12,8 @@ public class YellowBrownDuoAttack : Attack
     {
         CreateID();
         SetDamage(4);
-        SetRange(5);
         SetSlow(6);
+        SetRadius(1);
         SetRange(1);
         SetEffectDuration(2);
 

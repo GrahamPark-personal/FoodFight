@@ -9,7 +9,8 @@ public class BrownRedDuoAttack : Attack {
 
         CreateID();
         SetRange(1);
-        SetHealth(14);
+        SetRadius(1);
+        SetHealth(12);
         SetEffectDuration(2);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);

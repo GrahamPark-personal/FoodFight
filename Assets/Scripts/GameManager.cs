@@ -260,7 +260,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("OverBlock: " + mOverBlock);
 
         if(mOverBlock)
         {

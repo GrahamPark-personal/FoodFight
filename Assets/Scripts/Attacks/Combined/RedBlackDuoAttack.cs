@@ -8,10 +8,11 @@ public class RedBlackDuoAttack : Attack
     public override void Init()
     {
 
-        SetDamage(3);
-        SetRange(5);        
+        SetDamage(15);
+        SetRange(1);        
         SetRadius(1);
-        SetEffectDuration(2);        
+        SetEffectDuration(3);        
+        SetDamageDuration(1);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 

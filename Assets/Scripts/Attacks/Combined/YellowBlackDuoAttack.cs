@@ -13,6 +13,7 @@ public class YellowBlackDuoAttack : Attack {
         CreateID();
         SetDamage(3);
         SetEffectDuration(3);
+        SetDamageDuration(3);
         SetStartPos(GameManager.sInstance.mSelectedCell);
 
         GameManager.sInstance.mAttackShape = AttackShape.OnCell;

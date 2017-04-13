@@ -13,6 +13,7 @@ public class BrownBlackDuoAttack : Attack {
         SetRange(3);
         SetDamage(3);
         SetEffectDuration(2);
+        SetDamageDuration(2);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 

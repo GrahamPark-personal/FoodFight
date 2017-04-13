@@ -12,7 +12,7 @@ public class BlackBaseAttack : Attack
 
         CreateID();
         SetRange(3);
-        SetEffectDuration(2);
+        SetEffectDuration(3);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 

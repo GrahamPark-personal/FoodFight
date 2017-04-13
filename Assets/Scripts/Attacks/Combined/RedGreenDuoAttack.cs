@@ -16,10 +16,12 @@ class RedGreenDuoAttack : Attack
 
         //TODO Set real values
         CreateID();
-        SetDamage(4);
-        SetRange(6);
-        SetRadius(2);
-        SetAOE(9);
+        SetDamage(8);
+        SetHealth(6);//still have to add functionality
+        SetRange(4);
+        SetRadius(4);
+        SetEffectDuration(1);
+        SetDamageDuration(1);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);
 

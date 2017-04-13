@@ -19,6 +19,7 @@ class YellowRedDuoAttack : Attack
         SetDamage(4);
         SetRange(6);
         SetRadius(2);
+        SetEffectDuration(1);
         SetAOE(9);
 
 

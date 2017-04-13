@@ -11,7 +11,7 @@ public class GreenBlackDuoAttack : Attack
         SetDamage(4);
         SetRange(1);
         SetHealth(4);
-        SetRadius(1);
+        SetRadius(5);
         SetEffectDuration(2);
         SetDamageDuration(2);
         

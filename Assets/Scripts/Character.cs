@@ -78,7 +78,7 @@ public class Character : MonoBehaviour
 
     public Animator mAnimator;
 
-    public Renderer[] mMaterialRend;
+    Renderer[] mMaterialRend;
 
     //public GameManager mGM = null;
 
@@ -415,6 +415,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        mMaterialRend = GetComponentsInChildren<Renderer>();
 
         mPosition = transform;
         mFinalPosition = transform;
@@ -687,7 +688,7 @@ public class Character : MonoBehaviour
             mMaterialRend[i].material.SetColor("_Color", Color.red);
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < mMaterialRend.Length; i++)
         {

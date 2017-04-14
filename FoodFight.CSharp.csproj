@@ -75,6 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AI\AIActor.cs" />
+    <Compile Include="Assets\Scripts\AI\AIManager.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationControl.cs" />
     <Compile Include="Assets\Scripts\Attacks\Attack.cs" />
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterAnimationControl.cs" />
+    <Compile Include="Assets\Scripts\EditorStuff\GridEditor.cs" />
     <Compile Include="Assets\Scripts\EditorStuff\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

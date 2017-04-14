@@ -3,61 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(LevelCreator))]
-[CanEditMultipleObjects]
+[CustomEditor(typeof(GridEditor))]
 public class LevelEditor : Editor
 {
 
-    LevelCreator mLevelCreator;
+    GridEditor mGridEditor;
 
-    int mIndex;
+    Vector2 scrollPos;
 
-    int mRow = 0;
-    int mCol = 0;
-
-    string mName;
+    int xPos, yPos;
 
     void OnEnable()
     {
-        Load();
+        mGridEditor = (GridEditor)target;
     }
 
     void OnDisable()
     {
-        Save();
+
     }
 
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        GUILayout.BeginHorizontal();
+        EditorGUILayout.BeginHorizontal();
 
-        mCol = EditorGUILayout.IntField("Columns (X)",mCol);
-        mRow = EditorGUILayout.IntField("Rows (Y)", mRow);
+        xPos = EditorGUILayout.IntField("X:", xPos);
+        yPos = EditorGUILayout.IntField("Y:", yPos);
 
-        GUILayout.EndHorizontal();
+        EditorGUILayout.EndHorizontal();
 
-        mName = EditorGUILayout.TextField("Name: ", mName);
-
-        //mIndex = GUILayout.SelectionGrid(mIndex,)
-        if (GUILayout.Button("Create Grid"))
+        if (GUILayout.Button("Edit"))
         {
-            mLevelCreator.CreateCells(mCol, mRow, mName);
+            EditCell(xPos, yPos);
+        }
+
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+
+        for (int y = 0; y < yPos; y++)
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            for (int x = 0; x < xPos; x++)
+            {
+                if(GUILayout.Button(x + "," + y))
+                {
+                    EditCell(x, y);
+                }
+            }
+
+            EditorGUILayout.EndHorizontal();
+
+        }
+
+        EditorGUILayout.EndScrollView();
+
+    }
+
+
+    void EditCell(int x, int y)
+    {
+
+
+        CellWindow window = (CellWindow)EditorWindow.GetWindow(typeof(CellWindow));
+        if(mGridEditor.GridCreated && mGridEditor.mGrid != null )
+        {
+            //open editable window
         }
     }
-
-
-
-    void Save()
-    {
-
-    }
-
-    void Load()
-    {
-        mLevelCreator = (LevelCreator)target;
-        //mLevelCreator.Init();
-    }
-
 }

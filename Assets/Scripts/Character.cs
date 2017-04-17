@@ -41,6 +41,15 @@ public enum BuffID
     ThunderCloak = 0,
 }
 
+public enum CharacterAnimations
+{
+    Hit = 1,
+    Attack1 = 2,
+    Attack2 = 3,
+    Idle = 4,
+    Deactivated = 6,
+}
+
 
 [System.Serializable]
 public struct DualAbilities
@@ -114,6 +123,8 @@ public class Character : MonoBehaviour
 
     public Direction mDirection;
 
+    public CharacterAnimations mAnimation;
+
     public float mRotationSpeed;
 
     int mCurrDirection;
@@ -184,6 +195,12 @@ public class Character : MonoBehaviour
     public bool hasVirus = false;
 
     bool onIce = false;
+
+    IEnumerator TurnBackToIdleAfter()
+    {
+        yield return new WaitForSeconds(0.7f);
+        mAnimation = CharacterAnimations.Idle;
+    }
 
     public void AddAilment(AilmentID ID, int duration, int extra)
     {
@@ -428,6 +445,8 @@ public class Character : MonoBehaviour
 
     public void ResetTurn()
     {
+        //mAnimation = CharacterAnimations.Idle;
+
         mMoveDistance = mTotalMove;
         mMoved = false;
         mAttacked = false;
@@ -473,7 +492,7 @@ public class Character : MonoBehaviour
         mMoveDistance = 0;
         mMoved = true;
         mAttacked = true;
-
+        //mAnimation = CharacterAnimations.Deactivated;
 
     }
 
@@ -491,10 +510,9 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.B))
+        if(mAnimator != null)
         {
-            Damage(0);
+            mAnimator.SetInteger("AnimState", (int)mAnimation);
         }
 
         if (mAttacked && mMoved)
@@ -698,8 +716,11 @@ public class Character : MonoBehaviour
 
     public void Damage(int amount)
     {
+        mAnimation = CharacterAnimations.Hit;
+        StartCoroutine(TurnBackToIdleAfter());
+
         //TODO:: Deal with attack based abilities
-        if(mMaterialRend != null)
+        if (mMaterialRend != null)
         {
             StartCoroutine(ChangeColor());
         }
@@ -723,6 +744,7 @@ public class Character : MonoBehaviour
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
             Destroy(this.gameObject);
         }
+
     }
 
 

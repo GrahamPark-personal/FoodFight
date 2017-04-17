@@ -24,6 +24,11 @@ public class AnimationControl : MonoBehaviour
             Destroy(this);
         }
 
+        for (int i = 0; i < mChars.Length; i++)
+        {
+            mChars[i] = GameManager.sInstance.mUIManager.mCharacters[i];
+        }
+
         characterDictionary.Add("YellowMage", mChars[0]);
         characterDictionary.Add("BlueMage", mChars[1]);
         characterDictionary.Add("BrownMage", mChars[2]);
@@ -32,34 +37,13 @@ public class AnimationControl : MonoBehaviour
         characterDictionary.Add("BlackMage", mChars[5]);
         //add more characters here
 
-        animationDictionary.Add("Idle", 0);
-        animationDictionary.Add("Move", 1);
-        animationDictionary.Add("YellowSingle", 2);
-        animationDictionary.Add("BlueSingle", 3);
-        animationDictionary.Add("BrownSingle", 4);
-        animationDictionary.Add("RedSingle", 5);
-        animationDictionary.Add("GreenSingle", 6);
-        animationDictionary.Add("BlackSingle", 7);
-
-        animationDictionary.Add("YellowBlue", 8);
-        animationDictionary.Add("YellowBrown", 10);
-        animationDictionary.Add("YellowRed", 11);
-        animationDictionary.Add("YellowGreen", 12);
-        animationDictionary.Add("YellowBlack", 13);
-
-        animationDictionary.Add("BlueBrown", 14);
-        animationDictionary.Add("BlueRed", 15);
-        animationDictionary.Add("BlueGreen", 16);
-        animationDictionary.Add("BlueBlack", 17);
-
-        animationDictionary.Add("RedBrown", 18);
-        animationDictionary.Add("RedGreen", 19);
-        animationDictionary.Add("RedBlack", 20);
-
-        animationDictionary.Add("BrownGreen", 21);
-        animationDictionary.Add("BrownBlack", 22);
-
-        animationDictionary.Add("GreenBlack", 23);
+        animationDictionary.Add("Hit", 0);
+        animationDictionary.Add("Attack1", 1);
+        animationDictionary.Add("Attack2", 2);
+        animationDictionary.Add("Idle", 3);
+        animationDictionary.Add("Reactivate", 4);
+        animationDictionary.Add("Deactivated", 5);
+        animationDictionary.Add("Deactivate", 6);
 
         //Add any additional animations here.  
         //Note:  Mages may have different Animations for the same attack.  For example:
@@ -82,7 +66,7 @@ public class AnimationControl : MonoBehaviour
 
         int tempState = animationDictionary[animationState];
         //the following line is where you set the animator state parameter. However you want to set it up (this is just a framework)
-        tempChar.mAnimator.SetInteger("AnimState", tempState);
+        tempChar.mAnimator.SetInteger("Blend", tempState);
 
         //Here is a couple examples of how you might use this system:
 

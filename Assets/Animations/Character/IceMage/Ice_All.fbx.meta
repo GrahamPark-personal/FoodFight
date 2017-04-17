@@ -1,0 +1,2189 @@
+fileFormatVersion: 2
+guid: df513e356f1f56b4bb2400dcec37295e
+timeCreated: 1492379861
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Ctrl
+    100002: Ball_Ctrl
+    100004: Ball_Jnt
+    100006: Ball_Jnt_2
+    100008: Body_Pivot_Jnt
+    100010: Bottom_Ctrl
+    100012: Bottom_Ctrl1
+    100014: Chest_Ctrl1
+    100016: Chest_Jnt
+    100018: COG_Jnt
+    100020: Head_Ctrl_1
+    100022: Head_Ctrl_2
+    100024: Head_End_Jnt
+    100026: Head_Jnt
+    100028: //RootNode
+    100030: ICEY
+    100032: Lft_Clav_Jnt
+    100034: Lft_Elbow_Ctrl
+    100036: Lft_Elbow_Jnt
+    100038: Lft_Index_Ctrl_1
+    100040: Lft_Index_Ctrl_2
+    100042: Lft_Index_Ctrl_3
+    100044: Lft_Index_Ctrl_4
+    100046: Lft_Index_EndJnt
+    100048: Lft_Index_Jnt
+    100050: Lft_Index_Jnt_2
+    100052: Lft_Index_Jnt_3
+    100054: Lft_Index_Jnt_4
+    100056: Lft_Middle_Ctrl_1
+    100058: Lft_MIddle_Ctrl_2
+    100060: Lft_Middle_Ctrl_3
+    100062: Lft_Middle_Ctrl_4
+    100064: Lft_Middle_EndJnt
+    100066: Lft_Middle_Jnt
+    100068: Lft_Middle_Jnt_2
+    100070: Lft_Middle_Jnt_3
+    100072: Lft_Middle_Jnt_4
+    100074: Lft_Pinky_Ctrl_1
+    100076: Lft_Pinky_Ctrl_2
+    100078: Lft_Pinky_Ctrl_3
+    100080: Lft_Pinky_Ctrl_4
+    100082: Lft_Pinky_Jnt
+    100084: Lft_Pinky_Jnt_2
+    100086: Lft_Pinky_Jnt_3
+    100088: Lft_Pinky_Jnt_4
+    100090: Lft_Pinky_Jnt_EndJnt
+    100092: Lft_Shlder_Jnt
+    100094: Lft_Shoulder_Ctrl
+    100096: Lft_Thumb_Ctrl_1
+    100098: Lft_Thumb_Ctrl_2
+    100100: Lft_Thumb_Ctrl_3
+    100102: Lft_Thumb_Jnt
+    100104: Lft_Thumb_Jnt_2
+    100106: Lft_Thumb_Jnt_3
+    100108: LFt_Wrist_Jnt
+    100110: Lft_Wrist_Jnt
+    100112: Lft_Wrst_Ctrl
+    100114: mirroredCutMesh1
+    100116: mirroredCutMesh2
+    100118: Neck_Ctrl_1
+    100120: Neck_Ctrl_2
+    100122: Neck_Jnt_1
+    100124: Neck_Jnt_2
+    100126: nurbsCircle1
+    100128: pHelix1
+    100130: Pivot_Ctrl_1
+    100132: polySurface18
+    100134: polySurface19
+    100136: polySurface21
+    100138: polySurface22
+    100140: polySurface23
+    100142: polySurface24
+    100144: polySurface25
+    100146: polySurface26
+    100148: polySurface27
+    100150: polySurface6
+    100152: pSphere1
+    100154: pSphere5
+    100156: Rgt_Clav_Jnt
+    100158: Rgt_Elbow_Ctrl
+    100160: Rgt_Elbow_Jnt
+    100162: Rgt_Index_Ctrl_1
+    100164: Rgt_Index_Ctrl_2
+    100166: Rgt_Index_Ctrl_3
+    100168: Rgt_Index_Ctrl_4
+    100170: Rgt_Index_EndJnt
+    100172: Rgt_Index_Jnt
+    100174: Rgt_Index_Jnt_2
+    100176: Rgt_Index_Jnt_3
+    100178: Rgt_Index_Jnt_4
+    100180: Rgt_Middle_Ctrl_1
+    100182: Rgt_Middle_Ctrl_2
+    100184: Rgt_Middle_Ctrl_3
+    100186: Rgt_Middle_Ctrl_4
+    100188: Rgt_Middle_EndJnt
+    100190: Rgt_Middle_Jnt
+    100192: Rgt_Middle_Jnt_2
+    100194: Rgt_Middle_Jnt_3
+    100196: Rgt_Middle_Jnt_4
+    100198: Rgt_Pinky_Ctrl_1
+    100200: Rgt_Pinky_Ctrl_2
+    100202: Rgt_Pinky_Ctrl_3
+    100204: Rgt_Pinky_Ctrl_4
+    100206: Rgt_Pinky_Jnt
+    100208: Rgt_Pinky_Jnt_2
+    100210: Rgt_Pinky_Jnt_3
+    100212: Rgt_Pinky_Jnt_4
+    100214: Rgt_Pinky_Jnt_EndJnt
+    100216: Rgt_Shlder_Jnt
+    100218: Rgt_Shoulder_Ctrl
+    100220: Rgt_Thumb_Ctrl_1
+    100222: Rgt_Thumb_Ctrl_2
+    100224: Rgt_Thumb_Ctrl_3
+    100226: Rgt_Thumb_Jnt
+    100228: Rgt_Thumb_Jnt_2
+    100230: Rgt_Thumb_Jnt_3
+    100232: Rgt_Wrist_Ctrl
+    100234: Tail_Bone_Jnt
+    400000: All_Ctrl
+    400002: Ball_Ctrl
+    400004: Ball_Jnt
+    400006: Ball_Jnt_2
+    400008: Body_Pivot_Jnt
+    400010: Bottom_Ctrl
+    400012: Bottom_Ctrl1
+    400014: Chest_Ctrl1
+    400016: Chest_Jnt
+    400018: COG_Jnt
+    400020: Head_Ctrl_1
+    400022: Head_Ctrl_2
+    400024: Head_End_Jnt
+    400026: Head_Jnt
+    400028: //RootNode
+    400030: ICEY
+    400032: Lft_Clav_Jnt
+    400034: Lft_Elbow_Ctrl
+    400036: Lft_Elbow_Jnt
+    400038: Lft_Index_Ctrl_1
+    400040: Lft_Index_Ctrl_2
+    400042: Lft_Index_Ctrl_3
+    400044: Lft_Index_Ctrl_4
+    400046: Lft_Index_EndJnt
+    400048: Lft_Index_Jnt
+    400050: Lft_Index_Jnt_2
+    400052: Lft_Index_Jnt_3
+    400054: Lft_Index_Jnt_4
+    400056: Lft_Middle_Ctrl_1
+    400058: Lft_MIddle_Ctrl_2
+    400060: Lft_Middle_Ctrl_3
+    400062: Lft_Middle_Ctrl_4
+    400064: Lft_Middle_EndJnt
+    400066: Lft_Middle_Jnt
+    400068: Lft_Middle_Jnt_2
+    400070: Lft_Middle_Jnt_3
+    400072: Lft_Middle_Jnt_4
+    400074: Lft_Pinky_Ctrl_1
+    400076: Lft_Pinky_Ctrl_2
+    400078: Lft_Pinky_Ctrl_3
+    400080: Lft_Pinky_Ctrl_4
+    400082: Lft_Pinky_Jnt
+    400084: Lft_Pinky_Jnt_2
+    400086: Lft_Pinky_Jnt_3
+    400088: Lft_Pinky_Jnt_4
+    400090: Lft_Pinky_Jnt_EndJnt
+    400092: Lft_Shlder_Jnt
+    400094: Lft_Shoulder_Ctrl
+    400096: Lft_Thumb_Ctrl_1
+    400098: Lft_Thumb_Ctrl_2
+    400100: Lft_Thumb_Ctrl_3
+    400102: Lft_Thumb_Jnt
+    400104: Lft_Thumb_Jnt_2
+    400106: Lft_Thumb_Jnt_3
+    400108: LFt_Wrist_Jnt
+    400110: Lft_Wrist_Jnt
+    400112: Lft_Wrst_Ctrl
+    400114: mirroredCutMesh1
+    400116: mirroredCutMesh2
+    400118: Neck_Ctrl_1
+    400120: Neck_Ctrl_2
+    400122: Neck_Jnt_1
+    400124: Neck_Jnt_2
+    400126: nurbsCircle1
+    400128: pHelix1
+    400130: Pivot_Ctrl_1
+    400132: polySurface18
+    400134: polySurface19
+    400136: polySurface21
+    400138: polySurface22
+    400140: polySurface23
+    400142: polySurface24
+    400144: polySurface25
+    400146: polySurface26
+    400148: polySurface27
+    400150: polySurface6
+    400152: pSphere1
+    400154: pSphere5
+    400156: Rgt_Clav_Jnt
+    400158: Rgt_Elbow_Ctrl
+    400160: Rgt_Elbow_Jnt
+    400162: Rgt_Index_Ctrl_1
+    400164: Rgt_Index_Ctrl_2
+    400166: Rgt_Index_Ctrl_3
+    400168: Rgt_Index_Ctrl_4
+    400170: Rgt_Index_EndJnt
+    400172: Rgt_Index_Jnt
+    400174: Rgt_Index_Jnt_2
+    400176: Rgt_Index_Jnt_3
+    400178: Rgt_Index_Jnt_4
+    400180: Rgt_Middle_Ctrl_1
+    400182: Rgt_Middle_Ctrl_2
+    400184: Rgt_Middle_Ctrl_3
+    400186: Rgt_Middle_Ctrl_4
+    400188: Rgt_Middle_EndJnt
+    400190: Rgt_Middle_Jnt
+    400192: Rgt_Middle_Jnt_2
+    400194: Rgt_Middle_Jnt_3
+    400196: Rgt_Middle_Jnt_4
+    400198: Rgt_Pinky_Ctrl_1
+    400200: Rgt_Pinky_Ctrl_2
+    400202: Rgt_Pinky_Ctrl_3
+    400204: Rgt_Pinky_Ctrl_4
+    400206: Rgt_Pinky_Jnt
+    400208: Rgt_Pinky_Jnt_2
+    400210: Rgt_Pinky_Jnt_3
+    400212: Rgt_Pinky_Jnt_4
+    400214: Rgt_Pinky_Jnt_EndJnt
+    400216: Rgt_Shlder_Jnt
+    400218: Rgt_Shoulder_Ctrl
+    400220: Rgt_Thumb_Ctrl_1
+    400222: Rgt_Thumb_Ctrl_2
+    400224: Rgt_Thumb_Ctrl_3
+    400226: Rgt_Thumb_Jnt
+    400228: Rgt_Thumb_Jnt_2
+    400230: Rgt_Thumb_Jnt_3
+    400232: Rgt_Wrist_Ctrl
+    400234: Tail_Bone_Jnt
+    4300000: pSphere1
+    4300002: pSphere5
+    4300004: polySurface21
+    4300006: polySurface22
+    4300008: polySurface23
+    4300010: polySurface24
+    4300012: polySurface25
+    4300014: polySurface6
+    4300016: pHelix1
+    4300018: polySurface26
+    4300020: polySurface27
+    7400000: Ice_Idle
+    7400002: Ice_Attack1
+    7400004: Ice_Attack2
+    7400006: Ice_Deactivate
+    7400008: Ice_Deactivated
+    7400010: Ice_Reactivate
+    7400012: Ice_Hit
+    9500000: //RootNode
+    13700000: pHelix1
+    13700002: polySurface21
+    13700004: polySurface22
+    13700006: polySurface23
+    13700008: polySurface24
+    13700010: polySurface25
+    13700012: polySurface26
+    13700014: polySurface27
+    13700016: polySurface6
+    13700018: pSphere1
+    13700020: pSphere5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Ice_Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Attack1
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 216
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Attack2
+      takeName: Take 001
+      firstFrame: 228
+      lastFrame: 348
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Deactivate
+      takeName: Take 001
+      firstFrame: 347
+      lastFrame: 408
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Deactivated
+      takeName: Take 001
+      firstFrame: 384
+      lastFrame: 434
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Reactivate
+      takeName: Take 001
+      firstFrame: 432
+      lastFrame: 457
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ice_Hit
+      takeName: Take 001
+      firstFrame: 497
+      lastFrame: 528
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Index_Ctrl_1/Lft_Index_Ctrl_2/Lft_Index_Ctrl_3/Lft_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Middle_Ctrl_1/Lft_MIddle_Ctrl_2/Lft_Middle_Ctrl_3/Lft_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Pinky_Ctrl_1/Lft_Pinky_Ctrl_2/Lft_Pinky_Ctrl_3/Lft_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Lft_Shoulder_Ctrl/Lft_Elbow_Ctrl/Lft_Wrst_Ctrl/Lft_Thumb_Ctrl_1/Lft_Thumb_Ctrl_2/Lft_Thumb_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Neck_Ctrl_2/Head_Ctrl_1/Head_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Index_Ctrl_1/Rgt_Index_Ctrl_2/Rgt_Index_Ctrl_3/Rgt_Index_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Middle_Ctrl_1/Rgt_Middle_Ctrl_2/Rgt_Middle_Ctrl_3/Rgt_Middle_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Pinky_Ctrl_1/Rgt_Pinky_Ctrl_2/Rgt_Pinky_Ctrl_3/Rgt_Pinky_Ctrl_4
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2
+        weight: 1
+      - path: All_Ctrl/Ball_Ctrl/Pivot_Ctrl_1/Bottom_Ctrl/Bottom_Ctrl1/Chest_Ctrl1/Neck_Ctrl_1/Rgt_Shoulder_Ctrl/Rgt_Elbow_Ctrl/Rgt_Wrist_Ctrl/Rgt_Thumb_Ctrl_1/Rgt_Thumb_Ctrl_2/Rgt_Thumb_Ctrl_3
+        weight: 1
+      - path: Ball_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Index_Jnt/Lft_Index_Jnt_2/Lft_Index_Jnt_3/Lft_Index_Jnt_4/Lft_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Middle_Jnt/Lft_Middle_Jnt_2/Lft_Middle_Jnt_3/Lft_Middle_Jnt_4/Lft_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Pinky_Jnt/Lft_Pinky_Jnt_2/Lft_Pinky_Jnt_3/Lft_Pinky_Jnt_4/Lft_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Lft_Clav_Jnt/Lft_Shlder_Jnt/Lft_Elbow_Jnt/Lft_Wrist_Jnt/Lft_Thumb_Jnt/Lft_Thumb_Jnt_2/Lft_Thumb_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Neck_Jnt_1/Neck_Jnt_2/Head_Jnt/Head_End_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Index_Jnt/Rgt_Index_Jnt_2/Rgt_Index_Jnt_3/Rgt_Index_Jnt_4/Rgt_Index_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Middle_Jnt/Rgt_Middle_Jnt_2/Rgt_Middle_Jnt_3/Rgt_Middle_Jnt_4/Rgt_Middle_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Pinky_Jnt/Rgt_Pinky_Jnt_2/Rgt_Pinky_Jnt_3/Rgt_Pinky_Jnt_4/Rgt_Pinky_Jnt_EndJnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2
+        weight: 1
+      - path: Ball_Jnt/Ball_Jnt_2/Body_Pivot_Jnt/Tail_Bone_Jnt/COG_Jnt/Chest_Jnt/Rgt_Clav_Jnt/Rgt_Shlder_Jnt/Rgt_Elbow_Jnt/LFt_Wrist_Jnt/Rgt_Thumb_Jnt/Rgt_Thumb_Jnt_2/Rgt_Thumb_Jnt_3
+        weight: 1
+      - path: ICEY
+        weight: 1
+      - path: ICEY/nurbsCircle1
+        weight: 1
+      - path: ICEY/nurbsCircle1/mirroredCutMesh1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pHelix1
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface6
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface21
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface22
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface23
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface24
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface25
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface26
+        weight: 1
+      - path: ICEY/nurbsCircle1/polySurface27
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere1
+        weight: 1
+      - path: ICEY/nurbsCircle1/pSphere5
+        weight: 1
+      - path: mirroredCutMesh2
+        weight: 1
+      - path: polySurface18
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

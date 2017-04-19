@@ -20,6 +20,8 @@ public class YellowBrownDuoAttack : Attack
         GameManager.sInstance.mAttackShape = AttackShape.OnCell;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
     }
 
     public override void Exit()

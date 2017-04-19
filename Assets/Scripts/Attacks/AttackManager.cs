@@ -54,6 +54,16 @@ public class AttackManager : MonoBehaviour {
         mCurrentAttack.Exit();
 
         mCurrentAttack = null;
+
+        foreach(GameObject go in GameManager.sInstance.mPreviewBlocks)
+        {
+            Destroy(go);
+        }
+
+        GameManager.sInstance.mPreviewBlocks.Clear();
+
+
+
     }
 
 

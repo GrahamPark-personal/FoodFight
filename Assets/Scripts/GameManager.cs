@@ -30,6 +30,16 @@ public enum AttackShape
 
 }
 
+public enum HoverShape
+{
+    SingleSpot,
+    Square,
+    Row,
+    WallSurround
+
+}
+
+
 public class GameManager : MonoBehaviour
 {
     #region Variables
@@ -174,6 +184,24 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public Character[] mTargetChars = new Character[2];
+
+    #endregion
+
+    #region VisualFeedbackStuff
+
+    [Space(20)]
+
+    public GameObject AttackPreviewBlock;
+    [HideInInspector]
+    public HoverShape mPreviewShape;
+    [HideInInspector]
+    public List<GameObject> mPreviewBlocks = new List<GameObject>();
+    [HideInInspector]
+    public int mPreviewRadius = 0;
+    [HideInInspector]
+    public int mPreviewWidth = 3;
+    [HideInInspector]
+    public int mPreviewLength = 0;
 
     #endregion
 
@@ -892,6 +920,206 @@ public class GameManager : MonoBehaviour
         mPlayerSelectBlock.SetActive(hide);
     }
 
+    public void AddPreviewBlock(IntVector2 pos)
+    {
+        if(IsOnGridAndCanMoveTo(pos))
+        {
+            Transform mCellTransform = mCurrGrid.rows[pos.y].cols[pos.x].transform;
+            GameObject mTemp = Instantiate(AttackPreviewBlock, mCellTransform.position, mCellTransform.rotation);
+            mTemp.transform.localScale = new Vector3(mCellTransform.localScale.x, mTemp.transform.localScale.y, mCellTransform.localScale.z);
+            mPreviewBlocks.Add(mTemp);
+        }
+    }
+
+    public void AddPreviewRow(IntVector2 Start, IntVector2 End)
+    {
+        string dir = "";
+        if (Start.x > End.x)
+        {
+            dir = "Up";
+        }
+        else if (Start.x < End.x)
+        {
+            dir = "Down";
+        }
+        else if (Start.y > End.y)
+        {
+            dir = "Right";
+        }
+        else if (Start.y < End.y)
+        {
+            dir = "Left";
+        }
+
+        print("Direction: " + dir);
+
+        IntVector2 temp = new IntVector2();
+        temp = InitIntVectorValues(0, 0, 0, 0, 0);
+
+        if (dir == "Up")
+        {
+            print("Start: " + Start.x + "," + Start.y);
+            print("End: " + End.x + "," + End.y);
+
+            for (int i = Start.x; i > End.x; i--)
+            {
+                //print("Got here!!");
+
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    // mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                    //mCellDamage
+                    AddPreviewBlock(temp);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Down")
+        {
+            for (int i = Start.x; i < End.x; i++)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = i;
+                temp.y = Start.y;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y - 1;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = i;
+                temp.y = Start.y + 1;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Right")
+        {
+            for (int i = Start.y; i > End.y; i--)
+            {
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+        else if (dir == "Left")
+        {
+            for (int i = Start.y; i < End.y; i++)
+            {
+                print("Got here");
+                //for each one from up to down add one if there is a space to.
+
+                temp.x = Start.x;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x - 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+
+                temp.x = Start.x + 1;
+                temp.y = i;
+
+                if (IsOnGrid(temp))
+                {
+                    AddPreviewBlock(temp);
+                    //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
+                }
+            }
+        }
+    }
+
+    public void AddPreviewSquare(IntVector2 pos, int radius)
+    {
+        IntVector2 temp = new IntVector2();
+        for (int i = pos.x - radius + 1; i < pos.x + radius; i++)
+        {
+            for (int j = pos.y - radius + 1; j < pos.y + radius; j++)
+            {
+                temp.x = i;
+                temp.y = j;
+                if (IsOnGridAndCanMoveTo(temp))
+                {
+                    AddPreviewBlock(temp);
+                }
+
+                //CreateAttackCell(temp);
+            }
+        }
+    }
+
     #endregion
 
     #region AttackShapes
@@ -1483,29 +1711,18 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-        //for (int i = pos.x - radius + 1; i < pos.x + radius; i++)
-        //{
-        //    for (int j = pos.y - radius + 1; j < pos.y + radius; j++)
-        //    {
-        //        temp.x = i;
-        //        temp.y = j;
-        //        mCurrGrid.rows[j].cols[i].AddEffect(effectParm);
-        //        CreateAttackCell(temp);
-        //    }
-        //}
     }
-
+    
     public void CreateRowEffect(IntVector2 Start, IntVector2 End, EffectParameters effectParm)
     {
         string dir = "";
         if (Start.x > End.x)
         {
-            dir = "Down";
+            dir = "Up";
         }
         else if (Start.x < End.x)
         {
-            dir = "Up";
+            dir = "Down";
         }
         else if (Start.y > End.y)
         {
@@ -1569,7 +1786,6 @@ public class GameManager : MonoBehaviour
                 if (IsOnGrid(temp))
                 {
                     mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
-
                 }
 
                 temp.x = i;
@@ -1578,7 +1794,6 @@ public class GameManager : MonoBehaviour
                 if (IsOnGrid(temp))
                 {
                     mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
-
                 }
 
                 temp.x = i;
@@ -1655,17 +1870,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
 
     public void CreateBananas(IntVector2 Start, IntVector2 End)
     {
         string dir = "";
         if (Start.x > End.x)
         {
-            dir = "Down";
+            dir = "Up";
         }
         else if (Start.x < End.x)
         {
-            dir = "Up";
+            dir = "Down";
         }
         else if (Start.y > End.y)
         {
@@ -1695,11 +1911,8 @@ public class GameManager : MonoBehaviour
                 temp.x = i;
                 temp.y = Start.y;
 
-                
-
                 if (IsOnGrid(temp))
                 {
-
                     mCurrGrid.rows[temp.y].cols[temp.x].AddBanana();
                 }
 
@@ -1866,7 +2079,17 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    public bool IsInAttackArea(IntVector2 pos)
+    {
+        foreach (IntVector2 item in mAttackAreaLocations)
+        {
+            if(pos.x == item.x && pos.y == item.y)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     void AttackLineRight(int currTimes, int totalTimes, IntVector2 tempPosition)
     {
@@ -2353,9 +2576,13 @@ public class GameManager : MonoBehaviour
 
                 tempVector.x = start.x + j;
                 tempVector.y = start.y + i;
-                if (IsMovableBlock(tempVector) || mCurrGrid.rows[tempVector.y].cols[tempVector.x].mTypeOnCell == TypeOnCell.character)
+
+                if (IsOnGrid(tempVector))
                 {
-                    tempList.Add(mCurrGrid.rows[tempVector.y].cols[tempVector.x]);
+                    if (IsMovableBlock(tempVector) || mCurrGrid.rows[tempVector.y].cols[tempVector.x].mTypeOnCell == TypeOnCell.character)
+                    {
+                        tempList.Add(mCurrGrid.rows[tempVector.y].cols[tempVector.x]);
+                    }
                 }
             }
         }

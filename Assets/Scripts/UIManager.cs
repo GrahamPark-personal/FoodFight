@@ -316,6 +316,15 @@ public class UIManager : MonoBehaviour
 
     public void OnDuoAbility1Down()
     {
+
+        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character1;
+        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character2;
+
+        if(GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        {
+            return;
+        }
+
         GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
         AttackManager.sInstance.SetAttack(temp);
@@ -331,6 +340,15 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility2Down()
     {
+
+        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character1;
+        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character2;
+
+        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        {
+            return;
+        }
+
         GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
         AttackManager.sInstance.SetAttack(temp);
@@ -346,6 +364,15 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility3Down()
     {
+
+        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character1;
+        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character2;
+
+        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        {
+            return;
+        }
+
         GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
         AttackManager.sInstance.SetAttack(temp);
@@ -361,6 +388,15 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility4Down()
     {
+
+        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character1;
+        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character2;
+
+        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        {
+            return;
+        }
+
         GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
         AttackManager.sInstance.SetAttack(temp);
@@ -377,6 +413,15 @@ public class UIManager : MonoBehaviour
 
     public void OnDuoAbility5Down()
     {
+
+        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character1;
+        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character2;
+
+        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        {
+            return;
+        }
+
         GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
         Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
         AttackManager.sInstance.SetAttack(temp);

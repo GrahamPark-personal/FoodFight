@@ -17,6 +17,9 @@ public class YellowGreenDuoAttack : Attack {
         GameManager.sInstance.mAttackShape = AttackShape.AreaNoCharacters;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.Square;
+        GameManager.sInstance.mPreviewRadius = GetRadius();
+
     }
 
     public override void Exit()

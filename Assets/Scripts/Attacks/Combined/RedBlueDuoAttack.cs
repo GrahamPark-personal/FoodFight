@@ -34,6 +34,8 @@ class RedBlueDuoAttack : Attack
 
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
     }
 
 

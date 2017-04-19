@@ -30,6 +30,8 @@ class YellowRedDuoAttack : Attack
 
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.Row;
+
     }
 
 

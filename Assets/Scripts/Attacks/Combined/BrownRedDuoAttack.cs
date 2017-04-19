@@ -18,6 +18,7 @@ public class BrownRedDuoAttack : Attack {
         GameManager.sInstance.mAttackShape = AttackShape.OnCell;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
 
     }
 

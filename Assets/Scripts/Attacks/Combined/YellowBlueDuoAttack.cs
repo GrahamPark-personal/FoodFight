@@ -18,6 +18,9 @@ public class YellowBlueDuoAttack : Attack {
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.Square;
+        GameManager.sInstance.mPreviewRadius = GetRadius();
+
     }
 
     public override void Exit()

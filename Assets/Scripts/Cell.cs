@@ -465,6 +465,8 @@ public class Cell : MonoBehaviour
                 {
                     GameManager.sInstance.AttackPos(mPos);
 
+                    GameManager.sInstance.mCharacterObj.Attacking();
+
                     //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 }
             }
@@ -488,6 +490,7 @@ public class Cell : MonoBehaviour
                             && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
                         {
                             AttackManager.sInstance.RunAttack(mPos);
+                            GameManager.sInstance.mCharacterObj.Attacking();
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                             GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -508,6 +511,7 @@ public class Cell : MonoBehaviour
                 && GameManager.sInstance.mAttackShape == AttackShape.OnCell)
             {
                 AttackManager.sInstance.RunAttack(mPos);
+                GameManager.sInstance.mCharacterObj.Attacking();
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -526,6 +530,7 @@ public class Cell : MonoBehaviour
             {
                 //attack based on clicking on another character
                 AttackManager.sInstance.RunAttack(mPos);
+                GameManager.sInstance.mCharacterObj.Attacking();
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 GameManager.sInstance.mAttackShape = AttackShape.Area;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -546,6 +551,8 @@ public class Cell : MonoBehaviour
                         if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
                         {
                             GameManager.sInstance.AttackPos(mPos);
+                            GameManager.sInstance.mCharacterObj.Attacking();
+                            GameManager.sInstance.ClearAttack();
                         }
                     }
                 }
@@ -556,8 +563,9 @@ public class Cell : MonoBehaviour
                     {
                         if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
                         {
-
                             AttackManager.sInstance.RunAttack(mPos);
+                            GameManager.sInstance.mCharacterObj.Attacking();
+                            GameManager.sInstance.ClearAttack();
                         }
                     }
                 }
@@ -575,11 +583,107 @@ public class Cell : MonoBehaviour
             GameManager.sInstance.mHoverBlock.SetActive(false);
             GameManager.sInstance.mHoverBlock.SetActive(true);
         }
+
+        if(GameManager.sInstance.mMouseMode != MouseMode.Move && GameManager.sInstance.IsInAttackArea(mPos))
+        {
+            GameManager.sInstance.mHoverBlock.SetActive(false);
+
+            foreach (GameObject item in GameManager.sInstance.mPreviewBlocks)
+            {
+                Destroy(item.gameObject);
+            }
+            GameManager.sInstance.mPreviewBlocks.Clear();
+
+            if (GameManager.sInstance.mPreviewShape == HoverShape.SingleSpot)
+            {
+                GameObject mTemp = Instantiate(GameManager.sInstance.AttackPreviewBlock, this.transform.position, this.transform.rotation);
+                mTemp.transform.localScale = new Vector3(this.transform.localScale.x, mTemp.transform.localScale.y, this.transform.localScale.z);
+                GameManager.sInstance.mPreviewBlocks.Add(mTemp);
+            }
+            else if(GameManager.sInstance.mPreviewShape == HoverShape.Row)
+            {
+                //from start to current position, create a row 3 x Y
+                GameManager.sInstance.AddPreviewRow(GameManager.sInstance.mCharacterObj.mCellPos, mPos);
+            }
+            else if(GameManager.sInstance.mPreviewShape == HoverShape.Square)
+            {
+                //create square with a radius
+                GameManager.sInstance.AddPreviewSquare(mPos, GameManager.sInstance.mPreviewRadius);
+            }
+            else if(GameManager.sInstance.mPreviewShape == HoverShape.WallSurround)
+            {
+                //draw the block from certain pos, use stuff from brownblack
+                IntVector2 tempVector = new IntVector2();
+                int radius = GameManager.sInstance.mPreviewRadius;
+                tempVector = mPos;
+                tempVector.y += radius;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.y -= radius;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.x += radius;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.x -= radius;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector.x += 1;
+                tempVector.y -= 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector.x += 1;
+                tempVector.y -= 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.y -= radius;
+
+                tempVector.x += 1;
+                tempVector.y += 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector.x += 1;
+                tempVector.y += 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.x += radius;
+
+                tempVector.x -= 1;
+                tempVector.y += 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector.x -= 1;
+                tempVector.y += 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector = mPos;
+                tempVector.y += radius;
+
+                tempVector.x -= 1;
+                tempVector.y -= 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+
+                tempVector.x -= 1;
+                tempVector.y -= 1;
+                GameManager.sInstance.AddPreviewBlock(tempVector);
+            }
+        }
+
     }
 
     void OnMouseExit()
     {
         GameManager.sInstance.mOverBlock = false;
+        foreach (GameObject item in GameManager.sInstance.mPreviewBlocks)
+        {
+            Destroy(item.gameObject);
+        }
+        GameManager.sInstance.mPreviewBlocks.Clear();
     }
 
     IEnumerator waitToReset()

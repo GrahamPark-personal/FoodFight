@@ -20,6 +20,8 @@ public class BrownBlueDuoAttack : Attack {
 
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
     }
 
     public override void Exit()

@@ -28,6 +28,10 @@ class BlueGreenDuoAttack : Attack
 
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.Row;
+
+        GameManager.sInstance.mPreviewWidth = 3; 
+
     }
 
 

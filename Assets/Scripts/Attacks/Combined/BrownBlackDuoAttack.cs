@@ -20,7 +20,8 @@ public class BrownBlackDuoAttack : Attack {
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 
-
+        GameManager.sInstance.mPreviewShape = HoverShape.WallSurround;
+        GameManager.sInstance.mPreviewRadius = GetRadius();
     }
 
     public override void Exit()

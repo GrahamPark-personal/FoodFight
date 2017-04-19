@@ -19,6 +19,8 @@ public class BlackBaseAttack : Attack
         GameManager.sInstance.mAttackShape = AttackShape.AreaNoCharacters;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
 
     }
 

@@ -27,12 +27,12 @@ public enum AilmentID
 
 public enum CharacterType
 {
-    Yellow,
-    Blue,
-    Brown,
-    Red,
-    Green,
-    Black,
+    Yellow = 0,
+    Blue = 1,
+    Brown = 2,
+    Red = 3,
+    Green = 4,
+    Black = 5,
     None
 }
 
@@ -55,10 +55,20 @@ public enum CharacterAnimations
 public struct DualAbilities
 {
     public Attack mDuoAbility1;
+    public CharacterType ability1Character1;
+    public CharacterType ability1Character2;
     public Attack mDuoAbility2;
+    public CharacterType ability2Character1;
+    public CharacterType ability2Character2;
     public Attack mDuoAbility3;
+    public CharacterType ability3Character1;
+    public CharacterType ability3Character2;
     public Attack mDuoAbility4;
+    public CharacterType ability4Character1;
+    public CharacterType ability4Character2;
     public Attack mDuoAbility5;
+    public CharacterType ability5Character1;
+    public CharacterType ability5Character2;
 }
 
 
@@ -198,7 +208,7 @@ public class Character : MonoBehaviour
 
     IEnumerator TurnBackToIdleAfter()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         mAnimation = CharacterAnimations.Idle;
     }
 
@@ -765,6 +775,11 @@ public class Character : MonoBehaviour
         Damage(amount);
     }
 
+    public void Attacking()
+    {
+        mAnimation = CharacterAnimations.Attack1;
+        StartCoroutine(TurnBackToIdleAfter());
+    }
 
     public void Heal(int amount)
     {

@@ -20,6 +20,8 @@ public class BrownGreenDuoAttack : Attack
 
         GameManager.sInstance.mAttackShape = AttackShape.AllCharacters;
 
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
         //GameManager.sInstance.mCurrentRange = GetRange();
 
     }

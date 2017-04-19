@@ -20,6 +20,9 @@ public class GreenBlackDuoAttack : Attack
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 
+
+        GameManager.sInstance.mPreviewShape = HoverShape.SingleSpot;
+
     }
 
     public override void Exit()

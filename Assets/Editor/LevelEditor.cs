@@ -53,6 +53,52 @@ public class LevelEditor : Editor
             int X = mGridEditor.mGrid.rows[0].cols.Length;
             int Y = mGridEditor.mGrid.rows.Length;
 
+            if(GUILayout.Button("Select Cells"))
+            {
+
+                //List<MeshRenderer> meshlist = new List<MeshRenderer>();
+                GameObject[] gList = GameObject.FindGameObjectsWithTag("Cell");
+                Selection.objects = gList;
+            }
+
+            if (GUILayout.Button("Select Melee Minions"))
+            {
+
+                List<GameObject> mMeleeEnemies = new List<GameObject>();
+
+                Character[] mList = mGridEditor.mGameManager.mEnemies;
+
+                foreach (Character item in mList)
+                {
+                    if(item.mAttackType == AttackType.Melee)
+                    {
+                        mMeleeEnemies.Add(item.gameObject);
+                    }
+                }
+
+                GameObject[] gList = mMeleeEnemies.ToArray();
+                Selection.objects = gList;
+            }
+
+            if (GUILayout.Button("Select Ranged Minions"))
+            {
+
+                List<GameObject> mMeleeEnemies = new List<GameObject>();
+
+                Character[] mList = mGridEditor.mGameManager.mEnemies;
+
+                foreach (Character item in mList)
+                {
+                    if (item.mAttackType == AttackType.Ranged)
+                    {
+                        mMeleeEnemies.Add(item.gameObject);
+                    }
+                }
+
+                GameObject[] gList = mMeleeEnemies.ToArray();
+                Selection.objects = gList;
+            }
+
             EditorGUILayout.BeginHorizontal();
 
             xPos = EditorGUILayout.IntField("X:", xPos);

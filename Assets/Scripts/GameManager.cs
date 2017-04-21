@@ -1302,10 +1302,12 @@ public class GameManager : MonoBehaviour
 
         int currTimes = 0;
 
-        UpCheck(currTimes, totalTimes, tempPosition, false);
-        DownCheck(currTimes, totalTimes, tempPosition, false);
-        RightCheck(currTimes, totalTimes, tempPosition, false);
-        LeftCheck(currTimes, totalTimes, tempPosition, false);
+        int startHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+
+        UpCheck(currTimes, totalTimes, tempPosition, false, startHeight);
+        DownCheck(currTimes, totalTimes, tempPosition, false, startHeight);
+        RightCheck(currTimes, totalTimes, tempPosition, false, startHeight);
+        LeftCheck(currTimes, totalTimes, tempPosition, false, startHeight);
     }
 
     #endregion
@@ -2181,15 +2183,18 @@ public class GameManager : MonoBehaviour
 
     void NewMap()
     {
+
         IntVector2 tempPosition = mSelectedCell;
         int totalTimes = mCharacterObj.mMoveDistance;
 
         int currTimes = 0;//for y transversal
 
-        UpCheck(currTimes, totalTimes, tempPosition, true);
-        DownCheck(currTimes, totalTimes, tempPosition, true);
-        RightCheck(currTimes, totalTimes, tempPosition, true);
-        LeftCheck(currTimes, totalTimes, tempPosition, true);
+        int startHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+
+        UpCheck(currTimes, totalTimes, tempPosition, true, startHeight);
+        DownCheck(currTimes, totalTimes, tempPosition, true, startHeight);
+        RightCheck(currTimes, totalTimes, tempPosition, true, startHeight);
+        LeftCheck(currTimes, totalTimes, tempPosition, true, startHeight);
 
         StartCoroutine(WaitToAllowInput());
 
@@ -2204,10 +2209,9 @@ public class GameManager : MonoBehaviour
         mLoadingSquares = false;
     }
 
-    void UpCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move)
-
-
+    void UpCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move, int lastHeight)
     {
+
         while (currTimes < totalTimes)
         {
             currTimes++;
@@ -2216,15 +2220,15 @@ public class GameManager : MonoBehaviour
             {
                 if (move)
                 {
-                    totalTimes = CreateMapCell(tempPosition, totalTimes);
+                    totalTimes = CreateMapCell(tempPosition, totalTimes, lastHeight);
                 }
                 else
                 {
                     totalTimes = CreateAttackCell(tempPosition, totalTimes, false);
                 }
-
-                RightCheck(currTimes, totalTimes, tempPosition, move);
-                LeftCheck(currTimes, totalTimes, tempPosition, move);
+                lastHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+                RightCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
+                LeftCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
 
             }
             else
@@ -2233,7 +2237,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    void DownCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move)
+    void DownCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move, int lastHeight)
     {
         while (currTimes < totalTimes)
         {
@@ -2243,16 +2247,16 @@ public class GameManager : MonoBehaviour
             {
                 if (move)
                 {
-                    totalTimes = CreateMapCell(tempPosition, totalTimes);
+                    totalTimes = CreateMapCell(tempPosition, totalTimes, lastHeight);
                 }
                 else
                 {
                     totalTimes = CreateAttackCell(tempPosition, totalTimes, false);
                 }
 
-
-                RightCheck(currTimes, totalTimes, tempPosition, move);
-                LeftCheck(currTimes, totalTimes, tempPosition, move);
+                lastHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+                RightCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
+                LeftCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
 
             }
             else
@@ -2261,7 +2265,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    void RightCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move)
+    void RightCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move, int lastHeight)
     {
         while (currTimes < totalTimes)
         {
@@ -2271,15 +2275,15 @@ public class GameManager : MonoBehaviour
             {
                 if (move)
                 {
-                    totalTimes = CreateMapCell(tempPosition, totalTimes);
+                    totalTimes = CreateMapCell(tempPosition, totalTimes, lastHeight);
                 }
                 else
                 {
                     totalTimes = CreateAttackCell(tempPosition, totalTimes, false);
                 }
-
-                UpCheck(currTimes, totalTimes, tempPosition, move);
-                DownCheck(currTimes, totalTimes, tempPosition, move);
+                lastHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+                UpCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
+                DownCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
             }
             else
             {
@@ -2287,7 +2291,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    void LeftCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move)
+    void LeftCheck(int currTimes, int totalTimes, IntVector2 tempPosition, bool move, int lastHeight)
     {
         while (currTimes < totalTimes)
         {
@@ -2297,15 +2301,15 @@ public class GameManager : MonoBehaviour
             {
                 if (move)
                 {
-                    totalTimes = CreateMapCell(tempPosition, totalTimes);
+                    totalTimes = CreateMapCell(tempPosition, totalTimes, lastHeight);
                 }
                 else
                 {
                     totalTimes = CreateAttackCell(tempPosition, totalTimes, false);
                 }
-
-                UpCheck(currTimes, totalTimes, tempPosition, move);
-                DownCheck(currTimes, totalTimes, tempPosition, move);
+                lastHeight = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mHeightValue;
+                UpCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
+                DownCheck(currTimes, totalTimes, tempPosition, move, lastHeight);
             }
             else
             {
@@ -2314,13 +2318,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    int CreateMapCell(IntVector2 tempPosition, int totalTimes)
+    int HeightDifference(int last, IntVector2 current)
+    {
+        Cell currentCell = mCurrGrid.rows[current.y].cols[current.x];
+
+        int diff = Mathf.Abs(last - currentCell.mHeightValue);
+        Debug.Log("Diff: " + diff + ", : " + current.x + "," + current.y);
+        return diff;
+
+    }
+
+    int CreateMapCell(IntVector2 tempPosition, int totalTimes, int lastHeight)
     {
         //print(tempPosition.x + "," + tempPosition.y);
         if (!mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCannotMoveHere && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.character && mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mTypeOnCell != TypeOnCell.enemy)
         {
             if (!mMoveAreaLocations.Contains(tempPosition))
             {
+                if(HeightDifference(lastHeight, tempPosition) > 1)
+                {
+                    Debug.Log("Height Too Big");
+                    return 0;
+                }
+
                 //add the location
                 mMoveAreaLocations.Add(tempPosition);
 

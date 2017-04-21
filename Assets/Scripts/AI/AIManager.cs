@@ -74,7 +74,7 @@ public class AIManager : MonoBehaviour
 
         foreach (Character item in mCharacterList)
         {
-            if (mClosest = null)
+            if (mClosest == null)
             {
                 mClosest = item;
             }

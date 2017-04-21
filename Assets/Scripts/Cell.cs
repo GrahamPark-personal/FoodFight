@@ -82,6 +82,8 @@ public class Cell : MonoBehaviour
     [HideInInspector]
     public Cell mParent;
 
+    public int mHeightValue;
+
     public IntVector2 mPos;
 
     public bool mCannotMoveHere;

@@ -40,50 +40,59 @@ public class LevelCreator : MonoBehaviour
 
     //}
 
-    GameObject GetObjectToUse(int x, int y)
+    GameObject GetObjectToUse(int x, int y, int coli, int rowi)
     {
-        if(y == 0 && x == 0)//corner
+        GameObject objToUse;
+        Vector3 mRotation = new Vector3(0,0,0);
+        if (y == 0 && x == 0)//corner
         {
-            return mCornerBlock;
+            objToUse = mCornerBlock;
+            mRotation = new Vector3(0,-90,0);
 
         }
-        if(y == 0 && x == col)//corner
+        if(y == 0 && x == coli - 1)//corner
         {
-            return mCornerBlock;
+            objToUse = mCornerBlock;
 
         }
-        if (y == row && x == 0)//corner
+        if (y == rowi - 1 && x == 0)//corner
         {
-            return mCornerBlock;
+            objToUse = mCornerBlock;
+            mRotation = new Vector3(0, 180, 0);
 
         }
-        if (y == row && x == col)//corner
+        if (y == rowi - 1 && x == coli - 1)//corner
         {
-            return mCornerBlock;
+            objToUse = mCornerBlock;
+            mRotation = new Vector3(0, 90, 0);
+
 
         }
         if (y == 0)//side
         {
-            return mSideBlock;
+            objToUse = mSideBlock;
 
         }
-        if (y == row)//side
+        if (y == rowi - 1)//side
         {
-            return mSideBlock;
+            objToUse = mSideBlock;
 
         }
         if (x == 0)//side
         {
-            return mSideBlock;
+            objToUse = mSideBlock;
 
         }
-        if (x == col)//side
+        if (x == coli - 1)//side
         {
-            return mSideBlock;
+            objToUse = mSideBlock;
 
         }
 
-        return mMiddleBlock;
+        objToUse = mMiddleBlock;
+
+
+        return objToUse;
     }
 
     public void CreateCells(int col, int row, string name)
@@ -98,7 +107,7 @@ public class LevelCreator : MonoBehaviour
             mGrid.rows[i].cols = new Cell[col];
             for (int j = 0; j < col; j++)
             {
-                GameObject objToUse = GetObjectToUse(j, i);
+                GameObject objToUse = GetObjectToUse(j, i, col, row);
 
                 GameObject temp = Instantiate(objToUse, new Vector3(0 + (-i), 0, 90 + (-j)), new Quaternion(0, 0, 0, 1), mParent.transform);
                 Cell tempCell = temp.GetComponent<Cell>();

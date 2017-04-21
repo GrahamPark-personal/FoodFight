@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour
 
     public CharacterAttackImages[] mTexturesForAttacks;
 
+    public GameObject[] mBubbles;
 
     IntVector2 mPos;
 
@@ -65,6 +66,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        ResetBubbles();
+
         mActiveCharacters = GameManager.sInstance.mCharacters.Length;
 
         mSavedCharImage = new Texture2D[mCharTexture.Length];
@@ -75,6 +78,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
+    void ResetBubbles()
+    {
+        if(mBubbles.Length > 0)
+        {
+            foreach (GameObject item in mBubbles)
+            {
+                if(item != null)
+                {
+                    item.SetActive(false);
+                }
+            }
+        }
+    }
+
+    void AcvivateBubble(int pos)
+    {
+        if(pos >= 0 && pos <= mBubbles.Length)
+        {
+            mBubbles[pos].SetActive(true);
+        }
+    }
 
     void Update()
     {
@@ -198,6 +223,7 @@ public class UIManager : MonoBehaviour
         //character 1
         if (mActiveCharacters >= 1)
         {
+
             SelectCharacter(0, moveCam);
         }
 
@@ -511,6 +537,9 @@ public class UIManager : MonoBehaviour
 
     void MoveCharacterHover(int character)
     {
+        ResetBubbles();
+        AcvivateBubble(character);
+
         if (character < GameManager.sInstance.mCharacters.Length)
         {
             IntVector2 tempPos = GameManager.sInstance.mCharacters[character].mCellPos;

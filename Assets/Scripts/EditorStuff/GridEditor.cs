@@ -5,6 +5,8 @@ using UnityEngine;
 public class GridEditor : MonoBehaviour
 {
 
+    public GameManager mGameManager;
+
     public GameObject mRangedEnemy;
     public GameObject mMeleeEnemy;
     public GameObject mBoss;

@@ -5,16 +5,17 @@ using UnityEditor;
 
 public enum EnemyOnCell
 {
+    None,
     RangedMinion,
     MeleeMinion,
-    Boss,
-    None
+    Boss
 }
 
 
 public class CellWindow : EditorWindow
 {
 
+    public LevelEditor mEditor;
 
     public Rect windowRect = new Rect(100, 100, 200, 200);
 
@@ -24,16 +25,47 @@ public class CellWindow : EditorWindow
     Vector3 mRotation;
     int mLayerHeight;
     float mVerticalOffset;
-    EnemyOnCell mEnemyType;
+
+    public int X = 0;
+    public int Y = 0;
 
 
     void OnGUI()
     {
-        cellMovementInfo = true ? "Cannot Move Here" : "Can Move Here";
+        cellMovementInfo = mCannotMoveHere ? "Cannot Move Here" : "Can Move Here";
+
         if(GUILayout.Button(cellMovementInfo))
         {
             mCannotMoveHere = !mCannotMoveHere;
         }
+
+    }
+
+    void OnLostFocus()
+    {
+        Save();
+    }
+
+    void OnDestroy()
+    {
+        Save();
+    }
+
+    void OnFocus()
+    {
+        Load();
+    }
+
+    void Save()
+    {
+        Cell tempCell = mEditor.mGridEditor.GetCell(X, Y);
+        tempCell.mCannotMoveHere = mCannotMoveHere;
+    }
+
+    void Load()
+    {
+        Cell tempCell = mEditor.mGridEditor.GetCell(X, Y);
+        mCannotMoveHere = tempCell.mCannotMoveHere;
     }
 
     void DoWindow(int unusedWindowID)
@@ -43,6 +75,7 @@ public class CellWindow : EditorWindow
 
     static void Init()
     {
-        EditorWindow.GetWindow(typeof(CellWindow));
+        GetWindow(typeof(CellWindow));
     }
+
 }

@@ -333,7 +333,7 @@ public class Cell : MonoBehaviour
 
         if (mCannotMoveHere)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
+            //gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
     }
 
@@ -358,6 +358,8 @@ public class Cell : MonoBehaviour
                 && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters
                 && GameManager.sInstance.mAttackShape != AttackShape.OnCell))
             {
+
+
                 if (mTypeOnCell != TypeOnCell.character)
                 {
                     mCharacterObj = null;
@@ -369,7 +371,7 @@ public class Cell : MonoBehaviour
                 }
 
 
-                if (GameManager.sInstance.mGameTurn == GameTurn.Player && mCharacterObj != null)
+                if (GameManager.sInstance.mGameTurn == GameTurn.Player && mCharacterObj != null && GameManager.sInstance.mMouseMode == MouseMode.Move)
                 {
                     GameManager.sInstance.mUIManager.SelectCharacter(mPos);
                 }
@@ -425,13 +427,14 @@ public class Cell : MonoBehaviour
             //}
 
 
+
             //move
             if (Input.GetMouseButtonUp(0) && !mCannotMoveHere
                 && mTypeOnCell != TypeOnCell.character
                 && GameManager.sInstance.mCharacterSelected
                 && mTypeOnCell != TypeOnCell.character)
             {
-                if (GameManager.sInstance.mGameTurn == GameTurn.Player && !GameManager.sInstance.mLoadingSquares)
+                if (GameManager.sInstance.mGameTurn == GameTurn.Player && !GameManager.sInstance.mLoadingSquares && GameManager.sInstance.mMouseMode == MouseMode.Move)
                 {
                     StartCoroutine(waitToReset());
                     GameManager.sInstance.MoveTo(mPos);
@@ -499,7 +502,6 @@ public class Cell : MonoBehaviour
                             GameManager.sInstance.mEnemySelected = false;
                             GameManager.sInstance.ResetSelected();
 
-
                         }
                     }
                 }
@@ -539,6 +541,7 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.mEnemySelected = false;
                 GameManager.sInstance.ClearAttack();
                 //GameManager.sInstance.ResetSelected();
+
             }
 
 
@@ -578,13 +581,17 @@ public class Cell : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere)
+        if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere && GameManager.sInstance.mMouseMode != MouseMode.AbilityAttack)
         {
             GameManager.sInstance.mHoverBlock.SetActive(false);
             GameManager.sInstance.mHoverBlock.SetActive(true);
         }
+        else
+        {
+            GameManager.sInstance.mHoverBlock.SetActive(false);
+        }
 
-        if(GameManager.sInstance.mMouseMode != MouseMode.Move && GameManager.sInstance.IsInAttackArea(mPos))
+        if (GameManager.sInstance.mMouseMode != MouseMode.Move && GameManager.sInstance.IsInAttackArea(mPos))
         {
             GameManager.sInstance.mHoverBlock.SetActive(false);
 

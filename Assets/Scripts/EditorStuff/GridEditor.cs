@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GridEditor : MonoBehaviour
 {
-    public Grid mGrid;
 
     public GameObject mRangedEnemy;
     public GameObject mMeleeEnemy;
     public GameObject mBoss;
+    [Space(10)]
+    [Header("Place Grid Here")]
+    public Grid mGrid;
 
     [HideInInspector]
     public bool GridCreated;

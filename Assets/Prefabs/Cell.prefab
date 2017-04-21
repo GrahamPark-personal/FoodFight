@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010334835312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.068354, y: 8.04298, z: 87.50839}
+  m_LocalPosition: {x: 33.83319, y: -21.37449, z: 8.182556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,14 +49,14 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010334835312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 16faebcf7a65b7e4ea853e690b265e4a, type: 2}
+  - {fileID: 2100000, guid: c4bcf97b564755e48a35811621326c06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +117,13 @@ MonoBehaviour:
     F: 0
     G: 0
     H: 0
-    parent: []
+    parent:
+    - x: 0
+      y: 0
+      F: 0
+      G: 0
+      H: 0
+      parent: []
   mCannotMoveHere: 1
   mCellDamage: 0
   mTypeOnCell: 0

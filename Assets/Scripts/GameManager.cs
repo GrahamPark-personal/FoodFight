@@ -289,13 +289,30 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if(mOverBlock)
+        if(mOverBlock && mMouseMode != MouseMode.AbilityAttack && mMouseMode != MouseMode.Attack)
         {
-            mHoverBlock.SetActive(true);
+            //mHoverBlock.SetActive(true);
         }
         else
         {
-            mHoverBlock.SetActive(false);
+            //mHoverBlock.SetActive(false);
+        }
+
+        if(Input.GetMouseButtonDown(1) && mMouseMode != MouseMode.Move)
+        {
+
+            Character tempChar = mCharacterObj;
+            //yield return new WaitForSeconds(0.1f);
+            if (tempChar != null)
+            {
+                mUIManager.SelectCharacter(tempChar.mCellPos);
+            }
+            else
+            {
+                Debug.Log("character object is null");
+            }
+
+            mMouseMode = MouseMode.Move;
         }
     }
 

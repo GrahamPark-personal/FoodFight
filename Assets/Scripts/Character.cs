@@ -97,6 +97,9 @@ public class Character : MonoBehaviour
 
     public Animator mAnimator;
 
+    [HideInInspector]
+    public AIActor mActorComp;
+
     Renderer[] mMaterialRend;
 
     //public GameManager mGM = null;

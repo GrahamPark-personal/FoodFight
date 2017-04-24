@@ -26,11 +26,14 @@ public class AIActor : MonoBehaviour
 
     public IntVector2[] patrolPoints;
 
+    
+    [HideInInspector]
+    public IntVector2 mCurrentDestination;
+    
     #endregion
 
     #region Private
 
-    IntVector2 mCurrentDestination;
 
     IntVector2 mStartPosition;
 
@@ -38,7 +41,9 @@ public class AIActor : MonoBehaviour
 
     IntVector2 mEnemyPos;
 
-    Character mCharacter;
+    [HideInInspector]
+    public Character mCharacter;
+
 
     bool mMovingToDestination;
 
@@ -51,6 +56,8 @@ public class AIActor : MonoBehaviour
     void Start()
     {
         mCharacter = GetComponent<Character>();
+
+        mCharacter.mActorComp = this;
 
         mStartPosition = mCharacter.mCellPos;
         mCurrentDestination = mDesiredDestination;

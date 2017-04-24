@@ -162,7 +162,8 @@ public class GameManager : MonoBehaviour
 
     #region RandomAIStuff
 
-    int GCost = 10;
+    [HideInInspector]
+    public int GCost = 10;
 
     int MapCellRemoveAmount = 10;
 
@@ -375,17 +376,10 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < mEnemies.Length; i++)
             {
-
                 mEnemies[i].ResetTurn();
-                //for (int j = 0; j < mCurrGrid.rows.Length; j++)
-                //{
-                //    for (int k = 0; k < mCurrGrid.rows[0].cols.Length; k++)
-                //    {
-                //        mCurrGrid.rows[j].cols[k].CheckEffects();
-                //    }
-                //}
-
             }
+
+            AIManager.sInstance.RunAIMove();
 
             ResetSelected();
         }
@@ -464,17 +458,19 @@ public class GameManager : MonoBehaviour
 
     public bool IsOnGrid(IntVector2 pos)
     {
-        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
+        if (pos.x >= 0 && pos.x < mCurrGrid.mSize.x) { }
         else
         {
             return false;
         }
 
-        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
+        if (pos.y >= 0 && pos.y < mCurrGrid.mSize.y) { }
         else
         {
             return false;
         }
+
+        //Debug.Log("Allowed: " + pos.x + ", " + pos.y);
 
         return true;
     }
@@ -617,7 +613,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    List<IntVector2> GetNeighbors(IntVector2 pos)
+    public List<IntVector2> GetNeighbors(IntVector2 pos)
     {
         List<IntVector2> temp = new List<IntVector2>();
 
@@ -835,7 +831,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    bool listContains(List<IntVector2> tempList, IntVector2 vect)
+    public bool listContains(List<IntVector2> tempList, IntVector2 vect)
     {
         bool finalDecision = false;
 
@@ -850,7 +846,7 @@ public class GameManager : MonoBehaviour
         return finalDecision;
     }
 
-    IntVector2 lowestFScore(List<IntVector2> tempList)
+    public IntVector2 lowestFScore(List<IntVector2> tempList)
     {
         IntVector2 smallF = InitIntVectorValues(0, 0, 0, 0, 0);
         int smallestValue = 999999999;
@@ -869,13 +865,13 @@ public class GameManager : MonoBehaviour
         return smallF;
     }
 
-    int FindH(IntVector2 pos, IntVector2 newPos)
+    public int FindH(IntVector2 pos, IntVector2 newPos)
     {
         int temp = (Math.Abs(newPos.x - pos.x) + Math.Abs(newPos.y - pos.y)) * 10;
         return temp;
     }
 
-    IntVector2 CopyValues(IntVector2 other)
+    public IntVector2 CopyValues(IntVector2 other)
     {
         IntVector2 temp;
 
@@ -890,7 +886,7 @@ public class GameManager : MonoBehaviour
         return temp;
     }
 
-    IntVector2 InitIntVectorValues(int sX, int sY, int sF, int sG, int sH)
+    public IntVector2 InitIntVectorValues(int sX, int sY, int sF, int sG, int sH)
     {
         IntVector2 temp = new IntVector2();
         temp.x = sX;
@@ -2323,7 +2319,6 @@ public class GameManager : MonoBehaviour
         Cell currentCell = mCurrGrid.rows[current.y].cols[current.x];
 
         int diff = Mathf.Abs(last - currentCell.mHeightValue);
-        Debug.Log("Diff: " + diff + ", : " + current.x + "," + current.y);
         return diff;
 
     }
@@ -2640,15 +2635,17 @@ public class GameManager : MonoBehaviour
         mCurrGrid.rows[newPos.y].cols[newPos.x].mCharacterObj = ch;
     }
 
+
+
     public void MoveEnemySlot(IntVector2 newPos, Character ch)
     {
         mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mCharacterObj = null;
+        mCurrGrid.rows[ch.mCellPos.y].cols[ch.mCellPos.x].mEnemyObj = null;
 
         ch.mCellPos = newPos;
 
-        mCurrGrid.rows[newPos.y].cols[newPos.x].mTypeOnCell = TypeOnCell.character;
-        mCurrGrid.rows[newPos.y].cols[newPos.x].mCharacterObj = ch;
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mTypeOnCell = TypeOnCell.enemy;
+        mCurrGrid.rows[newPos.y].cols[newPos.x].mEnemyObj = ch;
     }
 
     #endregion

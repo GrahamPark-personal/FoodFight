@@ -112,7 +112,7 @@ public class AIManager : MonoBehaviour
         //mTauntCharacter
         List<Character> mCharacterList = GetAllEnemiesAround(pos, range, character);
 
-        Debug.Log("total Characters: " + mCharacterList.Count + "Character: " + mCharacterList[0]);
+        Debug.Log("total Characters: " + mCharacterList.Count + " ,Character: " + mCharacterList[0]);
 
         if (character.mTauntCharacter != null)
         {
@@ -337,7 +337,7 @@ public class AIManager : MonoBehaviour
                 IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, character.mMoveDistance + character.mDamageDistance);
 
                 //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
-                int mOffset = 0;// (character.mAttackType == AttackType.Melee) ? 0 : 1;
+                int mOffset = 1;// (character.mAttackType == AttackType.Melee) ? 0 : 1;
 
                 int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - (character.mDamageDistance)) + mOffset);
 
@@ -347,7 +347,10 @@ public class AIManager : MonoBehaviour
                 if (TotalMovement == 0)
                 {
                     //attack
-                    Attack(character, mCurrentEnemy);
+                    if (CanAttackPos(character, mCurrentEnemy))
+                    {
+                        Attack(character, mCurrentEnemy);
+                    }
                 }
                 else if (TotalMovement < 0)
                 {

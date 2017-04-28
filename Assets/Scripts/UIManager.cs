@@ -81,11 +81,11 @@ public class UIManager : MonoBehaviour
 
     void ResetBubbles()
     {
-        if(mBubbles.Length > 0)
+        if (mBubbles.Length > 0)
         {
             foreach (GameObject item in mBubbles)
             {
-                if(item != null)
+                if (item != null)
                 {
                     item.SetActive(false);
                 }
@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
 
     void AcvivateBubble(int pos)
     {
-        if(pos >= 0 && pos <= mBubbles.Length)
+        if (pos >= 0 && pos <= mBubbles.Length)
         {
             mBubbles[pos].SetActive(true);
         }
@@ -160,13 +160,15 @@ public class UIManager : MonoBehaviour
         {
             OnCharacter6Down(true);
         }
+
+
+
     }
 
     public void ResetPopUp(bool open)
     {
         if (open)
         {
-            mEnemyPopUpBarShown = false;
             //change images
 
             for (int i = 0; i < mAttackImages.Length; i++)
@@ -174,7 +176,7 @@ public class UIManager : MonoBehaviour
                 mAttackImages[i].texture = mTexturesForAttacks[mCurrentCharacter].images[i];
             }
 
-            StartCoroutine(WaitForReset());
+            mEnemyPopUpBarShown = true;
         }
         else
         {
@@ -198,9 +200,12 @@ public class UIManager : MonoBehaviour
     public void OnBasicAttackDown()
     {
         //basic attack
-        GameManager.sInstance.mMouseMode = MouseMode.Attack;
-        GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        {
+            GameManager.sInstance.mMouseMode = MouseMode.Attack;
+            GameManager.sInstance.ResetSelected();
+            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+        }
 
     }
 
@@ -326,139 +331,153 @@ public class UIManager : MonoBehaviour
 
     public void OnBasicAbilityDown()
     {
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
 
     public void OnDuoAbility1Down()
     {
-
-        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character1;
-        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character2;
-
-        if(GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            return;
-        }
+            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character1;
+            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character2;
 
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+            {
+                return;
+            }
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
     public void OnDuoAbility2Down()
     {
-
-        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character1;
-        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character2;
-
-        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            return;
-        }
+            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character1;
+            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character2;
 
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+            {
+                return;
+            }
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
     public void OnDuoAbility3Down()
     {
-
-        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character1;
-        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character2;
-
-        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            return;
-        }
+            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character1;
+            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character2;
 
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+            {
+                return;
+            }
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
     public void OnDuoAbility4Down()
     {
-
-        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character1;
-        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character2;
-
-        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            return;
-        }
+            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character1;
+            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character2;
 
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+            {
+                return;
+            }
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
 
     public void OnDuoAbility5Down()
     {
-
-        int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character1;
-        int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character2;
-
-        if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
         {
-            return;
-        }
+            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character1;
+            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character2;
 
-        GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-        Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
-        AttackManager.sInstance.SetAttack(temp);
-        GameManager.sInstance.ResetSelected();
-        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-        }
-        else
-        {
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+            {
+                return;
+            }
+
+            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
+            AttackManager.sInstance.SetAttack(temp);
+            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+            }
+            else
+            {
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
     }
 

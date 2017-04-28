@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\LevelSelectControl.cs" />
     <Compile Include="Assets\Scripts\MenuUIControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
+    <Compile Include="Assets\Scripts\PopUpBarControl.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>

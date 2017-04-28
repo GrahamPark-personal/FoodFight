@@ -299,21 +299,25 @@ public class GameManager : MonoBehaviour
             //mHoverBlock.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(1) && mMouseMode != MouseMode.Move)
+        if(Input.GetMouseButtonDown(1))// && mMouseMode != MouseMode.Move
         {
+            //if(mMouseMode != MouseMode.Move)
+            //{
+            //    //yield return new WaitForSeconds(0.1f);
+            //    Character tempChar = mCharacterObj;
+            //    if (tempChar != null)
+            //    {
+            //        mUIManager.SelectCharacter(tempChar.mCellPos);
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("character object is null");
+            //    }
 
-            Character tempChar = mCharacterObj;
-            //yield return new WaitForSeconds(0.1f);
-            if (tempChar != null)
-            {
-                mUIManager.SelectCharacter(tempChar.mCellPos);
-            }
-            else
-            {
-                Debug.Log("character object is null");
-            }
-
+            //}
             mMouseMode = MouseMode.Move;
+            ResetSelected();
+            mUIManager.mEnemyPopUpBarShown = false;
         }
     }
 
@@ -647,6 +651,48 @@ public class GameManager : MonoBehaviour
         cursor.y += 1;
 
         if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing)//!closed.Contains(tester) && 
+        {
+            temp.Add(cursor);
+        }
+
+        return temp;
+
+    }
+
+    public List<IntVector2> GetEnemyNeighbors(IntVector2 pos)
+    {
+        List<IntVector2> temp = new List<IntVector2>();
+
+        IntVector2 cursor;
+
+        cursor = CopyValues(pos);
+        cursor.x -= 1;
+
+        if (cursor.x >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && ( mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.x += 1;
+
+        if (cursor.x < mCurrGrid.mSize.x && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.y -= 1;
+
+        if (cursor.y >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        {
+            temp.Add(cursor);
+        }
+
+        cursor = CopyValues(pos);
+        cursor.y += 1;
+
+        if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)//!closed.Contains(tester) && 
         {
             temp.Add(cursor);
         }

@@ -28,14 +28,22 @@ public class AIManager : MonoBehaviour
     {
         if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
         {
-            AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
-            foreach (AIActor actor in actors)
-            {
-                Calculate(actor.mCharacter);
-            }
-
-            GameManager.sInstance.FinishEnemyTurn();
+            StartCoroutine(RunActors());
         }
+    }
+
+    IEnumerator RunActors()
+    {
+        AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
+        foreach (AIActor actor in actors)
+        {
+            Calculate(actor.mCharacter);
+            yield return new WaitForSeconds(1.0f);
+        }
+
+
+        yield return new WaitForSeconds(0.3f);
+        GameManager.sInstance.FinishEnemyTurn();
     }
 
     List<IntVector2> GetArea(IntVector2 pos, int range)
@@ -212,7 +220,7 @@ public class AIManager : MonoBehaviour
 
             mOpenList.Remove(mCurrent);
 
-            List<IntVector2> mNeighbours = GameManager.sInstance.GetNeighbors(mCurrent);
+            List<IntVector2> mNeighbours = GameManager.sInstance.GetEnemyNeighbors(mCurrent);
 
 
             for (int i = 0; i < mNeighbours.Count; i++)
@@ -231,14 +239,14 @@ public class AIManager : MonoBehaviour
 
                     if (IsEqual(pos, end))
                     {
+                        Debug.Log("Found: ");
                         //stop
                         found = true;
                         break;
                     }
 
-
-
                     mOpenList.Add(pos);
+
                 }
 
                 mNeighbours[i] = pos;
@@ -254,14 +262,13 @@ public class AIManager : MonoBehaviour
 
         }//end while loop
 
-        Debug.Log("possitt: " + pos.x + ", " + pos.y);
         IntVector2 parcer = pos;
         int posMoved = 0;
         if (parcer.parent != null)
         {
 
             do
-            { 
+            {
                 AddToPath(parcer);
                 parcer = parcer.parent[0];
             }
@@ -303,15 +310,18 @@ public class AIManager : MonoBehaviour
     void Attack(Character character, IntVector2 pos)
     {
         Character mCharToAttack = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj;
-        mCharToAttack.Damage(character.mDamage);
         character.Attacking();
+        StartCoroutine(WaitToShowDamage(1.5f, character, mCharToAttack));
     }
 
     public void Calculate(Character character)
     {
         //calculate
 
-
+        if (character.ContainsAilment(AilmentID.Stun))
+        {
+            return;
+        }
 
         //is active
         if (HasEnemyInArea(character.mCellPos, character.mActorComp.mActivationRange, character))
@@ -326,13 +336,13 @@ public class AIManager : MonoBehaviour
 
                 IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, character.mMoveDistance + character.mDamageDistance);
 
-                Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
-                int mOffset = (character.mAttackType == AttackType.Melee) ? 0 : 1;
+                //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
+                int mOffset = 0;// (character.mAttackType == AttackType.Melee) ? 0 : 1;
 
                 int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - (character.mDamageDistance)) + mOffset);
 
-                Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
-                Debug.Log("damage dist: " + character.mDamageDistance);
+                //Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
+                //Debug.Log("damage dist: " + character.mDamageDistance);
 
                 if (TotalMovement == 0)
                 {
@@ -348,16 +358,30 @@ public class AIManager : MonoBehaviour
                     }
                     else
                     {
-                        Attack(character, mCurrentEnemy);
+                        if (CanAttackPos(character, mCurrentEnemy))
+                        {
+                            Attack(character, mCurrentEnemy);
+                        }
                     }
 
                 }
                 else
                 {
                     //A* until no more points, then attack.
-                    AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
                     Debug.Log("Got here 3");
-                    Attack(character, mCurrentEnemy);
+
+                    Debug.Log("enemy pos: " + mCurrentEnemy.x + "," + mCurrentEnemy.y);
+                    Debug.Log("start pos: " + character.mCellPos.x + "," + character.mCellPos.y);
+                    Debug.Log("Total Movement: " + TotalMovement);
+
+
+
+                    AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
+
+                    if (CanAttackPos(character, mCurrentEnemy))
+                    {
+                        StartCoroutine(WaitToAttack(1.0f, character, mCurrentEnemy));
+                    }
 
                 }
 
@@ -369,6 +393,33 @@ public class AIManager : MonoBehaviour
                 AStar(character, character.mCellPos, character.mActorComp.mCurrentDestination, character.mMoveDistance);
             }
 
+        }
+    }
+
+    bool CanAttackPos(Character character, IntVector2 pos)
+    {
+        foreach (IntVector2 currPos in GetArea(character.mCellPos, character.mDamageDistance))
+        {
+            if (IsEqual(currPos, pos))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    IEnumerator WaitToShowDamage(float time, Character attacker, Character target)
+    {
+        yield return new WaitForSeconds(time);
+        target.Damage(attacker.mDamage);
+    }
+
+    IEnumerator WaitToAttack(float time, Character character, IntVector2 pos)
+    {
+        yield return new WaitForSeconds(time);
+        if (CanAttackPos(character, pos))
+        {
+            Attack(character, pos);
         }
     }
 

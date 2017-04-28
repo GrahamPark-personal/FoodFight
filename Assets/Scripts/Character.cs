@@ -244,6 +244,18 @@ public class Character : MonoBehaviour
         print("AddedAilement to " + mCharNumber + ", with attack " + ID + ", total ailments are: " + statusAilments.Count);
     }
 
+    public bool ContainsAilment(AilmentID id)
+    {
+        for (int i = 0; i < statusAilments.Count; i++)
+        {
+            if (statusAilments[i].ID == id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void AddBuff(BuffID id, int duration, int slow, int dmg)
     {
         Buff buff = new Buff();

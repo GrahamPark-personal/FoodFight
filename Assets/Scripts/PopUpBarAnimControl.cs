@@ -21,7 +21,7 @@ public class PopUpBarAnimControl : MonoBehaviour
 		if(GameManager.sInstance.mUIManager.mEnemyPopUpBarShown != mShowBar)
         {
             mShowBar = !mShowBar;
-            anim.SetBool("AttacksShown", mShowBar);
+            
 
         }
 	}

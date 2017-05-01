@@ -37,8 +37,8 @@ public class AIManager : MonoBehaviour
         AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
         foreach (AIActor actor in actors)
         {
+            yield return new WaitForSeconds(2.0f);
             Calculate(actor.mCharacter);
-            yield return new WaitForSeconds(1.0f);
         }
 
 
@@ -90,8 +90,11 @@ public class AIManager : MonoBehaviour
             {
                 Cell tempCell = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x];
 
-                Character tempChar = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x].mCharacterObj;
-                if (tempChar != null && tempChar.mCharacterType != CharacterType.None && !IsEqual(tempChar.mCellPos, character.mCellPos))
+                Character tempChar = tempCell.mCharacterObj;
+                if (tempChar != null 
+                    && tempChar.mCharacterType != CharacterType.None 
+                    && !IsEqual(tempChar.mCellPos, character.mCellPos) 
+                    && !tempCharArea.Contains(tempChar))
                 {
                     tempCharArea.Add(tempChar);
                 }
@@ -104,12 +107,15 @@ public class AIManager : MonoBehaviour
 
     int Distance(IntVector2 pos, IntVector2 target)
     {
-        return Mathf.Abs((target.x - pos.x) + (target.y - pos.y));
+        return Mathf.Abs((target.x - pos.x)) + Mathf.Abs((target.y - pos.y));
     }
 
     IntVector2 FindClosestEnemy(Character character, IntVector2 pos, int range)
     {
         //mTauntCharacter
+        Debug.Log("Pos: " + pos.x + "," + pos.y);
+        Debug.Log("Range: " + range);
+        Debug.Log("Character: " + character);
         List<Character> mCharacterList = GetAllEnemiesAround(pos, range, character);
 
         Debug.Log("total Characters: " + mCharacterList.Count + " ,Character: " + mCharacterList[0]);
@@ -146,8 +152,6 @@ public class AIManager : MonoBehaviour
 
     bool HasEnemyInArea(IntVector2 pos, int range, Character character)
     {
-
-        Debug.Log("Range: " + range);
 
         if (GetAllEnemiesAround(pos, range, character).Count > 0)
         {
@@ -188,6 +192,7 @@ public class AIManager : MonoBehaviour
 
     void AStar(Character character, IntVector2 start, IntVector2 end, int movementPoints)
     {
+         
         mPath.Clear();
         mPosPath.Clear();
         character.mPath.Clear();
@@ -209,9 +214,7 @@ public class AIManager : MonoBehaviour
         IntVector2 mCurrent;
 
         IntVector2 pos = new IntVector2();
-
-        bool tested = false;
-
+        
         bool found = false;
 
         while (mOpenList.Count > 0)
@@ -230,22 +233,25 @@ public class AIManager : MonoBehaviour
 
                 if (!HasLocation(mOpenList, pos) && !HasLocation(mClosedList, pos))
                 {
-                    pos.parent = new IntVector2[1];
-                    pos.parent[0] = mCurrent;
-                    pos.G = mCurrent.G + GameManager.sInstance.GCost;
-                    pos.H = GameManager.sInstance.FindH(pos, end);
-                    pos.F = pos.G + pos.H;
-
-
-                    if (IsEqual(pos, end))
+                    if(GameManager.sInstance.IsOnGridAndCanMoveTo(pos))
                     {
-                        Debug.Log("Found: ");
-                        //stop
-                        found = true;
-                        break;
+                        pos.parent = new IntVector2[1];
+                        pos.parent[0] = mCurrent;
+                        pos.G = mCurrent.G + GameManager.sInstance.GCost;
+                        pos.H = GameManager.sInstance.FindH(pos, end);
+                        pos.F = pos.G + pos.H;
+
+
+                        if (IsEqual(pos, end))
+                        {
+                            //stop
+                            found = true;
+                            break;
+                        }
+
+                        mOpenList.Add(pos);
                     }
 
-                    mOpenList.Add(pos);
 
                 }
 
@@ -283,13 +289,18 @@ public class AIManager : MonoBehaviour
                 intTemp = mPosPath.Pop();
 
                 //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
-
-                character.mPosPath.Enqueue(intTemp);
-                character.mPath.Enqueue(temp);
+                if(GameManager.sInstance.IsOnGridAndCanMoveTo(intTemp))
+                {
+                    character.mPosPath.Enqueue(intTemp);
+                    character.mPath.Enqueue(temp);
+                }
+                else
+                {
+                    break;
+                }
             }
 
 
-            Debug.Log("intToPos: " + intTemp.x + ", " + intTemp.y);
             GameManager.sInstance.MoveEnemySlot(intTemp, character);
 
             character.mRunPath = true;
@@ -316,36 +327,70 @@ public class AIManager : MonoBehaviour
 
     public void Calculate(Character character)
     {
+        Debug.Log("-------------------------BEGIN OF CALCULATE----------------------------");
+        Debug.Log("Character: " + character);
+
         //calculate
 
         if (character.ContainsAilment(AilmentID.Stun))
         {
+            Debug.Log("Stunned");
             return;
         }
 
         //is active
         if (HasEnemyInArea(character.mCellPos, character.mActorComp.mActivationRange, character))
         {
-            Debug.Log("Got here 1 : " + character.gameObject);
+            Debug.Log("Has enemy in area");
 
             //Is able to attack
-            if (HasEnemyInArea(character.mCellPos, character.mMoveDistance + character.mDamageDistance, character))
+            int mOffset = (character.mAttackType == AttackType.Melee) ? -2 : 0; //why -2 though?
+            if (HasEnemyInArea(character.mCellPos, (character.mMoveDistance + character.mDamageDistance ) - mOffset, character))
             {
 
-                Debug.Log("Got here 2");
+                Debug.Log("Can attack");
 
-                IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, character.mMoveDistance + character.mDamageDistance);
+                IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, (character.mMoveDistance + character.mDamageDistance));
 
                 //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
-                int mOffset = 1;// (character.mAttackType == AttackType.Melee) ? 0 : 1;
 
-                int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - (character.mDamageDistance)) + mOffset);
+                //int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - ((character.mDamageDistance)) + mOffset)) + 4; //why 4 though?
+                int TotalMovement = 0;
+
+                int distanceBetweenUnits = Distance(character.mCellPos, mCurrentEnemy);
+
+                Debug.Log("Distance: " + distanceBetweenUnits);
+
+                if (distanceBetweenUnits == 1)
+                {
+                    TotalMovement = 0;
+                }
+                else if (character.mMoveDistance + character.mDamageDistance > distanceBetweenUnits)
+                {
+                    TotalMovement = Mathf.Abs(character.mMoveDistance - character.mDamageDistance);
+                    if (TotalMovement == distanceBetweenUnits)
+                    {
+                        TotalMovement = distanceBetweenUnits - 1;
+                    }
+
+                }
+                else
+                {
+                    TotalMovement = character.mMoveDistance;
+                    if(TotalMovement > character.mMoveDistance)
+                    {
+                        TotalMovement = character.mMoveDistance - 1;
+                    }
+                }
+
+                Debug.Log("Total Movement: " + TotalMovement);
 
                 //Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
                 //Debug.Log("damage dist: " + character.mDamageDistance);
 
                 if (TotalMovement == 0)
                 {
+                    Debug.Log("just attack");
                     //attack
                     if (CanAttackPos(character, mCurrentEnemy))
                     {
@@ -357,12 +402,15 @@ public class AIManager : MonoBehaviour
                     //move back, if ranged attack.
                     if (mOffset == 0)
                     {
+                        Debug.Log("melee total movement < 0");
                         //melee, nothing happens here
                     }
                     else
                     {
+                        Debug.Log("Ranged total movement < 0");
                         if (CanAttackPos(character, mCurrentEnemy))
                         {
+                            Debug.Log("     |_ and can attack the enemy");
                             Attack(character, mCurrentEnemy);
                         }
                     }
@@ -371,18 +419,13 @@ public class AIManager : MonoBehaviour
                 else
                 {
                     //A* until no more points, then attack.
-                    Debug.Log("Got here 3");
-
-                    Debug.Log("enemy pos: " + mCurrentEnemy.x + "," + mCurrentEnemy.y);
-                    Debug.Log("start pos: " + character.mCellPos.x + "," + character.mCellPos.y);
-                    Debug.Log("Total Movement: " + TotalMovement);
-
-
+                    Debug.Log("Move towards enemy, then attack if possible");
 
                     AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
 
                     if (CanAttackPos(character, mCurrentEnemy))
                     {
+                        Debug.Log("     |_moved towards then attacked");
                         StartCoroutine(WaitToAttack(1.0f, character, mCurrentEnemy));
                     }
 
@@ -393,6 +436,7 @@ public class AIManager : MonoBehaviour
             else
             {
                 //move to current destination
+                Debug.Log("Moving to predefined destination");
                 AStar(character, character.mCellPos, character.mActorComp.mCurrentDestination, character.mMoveDistance);
             }
 

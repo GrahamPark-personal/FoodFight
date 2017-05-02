@@ -425,6 +425,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Cannot finish enemy turn if it is the players");
         }
+
+        mUIManager.IncrementTurn();
     }
 
     #endregion

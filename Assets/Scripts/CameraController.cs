@@ -15,23 +15,77 @@ public class CameraController : MonoBehaviour {
 
     bool mMovingToCharacter = false;
 
+    [Space(10)]
+    [Header("ZoomArea")]
+
+    public Camera mCamera;
+
+    public float mMaxHeight;
+    public float mMinHeight;
+    float mCurrHeight;
+    public float mChangeInterval;
+    public float mZoomSpeed;
+    
+
+
 	void Start ()
     {
         Cursor.lockState = CursorLockMode.Confined;
         mMousePosition = new Vector2(0, 0);
         mRigidBody = GetComponent<Rigidbody>();
+        mCurrHeight = mMaxHeight;
     }
 	
-	
-	void Update ()
+    public void ZoomIn()
+    {
+        if(mCurrHeight - mChangeInterval > mMinHeight)
+        {
+            mCurrHeight -= mChangeInterval;
+        }
+    }
+
+    public void ZoomOut()
+    {
+        if (mCurrHeight + mChangeInterval < mMaxHeight)
+        {
+            mCurrHeight += mChangeInterval;
+        }
+    }
+
+
+    void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
         }
 
+        if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            ZoomIn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            ZoomOut();
+        }
+
+        float mMWheel = Input.GetAxis("Mouse ScrollWheel");
+
+        if (mMWheel > 0)
+        {
+            ZoomIn();
+        }
+
+        if (mMWheel < 0)
+        {
+            ZoomOut();
+        }
+
+
         mRigidBody.AddRelativeForce(new Vector3(mMousePosition.y,0, mMousePosition.x) * mMoveSpeed * Time.deltaTime);
-	}
+        mCamera.orthographicSize = Mathf.Lerp(mCamera.orthographicSize, mCurrHeight, Time.deltaTime * mZoomSpeed);
+    }
 
     public void RightWall()
     {

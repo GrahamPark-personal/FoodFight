@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -109,6 +103,7 @@
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
     <Compile Include="Assets\Scripts\Attacks\WhiteMage\WhiteBaseAttack.cs" />
+    <Compile Include="Assets\Scripts\BubbleTextObjects.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CameraSetUp.cs" />
@@ -125,6 +120,7 @@
     <Compile Include="Assets\Scripts\LevelSelectControl.cs" />
     <Compile Include="Assets\Scripts\MenuUIControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
+    <Compile Include="Assets\Scripts\PopUpBarControl.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>

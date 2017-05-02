@@ -9,6 +9,14 @@ public struct CharacterAttackImages
     public Texture2D[] images;
 }
 
+public enum StarLevel
+{
+    Gold = 2,
+    Silver = 1,
+    Bronze = 0
+}
+
+
 public class UIManager : MonoBehaviour
 {
 
@@ -55,6 +63,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject[] mBubbles;
 
+    public BubbleTextObjects mTextBubble;
+
     IntVector2 mPos;
 
     TypeOnCell mTypeOnCell;
@@ -63,21 +73,58 @@ public class UIManager : MonoBehaviour
 
     Texture2D[] mSavedCharImage;
 
+    StarLevel mCurrentStar = StarLevel.Gold;
+
+    int mCurrentTurns;
+
+    [Space(10)]
+    [Header("Star System")]
+    public RawImage mStarImageSlot;
+
+    public Texture2D mGoldStarImage;
+    public Texture2D mSilverStar;
+    public Texture2D mBronzeStar;
+
+    public int mGoldTurns;
+    public int mSilverTurns;
+
+
 
     void Start()
     {
+        mCurrentTurns = mGoldTurns;
+
         ResetBubbles();
 
         mActiveCharacters = GameManager.sInstance.mCharacters.Length;
 
         mSavedCharImage = new Texture2D[mCharTexture.Length];
 
-        for (int i = 0; i < mCharTexture.Length; i++)
+        for (int i = 0; i < mCharacters.Length; i++)
         {
             mSavedCharImage[i] = mCharTexture[i];
         }
     }
 
+    public void IncrementTurn()
+    {
+        mCurrentTurns--;
+        if(mCurrentTurns <= 0)
+        {
+            switch (mCurrentStar)
+            {
+                case StarLevel.Gold:
+                    mCurrentStar = StarLevel.Silver;
+                    mCurrentTurns = mSilverTurns;
+                    mStarImageSlot.texture = mSilverStar;
+                    break;
+                case StarLevel.Silver:
+                    mCurrentStar = StarLevel.Bronze;
+                    mStarImageSlot.texture = mBronzeStar;
+                    break;
+            }
+        }
+    }
 
     void ResetBubbles()
     {
@@ -97,7 +144,11 @@ public class UIManager : MonoBehaviour
     {
         if (pos >= 0 && pos <= mBubbles.Length)
         {
-            mBubbles[pos].SetActive(true);
+            if(pos < mCharTexture.Length && mBubbles[pos])
+            { 
+                mBubbles[pos].GetComponentInChildren<Text>().text = mTextBubble.mBubbletext[mCurrentCharacter].mPlayer[pos];
+                mBubbles[pos].SetActive(true);
+            }
         }
     }
 
@@ -105,18 +156,18 @@ public class UIManager : MonoBehaviour
     {
 
         //Debug.Log("UI Update Called");
-        for (int i = 0; i < mCharHealth.Length; i++)
+        for (int i = 0; i < mCharacters.Length; i++)
         {
             //Debug.Log("Health Updated");
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
-        for (int i = 0; i < mCharFrame.Length; i++)
+        for (int i = 0; i < mCharacters.Length; i++)
         {
             mCharImage[i].texture = mCharTexture[i];
         }
 
-        for (int i = 0; i < mCharFrame.Length; i++)
+        for (int i = 0; i < mCharacters.Length; i++)
         {
             if (i < GameManager.sInstance.mCharacters.Length)
             {
@@ -171,12 +222,13 @@ public class UIManager : MonoBehaviour
         {
             //change images
 
-            for (int i = 0; i < mAttackImages.Length; i++)
+            for (int i = 0; i < mCharacters.Length; i++)
             {
                 mAttackImages[i].texture = mTexturesForAttacks[mCurrentCharacter].images[i];
             }
 
             mEnemyPopUpBarShown = true;
+            ResetBubbles();
         }
         else
         {
@@ -221,6 +273,17 @@ public class UIManager : MonoBehaviour
             Debug.Log("Cannot finish player turn if it is the enemies");
         }
 
+    }
+
+    public void ShowBubble(int pos)
+    {
+        ResetBubbles();
+        AcvivateBubble(pos);
+    }
+
+    public void HideBubbles()
+    {
+        ResetBubbles();
     }
 
     public void OnCharacter1Down(bool moveCam)
@@ -556,8 +619,6 @@ public class UIManager : MonoBehaviour
 
     void MoveCharacterHover(int character)
     {
-        ResetBubbles();
-        AcvivateBubble(character);
 
         if (character < GameManager.sInstance.mCharacters.Length)
         {

@@ -81,6 +81,8 @@ public class AIManager : MonoBehaviour
     {
         List<IntVector2> area = GetArea(pos, range);
 
+        Debug.Log("Broke after area");
+
         List<Character> tempCharArea = new List<Character>();
 
         foreach (IntVector2 item in area)
@@ -89,14 +91,20 @@ public class AIManager : MonoBehaviour
             if (GameManager.sInstance.IsOnGrid(item))
             {
                 Cell tempCell = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x];
-
-                Character tempChar = tempCell.mCharacterObj;
-                if (tempChar != null 
-                    && tempChar.mCharacterType != CharacterType.None 
-                    && !IsEqual(tempChar.mCellPos, character.mCellPos) 
-                    && !tempCharArea.Contains(tempChar))
+                if (tempCell != null)
                 {
-                    tempCharArea.Add(tempChar);
+                    Character tempChar = tempCell.mCharacterObj;
+                    if (tempChar != null
+                        && tempChar.mCharacterType != CharacterType.None
+                        && !IsEqual(tempChar.mCellPos, character.mCellPos)
+                        && !tempCharArea.Contains(tempChar))
+                    {
+                        tempCharArea.Add(tempChar);
+                    }
+                }
+                else
+                {
+                    Debug.Log("Couldnt get cell");
                 }
             }
         }
@@ -129,24 +137,29 @@ public class AIManager : MonoBehaviour
         }
 
         Character mClosest = null;
-
-        foreach (Character item in mCharacterList)
+        if (mCharacterList.Count > 0)
         {
-            if (mClosest == null)
+
+            foreach (Character item in mCharacterList)
             {
-                mClosest = item;
-            }
-            else
-            {
-                if (Distance(pos, item.mCellPos) < Distance(pos, mClosest.mCellPos))
+                if (mClosest == null)
                 {
                     mClosest = item;
                 }
+                else
+                {
+                    if (Distance(pos, item.mCellPos) < Distance(pos, mClosest.mCellPos))
+                    {
+                        mClosest = item;
+                    }
+                }
             }
+            return mClosest.mCellPos;
         }
-
-        return mClosest.mCellPos;
-
+        IntVector2 temp = new IntVector2();
+        temp.x = -1;
+        temp.y = -1;
+        return temp;
     }
 
 
@@ -192,7 +205,7 @@ public class AIManager : MonoBehaviour
 
     void AStar(Character character, IntVector2 start, IntVector2 end, int movementPoints)
     {
-         
+
         mPath.Clear();
         mPosPath.Clear();
         character.mPath.Clear();
@@ -214,7 +227,7 @@ public class AIManager : MonoBehaviour
         IntVector2 mCurrent;
 
         IntVector2 pos = new IntVector2();
-        
+
         bool found = false;
 
         while (mOpenList.Count > 0)
@@ -233,7 +246,7 @@ public class AIManager : MonoBehaviour
 
                 if (!HasLocation(mOpenList, pos) && !HasLocation(mClosedList, pos))
                 {
-                    if(GameManager.sInstance.IsOnGridAndCanMoveTo(pos))
+                    if (GameManager.sInstance.IsOnGridAndCanMoveTo(pos))
                     {
                         pos.parent = new IntVector2[1];
                         pos.parent[0] = mCurrent;
@@ -289,7 +302,7 @@ public class AIManager : MonoBehaviour
                 intTemp = mPosPath.Pop();
 
                 //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
-                if(GameManager.sInstance.IsOnGridAndCanMoveTo(intTemp))
+                if (GameManager.sInstance.IsOnGridAndCanMoveTo(intTemp))
                 {
                     character.mPosPath.Enqueue(intTemp);
                     character.mPath.Enqueue(temp);
@@ -345,93 +358,98 @@ public class AIManager : MonoBehaviour
 
             //Is able to attack
             int mOffset = (character.mAttackType == AttackType.Melee) ? -2 : 0; //why -2 though?
-            if (HasEnemyInArea(character.mCellPos, (character.mMoveDistance + character.mDamageDistance ) - mOffset, character))
+            if (HasEnemyInArea(character.mCellPos, (character.mMoveDistance + character.mDamageDistance) - mOffset, character))
             {
 
                 Debug.Log("Can attack");
 
                 IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, (character.mMoveDistance + character.mDamageDistance));
 
-                //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
-
-                //int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - ((character.mDamageDistance)) + mOffset)) + 4; //why 4 though?
-                int TotalMovement = 0;
-
-                int distanceBetweenUnits = Distance(character.mCellPos, mCurrentEnemy);
-
-                Debug.Log("Distance: " + distanceBetweenUnits);
-
-                if (distanceBetweenUnits == 1)
+                if (mCurrentEnemy.x != -1 && mCurrentEnemy.y != -1)
                 {
-                    TotalMovement = 0;
-                }
-                else if (character.mMoveDistance + character.mDamageDistance > distanceBetweenUnits)
-                {
-                    TotalMovement = Mathf.Abs(character.mMoveDistance - character.mDamageDistance);
-                    if (TotalMovement == distanceBetweenUnits)
+
+
+
+                    //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
+
+                    //int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - ((character.mDamageDistance)) + mOffset)) + 4; //why 4 though?
+                    int TotalMovement = 0;
+
+                    int distanceBetweenUnits = Distance(character.mCellPos, mCurrentEnemy);
+
+                    Debug.Log("Distance: " + distanceBetweenUnits);
+
+                    if (distanceBetweenUnits == 1)
                     {
-                        TotalMovement = distanceBetweenUnits - 1;
+                        TotalMovement = 0;
                     }
-
-                }
-                else
-                {
-                    TotalMovement = character.mMoveDistance;
-                    if(TotalMovement > character.mMoveDistance)
+                    else if (character.mMoveDistance + character.mDamageDistance > distanceBetweenUnits)
                     {
-                        TotalMovement = character.mMoveDistance - 1;
-                    }
-                }
+                        TotalMovement = Mathf.Abs(character.mMoveDistance - character.mDamageDistance);
+                        if (TotalMovement == distanceBetweenUnits)
+                        {
+                            TotalMovement = distanceBetweenUnits - 1;
+                        }
 
-                Debug.Log("Total Movement: " + TotalMovement);
-
-                //Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
-                //Debug.Log("damage dist: " + character.mDamageDistance);
-
-                if (TotalMovement == 0)
-                {
-                    Debug.Log("just attack");
-                    //attack
-                    if (CanAttackPos(character, mCurrentEnemy))
-                    {
-                        Attack(character, mCurrentEnemy);
-                    }
-                }
-                else if (TotalMovement < 0)
-                {
-                    //move back, if ranged attack.
-                    if (mOffset == 0)
-                    {
-                        Debug.Log("melee total movement < 0");
-                        //melee, nothing happens here
                     }
                     else
                     {
-                        Debug.Log("Ranged total movement < 0");
-                        if (CanAttackPos(character, mCurrentEnemy))
+                        TotalMovement = character.mMoveDistance;
+                        if (TotalMovement > character.mMoveDistance)
                         {
-                            Debug.Log("     |_ and can attack the enemy");
-                            Attack(character, mCurrentEnemy);
+                            TotalMovement = character.mMoveDistance - 1;
                         }
                     }
 
-                }
-                else
-                {
-                    //A* until no more points, then attack.
-                    Debug.Log("Move towards enemy, then attack if possible");
+                    Debug.Log("Total Movement: " + TotalMovement);
 
-                    AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
+                    //Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
+                    //Debug.Log("damage dist: " + character.mDamageDistance);
 
-                    if (CanAttackPos(character, mCurrentEnemy))
+                    if (TotalMovement == 0)
                     {
-                        Debug.Log("     |_moved towards then attacked");
-                        StartCoroutine(WaitToAttack(1.0f, character, mCurrentEnemy));
+                        Debug.Log("just attack");
+                        //attack
+                        if (CanAttackPos(character, mCurrentEnemy))
+                        {
+                            Attack(character, mCurrentEnemy);
+                        }
+                    }
+                    else if (TotalMovement < 0)
+                    {
+                        //move back, if ranged attack.
+                        if (mOffset == 0)
+                        {
+                            Debug.Log("melee total movement < 0");
+                            //melee, nothing happens here
+                        }
+                        else
+                        {
+                            Debug.Log("Ranged total movement < 0");
+                            if (CanAttackPos(character, mCurrentEnemy))
+                            {
+                                Debug.Log("     |_ and can attack the enemy");
+                                Attack(character, mCurrentEnemy);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        //A* until no more points, then attack.
+                        Debug.Log("Move towards enemy, then attack if possible");
+
+                        AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
+
+                        if (CanAttackPos(character, mCurrentEnemy))
+                        {
+                            Debug.Log("     |_moved towards then attacked");
+                            StartCoroutine(WaitToAttack(1.0f, character, mCurrentEnemy));
+                        }
+
                     }
 
                 }
-
-
             }
             else
             {

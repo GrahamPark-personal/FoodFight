@@ -290,6 +290,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            CutSceneManager.sInstance.SetActive(true);
+        }
+
         if(mOverBlock && mMouseMode != MouseMode.AbilityAttack && mMouseMode != MouseMode.Attack)
         {
             //mHoverBlock.SetActive(true);

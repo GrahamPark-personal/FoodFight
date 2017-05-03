@@ -73,24 +73,20 @@ public class AIManager : MonoBehaviour
             }
         }
 
-
-
         return tempList;
     }
     List<Character> GetAllEnemiesAround(IntVector2 pos, int range, Character character)
     {
         List<IntVector2> area = GetArea(pos, range);
 
-        Debug.Log("Broke after area");
-
         List<Character> tempCharArea = new List<Character>();
-
         foreach (IntVector2 item in area)
         {
             //Debug.Log("pos: " + item.x + ", " + item.y);
             if (GameManager.sInstance.IsOnGrid(item))
             {
                 Cell tempCell = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x];
+
                 if (tempCell != null)
                 {
                     Character tempChar = tempCell.mCharacterObj;
@@ -109,6 +105,7 @@ public class AIManager : MonoBehaviour
             }
         }
 
+
         return (tempCharArea);
 
     }
@@ -126,7 +123,7 @@ public class AIManager : MonoBehaviour
         Debug.Log("Character: " + character);
         List<Character> mCharacterList = GetAllEnemiesAround(pos, range, character);
 
-        Debug.Log("total Characters: " + mCharacterList.Count + " ,Character: " + mCharacterList[0]);
+        //Debug.Log("total Characters: " + mCharacterList.Count + " ,Character: " + mCharacterList[0]);
 
         if (character.mTauntCharacter != null)
         {

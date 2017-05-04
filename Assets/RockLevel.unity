@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAnimator: {fileID: 0}
+  mAnimator: {fileID: 1976099246}
   mActorComp: {fileID: 0}
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   mCharacterType: 1
   mAttackType: 1
   mDirection: 0
-  mAnimation: 0
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -2066,6 +2066,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &44505656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6682,6 +6685,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &137976903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13340,6 +13346,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &244130004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14145,6 +14154,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 0}
+    mAttackSound: {fileID: 0}
 --- !u!23 &267179046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19304,7 +19316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736201a7d7820df488516ea5f882614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAnimator: {fileID: 0}
+  mAnimator: {fileID: 683968776}
   mActorComp: {fileID: 0}
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
@@ -19339,7 +19351,7 @@ MonoBehaviour:
   mCharacterType: 0
   mAttackType: 0
   mDirection: 0
-  mAnimation: 0
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -19357,6 +19369,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &384067141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27530,7 +27545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &577531707
 Transform:
   m_ObjectHideFlags: 0
@@ -34144,6 +34159,69 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 683727615}
   m_Script: {fileID: 11500000, guid: 22d4c48043fe2fd469b0a62c2dd7d3cb, type: 3}
+--- !u!1001 &683968775
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1528884939}
+    m_Modifications:
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071092
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575378719136332, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.65348643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.3367835
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.30997962
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.60286397
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!95 &683968776 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95613455395580780, guid: d6dbffca6be5abf48a92e4d1e854354b,
+    type: 2}
+  m_PrefabInternal: {fileID: 683968775}
 --- !u!1001 &683993195
 Prefab:
   m_ObjectHideFlags: 0
@@ -52575,6 +52653,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 0}
+    mAttackSound: {fileID: 0}
 --- !u!1001 &929309277
 Prefab:
   m_ObjectHideFlags: 0
@@ -58764,6 +58845,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &1060570662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63667,6 +63751,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &1188408016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -79011,6 +79098,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 0}
+    mAttackSound: {fileID: 0}
 --- !u!23 &1505749548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80608,6 +80698,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!114 &1536766419 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000010786207988, guid: 00096ea014063494a94b212272662183,
@@ -80650,6 +80743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1539359216}
   - component: {fileID: 1539359215}
+  - component: {fileID: 1539359217}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -80750,6 +80844,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539359217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539359214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dcf8075b06a904f8706b655c804d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAudioObj: {fileID: 1530233377946024, guid: 4e37cea2e73d14d429859cfb1e758eb9, type: 2}
 --- !u!1 &1539940622
 GameObject:
   m_ObjectHideFlags: 0
@@ -84195,6 +84301,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!4 &1642308812 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -84401,6 +84510,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0ecfe6acfa9f15847aef6bd1366eb84e, type: 2}
+    - target: {fileID: 100000, guid: 77460325792fa624499d3f3566082639, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77460325792fa624499d3f3566082639, type: 3}
   m_IsPrefabParent: 0
@@ -86333,6 +86446,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!1 &1695746828
 GameObject:
   m_ObjectHideFlags: 0
@@ -87622,6 +87738,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &1705453823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88217,6 +88336,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &1716735078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -105207,6 +105329,53 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1975238973}
   m_Script: {fileID: 11500000, guid: 22d4c48043fe2fd469b0a62c2dd7d3cb, type: 3}
+--- !u!1001 &1976099245
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1867473424}
+    m_Modifications:
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.0268
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415764163538610, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
+  m_IsPrefabParent: 0
+--- !u!95 &1976099246 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95266030424954718, guid: 2248c64713deeeb40b465122834f8c03,
+    type: 2}
+  m_PrefabInternal: {fileID: 1976099245}
 --- !u!4 &1978574992 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -110026,6 +110195,9 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
+  mAudioClips:
+    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
+    mAttackSound: {fileID: 0}
 --- !u!23 &2120397830
 MeshRenderer:
   m_ObjectHideFlags: 0

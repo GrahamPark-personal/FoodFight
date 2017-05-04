@@ -252,11 +252,14 @@ public class UIManager : MonoBehaviour
     public void OnBasicAttackDown()
     {
         //basic attack
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if(GameManager.sInstance.mCharacterObj != null)
         {
-            GameManager.sInstance.mMouseMode = MouseMode.Attack;
-            GameManager.sInstance.ResetSelected();
-            GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.Attack;
+                GameManager.sInstance.ResetSelected();
+                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+            }
         }
 
     }

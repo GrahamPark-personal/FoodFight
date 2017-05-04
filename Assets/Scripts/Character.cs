@@ -71,6 +71,14 @@ public struct DualAbilities
     public CharacterType ability5Character2;
 }
 
+[System.Serializable]
+public struct AudioClips
+{
+    public AudioClip mHitSound;
+    public AudioClip mAttackSound;
+}
+
+
 
 public class Character : MonoBehaviour
 {
@@ -206,6 +214,9 @@ public class Character : MonoBehaviour
 
     [HideInInspector]
     public bool hasVirus = false;
+
+    [Header("Audio")]
+    public AudioClips mAudioClips;
 
     bool onIce = false;
 
@@ -742,6 +753,7 @@ public class Character : MonoBehaviour
     public void Damage(int amount)
     {
         mAnimation = CharacterAnimations.Hit;
+        AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
 
         //TODO:: Deal with attack based abilities
@@ -793,6 +805,7 @@ public class Character : MonoBehaviour
     public void Attacking()
     {
         mAnimation = CharacterAnimations.Attack1;
+        AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
     }
 

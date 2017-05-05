@@ -224,6 +224,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject mStarObject;
 
+    [Header("HeathBarStuff")]
+    public bool mHealthBarIsVisual;
+
     #region Functions
 
     #region DebugArea

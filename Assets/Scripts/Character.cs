@@ -346,7 +346,7 @@ public class Character : MonoBehaviour
                             neighbors[neighborIndex].Damage(statusAilments[i].extra * 3);
                         }
                     }
-                        Damage(statusAilments[i].extra * 2);
+                    Damage(statusAilments[i].extra * 2);
                 }
 
                 statusAilments.Remove(statusAilments[i]);
@@ -546,7 +546,7 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if(mAnimator != null)
+        if (mAnimator != null)
         {
             mAnimator.SetInteger("AnimState", (int)mAnimation);
         }
@@ -738,15 +738,21 @@ public class Character : MonoBehaviour
 
         for (int i = 0; i < mMaterialRend.Length; i++)
         {
-            colorList[i] = mMaterialRend[i].material.GetColor("_Color");
-            mMaterialRend[i].material.SetColor("_Color", Color.red);
+            if (mMaterialRend[i] != null && mMaterialRend[i].material.HasProperty("_Color"))
+            {
+                colorList[i] = mMaterialRend[i].material.GetColor("_Color");
+                mMaterialRend[i].material.SetColor("_Color", Color.red);
+            }
         }
 
         yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < mMaterialRend.Length; i++)
         {
-            mMaterialRend[i].material.SetColor("_Color", colorList[i]);
+            if (mMaterialRend[i] != null && mMaterialRend[i].material.HasProperty("_Color"))
+            {
+                mMaterialRend[i].material.SetColor("_Color", colorList[i]);
+            }
         }
     }
 

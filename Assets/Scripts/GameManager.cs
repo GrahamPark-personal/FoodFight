@@ -306,17 +306,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if(mFinishedLastCutScene)
+        if (mFinishedLastCutScene)
         {
             //do end of level
 
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
 
-        if(mOverBlock && mMouseMode != MouseMode.AbilityAttack && mMouseMode != MouseMode.Attack)
+        if (mOverBlock && mMouseMode != MouseMode.AbilityAttack && mMouseMode != MouseMode.Attack)
         {
             //mHoverBlock.SetActive(true);
         }
@@ -325,7 +325,7 @@ public class GameManager : MonoBehaviour
             //mHoverBlock.SetActive(false);
         }
 
-        if(Input.GetMouseButtonDown(1))// && mMouseMode != MouseMode.Move
+        if (Input.GetMouseButtonDown(1))// && mMouseMode != MouseMode.Move
         {
             //if(mMouseMode != MouseMode.Move)
             //{
@@ -365,7 +365,7 @@ public class GameManager : MonoBehaviour
 
     public bool CheckWin()
     {
-        if(mLevelType == TypeOfLevel.KillTheBoss)
+        if (mLevelType == TypeOfLevel.KillTheBoss)
         {
             foreach (Character var in mEnemies)
             {
@@ -376,7 +376,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        else if(mLevelType == TypeOfLevel.KillAllEnemies)
+        else if (mLevelType == TypeOfLevel.KillAllEnemies)
         {
             foreach (Character var in mEnemies)
             {
@@ -388,7 +388,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(mLevelType == TypeOfLevel.KillTheBoss)
+        if (mLevelType == TypeOfLevel.KillTheBoss)
         {
             Debug.Log("Got here");
             CutSceneManager.sInstance.SetScene(CutSceneManager.sInstance.mSeconaryScene);
@@ -396,7 +396,7 @@ public class GameManager : MonoBehaviour
             CutSceneManager.sInstance.mLastPhrase = true;
             CutSceneManager.sInstance.SetActive(true);
         }
-        else if(mLevelType == TypeOfLevel.KillAllEnemies)
+        else if (mLevelType == TypeOfLevel.KillAllEnemies)
         {
             //Debug.Log("Got here 2");
             mFinishedLastCutScene = true;
@@ -723,6 +723,7 @@ public class GameManager : MonoBehaviour
 
     public List<IntVector2> GetEnemyNeighbors(IntVector2 pos)
     {
+
         List<IntVector2> temp = new List<IntVector2>();
 
         IntVector2 cursor;
@@ -730,35 +731,46 @@ public class GameManager : MonoBehaviour
         cursor = CopyValues(pos);
         cursor.x -= 1;
 
-        if (cursor.x >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && ( mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        if (IsOnGrid(cursor))
         {
-            temp.Add(cursor);
+            if (cursor.x >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            {
+                temp.Add(cursor);
+            }
         }
 
         cursor = CopyValues(pos);
         cursor.x += 1;
 
-        if (cursor.x < mCurrGrid.mSize.x && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        if (IsOnGrid(cursor))
         {
-            temp.Add(cursor);
+            if (cursor.x < mCurrGrid.mSize.x && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            {
+                temp.Add(cursor);
+            }
         }
 
         cursor = CopyValues(pos);
         cursor.y -= 1;
 
-        if (cursor.y >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+        if (IsOnGrid(cursor))
         {
-            temp.Add(cursor);
+            if (cursor.y >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            {
+                temp.Add(cursor);
+            }
         }
 
         cursor = CopyValues(pos);
         cursor.y += 1;
 
-        if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)//!closed.Contains(tester) && 
+        if (IsOnGrid(cursor))
         {
-            temp.Add(cursor);
+            if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)//!closed.Contains(tester) && 
+            {
+                temp.Add(cursor);
+            }
         }
-
         return temp;
 
     }
@@ -1021,13 +1033,13 @@ public class GameManager : MonoBehaviour
 
     public void SetHover(IntVector2 pos)
     {
-        if(IsOnGridAndCanMoveTo(pos) && mOverBlock)
+        if (IsOnGridAndCanMoveTo(pos) && mOverBlock)
         {
             mHoverBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
             mHoverBlock.transform.rotation = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation;
             mHoverBlock.transform.localScale = new Vector3(mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.x, mHoverBlock.transform.localScale.y, mCurrGrid.rows[pos.y].cols[pos.x].transform.localScale.z);
         }
-        
+
     }
 
     public void MoveCharacterHover(IntVector2 pos)
@@ -1043,7 +1055,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPreviewBlock(IntVector2 pos)
     {
-        if(IsOnGridAndCanMoveTo(pos))
+        if (IsOnGridAndCanMoveTo(pos))
         {
             Transform mCellTransform = mCurrGrid.rows[pos.y].cols[pos.x].transform;
             GameObject mTemp = Instantiate(AttackPreviewBlock, mCellTransform.position, mCellTransform.rotation);
@@ -1839,7 +1851,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
     public void CreateRowEffect(IntVector2 Start, IntVector2 End, EffectParameters effectParm)
     {
         string dir = "";
@@ -2210,7 +2222,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (IntVector2 item in mAttackAreaLocations)
         {
-            if(pos.x == item.x && pos.y == item.y)
+            if (pos.x == item.x && pos.y == item.y)
             {
                 return true;
             }
@@ -2442,7 +2454,7 @@ public class GameManager : MonoBehaviour
         {
             if (!mMoveAreaLocations.Contains(tempPosition))
             {
-                if(HeightDifference(lastHeight, tempPosition) > 1)
+                if (HeightDifference(lastHeight, tempPosition) > 1)
                 {
                     //Debug.Log("Height Too Big");
                     return 0;
@@ -2674,7 +2686,7 @@ public class GameManager : MonoBehaviour
                 {
                     CreateCharacterTargets(mSelectedCell);
                 }
-                else if(mAttackShape == AttackShape.OnCell)
+                else if (mAttackShape == AttackShape.OnCell)
                 {
                     CreateOnCellTarget(mSelectedCell);
                 }

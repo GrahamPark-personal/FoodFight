@@ -27,7 +27,11 @@ public class CutSceneManager : MonoBehaviour
 
     bool mActive = false;
     public CutScene mCurrentScene;
-    int mCurrentPhrase = 0;
+    public CutScene mSeconaryScene;
+    [HideInInspector]
+    public bool mLastPhrase = false;
+    [HideInInspector]
+    public int mCurrentPhrase = 0;
 
 
 
@@ -42,6 +46,11 @@ public class CutSceneManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    void Start()
+    {
+        SetActive(true);
     }
 
     public void SetActive(bool active)
@@ -90,15 +99,20 @@ public class CutSceneManager : MonoBehaviour
 
     void SetScreenUp()
     {
-        if (mCurrentScene.mConvo[mCurrentPhrase].mActive)
+        if (!mCurrentScene.mConvo[mCurrentPhrase].mBlank)
         {
             Phrase mPhrase = mCurrentScene.mConvo[mCurrentPhrase];
             if (mPhrase.mSide == CutSceneSide.Left)
             {
                 mTopOfLeftBubbles.SetActive(true);
-                mLeftText.enabled = true;
-
                 mTopOfRightBubbles.SetActive(false);
+                ResetBubbles();
+                SetLeftBubble();
+                SetLeftPortrait();
+                //setLeftBubble
+                //setLeftPortrait
+
+                mLeftText.enabled = true;
                 mRightText.enabled = false;
 
                 mLeftText.text = mPhrase.mSentence;
@@ -107,12 +121,17 @@ public class CutSceneManager : MonoBehaviour
             else
             {
                 mTopOfLeftBubbles.SetActive(false);
-                mLeftText.enabled = false;
-
                 mTopOfRightBubbles.SetActive(true);
+                SetRightBubble();
+                SetRightPortrait();
+                //setRightBubble
+                //setRightPortrait
+
+                mLeftText.enabled = false;
                 mRightText.enabled = true;
 
                 mRightText.text = mPhrase.mSentence;
+
             }
         }
         else
@@ -131,6 +150,21 @@ public class CutSceneManager : MonoBehaviour
         mRightCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mRightCharacter];
     }
 
+    void SetLeftPortrait()
+    {
+        mLeftCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+    }
+
+    void SetRightPortrait()
+    {
+        mRightCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+    }
+
+    void SetSceneWithCurrentCharacter()
+    {
+
+    }
+
     void ResetBubbles()
     {
         foreach (GameObject item in mLeftBubbles)
@@ -145,12 +179,12 @@ public class CutSceneManager : MonoBehaviour
 
     void SetLeftBubble()
     {
-        mLeftBubbles[(int)mCurrentScene.mLeftCharacter].SetActive(true);
+        mLeftBubbles[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter].SetActive(true);
     }
 
     void SetRightBubble()
     {
-        mRightBubbles[(int)mCurrentScene.mRightCharacter].SetActive(true);
+        mRightBubbles[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter].SetActive(true);
     }
 
     void Update()
@@ -174,6 +208,10 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
+            if(mLastPhrase)
+            {
+                GameManager.sInstance.mFinishedLastCutScene = true;
+            }
             mWholeScreen.SetActive(false);
         }
     }

@@ -475,7 +475,7 @@ public class Cell : MonoBehaviour
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
-                    Debug.Log("Got here");
+                    //Debug.Log("Got here");
                     GameManager.sInstance.mCharacterObj.Attacking();
                     GameManager.sInstance.AttackPos(mPos);
                     StartCoroutine(WaitToFixAttack());

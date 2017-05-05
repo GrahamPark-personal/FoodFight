@@ -88,6 +88,8 @@ public class UIManager : MonoBehaviour
     public int mGoldTurns;
     public int mSilverTurns;
 
+    public Text mStarText;
+
 
 
     void Start()
@@ -154,7 +156,14 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-
+        if(mCurrentStar != StarLevel.Bronze)
+        {
+            mStarText.text = "" + mCurrentTurns;
+        }
+        else
+        {
+            mStarText.text = "";
+        }
         //Debug.Log("UI Update Called");
         for (int i = 0; i < mCharacters.Length; i++)
         {

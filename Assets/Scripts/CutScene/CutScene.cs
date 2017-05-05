@@ -12,7 +12,8 @@ public enum CutSceneSide
 [System.Serializable]
 public struct Phrase
 {
-    public bool mActive;
+    public bool mBlank;
+    public CharacterType mCharacter;
     public CutSceneSide mSide;
     public string mSentence;
 }

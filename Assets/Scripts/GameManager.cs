@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public enum MouseMode
 {
@@ -39,10 +40,19 @@ public enum HoverShape
 
 }
 
+public enum TypeOfLevel
+{
+    KillTheBoss,
+    KillAllEnemies
+}
+
+
 
 public class GameManager : MonoBehaviour
 {
     #region Variables
+
+    public TypeOfLevel mLevelType;
 
     public bool mCanControlEnemies = false;
 
@@ -114,6 +124,7 @@ public class GameManager : MonoBehaviour
     public GameObject mLightUp;
 
     public GameObject mMoveAreaPrefab;
+    float mBlockHeightIncrease = 0.01f;
 
     public GameObject mHoverBlock;
 
@@ -208,6 +219,11 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    [HideInInspector]
+    public bool mFinishedLastCutScene = false;
+
+    public GameObject mStarObject;
+
     #region Functions
 
     #region DebugArea
@@ -290,9 +306,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.J))
+        if(mFinishedLastCutScene)
         {
-            CutSceneManager.sInstance.SetActive(true);
+            //do end of level
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         if(mOverBlock && mMouseMode != MouseMode.AbilityAttack && mMouseMode != MouseMode.Attack)
@@ -335,20 +356,54 @@ public class GameManager : MonoBehaviour
 
     #region WinLoseChecks
 
+    IEnumerator WaitToLoadNextLevel()
+    {
+        yield return new WaitForSeconds(2.0f);
+        mFinishedLastCutScene = true;
+    }
+
+
     public bool CheckWin()
     {
-
-        foreach (Character var in mEnemies)
+        if(mLevelType == TypeOfLevel.KillTheBoss)
         {
-
-            if (var != null && var.tag == "Boss")
+            foreach (Character var in mEnemies)
             {
 
-                return false;
+                if (var != null && var.tag == "Boss")
+                {
+                    return false;
+                }
+            }
+        }
+        else if(mLevelType == TypeOfLevel.KillAllEnemies)
+        {
+            foreach (Character var in mEnemies)
+            {
+
+                if (var != null)
+                {
+                    return false;
+                }
             }
         }
 
+        if(mLevelType == TypeOfLevel.KillTheBoss)
+        {
+            Debug.Log("Got here");
+            CutSceneManager.sInstance.SetScene(CutSceneManager.sInstance.mSeconaryScene);
+            CutSceneManager.sInstance.mCurrentPhrase = 0;
+            CutSceneManager.sInstance.mLastPhrase = true;
+            CutSceneManager.sInstance.SetActive(true);
+        }
+        else if(mLevelType == TypeOfLevel.KillAllEnemies)
+        {
+            //Debug.Log("Got here 2");
+            mFinishedLastCutScene = true;
+        }
+
         mWinScreen1.enabled = true;
+
         return true;
     }
 
@@ -1206,6 +1261,7 @@ public class GameManager : MonoBehaviour
                 //create the visual movement GameObject
                 GameObject tempObject = mMoveAreaPrefab;
                 tempObject.transform.localScale = mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.localScale;
+                tempObject.transform.localScale = new Vector3(tempObject.transform.localScale.x, tempObject.transform.localScale.y + mBlockHeightIncrease, tempObject.transform.localScale.z);
                 GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.position, mCurrGrid.rows[item.mCellPos.y].cols[item.mCellPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
@@ -1222,6 +1278,7 @@ public class GameManager : MonoBehaviour
         //create the visual movement GameObject
         GameObject tempObject = mMoveAreaPrefab;
         tempObject.transform.localScale = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.localScale;
+        tempObject.transform.localScale = new Vector3(tempObject.transform.localScale.x, tempObject.transform.localScale.y + mBlockHeightIncrease, tempObject.transform.localScale.z);
         GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
         //add the gameobject to the stack
@@ -1255,6 +1312,7 @@ public class GameManager : MonoBehaviour
                     //create the visual movement GameObject
                     GameObject tempObject = mMoveAreaPrefab;
                     tempObject.transform.localScale = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.localScale;
+                    tempObject.transform.localScale = new Vector3(tempObject.transform.localScale.x, tempObject.transform.localScale.y + mBlockHeightIncrease, tempObject.transform.localScale.z);
                     GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.rotation);
 
                     //add the gameobject to the stack
@@ -1334,6 +1392,7 @@ public class GameManager : MonoBehaviour
                 //create the visual movement GameObject
                 GameObject tempObject = mMoveAreaPrefab;
                 tempObject.transform.localScale = mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.localScale;
+                tempObject.transform.localScale = new Vector3(tempObject.transform.localScale.x, tempObject.transform.localScale.y + mBlockHeightIncrease, tempObject.transform.localScale.z);
                 GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.position, mCurrGrid.rows[item.mPos.y].cols[item.mPos.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack
@@ -2385,7 +2444,7 @@ public class GameManager : MonoBehaviour
             {
                 if(HeightDifference(lastHeight, tempPosition) > 1)
                 {
-                    Debug.Log("Height Too Big");
+                    //Debug.Log("Height Too Big");
                     return 0;
                 }
 
@@ -2395,6 +2454,7 @@ public class GameManager : MonoBehaviour
                 //create the visual movement GameObject
                 GameObject tempObject = mMoveAreaPrefab;
                 tempObject.transform.localScale = mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.localScale;
+                tempObject.transform.localScale = new Vector3(tempObject.transform.localScale.x, tempObject.transform.localScale.y + mBlockHeightIncrease, tempObject.transform.localScale.z);
                 GameObject movePiece = (GameObject)Instantiate(tempObject, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.position, mCurrGrid.rows[tempPosition.y].cols[tempPosition.x].mCellTransform.rotation);
 
                 //add the gameobject to the stack

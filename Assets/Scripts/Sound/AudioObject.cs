@@ -23,11 +23,11 @@ public class AudioObject : MonoBehaviour
     public void SetAudio(AudioClip clip)
     {
         mAudio = GetComponent<AudioSource>();
-        Debug.Log("Set 1");
+        //Debug.Log("Set 1");
         mAudio.playOnAwake = false;
-        Debug.Log("Set 2");
+        //Debug.Log("Set 2");
         mAudio.minDistance = minSoundRadius;
-        Debug.Log("Set 3");
+        //Debug.Log("Set 3");
         mAudio.clip = clip;
     }
 

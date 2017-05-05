@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\AI\AIActor.cs" />
     <Compile Include="Assets\Scripts\AI\AIManager.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationControl.cs" />
+    <Compile Include="Assets\Scripts\Animation\StarAnimation.cs" />
     <Compile Include="Assets\Scripts\Attacks\Attack.cs" />
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BlackBaseAttack.cs" />
@@ -103,12 +104,15 @@
     <Compile Include="Assets\Scripts\Attacks\Combined\YellowRedDuoAttack.cs" />
     <Compile Include="Assets\Scripts\Attacks\Misc\BananaHeal.cs" />
     <Compile Include="Assets\Scripts\Attacks\WhiteMage\WhiteBaseAttack.cs" />
+    <Compile Include="Assets\Scripts\BubbleTextObjects.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CameraSetUp.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterAnimationControl.cs" />
+    <Compile Include="Assets\Scripts\CutScene\CutScene.cs" />
+    <Compile Include="Assets\Scripts\CutScene\CutSceneManager.cs" />
     <Compile Include="Assets\Scripts\EditorStuff\GridEditor.cs" />
     <Compile Include="Assets\Scripts\EditorStuff\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -120,6 +124,8 @@
     <Compile Include="Assets\Scripts\MenuUIControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarAnimControl.cs" />
     <Compile Include="Assets\Scripts\PopUpBarControl.cs" />
+    <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Sound\AudioObject.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>

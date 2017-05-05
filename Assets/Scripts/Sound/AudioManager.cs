@@ -52,11 +52,11 @@ public class AudioManager : MonoBehaviour
         if(clip != null)
         {
             GameObject tempObj = Instantiate(mAudioObj, tr.position, tr.rotation);
-            Debug.Log("Got here 1");
+            //Debug.Log("Got here 1");
             AudioObject audObj = tempObj.GetComponent<AudioObject>();
-            Debug.Log("Got here 2");
+            //Debug.Log("Got here 2");
             audObj.SetAudio(clip);
-            Debug.Log("Got here 3");
+            //Debug.Log("Got here 3");
             audObj.StartAudio();
         }
     }

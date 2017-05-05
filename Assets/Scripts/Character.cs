@@ -770,15 +770,13 @@ public class Character : MonoBehaviour
         mHealth -= amount;
         if (mHealth <= 0)
         {
-            if(this.tag == "Boss")
-            {
-                GameManager.sInstance.GameFinished = true;
-                GameManager.sInstance.GameWon = true;
-                GameManager.sInstance.mWinScreen1.enabled = true;
-            }
             mHealth = 0;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+            if (this.tag == "Boss")
+            {
+                GameManager.sInstance.CheckWin();
+            }
             Destroy(this.gameObject);
         }
 

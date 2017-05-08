@@ -567,6 +567,39 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public bool IsOnGridAndHasNoOneOnBlock(IntVector2 pos)
+    {
+        if (pos.x >= 0 && pos.x <= mCurrGrid.mSize.x) { }
+        else
+        {
+            return false;
+        }
+
+        if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
+        else
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj != null)
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj != null)
+        {
+            return false;
+        }
+
+        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere) { }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public bool IsMovableBlock(Cell cellPos)
     {
         IntVector2 pos = cellPos.mPos;
@@ -736,7 +769,7 @@ public class GameManager : MonoBehaviour
 
         if (IsOnGrid(cursor))
         {
-            if (cursor.x >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            if (cursor.x >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere)
             {
                 temp.Add(cursor);
             }
@@ -747,7 +780,7 @@ public class GameManager : MonoBehaviour
 
         if (IsOnGrid(cursor))
         {
-            if (cursor.x < mCurrGrid.mSize.x && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            if (cursor.x < mCurrGrid.mSize.x && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere)
             {
                 temp.Add(cursor);
             }
@@ -758,7 +791,7 @@ public class GameManager : MonoBehaviour
 
         if (IsOnGrid(cursor))
         {
-            if (cursor.y >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)
+            if (cursor.y >= 0 && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere)
             {
                 temp.Add(cursor);
             }
@@ -769,7 +802,7 @@ public class GameManager : MonoBehaviour
 
         if (IsOnGrid(cursor))
         {
-            if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere && (mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.nothing) || mCurrGrid.rows[cursor.y].cols[cursor.x].mTypeOnCell == TypeOnCell.character)//!closed.Contains(tester) && 
+            if (cursor.y < mCurrGrid.mSize.y && !mCurrGrid.rows[cursor.y].cols[cursor.x].mCannotMoveHere)
             {
                 temp.Add(cursor);
             }

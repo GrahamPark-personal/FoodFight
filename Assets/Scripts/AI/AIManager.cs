@@ -227,6 +227,8 @@ public class AIManager : MonoBehaviour
 
         bool found = false;
 
+        Debug.Log("---------BEGIN-PATHFINDING---------");
+
         while (mOpenList.Count > 0)
         {
             mCurrent = GameManager.sInstance.lowestFScore(mOpenList);
@@ -255,6 +257,7 @@ public class AIManager : MonoBehaviour
                         if (IsEqual(pos, end))
                         {
                             //stop
+                            Debug.Log("Found the end");
                             found = true;
                             break;
                         }
@@ -280,6 +283,7 @@ public class AIManager : MonoBehaviour
 
         IntVector2 parcer = pos;
         int posMoved = 0;
+        IntVector2 intTemp = new IntVector2();
         if (parcer.parent != null)
         {
 
@@ -290,7 +294,6 @@ public class AIManager : MonoBehaviour
             }
             while (parcer.parent != null);
 
-            IntVector2 intTemp = new IntVector2();
             while (mPath.Count > 0 && posMoved < movementPoints)
             {
                 posMoved++;
@@ -299,13 +302,15 @@ public class AIManager : MonoBehaviour
                 intTemp = mPosPath.Pop();
 
                 //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
-                if (GameManager.sInstance.IsOnGridAndCanMoveTo(intTemp))
+                if (GameManager.sInstance.IsOnGridAndHasNoOneOnBlock(intTemp))
                 {
+                    Debug.Log("Path Pos: " + intTemp.x + "," + intTemp.y);
                     character.mPosPath.Enqueue(intTemp);
                     character.mPath.Enqueue(temp);
                 }
                 else
                 {
+                    Debug.Log("Broke at: " + intTemp.x + "," + intTemp.y);
                     break;
                 }
             }
@@ -317,11 +322,12 @@ public class AIManager : MonoBehaviour
 
         }
 
+        Debug.Log("ended with: " + intTemp.x + "," + intTemp.y);
+        Debug.Log("---------END-PATHFINDING---------");
     }
 
     void AddToPath(IntVector2 pos)
     {
-
         Transform tempT = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform;
         mPath.Push(tempT);
         mPosPath.Push(pos);

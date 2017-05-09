@@ -98,7 +98,10 @@
      <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Sound\AudioObject.cs" />
      <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
+     <Compile Include="Assets\Scripts\UI\EffectManager.cs" />
+     <Compile Include="Assets\Scripts\UI\EffectScript.cs" />
      <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\UI\TurnBar.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

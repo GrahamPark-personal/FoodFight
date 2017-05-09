@@ -227,6 +227,14 @@ public class GameManager : MonoBehaviour
     [Header("HeathBarStuff")]
     public bool mHealthBarIsVisual;
 
+    [Header("Status")]
+    public GameObject mStunnedObject;
+
+    [Header("Status")]
+    public GameObject mSlowedObject;
+
+    TurnBar mTurnBar;
+
     #region Functions
 
     #region DebugArea
@@ -264,6 +272,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        mTurnBar = GameObject.FindGameObjectWithTag("TurnBar").GetComponent<TurnBar>();
         int x, y;
 
         mTotalPlayers = mCharacters.Length;
@@ -436,6 +445,8 @@ public class GameManager : MonoBehaviour
             sInstance.CheckWin();
 
             mGameTurn = GameTurn.Enemy;
+            mTurnBar.ShowBar(true);
+
             for (int i = 0; i < mCharacters.Length; i++)
             {
                 mCharacters[i].EndCharacterTurn();
@@ -465,6 +476,8 @@ public class GameManager : MonoBehaviour
             sInstance.CheckWin();
 
             mGameTurn = GameTurn.Player;
+
+            mTurnBar.ShowBar(false);
 
             for (int j = 0; j < mCurrGrid.rows.Length; j++)
             {

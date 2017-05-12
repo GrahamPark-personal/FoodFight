@@ -13,8 +13,8 @@ public class YellowBlueDuoAttack : Attack {
         SetSlow(1);
         SetRange(5);
         SetRadius(2);
-        SetEffectDuration(3);
-        SetDamageDuration(3);
+        SetEffectDuration(2);
+        SetDamageDuration(2);
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();
 
@@ -35,7 +35,7 @@ public class YellowBlueDuoAttack : Attack {
 
         EffectParameters effectParm = new EffectParameters();
 
-        effectParm.Effect = cellEffect.ElectricHailStorm;
+        effectParm.Effect = cellEffect.nothing;
         effectParm.CellAction = CellActionType.EveryStep;
         effectParm.Damage = GetDamage();
         effectParm.Slow = GetSlow();

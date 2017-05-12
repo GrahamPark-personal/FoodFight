@@ -175,8 +175,10 @@ public class Character : MonoBehaviour
 
     float StartSpeed;
 
+
     IntVector2 nextBlock;
-    IntVector2 lastBlock;
+    [HideInInspector]
+    public IntVector2 lastBlock;
 
     [HideInInspector]
     public bool mMoved = false;
@@ -580,25 +582,25 @@ public class Character : MonoBehaviour
                 direction.x = nextBlock.x - lastBlock.x;
                 direction.y = nextBlock.y - lastBlock.y;
 
-                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Fire)
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].HasCellTag(CellTag.Fire))
                 {
                     //set player on fire
                     if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
                     {
-                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage);
+                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].GetDamageFromTag(CellTag.Fire));
                     }
                 }
 
-                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellTag == CellTag.Enchanted)
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].HasCellTag(CellTag.Enchanted))
                 {
                     //set player on fire
                     if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
                     {
-                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage);
+                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].GetDamageFromTag(CellTag.Enchanted));
                     }
                     if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.character)
                     {
-                        Heal(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mCellDamage - 2);
+                        Heal(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].GetDamageFromTag(CellTag.Enchanted) - 2);
                     }
                 }
 

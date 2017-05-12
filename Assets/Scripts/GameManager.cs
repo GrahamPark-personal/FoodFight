@@ -447,6 +447,14 @@ public class GameManager : MonoBehaviour
             mGameTurn = GameTurn.Enemy;
             mTurnBar.ShowBar(true);
 
+            for (int j = 0; j < mCurrGrid.rows.Length; j++)
+            {
+                for (int k = 0; k < mCurrGrid.rows[0].cols.Length; k++)
+                {
+                    mCurrGrid.rows[j].cols[k].CheckEffects();
+                }
+            }
+
             for (int i = 0; i < mCharacters.Length; i++)
             {
                 mCharacters[i].EndCharacterTurn();
@@ -1750,8 +1758,7 @@ public class GameManager : MonoBehaviour
                 {
                     // mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                     //mCellDamage
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag,damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                 }
 
@@ -1760,8 +1767,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1771,8 +1777,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1789,8 +1794,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1800,8 +1804,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1811,8 +1814,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1829,8 +1831,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1840,8 +1841,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1851,8 +1851,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1870,8 +1869,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1881,8 +1879,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -1892,8 +1889,7 @@ public class GameManager : MonoBehaviour
 
                 if (IsOnGrid(temp))
                 {
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellTag = tag;
-                    mCurrGrid.rows[temp.y].cols[temp.x].mCellDamage = damage;
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock();
                     //mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                 }
@@ -2647,6 +2643,10 @@ public class GameManager : MonoBehaviour
         else if (mMouseMode != MouseMode.Attack)
         {
             mUIManager.ResetPopUp(false);
+        }
+        if(mMouseMode == MouseMode.Move)
+        {
+            mPreviewShape = HoverShape.SingleSpot;
         }
         mSelectedCell = pos;
         //move lightblock to selected postion

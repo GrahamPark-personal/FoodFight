@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -394,7 +394,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0c1188843c796064a8651d1bfa674903, type: 3}
     m_FontSize: 172
     m_FontStyle: 0
     m_BestFit: 0
@@ -447,6 +447,9 @@ MonoBehaviour:
   mLeftText: {fileID: 114123843085037880}
   mRightText: {fileID: 114391290699758210}
   mCurrentScene: {fileID: 0}
+  mSeconaryScene: {fileID: 0}
+  mLastPhrase: 0
+  mCurrentPhrase: 0
 --- !u!114 &114176666359027302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,8 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 9, y: 9}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!114 &114281955993737072
 MonoBehaviour:
@@ -551,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -559,7 +562,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0c1188843c796064a8651d1bfa674903, type: 3}
     m_FontSize: 172
     m_FontStyle: 0
     m_BestFit: 0
@@ -869,8 +872,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 9, y: 9}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!222 &222035122660886980
 CanvasRenderer:
@@ -1044,8 +1047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -332.3, y: -204}
-  m_SizeDelta: {x: 2148.4, y: 607.7}
+  m_AnchoredPosition: {x: -373.1, y: -227.8}
+  m_SizeDelta: {x: 2953.1, y: 858.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224264925991176354
 RectTransform:
@@ -1080,8 +1083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 324.4, y: -211.2}
-  m_SizeDelta: {x: 2148.4, y: 607.7}
+  m_AnchoredPosition: {x: 364, y: -230}
+  m_SizeDelta: {x: 3002, y: 1016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224374808075828216
 RectTransform:
@@ -1109,7 +1112,7 @@ RectTransform:
   m_GameObject: {fileID: 1552198367681428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1324264, y: 1.1324266, z: 1.1324266}
   m_Children:
   - {fileID: 224086360400602094}
   - {fileID: 224902576640184918}
@@ -1122,7 +1125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 569, y: -320}
+  m_AnchoredPosition: {x: 645, y: -361}
   m_SizeDelta: {x: 1138, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224406504268595302
@@ -1193,7 +1196,7 @@ RectTransform:
   m_GameObject: {fileID: 1758427949368174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1324264, y: 1.1324266, z: 1.1324266}
   m_Children:
   - {fileID: 224146822939650204}
   - {fileID: 224991110881392382}
@@ -1206,7 +1209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -569, y: -320}
+  m_AnchoredPosition: {x: -645, y: -361}
   m_SizeDelta: {x: 1138, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224685618097623968

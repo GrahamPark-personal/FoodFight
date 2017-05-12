@@ -61,6 +61,20 @@ class RedGreenDuoAttack : Attack
 
         tempCharacter.mRunPath = true;
 
+       EffectParameters effectParm = new EffectParameters();
+        effectParm.Effect = cellEffect.Ice;
+        effectParm.CellAction = CellActionType.StartOfTurn;
+        effectParm.Damage = GetDamage();
+        effectParm.Slow = GetSlow();
+        effectParm.Health = GetHealth();
+        effectParm.Poison = GetPoison();
+        effectParm.Taunt = GetTaunt();
+        effectParm.EffectDuration = GetEffectDuration();
+        effectParm.DamageDuration = GetDamageDuration();
+        effectParm.Stun = GetStun();
+        effectParm.ID = GetID();
+
+
 
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = tempCharacter;

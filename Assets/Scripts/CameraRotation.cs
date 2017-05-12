@@ -20,7 +20,7 @@ public class CameraRotation : MonoBehaviour {
 	void Start ()
     {
         mCurrentDirection = (int)mCamDirection;
-	}
+    }
 
     public void RotateLeft()
     {

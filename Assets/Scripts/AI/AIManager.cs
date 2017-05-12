@@ -284,6 +284,9 @@ public class AIManager : MonoBehaviour
         IntVector2 parcer = pos;
         int posMoved = 0;
         IntVector2 intTemp = new IntVector2();
+        IntVector2 mFinalPos = new IntVector2();
+        mFinalPos.x = -1;
+        mFinalPos.y = -1;
         if (parcer.parent != null)
         {
 
@@ -304,6 +307,7 @@ public class AIManager : MonoBehaviour
                 //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
                 if (GameManager.sInstance.IsOnGridAndHasNoOneOnBlock(intTemp))
                 {
+                    mFinalPos = intTemp;
                     Debug.Log("Path Pos: " + intTemp.x + "," + intTemp.y);
                     character.mPosPath.Enqueue(intTemp);
                     character.mPath.Enqueue(temp);
@@ -316,9 +320,16 @@ public class AIManager : MonoBehaviour
             }
 
 
-            GameManager.sInstance.MoveEnemySlot(intTemp, character);
 
             character.mRunPath = true;
+            if(mFinalPos.x != -1 && mFinalPos.y != -1)
+            {
+                GameManager.sInstance.MoveEnemySlot(mFinalPos, character);
+            }
+            else
+            {
+                Debug.Log("Couldnt find a path");
+            }
 
         }
 

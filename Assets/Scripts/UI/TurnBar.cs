@@ -26,7 +26,17 @@ public class TurnBar : MonoBehaviour
 
     public void ShowBar(bool enemyTurn)
     {
-        StartCoroutine(WaitToShow(enemyTurn));
+        if(GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        {
+            mImage.texture = EnemyTurnImage;
+            mTargetAlpha = 1.0f;
+
+            StartCoroutine(ReShowAfter());
+        }
+        else
+        {
+            StartCoroutine(WaitToShow(enemyTurn));
+        }
     }
 
     IEnumerator WaitToShow(bool enemyTurn)

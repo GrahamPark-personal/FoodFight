@@ -88,15 +88,17 @@ public class Cell : MonoBehaviour
 
     public bool mCannotMoveHere;
 
-    [HideInInspector]
-    public int mCellDamage = 0;
+    //[HideInInspector]
+    //public int mCellDamage = 0;
 
     //public bool mCharacterOnCell;
     public TypeOnCell mTypeOnCell;
 
-    public CellTag mCellTag = CellTag.None;
+    //public CellTag mCellTag = CellTag.None;
+    //public List<CellTag> mCellTags = new List<CellTag>();
+    public Dictionary<CellTag, int> mCellEffects = new Dictionary<CellTag, int>();
 
-    public cellEffect mCellEffect;
+    //public cellEffect mCellEffect;
 
     List<EffectParameters> mEffectParameters = new List<EffectParameters>();
 
@@ -107,6 +109,45 @@ public class Cell : MonoBehaviour
     public GameObject Banana;
 
     int effectDuration;
+
+
+    public int GetDamageFromTag(CellTag tag)
+    {
+        int val = 0;
+
+        if (mCellEffects.ContainsKey(tag))
+        {
+            val = mCellEffects[tag];
+        }
+
+        return val;
+    }
+
+    public void AddCellTag(CellTag tag, int damage)
+    {
+        if (!mCellEffects.ContainsKey(tag))
+        {
+            mCellEffects.Add(tag, damage);
+        }
+    }
+    public void RemoveCellTag(CellTag tag)
+    {
+        if (mCellEffects.ContainsKey(tag))
+        {
+            mCellEffects.Remove(tag);
+        }
+    }
+    public bool HasCellTag(CellTag tag)
+    {
+        if (mCellEffects.ContainsKey(tag))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public void AddEffect(EffectParameters parm)
     {
@@ -127,13 +168,22 @@ public class Cell : MonoBehaviour
         }
         else if (parm.Effect == cellEffect.Ice)
         {
-            mCellTag = CellTag.Ice;
+            //mCellTag = CellTag.Ice;
+            mCellEffects.Add(CellTag.Ice, parm.Damage);
         }
         else if (parm.Effect == cellEffect.Poison)
         {
-            mCellTag = CellTag.Poison;
+            mCellEffects.Add(CellTag.Ice, parm.Damage);
+            //mCellTag = CellTag.Poison;
         }
+        else if (parm.Effect == cellEffect.ElectricHailStorm)
+        {
+            mCellEffects.Add(CellTag.Enchanted, parm.Damage);
+        }
+
         mEffectParameters.Add(parm);
+        int index = mEffectParameters.Count - 1;
+        DoEffect(index);
     }
 
     public void AddVisualBlock()
@@ -163,12 +213,112 @@ public class Cell : MonoBehaviour
         }
     }
 
+    public void DoEffect(int i)
+    {
+        if (mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
+        {
+            Debug.Log("Getting to this point in the script");
+            if (mTypeOnCell == TypeOnCell.character)
+            {
+                if (mEffectParameters[i].Damage != 0)
+                {
+                    mCharacterObj.Damage(mEffectParameters[i].Damage);
+                }
+                if (mEffectParameters[i].Health != 0)
+                {
+                    mCharacterObj.Heal(mEffectParameters[i].Health);
+                }
+
+                if (mEffectParameters[i].Poison != 0)
+                {
+                    mCharacterObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                }
+                if (mEffectParameters[i].Stun != 0)
+                {
+                    mCharacterObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                }
+                if (mEffectParameters[i].Slow != 0)
+                {
+                    mCharacterObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                }
+                //EffectParameters temp = mEffectParameters[i];
+                //temp.EffectDuration--;
+                //mEffectParameters[i] = temp;
+                ////print(temp.EffectDuration);
+                //if (mEffectParameters[i].EffectDuration <= 0)
+                //{
+                //    mEffectParameters.Remove(mEffectParameters[i]);
+                //    Destroy(AreaEffectBlock);
+                //    AreaEffectBlock = null;
+                //}
+            }
+            else if (mTypeOnCell == TypeOnCell.enemy)
+            {
+                if (mEffectParameters[i].Damage != 0)
+                {
+                    mEnemyObj.Damage(mEffectParameters[i].Damage);
+                }
+                if (mEffectParameters[i].Health != 0)
+                {
+                    mEnemyObj.Heal(mEffectParameters[i].Health);
+                }
+
+                if (mEffectParameters[i].Poison != 0)
+                {
+                    mEnemyObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                }
+                if (mEffectParameters[i].Stun != 0)
+                {
+                    mEnemyObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                }
+                if (mEffectParameters[i].Slow != 0)
+                {
+                    mEnemyObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                }
+                //EffectParameters temp = mEffectParameters[i];
+                //temp.EffectDuration--;
+                //mEffectParameters[i] = temp;
+                ////print(temp.EffectDuration);
+                //if (mEffectParameters[i].EffectDuration <= 0)
+                //{
+                //    mEffectParameters.Remove(mEffectParameters[i]);
+                //    Destroy(AreaEffectBlock);
+                //    AreaEffectBlock = null;
+                //}
+            }
+
+
+
+        }
+        else if (mEffectParameters[i].Effect == cellEffect.LightningRod)
+        {
+            print("effect noticed");
+            if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
+            {
+                print("effect and player turn noticed");
+                if (mEffectParameters[i].Health != 0)
+                {
+                    print("heal activated");
+                    mCharacterObj.Heal(mEffectParameters[i].Health);
+                }
+            }
+            if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+            {
+                if (mEffectParameters[i].Stun != 0)
+                {
+                    mEnemyObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                }
+            }
+
+        }
+    }
+
     public void CheckEffects()
     {
-        if (mCellTag == CellTag.Fire)
+        if (mCellEffects.ContainsKey(CellTag.Fire))
         {
-            mCellDamage = 0;
-            mCellTag = CellTag.None;
+            //mCellTag = CellTag.None;
+            mCellEffects.Remove(CellTag.Fire);
             Destroy(AreaEffectBlock.gameObject);
             AreaEffectBlock = null;
         }
@@ -176,6 +326,7 @@ public class Cell : MonoBehaviour
         {
             if (mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
             {
+                Debug.Log("Getting to this point in the script");
                 if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
                     if (mEffectParameters[i].Damage != 0)
@@ -272,35 +423,42 @@ public class Cell : MonoBehaviour
 
             //TODO::here goes the different types of effects
 
-            EffectParameters temp = mEffectParameters[i];
-            temp.EffectDuration--;
-            mEffectParameters[i] = temp;
-
-            if (mEffectParameters[i].EffectDuration <= 0)
+            if (GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
-                if (mEffectParameters[i].Effect == cellEffect.Wall)
+
+
+                EffectParameters temp = mEffectParameters[i];
+                temp.EffectDuration--;
+                mEffectParameters[i] = temp;
+
+                if (mEffectParameters[i].EffectDuration <= 0)
                 {
-                    Destroy(WallBlock.gameObject);
-                    mCannotMoveHere = false;
-                }
-                else if (mEffectParameters[i].Effect == cellEffect.Ice)
-                {
-                    mCellTag = CellTag.None;
-                    if (Banana != null)
+                    if (mEffectParameters[i].Effect == cellEffect.Wall)
                     {
-                        Destroy(Banana.gameObject);
-                        Banana = null;
+                        Destroy(WallBlock.gameObject);
+                        mCannotMoveHere = false;
+                    }
+                    else if (mEffectParameters[i].Effect == cellEffect.Ice)
+                    {
+                        //mCellTag = CellTag.None;
+                        mCellEffects.Remove(CellTag.Ice);
+                        if (Banana != null)
+                        {
+                            Destroy(Banana.gameObject);
+                            Banana = null;
+                        }
+
+                    }
+                    else if (mEffectParameters[i].Effect == cellEffect.Poison)
+                    {
+                        //mCellTag = CellTag.None;
+                        mCellEffects.Remove(CellTag.Poison);
                     }
 
+                    mEffectParameters.Remove(mEffectParameters[i]);
+                    Destroy(AreaEffectBlock.gameObject);
+                    AreaEffectBlock = null;
                 }
-                else if (mEffectParameters[i].Effect == cellEffect.Poison)
-                {
-                    mCellTag = CellTag.None;
-                }
-
-                mEffectParameters.Remove(mEffectParameters[i]);
-                Destroy(AreaEffectBlock.gameObject);
-                AreaEffectBlock = null;
             }
             //print(mEffectParameters[i].EffectDuration + "00");
         }
@@ -620,17 +778,17 @@ public class Cell : MonoBehaviour
                 mTemp.transform.localScale = new Vector3(this.transform.localScale.x, mTemp.transform.localScale.y, this.transform.localScale.z);
                 GameManager.sInstance.mPreviewBlocks.Add(mTemp);
             }
-            else if(GameManager.sInstance.mPreviewShape == HoverShape.Row)
+            else if (GameManager.sInstance.mPreviewShape == HoverShape.Row)
             {
                 //from start to current position, create a row 3 x Y
                 GameManager.sInstance.AddPreviewRow(GameManager.sInstance.mCharacterObj.mCellPos, mPos);
             }
-            else if(GameManager.sInstance.mPreviewShape == HoverShape.Square)
+            else if (GameManager.sInstance.mPreviewShape == HoverShape.Square)
             {
                 //create square with a radius
                 GameManager.sInstance.AddPreviewSquare(mPos, GameManager.sInstance.mPreviewRadius);
             }
-            else if(GameManager.sInstance.mPreviewShape == HoverShape.WallSurround)
+            else if (GameManager.sInstance.mPreviewShape == HoverShape.WallSurround)
             {
                 //draw the block from certain pos, use stuff from brownblack
                 IntVector2 tempVector = new IntVector2();

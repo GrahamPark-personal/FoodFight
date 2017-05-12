@@ -436,6 +436,11 @@ public class UIManager : MonoBehaviour
                 return;
             }
 
+            if(GameManager.sInstance.mCharacters[char1] == null || GameManager.sInstance.mCharacters[char2] == null)
+            {
+                return;
+            }
+
             GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
             Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
             AttackManager.sInstance.SetAttack(temp);

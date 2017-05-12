@@ -20,13 +20,20 @@ public class TurnBar : MonoBehaviour
 
     void Update()
     {
-        mCurrentAlpha = Mathf.Lerp(mCurrentAlpha, mTargetAlpha, Time.deltaTime * mSpeed);
-        mImage.color = new Color(mImage.color.r, mImage.color.g, mImage.color.b, mCurrentAlpha);
+        if (!GameManager.sInstance.mFinishedLastCutScene)
+        {
+            mCurrentAlpha = Mathf.Lerp(mCurrentAlpha, mTargetAlpha, Time.deltaTime * mSpeed);
+            mImage.color = new Color(mImage.color.r, mImage.color.g, mImage.color.b, mCurrentAlpha);
+        }
+        else
+        {
+            mImage.enabled = false;
+        }
     }
 
     public void ShowBar(bool enemyTurn)
     {
-        if(GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
         {
             mImage.texture = EnemyTurnImage;
             mTargetAlpha = 1.0f;

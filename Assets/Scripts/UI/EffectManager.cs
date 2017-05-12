@@ -20,10 +20,8 @@ public class EffectManager : MonoBehaviour
 
         if(mCharacter.ContainsAilment(AilmentID.Stun))
         {
-            Debug.Log("Stunned");
             if(!AilmentPositions.ContainsKey(AilmentID.Stun))
             {
-                Debug.Log("Doesnt have stun image");
                 //add image
                 GameObject newEffect = Instantiate(GameManager.sInstance.mStunnedObject, mParent.transform);
                 newEffect.transform.position = new Vector3(0, 0, 0);
@@ -33,7 +31,6 @@ public class EffectManager : MonoBehaviour
         }
         else if(AilmentPositions.ContainsKey(AilmentID.Stun))
         {
-            Debug.Log("Removing stun");
             //remove image
             GameObject Getobj = AilmentPositions[AilmentID.Stun];
             if(Getobj != null)
@@ -46,7 +43,6 @@ public class EffectManager : MonoBehaviour
 
         if (mCharacter.ContainsAilment(AilmentID.Slow))
         {
-            Debug.Log("Slowed");
             if (!AilmentPositions.ContainsKey(AilmentID.Slow))
             {
                 Debug.Log("Doesnt have stun Slow");
@@ -59,7 +55,6 @@ public class EffectManager : MonoBehaviour
         }
         else if (AilmentPositions.ContainsKey(AilmentID.Slow))
         {
-            Debug.Log("Removing Slow");
             //remove image
             GameObject Getobj = AilmentPositions[AilmentID.Slow];
             if (Getobj != null)

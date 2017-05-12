@@ -10,7 +10,8 @@ public enum MouseMode
 {
     Move = 0,
     Attack,
-    AbilityAttack
+    AbilityAttack,
+    None
 }
 
 public enum GameTurn
@@ -73,6 +74,9 @@ public class GameManager : MonoBehaviour
     public int mCurrentRange;
 
     public Character mBoss;
+
+    [HideInInspector]
+    public Character mSavedCharacter;
 
     #region ManagersAndClassReferences
 
@@ -353,10 +357,31 @@ public class GameManager : MonoBehaviour
             //    }
 
             //}
-            mMouseMode = MouseMode.Move;
-            ResetSelected();
-            mUIManager.mEnemyPopUpBarShown = false;
+
+            if(mMouseMode == MouseMode.Attack || mMouseMode == MouseMode.AbilityAttack)
+            {
+                mMouseMode = MouseMode.Move;
+                ResetSelected();
+                //mUIManager.mEnemyPopUpBarShown = false;
+            }
+            else if(mMouseMode == MouseMode.Move)
+            {
+                mMouseMode = MouseMode.None;
+                ResetSelected();
+                mUIManager.mEnemyPopUpBarShown = false;
+                //move blocks to be something else
+            }
         }
+
+        if (mMouseMode == MouseMode.None)
+        {
+            mLightUp.SetActive(false);
+        }
+        else
+        {
+            mLightUp.SetActive(true);
+        }
+
     }
 
     void FixedUpdate()
@@ -575,6 +600,21 @@ public class GameManager : MonoBehaviour
 
         if (pos.y >= 0 && pos.y <= mCurrGrid.mSize.y) { }
         else
+        {
+            return false;
+        }
+
+        if(mCurrGrid.rows == null)
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols == null)
+        {
+            return false;
+        }
+
+        if (mCurrGrid.rows[pos.y].cols[pos.x] == null)
         {
             return false;
         }
@@ -2680,7 +2720,10 @@ public class GameManager : MonoBehaviour
         mAttackAreaLocations.Clear();
         mAttackAreaObjArray.Clear();
 
-
+        if(mMouseMode == MouseMode.None)
+        {
+            return;
+        }
 
 
         //if the selected block is a character show where it can move to

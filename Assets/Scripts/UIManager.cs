@@ -73,7 +73,8 @@ public class UIManager : MonoBehaviour
 
     Texture2D[] mSavedCharImage;
 
-    StarLevel mCurrentStar = StarLevel.Gold;
+    [HideInInspector]
+    public StarLevel mCurrentStar = StarLevel.Gold;
 
     int mCurrentTurns;
 

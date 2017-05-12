@@ -226,6 +226,8 @@ public class Character : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         mAnimation = CharacterAnimations.Idle;
+        GameManager.sInstance.CheckWin();
+        GameManager.sInstance.CheckLose();
     }
 
     public void AddAilment(AilmentID ID, int duration, int extra)

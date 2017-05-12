@@ -158,9 +158,16 @@ public class Cell : MonoBehaviour
                 Destroy(AreaEffectBlock);
                 AreaEffectBlock = null;
                 mEffectParameters.Remove(item);
+                break;
+
             }
         }
-        AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+
+        if (AreaEffectBlock == null)
+        {
+            //will have different blocks for each one
+            AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+        }
         if (parm.Effect == cellEffect.Wall)
         {
             WallBlock = Instantiate(GameManager.sInstance.mWallBlock, transform.position + new Vector3(0, 1, 0), transform.rotation);
@@ -180,6 +187,8 @@ public class Cell : MonoBehaviour
         {
             mCellEffects.Add(CellTag.Enchanted, parm.Damage);
         }
+
+
 
         mEffectParameters.Add(parm);
         int index = mEffectParameters.Count - 1;
@@ -217,7 +226,6 @@ public class Cell : MonoBehaviour
     {
         if (mEffectParameters[i].Effect == cellEffect.ElectricHailStorm || mEffectParameters[i].Effect == cellEffect.nothing)
         {
-            Debug.Log("Getting to this point in the script");
             if (mTypeOnCell == TypeOnCell.character)
             {
                 if (mEffectParameters[i].Damage != 0)
@@ -292,13 +300,10 @@ public class Cell : MonoBehaviour
         }
         else if (mEffectParameters[i].Effect == cellEffect.LightningRod)
         {
-            print("effect noticed");
             if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
             {
-                print("effect and player turn noticed");
                 if (mEffectParameters[i].Health != 0)
                 {
-                    print("heal activated");
                     mCharacterObj.Heal(mEffectParameters[i].Health);
                 }
             }
@@ -502,7 +507,7 @@ public class Cell : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = false;
+        GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
     }
 
     void OnMouseOver()
@@ -538,7 +543,7 @@ public class Cell : MonoBehaviour
                 }
 
 
-                if (GameManager.sInstance.mGameTurn == GameTurn.Player && mCharacterObj != null && GameManager.sInstance.mMouseMode == MouseMode.Move)
+                if (GameManager.sInstance.mGameTurn == GameTurn.Player && mCharacterObj != null && (GameManager.sInstance.mMouseMode == MouseMode.Move || GameManager.sInstance.mMouseMode == MouseMode.None))
                 {
                     GameManager.sInstance.mUIManager.SelectCharacter(mPos);
                 }
@@ -603,8 +608,9 @@ public class Cell : MonoBehaviour
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Player && !GameManager.sInstance.mLoadingSquares && GameManager.sInstance.mMouseMode == MouseMode.Move)
                 {
-                    StartCoroutine(waitToReset());
+                    Character mTempChar = GameManager.sInstance.mCharacterObj;
                     GameManager.sInstance.MoveTo(mPos);
+                    StartCoroutine(waitToReset(mTempChar));
                 }
             }
 
@@ -618,7 +624,8 @@ public class Cell : MonoBehaviour
                 {
                     if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                     {
-                        StartCoroutine(waitToReset());
+                        Character mTempChar = GameManager.sInstance.mCharacterObj;
+                        StartCoroutine(waitToReset(mTempChar));
                         GameManager.sInstance.MoveTo(mPos);
                     }
                 }
@@ -665,11 +672,11 @@ public class Cell : MonoBehaviour
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                             GameManager.sInstance.mCharacterObj.mAttacked = true;
-                            GameManager.sInstance.mCharacterObj = null;
-                            GameManager.sInstance.mCharacterSelected = false;
-                            GameManager.sInstance.mEnemySelected = false;
+                            //GameManager.sInstance.mCharacterObj = null;
+                            //GameManager.sInstance.mCharacterSelected = false;
+                            //GameManager.sInstance.mEnemySelected = false;
                             GameManager.sInstance.ResetSelected();
-                            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = false;
+                            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
 
                         }
                     }
@@ -686,11 +693,11 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
-                GameManager.sInstance.mCharacterObj = null;
-                GameManager.sInstance.mCharacterSelected = false;
-                GameManager.sInstance.mEnemySelected = false;
+                //GameManager.sInstance.mCharacterObj = null;
+                //GameManager.sInstance.mCharacterSelected = false;
+                //GameManager.sInstance.mEnemySelected = false;
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = false;
+                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
             }
 
             if (Input.GetMouseButtonUp(0)
@@ -706,11 +713,11 @@ public class Cell : MonoBehaviour
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 GameManager.sInstance.mAttackShape = AttackShape.Area;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
-                GameManager.sInstance.mCharacterObj = null;
-                GameManager.sInstance.mCharacterSelected = false;
-                GameManager.sInstance.mEnemySelected = false;
+                //GameManager.sInstance.mCharacterObj = null;
+                //GameManager.sInstance.mCharacterSelected = false;
+                //GameManager.sInstance.mEnemySelected = false;
                 GameManager.sInstance.ClearAttack();
-                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = false;
+                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
                 //GameManager.sInstance.ResetSelected();
 
             }
@@ -752,15 +759,18 @@ public class Cell : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere && GameManager.sInstance.mMouseMode != MouseMode.AbilityAttack)
-        {
-            GameManager.sInstance.mHoverBlock.SetActive(false);
-            GameManager.sInstance.mHoverBlock.SetActive(true);
-        }
-        else
-        {
-            GameManager.sInstance.mHoverBlock.SetActive(false);
-        }
+
+        GameManager.sInstance.mHoverBlock.SetActive(true);
+
+        //if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere && GameManager.sInstance.mMouseMode != MouseMode.AbilityAttack)
+        //{
+        //    GameManager.sInstance.mHoverBlock.SetActive(false);
+        //    GameManager.sInstance.mHoverBlock.SetActive(true);
+        //}
+        //else
+        //{
+        //    GameManager.sInstance.mHoverBlock.SetActive(false);
+        //}
 
         if (GameManager.sInstance.mMouseMode != MouseMode.Move && GameManager.sInstance.IsInAttackArea(mPos))
         {
@@ -864,14 +874,13 @@ public class Cell : MonoBehaviour
         GameManager.sInstance.mPreviewBlocks.Clear();
     }
 
-    IEnumerator waitToReset()
+    IEnumerator waitToReset(Character mChar)
     {
-        Character tempChar = GameManager.sInstance.mCharacterObj;
         yield return new WaitForSeconds(0.1f);
-        if (tempChar != null)
+        if (mChar != null)
         {
-            GameManager.sInstance.mUIManager.SelectCharacter(tempChar.mCellPos);
-            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = false;
+            GameManager.sInstance.mUIManager.SelectCharacter(mChar.mCellPos);
+            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
         }
         else
         {

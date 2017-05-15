@@ -31,8 +31,9 @@ public class YellowBrownDuoAttack : Attack
 
     public override void Execute(IntVector2 pos)
     {
-        Character tempCharacter = GameManager.sInstance.mCharacters[3];
-        
+        Character tempCharacter = GameManager.sInstance.mCharacters[4];
+        //actually find the rock
+
         //What does this skill do?
         // Give Earth a buff that does the following   
         tempCharacter.AddBuff(BuffID.ThunderCloak, 3, 6, 3);

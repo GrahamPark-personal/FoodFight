@@ -112,7 +112,7 @@ public class UIManager : MonoBehaviour
     public void IncrementTurn()
     {
         mCurrentTurns--;
-        if(mCurrentTurns <= 0)
+        if (mCurrentTurns <= 0)
         {
             switch (mCurrentStar)
             {
@@ -147,8 +147,8 @@ public class UIManager : MonoBehaviour
     {
         if (pos >= 0 && pos <= mBubbles.Length)
         {
-            if(pos < mCharTexture.Length && mBubbles[pos])
-            { 
+            if (pos < mCharTexture.Length && mBubbles[pos])
+            {
                 mBubbles[pos].GetComponentInChildren<Text>().text = mTextBubble.mBubbletext[mCurrentCharacter].mPlayer[pos];
                 mBubbles[pos].SetActive(true);
             }
@@ -157,7 +157,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if(mCurrentStar != StarLevel.Bronze)
+        if (mCurrentStar != StarLevel.Bronze)
         {
             mStarText.text = "" + mCurrentTurns;
         }
@@ -262,7 +262,7 @@ public class UIManager : MonoBehaviour
     public void OnBasicAttackDown()
     {
         //basic attack
-        if(GameManager.sInstance.mCharacterObj != null)
+        if (GameManager.sInstance.mCharacterObj != null)
         {
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
@@ -404,160 +404,390 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public struct AttackData
+    {
+        public Attack atk;
+        public int char1;
+        public int char2;
+    }
+
+
+    private AttackData GetDuoAttack(CharacterType characterType)
+    {
+        DualAbilities currAbilities = GameManager.sInstance.mCharacterObj.mDualAbilities;
+        AttackData atkData = new AttackData();
+
+        atkData.char1 = (int)characterType;
+        atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+        if (((currAbilities.ability1Character1 == characterType) || (currAbilities.ability1Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+            && ((currAbilities.ability1Character2 == characterType) || (currAbilities.ability1Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+        {
+            //ability = 1
+            atkData.atk = currAbilities.mDuoAbility1;
+            return atkData;
+        }
+        if (((currAbilities.ability2Character1 == characterType) || (currAbilities.ability2Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+            && ((currAbilities.ability2Character2 == characterType) || (currAbilities.ability2Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+        {
+            //ability = 2
+            atkData.atk = currAbilities.mDuoAbility2;
+            return atkData;
+        }
+        if (((currAbilities.ability3Character1 == characterType) || (currAbilities.ability3Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+            && ((currAbilities.ability3Character2 == characterType) || (currAbilities.ability3Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+        {
+            //ability = 3
+            atkData.atk = currAbilities.mDuoAbility3;
+            return atkData;
+        }
+        if (((currAbilities.ability4Character1 == characterType) || (currAbilities.ability4Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+            && ((currAbilities.ability4Character2 == characterType) || (currAbilities.ability4Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+        {
+            //ability = 4
+            atkData.atk = currAbilities.mDuoAbility4;
+            return atkData;
+        }
+        if (((currAbilities.ability5Character1 == characterType) || (currAbilities.ability5Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+            && ((currAbilities.ability5Character2 == characterType) || (currAbilities.ability5Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+        {
+            //ability = 5
+            atkData.atk = currAbilities.mDuoAbility5;
+            return atkData;
+        }
+
+        return atkData;
+    }
 
     public void OnBasicAbilityDown()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Yellow)
         {
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
-            else
+        }
+        else
+        {
+            //find the character, and do the duo ability associated with that character
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+
+                AttackData nAtkData = GetDuoAttack(CharacterType.Yellow);
+
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }
 
     public void OnDuoAbility1Down()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Blue)
         {
-            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character1;
-            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability1Character2;
+            //do basic ability for blue
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
-            {
-                return;
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
+        }
+        else // do the duo ability associated
+        {
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
 
-            if(GameManager.sInstance.mCharacters[char1] == null || GameManager.sInstance.mCharacters[char2] == null)
-            {
-                return;
-            }
+                AttackData nAtkData = GetDuoAttack(CharacterType.Blue);
 
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility1;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-            }
-            else
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }
     public void OnDuoAbility2Down()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Red)
         {
-            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character1;
-            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability2Character2;
+            //do basic ability for brown
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
-            {
-                return;
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
+        }
+        else // do the duo ability associated
+        {
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
 
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility2;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-            }
-            else
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                AttackData nAtkData = GetDuoAttack(CharacterType.Red);
+
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }
     public void OnDuoAbility3Down()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Brown)
         {
-            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character1;
-            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability3Character2;
+            //do basic ability for red
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
-            {
-                return;
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
+        }
+        else // do the duo ability associated
+        {
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
 
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility3;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-            }
-            else
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                AttackData nAtkData = GetDuoAttack(CharacterType.Brown);
+
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }
     public void OnDuoAbility4Down()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Green)
         {
-            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character1;
-            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability4Character2;
+            //do basic ability for green
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
-            {
-                return;
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
+        }
+        else // do the duo ability associated
+        {
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
 
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility4;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-            }
-            else
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                AttackData nAtkData = GetDuoAttack(CharacterType.Green);
+
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }
 
     public void OnDuoAbility5Down()
     {
-        if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+        if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Black)
         {
-            int char1 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character1;
-            int char2 = (int)GameManager.sInstance.mCharacterObj.mDualAbilities.ability5Character2;
+            //do basic ability for black
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                AttackManager.sInstance.SetAttack(temp);
+                GameManager.sInstance.ResetSelected();
 
-            if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
-            {
-                return;
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
+        }
+        else // do the duo ability associated
+        {
+            if (GameManager.sInstance.mCharacterObj.mAttacked == false)
+            {
 
-            GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-            Attack temp = GameManager.sInstance.mCharacterObj.mDualAbilities.mDuoAbility5;
-            AttackManager.sInstance.SetAttack(temp);
-            GameManager.sInstance.ResetSelected();
-            if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
-            }
-            else
-            {
-                GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                AttackData nAtkData = GetDuoAttack(CharacterType.Black);
+
+                int char1 = nAtkData.char1;
+                int char2 = nAtkData.char2;
+
+                if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
+                {
+                    return;
+                }
+
+                GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
+                //find the ability associated with both of the characters.s
+                //in this case it is whatever the character is mixed with yellow.
+                //
+
+                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                GameManager.sInstance.ResetSelected();
+                if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
+                }
+                else
+                {
+                    GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[mCurrentCharacter]);
+                }
             }
         }
     }

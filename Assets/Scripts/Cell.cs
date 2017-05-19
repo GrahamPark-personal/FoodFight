@@ -641,7 +641,7 @@ public class Cell : MonoBehaviour
                 if (GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
                     //Debug.Log("Got here");
-                    GameManager.sInstance.mCharacterObj.Attacking();
+                    GameManager.sInstance.mCharacterObj.Attacking(mPos);
                     GameManager.sInstance.AttackPos(mPos);
                     StartCoroutine(WaitToFixAttack());
 
@@ -668,7 +668,7 @@ public class Cell : MonoBehaviour
                             && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
                         {
                             AttackManager.sInstance.RunAttack(mPos);
-                            GameManager.sInstance.mCharacterObj.Attacking();
+                            GameManager.sInstance.mCharacterObj.Attacking(mPos);
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                             GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -689,7 +689,7 @@ public class Cell : MonoBehaviour
                 && GameManager.sInstance.mAttackShape == AttackShape.OnCell)
             {
                 AttackManager.sInstance.RunAttack(mPos);
-                GameManager.sInstance.mCharacterObj.Attacking();
+                GameManager.sInstance.mCharacterObj.Attacking(mPos);
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -709,7 +709,7 @@ public class Cell : MonoBehaviour
             {
                 //attack based on clicking on another character
                 AttackManager.sInstance.RunAttack(mPos);
-                GameManager.sInstance.mCharacterObj.Attacking();
+                GameManager.sInstance.mCharacterObj.Attacking(mPos);
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 GameManager.sInstance.mAttackShape = AttackShape.Area;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -732,7 +732,7 @@ public class Cell : MonoBehaviour
                         if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
                         {
                             GameManager.sInstance.AttackPos(mPos);
-                            GameManager.sInstance.mCharacterObj.Attacking();
+                            GameManager.sInstance.mCharacterObj.Attacking(mPos);
                             GameManager.sInstance.ClearAttack();
                         }
                     }
@@ -745,7 +745,7 @@ public class Cell : MonoBehaviour
                         if (GameManager.sInstance.mCharacterObj != GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x])
                         {
                             AttackManager.sInstance.RunAttack(mPos);
-                            GameManager.sInstance.mCharacterObj.Attacking();
+                            GameManager.sInstance.mCharacterObj.Attacking(mPos);
                             GameManager.sInstance.ClearAttack();
                         }
                     }

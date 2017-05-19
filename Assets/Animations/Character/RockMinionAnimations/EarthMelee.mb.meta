@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 90d286e41e327bb4689751b4ed4e6469
+timeCreated: 1495152902
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: group
+    100002: group1
+    100004: group2
+    100006: Melee_Death_Rigging:All_Ctrl
+    100008: Melee_Death_Rigging:Ball_Ctrl
+    100010: Melee_Death_Rigging:Ball_Jnt_1
+    100012: Melee_Death_Rigging:Ball_Jnt_2
+    100014: Melee_Death_Rigging:Chest
+    100016: Melee_Death_Rigging:Chest_Jnt
+    100018: Melee_Death_Rigging:COG_Jnt
+    100020: Melee_Death_Rigging:group1
+    100022: Melee_Death_Rigging:Head_Ctrl
+    100024: Melee_Death_Rigging:Head_Ctrl_2
+    100026: Melee_Death_Rigging:Head_Ctrl_3
+    100028: Melee_Death_Rigging:Head_Jnt_1
+    100030: Melee_Death_Rigging:Head_Jnt_2
+    100032: Melee_Death_Rigging:Head_Jnt_3
+    100034: Melee_Death_Rigging:Lft_Clav_Jnt
+    100036: Melee_Death_Rigging:Lft_Elbow_Ctrl
+    100038: Melee_Death_Rigging:Lft_Elbow_Jnt
+    100040: Melee_Death_Rigging:Lft_Hand_Jnt
+    100042: Melee_Death_Rigging:Lft_Shlder_Ctrl
+    100044: Melee_Death_Rigging:Lft_Shlder_Jnt
+    100046: Melee_Death_Rigging:Lft_Wrist_Jnt
+    100048: Melee_Death_Rigging:Lft_Wrst_Ctrl
+    100050: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1
+    100052: Melee_Death_Rigging:mirroredCutMesh2
+    100054: Melee_Death_Rigging:Neck_Ctrl
+    100056: Melee_Death_Rigging:Neck_Jnt_1
+    100058: Melee_Death_Rigging:Neck_Jnt_2
+    100060: Melee_Death_Rigging:nurbsCircle1
+    100062: Melee_Death_Rigging:nurbsCircle2
+    100064: Melee_Death_Rigging:nurbsCircle3
+    100066: Melee_Death_Rigging:Pivot_Ctrl
+    100068: Melee_Death_Rigging:Pivot_Jnt
+    100070: Melee_Death_Rigging:Rgt_Clav_Jnt
+    100072: Melee_Death_Rigging:Rgt_Elbow_Ctrl
+    100074: Melee_Death_Rigging:Rgt_Elbow_Jnt
+    100076: Melee_Death_Rigging:Rgt_Hand_Jnt
+    100078: Melee_Death_Rigging:Rgt_Shlder_Ctrl
+    100080: Melee_Death_Rigging:Rgt_Shlder_Jnt
+    100082: Melee_Death_Rigging:Rgt_Wrist_Jnt
+    100084: Melee_Death_Rigging:Rgt_Wrst_Ctrl
+    100086: Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3
+    100088: Melee_Death_Rigging:Spine_Ctrl_1
+    100090: Melee_Death_Rigging:Spine_Jnt
+    100092: Melee_Death_Rigging:transform24
+    100094: Melee_Death_Rigging:transform25
+    100096: Melee_Death_Rigging:Upper_Chest_Ctrl
+    100098: //RootNode
+    100100: nurbsCircle1
+    100102: pasted__group1
+    100104: polySurface2
+    100106: polySurface3
+    100108: polySurface4
+    100110: polySurface5
+    100112: polySurface6
+    100114: pSphere1
+    400000: group
+    400002: group1
+    400004: group2
+    400006: Melee_Death_Rigging:All_Ctrl
+    400008: Melee_Death_Rigging:Ball_Ctrl
+    400010: Melee_Death_Rigging:Ball_Jnt_1
+    400012: Melee_Death_Rigging:Ball_Jnt_2
+    400014: Melee_Death_Rigging:Chest
+    400016: Melee_Death_Rigging:Chest_Jnt
+    400018: Melee_Death_Rigging:COG_Jnt
+    400020: Melee_Death_Rigging:group1
+    400022: Melee_Death_Rigging:Head_Ctrl
+    400024: Melee_Death_Rigging:Head_Ctrl_2
+    400026: Melee_Death_Rigging:Head_Ctrl_3
+    400028: Melee_Death_Rigging:Head_Jnt_1
+    400030: Melee_Death_Rigging:Head_Jnt_2
+    400032: Melee_Death_Rigging:Head_Jnt_3
+    400034: Melee_Death_Rigging:Lft_Clav_Jnt
+    400036: Melee_Death_Rigging:Lft_Elbow_Ctrl
+    400038: Melee_Death_Rigging:Lft_Elbow_Jnt
+    400040: Melee_Death_Rigging:Lft_Hand_Jnt
+    400042: Melee_Death_Rigging:Lft_Shlder_Ctrl
+    400044: Melee_Death_Rigging:Lft_Shlder_Jnt
+    400046: Melee_Death_Rigging:Lft_Wrist_Jnt
+    400048: Melee_Death_Rigging:Lft_Wrst_Ctrl
+    400050: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1
+    400052: Melee_Death_Rigging:mirroredCutMesh2
+    400054: Melee_Death_Rigging:Neck_Ctrl
+    400056: Melee_Death_Rigging:Neck_Jnt_1
+    400058: Melee_Death_Rigging:Neck_Jnt_2
+    400060: Melee_Death_Rigging:nurbsCircle1
+    400062: Melee_Death_Rigging:nurbsCircle2
+    400064: Melee_Death_Rigging:nurbsCircle3
+    400066: Melee_Death_Rigging:Pivot_Ctrl
+    400068: Melee_Death_Rigging:Pivot_Jnt
+    400070: Melee_Death_Rigging:Rgt_Clav_Jnt
+    400072: Melee_Death_Rigging:Rgt_Elbow_Ctrl
+    400074: Melee_Death_Rigging:Rgt_Elbow_Jnt
+    400076: Melee_Death_Rigging:Rgt_Hand_Jnt
+    400078: Melee_Death_Rigging:Rgt_Shlder_Ctrl
+    400080: Melee_Death_Rigging:Rgt_Shlder_Jnt
+    400082: Melee_Death_Rigging:Rgt_Wrist_Jnt
+    400084: Melee_Death_Rigging:Rgt_Wrst_Ctrl
+    400086: Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3
+    400088: Melee_Death_Rigging:Spine_Ctrl_1
+    400090: Melee_Death_Rigging:Spine_Jnt
+    400092: Melee_Death_Rigging:transform24
+    400094: Melee_Death_Rigging:transform25
+    400096: Melee_Death_Rigging:Upper_Chest_Ctrl
+    400098: //RootNode
+    400100: nurbsCircle1
+    400102: pasted__group1
+    400104: polySurface2
+    400106: polySurface3
+    400108: polySurface4
+    400110: polySurface5
+    400112: polySurface6
+    400114: pSphere1
+    4300000: pSphere1
+    4300002: polySurface2
+    4300004: polySurface3
+    4300006: polySurface5
+    4300008: polySurface6
+    7400000: Idle
+    7400002: Attack
+    7400004: Damage
+    9500000: //RootNode
+    13700000: polySurface2
+    13700002: polySurface3
+    13700004: polySurface5
+    13700006: polySurface6
+    13700008: pSphere1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 1
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 265
+      lastFrame: 321
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__group1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2/Melee_Death_Rigging:Head_Ctrl_3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl/Melee_Death_Rigging:Rgt_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl/Melee_Death_Rigging:Lft_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt/Melee_Death_Rigging:Lft_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2/Melee_Death_Rigging:Head_Jnt_3
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt/Melee_Death_Rigging:Rgt_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1/Melee_Death_Rigging:group1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2/Melee_Death_Rigging:transform24
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3/Melee_Death_Rigging:transform25
+        weight: 1
+      - path: nurbsCircle1
+        weight: 1
+      - path: nurbsCircle1/polySurface2
+        weight: 1
+      - path: nurbsCircle1/polySurface3
+        weight: 1
+      - path: nurbsCircle1/polySurface5
+        weight: 1
+      - path: nurbsCircle1/polySurface6
+        weight: 1
+      - path: nurbsCircle1/pSphere1
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 134
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__group1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2/Melee_Death_Rigging:Head_Ctrl_3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl/Melee_Death_Rigging:Rgt_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl/Melee_Death_Rigging:Lft_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt/Melee_Death_Rigging:Lft_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2/Melee_Death_Rigging:Head_Jnt_3
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt/Melee_Death_Rigging:Rgt_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1/Melee_Death_Rigging:group1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2/Melee_Death_Rigging:transform24
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3/Melee_Death_Rigging:transform25
+        weight: 1
+      - path: nurbsCircle1
+        weight: 1
+      - path: nurbsCircle1/polySurface2
+        weight: 1
+      - path: nurbsCircle1/polySurface3
+        weight: 1
+      - path: nurbsCircle1/polySurface5
+        weight: 1
+      - path: nurbsCircle1/polySurface6
+        weight: 1
+      - path: nurbsCircle1/pSphere1
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Damage
+      takeName: Take 001
+      firstFrame: 359
+      lastFrame: 414
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__group1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:Neck_Ctrl/Melee_Death_Rigging:Head_Ctrl/Melee_Death_Rigging:Head_Ctrl_2/Melee_Death_Rigging:Head_Ctrl_3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle2/Melee_Death_Rigging:Rgt_Shlder_Ctrl/Melee_Death_Rigging:Rgt_Elbow_Ctrl/Melee_Death_Rigging:Rgt_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:All_Ctrl/Melee_Death_Rigging:Ball_Ctrl/Melee_Death_Rigging:Pivot_Ctrl/Melee_Death_Rigging:Spine_Ctrl_1/Melee_Death_Rigging:Upper_Chest_Ctrl/Melee_Death_Rigging:Chest/Melee_Death_Rigging:nurbsCircle3/Melee_Death_Rigging:Lft_Shlder_Ctrl/Melee_Death_Rigging:Lft_Elbow_Ctrl/Melee_Death_Rigging:Lft_Wrst_Ctrl
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Lft_Clav_Jnt/Melee_Death_Rigging:Lft_Shlder_Jnt/Melee_Death_Rigging:Lft_Elbow_Jnt/Melee_Death_Rigging:Lft_Wrist_Jnt/Melee_Death_Rigging:Lft_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Neck_Jnt_1/Melee_Death_Rigging:Neck_Jnt_2/Melee_Death_Rigging:Head_Jnt_1/Melee_Death_Rigging:Head_Jnt_2/Melee_Death_Rigging:Head_Jnt_3
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Ball_Jnt_1/Melee_Death_Rigging:Ball_Jnt_2/Melee_Death_Rigging:Pivot_Jnt/Melee_Death_Rigging:COG_Jnt/Melee_Death_Rigging:Spine_Jnt/Melee_Death_Rigging:Chest_Jnt/Melee_Death_Rigging:Rgt_Clav_Jnt/Melee_Death_Rigging:Rgt_Shlder_Jnt/Melee_Death_Rigging:Rgt_Elbow_Jnt/Melee_Death_Rigging:Rgt_Wrist_Jnt/Melee_Death_Rigging:Rgt_Hand_Jnt
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:Minion_Base_SkeletionAndCtrl_nurbsCircle1/Melee_Death_Rigging:group1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:mirroredCutMesh2/Melee_Death_Rigging:transform24
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3
+        weight: 1
+      - path: Melee_Death_Rigging:nurbsCircle1/Melee_Death_Rigging:ROCKFILETMINON_BUFF:polySurface3/Melee_Death_Rigging:transform25
+        weight: 1
+      - path: nurbsCircle1
+        weight: 1
+      - path: nurbsCircle1/polySurface2
+        weight: 1
+      - path: nurbsCircle1/polySurface3
+        weight: 1
+      - path: nurbsCircle1/polySurface5
+        weight: 1
+      - path: nurbsCircle1/polySurface6
+        weight: 1
+      - path: nurbsCircle1/pSphere1
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

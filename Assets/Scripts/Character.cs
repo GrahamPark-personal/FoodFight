@@ -55,18 +55,27 @@ public enum CharacterAnimations
 public struct DualAbilities
 {
     public Attack mDuoAbility1;
+    public GameObject mAttackPartical1;
     public CharacterType ability1Character1;
     public CharacterType ability1Character2;
+
     public Attack mDuoAbility2;
+    public GameObject mAttackPartical2;
     public CharacterType ability2Character1;
     public CharacterType ability2Character2;
+
     public Attack mDuoAbility3;
+    public GameObject mAttackPartical3;
     public CharacterType ability3Character1;
     public CharacterType ability3Character2;
+
     public Attack mDuoAbility4;
+    public GameObject mAttackPartical4;
     public CharacterType ability4Character1;
     public CharacterType ability4Character2;
+
     public Attack mDuoAbility5;
+    public GameObject mAttackPartical5;
     public CharacterType ability5Character1;
     public CharacterType ability5Character2;
 }
@@ -115,6 +124,7 @@ public class Character : MonoBehaviour
     bool damageOnce = true;
 
     [Space(30)]
+    public GameObject mBasicPartical;
     public Attack mBasicAbility;
 
     [Space(10)]
@@ -810,9 +820,29 @@ public class Character : MonoBehaviour
         Damage(amount);
     }
 
-    public void Attacking()
+    public void Attacking(IntVector2 pos)
     {
         mAnimation = CharacterAnimations.Attack1;
+        GameObject mSelectedParticle = GameManager.sInstance.mCurrentPartical;
+        if (mSelectedParticle != null)
+        {
+            Transform mFinalLocation = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
+            GameObject go = Instantiate(mSelectedParticle, transform.position, mSelectedParticle.transform.rotation);
+            ParticleControl partControl = go.GetComponent<ParticleControl>();
+            if(partControl.mAction == mParticleAction.Stationary_DestroyOnCall || partControl.mAction == mParticleAction.Stationary_DestroyAfterTime)
+            {
+                go.transform.position = mFinalLocation.position;
+            }
+            if (partControl != null)
+            {
+                partControl.Init(mFinalLocation);
+            }
+            else
+            {
+                Debug.Log("couldnt get particlecontrol from object");
+            }
+        }
+        GameManager.sInstance.mCurrentPartical = null;
         AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
     }

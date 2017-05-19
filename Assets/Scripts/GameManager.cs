@@ -76,6 +76,9 @@ public class GameManager : MonoBehaviour
     public Character mBoss;
 
     [HideInInspector]
+    public GameObject mCurrentPartical;
+
+    [HideInInspector]
     public Character mSavedCharacter;
 
     #region ManagersAndClassReferences

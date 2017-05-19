@@ -1508,7 +1508,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1580,21 +1580,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1976099246}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -4721,21 +4727,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -10528,21 +10540,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -11232,21 +11250,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -12367,7 +12391,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14753,21 +14777,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 683968776}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -15423,7 +15453,7 @@ Prefab:
     - target: {fileID: 224401528950346922, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 224908874935334106, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
@@ -15434,6 +15464,114 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 224797990128713662, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224427751215251462, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710956766384920, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 224875127002193160, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224651254733739244, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224063829664623608, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630160557551830, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 224103885193862796, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224133943108392164, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224186059861042154, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224329757198800264, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224251609284122298, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 224638916525525734, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999805199224420, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 224711942317463798, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224055088727301842, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224731993247816952, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 224478100276440620, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224478387881356306, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224552228511555274, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224164925930315790, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114235303367075026, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114742672203078278, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
@@ -16048,7 +16186,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16600,7 +16738,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18836,7 +18974,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20304,7 +20442,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26254,7 +26392,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26326,7 +26464,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27048,7 +27186,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27245,20 +27383,60 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.65348643
+      value: 0.6534865
       objectReference: {fileID: 0}
     - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.3367835
+      value: 0.33678353
       objectReference: {fileID: 0}
     - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.30997962
+      value: -0.30997965
       objectReference: {fileID: 0}
     - target: {fileID: 4171352641305934, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.60286397
+      value: 0.602864
       objectReference: {fileID: 0}
+    - target: {fileID: 137811590343783742, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c70c6c150aa9084aa1ea235cdbf362f, type: 2}
+    - target: {fileID: 137649921070606530, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 571ce6c0e01f3074c93d905bee54bd34, type: 2}
+    - target: {fileID: 137467148594063124, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ee261b0cb7eddc458f7c159f4ca94f0, type: 2}
+    - target: {fileID: 137997875946949128, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ee261b0cb7eddc458f7c159f4ca94f0, type: 2}
+    - target: {fileID: 137924430022683060, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 823465cb82191ad41a981bca85098b9c, type: 2}
+    - target: {fileID: 137067786374017042, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 823465cb82191ad41a981bca85098b9c, type: 2}
+    - target: {fileID: 137639458225595622, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 823465cb82191ad41a981bca85098b9c, type: 2}
+    - target: {fileID: 137280158020468792, guid: d6dbffca6be5abf48a92e4d1e854354b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 823465cb82191ad41a981bca85098b9c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6dbffca6be5abf48a92e4d1e854354b, type: 2}
   m_IsPrefabParent: 0
@@ -27417,21 +27595,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -27492,21 +27676,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -27567,21 +27757,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -27642,21 +27838,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -27993,7 +28195,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30310,7 +30512,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44316,21 +44518,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -47002,7 +47210,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47160,7 +47368,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49020,21 +49228,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -49639,7 +49853,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -51535,6 +51749,156 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 137579535418725406, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137582599948247958, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137463280507740990, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137721578507651826, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137594733211471628, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137320823355606482, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137490680915422644, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137980100641609914, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137579559479921838, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137444855056117700, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137889479935642198, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137041787999104720, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137532565273168332, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137243406697167832, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137452798780740832, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137853602752565854, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137412997333072256, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137945177785924740, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137617521289056774, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137758720449703232, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137868278483706062, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137738876379804180, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137346600839140032, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137530845080356476, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137753519674858866, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 073e1a59fe4d04a48afce64c8b0a56e4, type: 2}
+    - target: {fileID: 137998895179720342, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137231421139668268, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137154760475565338, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
+    - target: {fileID: 137160113904605188, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 073e1a59fe4d04a48afce64c8b0a56e4, type: 2}
+    - target: {fileID: 137574680546181006, guid: 30419ca2537c3aa4db6388e85466be92,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 073e1a59fe4d04a48afce64c8b0a56e4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30419ca2537c3aa4db6388e85466be92, type: 2}
   m_IsPrefabParent: 0
@@ -52313,21 +52677,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -57963,7 +58333,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -65089,6 +65459,7 @@ GameObject:
   - component: {fileID: 1475023758}
   - component: {fileID: 1475023757}
   - component: {fileID: 1475023762}
+  - component: {fileID: 1475023763}
   m_Layer: 0
   m_Name: PlayCamera
   m_TagString: MainCamera
@@ -65175,6 +65546,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76d5e810607b894c86a5be008a670fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1475023763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475023756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730475ee64f9a894bbac0d9e6f22e813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  sensitivityDepth: 20
+  sensitivityNormals: 0.5
+  lumThreshold: 0.2
+  edgeExp: 1
+  sampleDist: 0.5
+  edgesOnly: 0
+  edgesOnlyBgColor: {r: 0, g: 0, b: 0, a: 1}
+  edgeDetectShader: {fileID: 4800000, guid: 0d1644bdf064147baa97f235fc5b4903, type: 3}
 --- !u!4 &1475609222 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -66096,21 +66487,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -67365,21 +67762,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -70113,21 +70516,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -71813,21 +72222,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -72113,21 +72528,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -72589,21 +73010,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1152017613}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -76585,7 +77012,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78074,7 +78501,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81688,7 +82115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fb652a3123373e94aac7b6d32363a899, type: 2}
+  - {fileID: 2100000, guid: c707c72797d6e714582cdf3849fcd4b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84649,9 +85076,20 @@ Prefab:
       propertyPath: m_EffectDistance.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114662854068610906, guid: 05a956568a978a848ae078f82f99a977,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05a956568a978a848ae078f82f99a977, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1928938618 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114464927109522102, guid: 05a956568a978a848ae078f82f99a977,
+    type: 2}
+  m_PrefabInternal: {fileID: 1928938617}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1930275691 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -86521,6 +86959,56 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 137044268770976846, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137599358698940508, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137522760104800984, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137770824590740942, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137549506545114220, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137981634409174378, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137348842848366840, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137824719204072252, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137537967607717030, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
+    - target: {fileID: 137438377163478966, guid: 2248c64713deeeb40b465122834f8c03,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a5a29e8dd42674cb499610267f8c2b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2248c64713deeeb40b465122834f8c03, type: 2}
   m_IsPrefabParent: 0
@@ -88197,6 +88685,7 @@ MonoBehaviour:
   mLoseScreen1: {fileID: 393736823}
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
+  mCurrentPartical: {fileID: 0}
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -88260,6 +88749,7 @@ MonoBehaviour:
     type: 2}
   mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
     type: 2}
+  mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -90780,21 +91270,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}

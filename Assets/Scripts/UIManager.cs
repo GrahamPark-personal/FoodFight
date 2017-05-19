@@ -73,6 +73,15 @@ public class UIManager : MonoBehaviour
 
     Texture2D[] mSavedCharImage;
 
+    public RawImage[] mChararcterGlow;
+    public RawImage[] mCharacterBigGlow;
+    public RawImage[] mCharacterAttack;
+
+    [HideInInspector]
+    public int mCurrentSlotSelected = -1;
+    [HideInInspector]
+    public int mSecondarySlotSelected = -1;
+
     [HideInInspector]
     public StarLevel mCurrentStar = StarLevel.Gold;
 
@@ -92,9 +101,25 @@ public class UIManager : MonoBehaviour
     public Text mStarText;
 
 
+    int mSavedHover1 = -1;
+    int mSavedHover2 = -1;
+
+    int mCurrentHover1 = -1;
+    int mCurrentHover2 = -1;
+
+    int mAttackHover1 = -1;
+    int mAttackHover2 = -1;
+    bool mAttackShown = false;
+
 
     void Start()
     {
+
+        ResetAttackHovers();
+        ResetCurrentHover1();
+        ResetCurrentHover2();
+        //ResetAttackHover();
+        //SetHoverGlowToInvisible();
         mCurrentTurns = mGoldTurns;
 
         ResetBubbles();
@@ -108,6 +133,219 @@ public class UIManager : MonoBehaviour
             mSavedCharImage[i] = mCharTexture[i];
         }
     }
+
+    //No One Selected
+
+    //Hover
+    //reset CurrentHover1, so there is none selected
+    //save CurrentHover1 location
+    //Move mouse away
+    //reset CurrentHover1
+    //Click
+    //save CurrentHover1 location, now move on to character selected
+
+    //if you revert back:
+    //reset currentHover1
+
+    //Character Selected
+
+    //Hover
+    //if slot is also currentHover make it double, else then only show the SingleHover
+    //save CurrentHover2 location
+    //Move mouse away
+    //reset CurrentHover2
+    //Click
+    //reset attackHover
+    //set attackHover to CurrentHover1, and CurrentHover2
+    //Set AttackSelected to true
+    //save currentHover2 location, and move on to Selected Attack
+
+    //if you revert back:
+    //reset currentHover2
+    //reset attackHover
+
+
+    //Attack Selected
+    //do nothing
+
+    public void SetCurrentHover1(int slot)
+    {
+        ResetCurrentHover1();
+        mCurrentHover1 = slot;
+        mSavedHover1 = slot;
+        mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
+    }
+
+    public void SaveCurrentHover1()
+    {
+        StartCoroutine(ShowMainGlow());
+    }
+
+    public void ResetCurrentHover1()
+    {
+        for (int i = 0; i < mChararcterGlow.Length; i++)
+        {
+            mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
+        }
+    }
+
+    public void SetCurrentHover2(int slot)
+    {
+        if (!mAttackShown)
+        {
+            ResetCurrentHover2();
+            if (slot == mSavedHover1)
+            {
+                mCharacterBigGlow[slot].color = new Color(mCharacterBigGlow[slot].color.r, mCharacterBigGlow[slot].color.g, mCharacterBigGlow[slot].color.b, 100);
+            }
+            mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
+
+            mCurrentHover2 = slot;
+            mSavedHover2 = slot;
+        }
+    }
+
+    public void ResetCurrentHover2()
+    {
+        if (!mAttackShown)
+        {
+            if(mSavedHover1 != mSavedHover2 && mSavedHover2 != -1)
+            {
+                mChararcterGlow[mSavedHover2].color = new Color(mChararcterGlow[mSavedHover2].color.r, mChararcterGlow[mSavedHover2].color.g, mChararcterGlow[mSavedHover2].color.b, 0);
+            }
+            for (int i = 0; i < mCharacterBigGlow.Length; i++)
+            {
+                mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+            }
+        }
+    }
+
+    public void SaveCurrentHover2()
+    {
+        StartCoroutine(ShowBigGlow());
+        mAttackShown = true;
+        ResetAttackHovers();
+        SetAttackHover(mSavedHover1, mSavedHover2);
+    }
+
+    public void ResetAttackHovers()
+    {
+        for (int i = 0; i < mCharacterAttack.Length; i++)
+        {
+            mCharacterAttack[i].color = new Color(mCharacterAttack[i].color.r, mCharacterAttack[i].color.g, mCharacterAttack[i].color.b, 0);
+        }
+    }
+
+    public void SetAttackHover(int slot1, int slot2)
+    {
+        mCharacterAttack[slot1].color = new Color(mCharacterAttack[slot1].color.r, mCharacterAttack[slot1].color.g, mCharacterAttack[slot1].color.b, 100);
+        mCharacterAttack[slot2].color = new Color(mCharacterAttack[slot2].color.r, mCharacterAttack[slot2].color.g, mCharacterAttack[slot2].color.b, 100);
+    }
+
+    public void RevertHover()
+    {
+        if (mAttackShown)
+        {
+            mAttackShown = false;
+            ResetAttackHovers();
+            mCurrentHover2 = -1;
+            mSavedHover2 = -1;
+            ResetCurrentHover2();
+        }
+        else
+        {
+            mCurrentHover1 = -1;
+            mSavedHover1 = -1;
+            ResetCurrentHover1();
+            ResetCurrentHover2();
+        }
+    }
+
+    IEnumerator ShowMainGlow()
+    {
+        yield return new WaitForSeconds(0.1f);
+        mChararcterGlow[mSavedHover1].color = new Color(mChararcterGlow[mSavedHover1].color.r, mChararcterGlow[mSavedHover1].color.g, mChararcterGlow[mSavedHover1].color.b, 100);
+    }
+
+    IEnumerator ShowBigGlow()
+    {
+        yield return new WaitForSeconds(0.1f);
+        mCharacterBigGlow[mSavedHover2].color = new Color(mCharacterBigGlow[mSavedHover2].color.r, mCharacterBigGlow[mSavedHover2].color.g, mCharacterBigGlow[mSavedHover2].color.b, 100);
+    }
+
+
+    //public void ResetAttackHover()
+    //{
+    //    for (int i = 0; i < mCharacterAttack.Length; i++)
+    //    {
+    //        mCharacterAttack[i].color = new Color(mCharacterAttack[i].color.r, mCharacterAttack[i].color.g, mCharacterAttack[i].color.b, 0);
+    //    }
+    //}
+
+    //public void SetAttackForCharacter(int charSlot)
+    //{
+    //    mCharacterAttack[charSlot].color = new Color(mChararcterGlow[charSlot].color.r, mChararcterGlow[charSlot].color.g, mChararcterGlow[charSlot].color.b, 100.0f);
+    //    if(mCurrentSlotSelected != -1)
+    //    {
+    //        mCharacterAttack[mCurrentSlotSelected].color = new Color(mChararcterGlow[mCurrentSlotSelected].color.r, mChararcterGlow[mCurrentSlotSelected].color.g, mChararcterGlow[mCurrentSlotSelected].color.b, 100.0f);
+    //    }
+    //}
+
+    //public void SetHoverGlowToInvisible()
+    //{
+    //    for (int i = 0; i < mChararcterGlow.Length; i++)
+    //    {
+    //        if(i != mCurrentSlotSelected)
+    //        {
+    //            mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
+    //        }
+    //    }
+    //    for (int i = 0; i < mCharacterBigGlow.Length; i++)
+    //    {
+    //        if (i != mSecondarySlotSelected)
+    //        {
+    //            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+    //        }
+    //    }
+
+    //}
+
+    //public void HoverOver(int charSlot)
+    //{
+    //    SetHoverGlowToInvisible();
+    //    if(charSlot == mCurrentSlotSelected)
+    //    {
+    //        mCharacterBigGlow[charSlot].color = new Color(mCharacterBigGlow[charSlot].color.r, mCharacterBigGlow[charSlot].color.g, mCharacterBigGlow[charSlot].color.b, 70.0f);
+    //    }
+
+    //    mChararcterGlow[charSlot].color = new Color(mChararcterGlow[charSlot].color.r, mChararcterGlow[charSlot].color.g, mChararcterGlow[charSlot].color.b, 70.0f);
+    //}
+
+    //public void SelectHoverSlot(int charSlot)
+    //{
+    //    if(mCurrentSlotSelected == -1)
+    //    {
+    //        StartCoroutine(WaitToShowGlow(charSlot));
+    //    }
+    //    else if(mSecondarySlotSelected == -1)
+    //    {
+    //        StartCoroutine(WaitToShowSecondGlow(charSlot));
+    //    }
+    //}
+
+    //IEnumerator WaitToShowSecondGlow(int charSlot)
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+    //    mSecondarySlotSelected = charSlot;
+    //    mCharacterBigGlow[charSlot].color = new Color(mCharacterBigGlow[charSlot].color.r, mCharacterBigGlow[charSlot].color.g, mCharacterBigGlow[charSlot].color.b, 100.0f);
+    //}
+
+    //IEnumerator WaitToShowGlow(int charSlot)
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+    //    mCurrentSlotSelected = charSlot;
+    //    mChararcterGlow[charSlot].color = new Color(mChararcterGlow[charSlot].color.r, mChararcterGlow[charSlot].color.g, mChararcterGlow[charSlot].color.b, 100.0f);
+    //}
 
     public void IncrementTurn()
     {

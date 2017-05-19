@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
 
     public Character mBoss;
 
+    int mTurnCounter = 0;
+
     [HideInInspector]
     public GameObject mCurrentPartical;
 
@@ -263,6 +265,8 @@ public class GameManager : MonoBehaviour
         //ResetSelected();
     }
 
+    public Text mCounter;
+
     #endregion
 
     #region AwakeStartUpdate
@@ -324,7 +328,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        mCounter.text = "Counter: " + mTurnCounter;
         if (mFinishedLastCutScene)
         {
             //do end of level
@@ -365,14 +369,15 @@ public class GameManager : MonoBehaviour
             {
                 mMouseMode = MouseMode.Move;
                 ResetSelected();
+                mUIManager.RevertHover();
                 //mUIManager.mEnemyPopUpBarShown = false;
             }
             else if(mMouseMode == MouseMode.Move)
             {
                 mMouseMode = MouseMode.None;
                 ResetSelected();
+                mUIManager.RevertHover();
                 mUIManager.mEnemyPopUpBarShown = false;
-                //move blocks to be something else
             }
         }
 
@@ -531,6 +536,11 @@ public class GameManager : MonoBehaviour
             {
                 mEnemies[i].EndCharacterTurn();
             }
+
+            mTurnCounter++;
+
+            mCharacterObj = null;
+
             ResetSelected();
         }
         else

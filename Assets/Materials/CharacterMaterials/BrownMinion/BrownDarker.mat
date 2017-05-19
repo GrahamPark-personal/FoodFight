@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: YellowFace
+  m_Name: BrownDarker
   m_Shader: {fileID: 4800000, guid: d84268709d11078d11005b9844295342, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -37,7 +37,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5294118, g: 0.29417798, b: 0.019463656, a: 1}
+      second: {r: 0.22794116, g: 0.15415305, b: 0.07039359, a: 1}
     - first:
         name: _Emission
       second: {r: 0, g: 0, b: 0, a: 0}

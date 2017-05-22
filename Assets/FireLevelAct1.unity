@@ -1354,13 +1354,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 4
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -2054,21 +2054,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1976099246}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 44505662}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -6787,21 +6793,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -13455,21 +13467,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -14312,21 +14330,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -19541,21 +19565,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 683968776}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 384067147}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 2
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -20423,6 +20453,11 @@ Prefab:
       propertyPath: mAttackImages.Array.data[3]
       value: 
       objectReference: {fileID: 2050983337}
+    - target: {fileID: 114235303367075026, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
   m_IsPrefabParent: 0
@@ -35542,13 +35577,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 4
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -40275,13 +40310,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 2
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -52788,13 +52823,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 2
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -53086,21 +53121,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -59393,21 +59434,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -59973,13 +60020,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 4
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -64506,21 +64553,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -80021,13 +80074,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mDesiredDestination:
-    x: 0
-    y: 0
+    x: 2
+    y: 13
     F: 0
     G: 0
     H: 0
     parent: []
-  mActivationRange: 0
+  mActivationRange: 30
   mType: 0
   patrolPoints: []
   mCurrentDestination:
@@ -80179,21 +80232,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -81786,21 +81845,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -81906,7 +81971,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 51d9ce5d451f800448c5cea9923ed66e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c9ee6fd9847a2114ca6f6b7e52ee4dda, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.609
   m_Pitch: 1
@@ -85466,21 +85531,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -87618,21 +87689,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -88917,21 +88994,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -89524,21 +89607,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 1716735084}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 2
     mDuoAbility2: {fileID: 1716735083}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -104708,6 +104797,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05a956568a978a848ae078f82f99a977, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1928938618 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114464927109522102, guid: 05a956568a978a848ae078f82f99a977,
+    type: 2}
+  m_PrefabInternal: {fileID: 1928938617}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &1930275691 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -108797,6 +108892,7 @@ MonoBehaviour:
   mLoseScreen1: {fileID: 393736823}
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
+  mCurrentPartical: {fileID: 0}
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -108863,6 +108959,7 @@ MonoBehaviour:
     type: 2}
   mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
     type: 2}
+  mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -111883,21 +111980,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
+  mBasicPartical: {fileID: 0}
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
+    mAttackPartical1: {fileID: 0}
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
+    mAttackPartical2: {fileID: 0}
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
+    mAttackPartical3: {fileID: 0}
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
+    mAttackPartical4: {fileID: 0}
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
+    mAttackPartical5: {fileID: 0}
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}

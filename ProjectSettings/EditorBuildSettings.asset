@@ -18,9 +18,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FireLevelAct1.unity
   - enabled: 1
-    path: Assets/FireLevel.unity
+    path: Assets/FireLevelAct2.unity
   - enabled: 1
-    path: Assets/NatureLevel.unity
+    path: Assets/FireLevelAct3.unity
+  - enabled: 1
+    path: Assets/NatureLevelAct1.unity
+  - enabled: 1
+    path: Assets/NatureLevelAct2.unity
+  - enabled: 1
+    path: Assets/NatureLevelAct3.unity
+  - enabled: 0
+    path: Assets/FireLevel.unity
   - enabled: 1
     path: Assets/DarkLevel.unity
   - enabled: 1

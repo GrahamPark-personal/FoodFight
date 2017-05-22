@@ -111,6 +111,8 @@ public class UIManager : MonoBehaviour
     int mAttackHover2 = -1;
     bool mAttackShown = false;
 
+    public GameObject mElectricHailstorm;
+
 
     void Start()
     {

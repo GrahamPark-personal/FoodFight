@@ -28,8 +28,20 @@ public class YellowBlueDuoAttack : Attack {
 
     }
 
+    IEnumerator WaitToSpawnEffect(IntVector2 pos, EffectParameters effectParm)
+    {
+
+        yield return new WaitForSeconds(2.0f);
+
+        GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm, false);
+    }
+
     public override void Execute(IntVector2 pos)
     {
+        Transform newTransform = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
+        GameObject mCloud = Instantiate(GameManager.sInstance.mUIManager.mElectricHailstorm, newTransform.position, new Quaternion(0, 0, 0, 0));
+
+        Destroy(mCloud, 10.0f);
 
         mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
@@ -47,8 +59,8 @@ public class YellowBlueDuoAttack : Attack {
         effectParm.Stun = GetStun();
         effectParm.ID = GetID();
 
-        GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm, false);
-
+        StartCoroutine(WaitToSpawnEffect(pos, effectParm));
+        //GameManager.sInstance.CreateAttackSquare(pos, GetRadius(), effectParm, false);
 
 
     }

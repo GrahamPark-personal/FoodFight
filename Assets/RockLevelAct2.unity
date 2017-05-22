@@ -15573,6 +15573,12 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: mElectricHailstorm
+      value: 
+      objectReference: {fileID: 1201200900392170, guid: f4ad93f8d1dfebd46bc13f1cec400d05,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114742672203078278, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
     - {fileID: 114392397808728992, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
@@ -28628,7 +28634,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400110, guid: 30266104c85ed8e419e8daa8d24bf4c7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731478665}
-  m_LocalRotation: {x: 0.6534865, y: 0.33678353, z: -0.30997965, w: 0.602864}
+  m_LocalRotation: {x: 0.65348643, y: 0.3367835, z: -0.30997962, w: 0.60286397}
   m_LocalPosition: {x: 0.012011811, y: -0.003553795, z: 0.021300644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

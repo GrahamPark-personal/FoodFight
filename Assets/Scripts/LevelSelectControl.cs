@@ -52,19 +52,19 @@ public class LevelSelectControl : MonoBehaviour
 
     public void LoadNatureLevel()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(8);
 
     }
 
     public void LoadDarkLevel()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(9);
 
     }
 
     public void LoadBossLevel()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(10);
 
     }
 

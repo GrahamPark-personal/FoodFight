@@ -1,0 +1,250 @@
+fileFormatVersion: 2
+guid: 1784dc2c8c769c844b5f3d389db815be
+timeCreated: 1495752704
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: chest
+    100002: DeathMage_Necrosis:DEATHDUDEverii:polySurface11
+    100004: head
+    100006: left
+    100008: pCube1
+    100010: polySurface1
+    100012: polySurface10
+    100014: polySurface11
+    100016: polySurface11 1
+    100018: polySurface12
+    100020: polySurface13
+    100022: polySurface14
+    100024: polySurface15
+    100026: polySurface16
+    100028: polySurface17
+    100030: polySurface18
+    100032: polySurface19
+    100034: polySurface2
+    100036: polySurface22
+    100038: polySurface23
+    100040: polySurface24
+    100042: polySurface25
+    100044: polySurface26
+    100046: polySurface27
+    100048: polySurface28
+    100050: polySurface3
+    100052: polySurface32
+    100054: polySurface33
+    100056: polySurface34
+    100058: polySurface35
+    100060: polySurface39
+    100062: polySurface4
+    100064: polySurface40
+    100066: polySurface5
+    100068: polySurface6
+    100070: polySurface7
+    100072: polySurface8
+    100074: polySurface9
+    100076: ROCKDUDE:nurbsCircle1
+    100078: ROCKDUDE:pSphere1
+    100080: ROCKDUDE:pSphere4
+    100082: //RootNode
+    400000: chest
+    400002: DeathMage_Necrosis:DEATHDUDEverii:polySurface11
+    400004: head
+    400006: left
+    400008: pCube1
+    400010: polySurface1
+    400012: polySurface10
+    400014: polySurface11
+    400016: polySurface11 1
+    400018: polySurface12
+    400020: polySurface13
+    400022: polySurface14
+    400024: polySurface15
+    400026: polySurface16
+    400028: polySurface17
+    400030: polySurface18
+    400032: polySurface19
+    400034: polySurface2
+    400036: polySurface22
+    400038: polySurface23
+    400040: polySurface24
+    400042: polySurface25
+    400044: polySurface26
+    400046: polySurface27
+    400048: polySurface28
+    400050: polySurface3
+    400052: polySurface32
+    400054: polySurface33
+    400056: polySurface34
+    400058: polySurface35
+    400060: polySurface39
+    400062: polySurface4
+    400064: polySurface40
+    400066: polySurface5
+    400068: polySurface6
+    400070: polySurface7
+    400072: polySurface8
+    400074: polySurface9
+    400076: ROCKDUDE:nurbsCircle1
+    400078: ROCKDUDE:pSphere1
+    400080: ROCKDUDE:pSphere4
+    400082: //RootNode
+    2300000: DeathMage_Necrosis:DEATHDUDEverii:polySurface11
+    2300002: polySurface10
+    2300004: polySurface11 1
+    2300006: polySurface12
+    2300008: polySurface13
+    2300010: polySurface14
+    2300012: polySurface16
+    2300014: polySurface17
+    2300016: polySurface19
+    2300018: polySurface2
+    2300020: polySurface22
+    2300022: polySurface23
+    2300024: polySurface24
+    2300026: polySurface25
+    2300028: polySurface26
+    2300030: polySurface27
+    2300032: polySurface28
+    2300034: polySurface3
+    2300036: polySurface32
+    2300038: polySurface33
+    2300040: polySurface34
+    2300042: polySurface35
+    2300044: polySurface39
+    2300046: polySurface40
+    2300048: polySurface5
+    2300050: polySurface6
+    2300052: polySurface7
+    2300054: polySurface8
+    2300056: ROCKDUDE:pSphere1
+    2300058: ROCKDUDE:pSphere4
+    3300000: DeathMage_Necrosis:DEATHDUDEverii:polySurface11
+    3300002: polySurface10
+    3300004: polySurface11 1
+    3300006: polySurface12
+    3300008: polySurface13
+    3300010: polySurface14
+    3300012: polySurface16
+    3300014: polySurface17
+    3300016: polySurface19
+    3300018: polySurface2
+    3300020: polySurface22
+    3300022: polySurface23
+    3300024: polySurface24
+    3300026: polySurface25
+    3300028: polySurface26
+    3300030: polySurface27
+    3300032: polySurface28
+    3300034: polySurface3
+    3300036: polySurface32
+    3300038: polySurface33
+    3300040: polySurface34
+    3300042: polySurface35
+    3300044: polySurface39
+    3300046: polySurface40
+    3300048: polySurface5
+    3300050: polySurface6
+    3300052: polySurface7
+    3300054: polySurface8
+    3300056: ROCKDUDE:pSphere1
+    3300058: ROCKDUDE:pSphere4
+    4300000: ROCKDUDE:pSphere1
+    4300002: polySurface5
+    4300004: polySurface2
+    4300006: polySurface6
+    4300008: polySurface27
+    4300010: polySurface28
+    4300012: polySurface7
+    4300014: polySurface8
+    4300016: polySurface17
+    4300018: polySurface3
+    4300020: polySurface19
+    4300022: polySurface10
+    4300024: polySurface16
+    4300026: polySurface25
+    4300028: polySurface22
+    4300030: polySurface12
+    4300032: polySurface14
+    4300034: polySurface13
+    4300036: polySurface26
+    4300038: polySurface24
+    4300040: polySurface23
+    4300042: DeathMage_Necrosis:DEATHDUDEverii:polySurface11
+    4300044: polySurface33
+    4300046: polySurface34
+    4300048: polySurface39
+    4300050: polySurface32
+    4300052: polySurface35
+    4300054: polySurface11
+    4300056: ROCKDUDE:pSphere4
+    4300058: polySurface40
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

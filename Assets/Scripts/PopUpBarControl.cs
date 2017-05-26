@@ -13,7 +13,12 @@ public class PopUpBarControl : MonoBehaviour
 
     void Update()
     {
-        bool shown =  GameManager.sInstance.mUIManager.mEnemyPopUpBarShown;
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("Bar shown: " + GameManager.sInstance.mUIManager.mEnemyPopUpBarShown);
+        }
+
+        bool shown = GameManager.sInstance.mUIManager.mEnemyPopUpBarShown;
         mPopUpBar.SetActive(shown);
     }
 }

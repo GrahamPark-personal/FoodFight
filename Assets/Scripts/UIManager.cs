@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     [Space(10)]
 
-    public Button[] mCharFrame;
+    public GameObject[] mCharFrame;
 
     [Space(10)]
 
@@ -180,6 +180,17 @@ public class UIManager : MonoBehaviour
 
     public void SaveCurrentHover1()
     {
+        if(mCharacters[mSavedHover1].mAttacked)
+        {
+            for (int i = 0; i < mCharFrame.Length; i++)
+            {
+                mCharFrame[i].SetActive(false);
+                if(i != mSavedHover1)
+                {
+                    mAttackImages[i].texture = mCharHiddenTexture[i];
+                }
+            }
+        }
         StartCoroutine(ShowMainGlow());
     }
 
@@ -193,7 +204,7 @@ public class UIManager : MonoBehaviour
 
     public void SetCurrentHover2(int slot)
     {
-        if (!mAttackShown)
+        if (!mAttackShown && !mCharacters[mSavedHover1].mAttacked)
         {
             ResetCurrentHover2();
             if (slot == mSavedHover1)
@@ -211,7 +222,7 @@ public class UIManager : MonoBehaviour
     {
         if (!mAttackShown)
         {
-            if(mSavedHover1 != mSavedHover2 && mSavedHover2 != -1)
+            if (mSavedHover1 != mSavedHover2 && mSavedHover2 != -1)
             {
                 mChararcterGlow[mSavedHover2].color = new Color(mChararcterGlow[mSavedHover2].color.r, mChararcterGlow[mSavedHover2].color.g, mChararcterGlow[mSavedHover2].color.b, 0);
             }
@@ -224,9 +235,43 @@ public class UIManager : MonoBehaviour
 
     public void SaveCurrentHover2()
     {
-        StartCoroutine(ShowBigGlow());
         mAttackShown = true;
         ResetAttackHovers();
+        //ResetCurrentHover1();
+        //ResetCurrentHover2();
+
+        if (mSavedHover1 == -1)
+        {
+            AttackData data = GetDuoAttack((CharacterType)mSavedHover2);
+            mSavedHover1 = data.char1;
+            SetCurrentHover1(mSavedHover1);
+            for (int i = 0; i < mCharacterBigGlow.Length; i++)
+            {
+                mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+            }
+        }
+        else if (mSavedHover2 == -1)
+        {
+            AttackData data = GetDuoAttack((CharacterType)mSavedHover1);
+            mSavedHover2 = data.char2;
+            SetCurrentHover2(mSavedHover2);
+        }
+
+        for (int i = 0; i < mCharacterBigGlow.Length; i++)
+        {
+            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+        }
+
+        if (mSavedHover1 == mSavedHover2)
+        {
+            StartCoroutine(ShowBigGlow());
+        }
+
+        for (int i = 0; i < mCharFrame.Length; i++)
+        {
+            mCharFrame[i].SetActive(false);
+        }
+
         SetAttackHover(mSavedHover1, mSavedHover2);
     }
 
@@ -240,27 +285,52 @@ public class UIManager : MonoBehaviour
 
     public void SetAttackHover(int slot1, int slot2)
     {
+
         mCharacterAttack[slot1].color = new Color(mCharacterAttack[slot1].color.r, mCharacterAttack[slot1].color.g, mCharacterAttack[slot1].color.b, 100);
         mCharacterAttack[slot2].color = new Color(mCharacterAttack[slot2].color.r, mCharacterAttack[slot2].color.g, mCharacterAttack[slot2].color.b, 100);
     }
 
     public void RevertHover()
     {
-        if (mAttackShown)
+        StartCoroutine(DelayCleanUp());
+        //StartCoroutine(DelayCleanUp());
+    }
+
+    IEnumerator DelayCleanUp()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        mCurrentHover2 = -1;
+        mSavedHover2 = -1;
+        mCurrentHover1 = -1;
+        mSavedHover1 = -1;
+        mAttackHover1 = -1;
+        mAttackHover2 = -1;
+        ResetAttackHovers();
+        ResetCurrentHover1();
+        ResetCurrentHover2();
+
+        ResetPopUp(false);
+
+        mAttackShown = false;
+
+        for (int i = 0; i < mCharacters.Length; i++)
         {
-            mAttackShown = false;
-            ResetAttackHovers();
-            mCurrentHover2 = -1;
-            mSavedHover2 = -1;
-            ResetCurrentHover2();
+
+            if (mCharacters[i].mAttacked)
+            {
+                mAttackImages[i].texture = mCharHiddenTexture[i];
+                mCharFrame[i].SetActive(false);
+            }
+            else
+            {
+                mCharFrame[i].SetActive(true);
+            }
         }
-        else
-        {
-            mCurrentHover1 = -1;
-            mSavedHover1 = -1;
-            ResetCurrentHover1();
-            ResetCurrentHover2();
-        }
+
+        GameManager.sInstance.mMouseMode = MouseMode.None;
+        GameManager.sInstance.ResetSelected();
+
     }
 
     IEnumerator ShowMainGlow()
@@ -477,11 +547,26 @@ public class UIManager : MonoBehaviour
                 mAttackImages[i].texture = mTexturesForAttacks[mCurrentCharacter].images[i];
             }
 
+            for (int i = 0; i < mCharacters.Length; i++)
+            {
+
+                if(mCharacters[i].mAttacked && mSavedHover1 != i)
+                {
+                    mAttackImages[i].texture = mCharHiddenTexture[i];
+                    mCharFrame[i].SetActive(false);
+                }
+                else
+                {
+                    mCharFrame[i].SetActive(true);
+                }
+            }
+
             mEnemyPopUpBarShown = true;
             ResetBubbles();
         }
         else
         {
+            Debug.Log("Bar not shown");
             mEnemyPopUpBarShown = false;
         }
     }
@@ -708,6 +793,13 @@ public class UIManager : MonoBehaviour
 
     public void OnBasicAbilityDown()
     {
+        Debug.Log("ability test if either attack or ability attack mouse" + (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack));
+
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Yellow)
         {
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
@@ -766,6 +858,11 @@ public class UIManager : MonoBehaviour
 
     public void OnDuoAbility1Down()
     {
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Blue)
         {
             //do basic ability for blue
@@ -822,6 +919,11 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility2Down()
     {
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Red)
         {
             //do basic ability for brown
@@ -878,6 +980,12 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility3Down()
     {
+
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Brown)
         {
             //do basic ability for red
@@ -934,6 +1042,12 @@ public class UIManager : MonoBehaviour
     }
     public void OnDuoAbility4Down()
     {
+
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Green)
         {
             //do basic ability for green
@@ -991,6 +1105,12 @@ public class UIManager : MonoBehaviour
 
     public void OnDuoAbility5Down()
     {
+
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
         if (GameManager.sInstance.mCharacterObj.mCharacterType == CharacterType.Black)
         {
             //do basic ability for black
@@ -1048,6 +1168,15 @@ public class UIManager : MonoBehaviour
 
     public void SelectCharacter(int character, bool moveCam)
     {
+        if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
+        {
+            return;
+        }
+
+        Debug.Log("Character: " + character);
+
+        SetCurrentHover1(character);
+        SaveCurrentHover1();
 
         mCurrentCharacter = character;
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
@@ -1057,66 +1186,87 @@ public class UIManager : MonoBehaviour
             Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
             GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
         }
+
+        ResetPopUp(true);
+
         mTypeOnCell = TypeOnCell.character;
+
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacters[character]);
     }
 
     public void SelectCharacter(IntVector2 mNewPos)
     {
-
-        Character temp = null;
-
-        if (GameManager.sInstance.mGameTurn == GameTurn.Player)
-        {
-            temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
-        }
-        else if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        {
-            temp = GameManager.sInstance.mBoss;
-        }
-
-        if (temp == null)
-        {
-            Debug.Log("Selecting a null character");
-            return;
-        }
-
-
+        
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {
-            if (temp == GameManager.sInstance.mCharacters[i])
+            if (GameManager.sInstance.mCharacters[i].mCellPos.x == mNewPos.x && GameManager.sInstance.mCharacters[i].mCellPos.y == mNewPos.y)
             {
-                mCurrentCharacter = i;
-                break;
+
+                //ResetCurrentHover1();
+                //MoveCharacterHover(i);
+                //SetCurrentHover1(i);
+                //SaveCurrentHover1();
+                //SelectCharacter(i, false);
+                SelectCharacter(i, false);
+                SetCurrentHover1(i);
+                SaveCurrentHover1();
+                return;
             }
         }
+        return;
+        //Character temp = null;
 
-        int number = temp.mCharNumber;
-        //int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
+        //if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+        //{
+        //    temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
+        //}
+        //else if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
+        //{
+        //    temp = GameManager.sInstance.mBoss;
+        //}
 
-        switch (number)
-        {
-            case 0:
-                OnCharacter1Down(false);
-                break;
-            case 1:
-                OnCharacter2Down(false);
-                break;
-            case 2:
-                OnCharacter3Down(false);
-                break;
-            case 3:
-                OnCharacter4Down(false);
-                break;
-            case 4:
-                OnCharacter5Down(false);
-                break;
-            case 5:
-                OnCharacter6Down(false);
-                break;
+        //if (temp == null)
+        //{
+        //    Debug.Log("Selecting a null character");
+        //    return;
+        //}
 
-        }
+
+        //for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
+        //{
+        //    if (temp == GameManager.sInstance.mCharacters[i])
+        //    {
+        //        mCurrentCharacter = i;
+        //        break;
+        //    }
+        //}
+
+        //int number = temp.mCharNumber;
+        ////int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
+
+        //switch (number)
+        //{
+        //    case 0:
+        //        OnCharacter1Down(false);
+        //        break;
+        //    case 1:
+        //        OnCharacter2Down(false);
+        //        break;
+        //    case 2:
+        //        OnCharacter3Down(false);
+        //        break;
+        //    case 3:
+        //        OnCharacter4Down(false);
+        //        break;
+        //    case 4:
+        //        OnCharacter5Down(false);
+        //        break;
+        //    case 5:
+        //        OnCharacter6Down(false);
+        //        break;
+
+        //}
     }
 
     void MoveCharacterHover(int character)

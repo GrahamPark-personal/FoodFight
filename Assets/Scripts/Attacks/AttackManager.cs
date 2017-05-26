@@ -40,6 +40,11 @@ public class AttackManager : MonoBehaviour {
         }
         GameManager.sInstance.CheckLose();
         GameManager.sInstance.CheckWin();
+
+        GameManager.sInstance.mMouseMode = MouseMode.None;
+        GameManager.sInstance.mUIManager.RevertHover();
+        //GameManager.sInstance.ResetSelected();
+
     }
 
     public void SetAttack(Attack attack)
@@ -61,7 +66,6 @@ public class AttackManager : MonoBehaviour {
         }
 
         GameManager.sInstance.mPreviewBlocks.Clear();
-
 
 
     }

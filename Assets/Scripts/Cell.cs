@@ -507,7 +507,7 @@ public class Cell : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameManager.sInstance.mMouseMode = MouseMode.Move;
         GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
+        GameManager.sInstance.mUIManager.ResetPopUp(true);
     }
 
     void OnMouseOver()
@@ -565,7 +565,6 @@ public class Cell : MonoBehaviour
                     && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters
                     && GameManager.sInstance.mAttackShape != AttackShape.OnCell))
                 {
-
                     GameManager.sInstance.SetSelected(mPos, mTypeOnCell, mEnemyObj);
                 }
             }
@@ -608,6 +607,7 @@ public class Cell : MonoBehaviour
             {
                 if (GameManager.sInstance.mGameTurn == GameTurn.Player && !GameManager.sInstance.mLoadingSquares && GameManager.sInstance.mMouseMode == MouseMode.Move)
                 {
+
                     Character mTempChar = GameManager.sInstance.mCharacterObj;
                     GameManager.sInstance.MoveTo(mPos);
                     StartCoroutine(waitToReset(mTempChar));
@@ -676,8 +676,7 @@ public class Cell : MonoBehaviour
                             //GameManager.sInstance.mCharacterSelected = false;
                             //GameManager.sInstance.mEnemySelected = false;
                             GameManager.sInstance.ResetSelected();
-                            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
-
+                            GameManager.sInstance.mUIManager.ResetPopUp(true);
                         }
                     }
                 }
@@ -697,7 +696,7 @@ public class Cell : MonoBehaviour
                 //GameManager.sInstance.mCharacterSelected = false;
                 //GameManager.sInstance.mEnemySelected = false;
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
+                GameManager.sInstance.mUIManager.ResetPopUp(true);
             }
 
             if (Input.GetMouseButtonUp(0)
@@ -717,7 +716,7 @@ public class Cell : MonoBehaviour
                 //GameManager.sInstance.mCharacterSelected = false;
                 //GameManager.sInstance.mEnemySelected = false;
                 GameManager.sInstance.ClearAttack();
-                GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
+                GameManager.sInstance.mUIManager.ResetPopUp(true);
                 //GameManager.sInstance.ResetSelected();
 
             }
@@ -880,7 +879,7 @@ public class Cell : MonoBehaviour
         if (mChar != null)
         {
             GameManager.sInstance.mUIManager.SelectCharacter(mChar.mCellPos);
-            GameManager.sInstance.mUIManager.mEnemyPopUpBarShown = true;
+            GameManager.sInstance.mUIManager.ResetPopUp(true);
         }
         else
         {

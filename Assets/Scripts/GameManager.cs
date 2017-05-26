@@ -350,35 +350,11 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))// && mMouseMode != MouseMode.Move
         {
-            //if(mMouseMode != MouseMode.Move)
-            //{
-            //    //yield return new WaitForSeconds(0.1f);
-            //    Character tempChar = mCharacterObj;
-            //    if (tempChar != null)
-            //    {
-            //        mUIManager.SelectCharacter(tempChar.mCellPos);
-            //    }
-            //    else
-            //    {
-            //        Debug.Log("character object is null");
-            //    }
 
-            //}
+            mMouseMode = MouseMode.None;
+            mUIManager.RevertHover();
+            ResetSelected();
 
-            if(mMouseMode == MouseMode.Attack || mMouseMode == MouseMode.AbilityAttack)
-            {
-                mMouseMode = MouseMode.Move;
-                ResetSelected();
-                mUIManager.RevertHover();
-                //mUIManager.mEnemyPopUpBarShown = false;
-            }
-            else if(mMouseMode == MouseMode.Move)
-            {
-                mMouseMode = MouseMode.None;
-                ResetSelected();
-                mUIManager.RevertHover();
-                mUIManager.mEnemyPopUpBarShown = false;
-            }
         }
 
         if (mMouseMode == MouseMode.None)
@@ -500,7 +476,11 @@ public class GameManager : MonoBehaviour
 
             AIManager.sInstance.RunAIMove();
 
+            mMouseMode = MouseMode.None;
+            mUIManager.RevertHover();
+            mUIManager.ResetPopUp(false);
             ResetSelected();
+
         }
         else
         {
@@ -541,14 +521,19 @@ public class GameManager : MonoBehaviour
 
             mCharacterObj = null;
 
+
+            mMouseMode = MouseMode.None;
+            mUIManager.RevertHover();
+            mUIManager.ResetPopUp(false);
             ResetSelected();
+
+            mUIManager.IncrementTurn();
+
         }
         else
         {
             Debug.Log("Cannot finish enemy turn if it is the players");
         }
-
-        mUIManager.IncrementTurn();
     }
 
     #endregion
@@ -2691,9 +2676,9 @@ public class GameManager : MonoBehaviour
     {
         if (objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player && mMouseMode != MouseMode.Attack)
         {
-            mUIManager.ResetPopUp(true);
+            //mUIManager.ResetPopUp(true);
         }
-        else if (mMouseMode != MouseMode.Attack)
+        else if (mMouseMode == MouseMode.Move || mMouseMode == MouseMode.None)
         {
             mUIManager.ResetPopUp(false);
         }
@@ -2701,6 +2686,9 @@ public class GameManager : MonoBehaviour
         {
             mPreviewShape = HoverShape.SingleSpot;
         }
+
+
+
         mSelectedCell = pos;
         //move lightblock to selected postion
         mLightUp.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
@@ -2737,7 +2725,6 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
 
         //if the selected block is a character show where it can move to
         if ((mCharacterSelected && mGameTurn == GameTurn.Player) || (mEnemySelected && mGameTurn == GameTurn.Enemy && mCanControlEnemies && mEnemySelected))

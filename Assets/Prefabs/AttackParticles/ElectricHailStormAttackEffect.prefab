@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4853620625688956}
+  - component: {fileID: 114475957680143998}
   m_Layer: 0
   m_Name: ElectricHailStormAttackEffect
   m_TagString: Untagged
@@ -163,6 +164,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114475957680143998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201200900392170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1e9550f897fa64a957e65a61a5c666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAction: 2
+  mSpeed: 0
+  mFinalPositon: {fileID: 0}
+  mLifetime: 30
+  mPlaceOtherParticleOnArrival: 0
+  mSecondaryParticle: {fileID: 0}
 --- !u!198 &198096764283104894
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 222328293820644208}
   - component: {fileID: 114928484012290142}
   - component: {fileID: 114385511678715752}
-  - component: {fileID: 114688474661206414}
   m_Layer: 5
   m_Name: CharacterImg5
   m_TagString: Untagged
@@ -433,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1135788329821092
 GameObject:
   m_ObjectHideFlags: 1
@@ -608,7 +607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1224247198437388
 GameObject:
   m_ObjectHideFlags: 1
@@ -853,7 +852,6 @@ GameObject:
   - component: {fileID: 222893658502908952}
   - component: {fileID: 114620327935951330}
   - component: {fileID: 114238376394818596}
-  - component: {fileID: 114824323571738458}
   m_Layer: 5
   m_Name: CharacterImg3
   m_TagString: Untagged
@@ -1272,7 +1270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1533861884965746
 GameObject:
   m_ObjectHideFlags: 1
@@ -1506,7 +1504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1631092979691246
 GameObject:
   m_ObjectHideFlags: 1
@@ -2062,7 +2060,6 @@ GameObject:
   - component: {fileID: 222860721278767282}
   - component: {fileID: 114908264672940786}
   - component: {fileID: 114056642684360532}
-  - component: {fileID: 114193871814161820}
   m_Layer: 5
   m_Name: CharacterImg4
   m_TagString: Untagged
@@ -2115,7 +2112,6 @@ GameObject:
   - component: {fileID: 222761461363891058}
   - component: {fileID: 114881629094089082}
   - component: {fileID: 114099264592628796}
-  - component: {fileID: 114217997674818360}
   m_Layer: 5
   m_Name: CharacterImg6
   m_TagString: Untagged
@@ -3109,12 +3105,12 @@ MonoBehaviour:
   mBasicAttack: {fileID: 114222108589063770}
   mEndTurn: {fileID: 114748186832141786}
   mCharFrame:
-  - {fileID: 114860325942438798}
-  - {fileID: 114280775393348348}
-  - {fileID: 114238376394818596}
-  - {fileID: 114056642684360532}
-  - {fileID: 114385511678715752}
-  - {fileID: 114099264592628796}
+  - {fileID: 1868474014065950}
+  - {fileID: 1105360844543772}
+  - {fileID: 1963326986853316}
+  - {fileID: 1939916265834290}
+  - {fileID: 1860094274322712}
+  - {fileID: 1437082610932622}
   mCharImage:
   - {fileID: 114893957807538816}
   - {fileID: 114770080667880802}
@@ -3130,22 +3126,35 @@ MonoBehaviour:
   - {fileID: 114130156000625410}
   - {fileID: 114898673046479008}
   mCharTexture:
-  - {fileID: 2800000, guid: 606ebeed1e99e214fb8e0da09e0d3fca, type: 3}
-  - {fileID: 2800000, guid: 2b88247033beaa843abeed5309ebcacf, type: 3}
-  - {fileID: 2800000, guid: f48bdafeea9be554faf11d7591c3a0ee, type: 3}
-  - {fileID: 2800000, guid: 9665dd3402c81484ab05f3b9fa959ba8, type: 3}
-  - {fileID: 2800000, guid: e7f204250eeefed4f8f327695e05ce77, type: 3}
-  - {fileID: 2800000, guid: 756a8143fb851d74e9a90f85db521033, type: 3}
+  - {fileID: 2800000, guid: 172fbaa08ed3af8468055c899d2ce1e8, type: 3}
+  - {fileID: 2800000, guid: e75f568e2a1f02f4fb2dedde471f3c26, type: 3}
+  - {fileID: 2800000, guid: 7fa55e8c5a860e34faf1d944d5a1b065, type: 3}
+  - {fileID: 2800000, guid: 500de26e554c4b44581906834bf22298, type: 3}
+  - {fileID: 2800000, guid: 1738976cbad7f764db78f656b0636a95, type: 3}
+  - {fileID: 2800000, guid: 56fad13f0bc818647ba86a3082273eac, type: 3}
   mCharHiddenTexture:
-  - {fileID: 2800000, guid: 4ebbe71cba631614a9ecb960b193681b, type: 3}
-  - {fileID: 2800000, guid: bef308d8e52f97c45a204cbfcb6c05fb, type: 3}
-  - {fileID: 2800000, guid: b880dd4dd5877144f93ac47f1bce72b2, type: 3}
-  - {fileID: 2800000, guid: fb51fb79810095d40a069034bd93aacd, type: 3}
-  - {fileID: 2800000, guid: b5e1a22939155a745b62c9edfc9fcbb5, type: 3}
-  - {fileID: 2800000, guid: b4642c4838c0a9f4b893ec359b4a2b65, type: 3}
+  - {fileID: 2800000, guid: b2f719b27e14f9d438ebcdbfe0342a79, type: 3}
+  - {fileID: 2800000, guid: 2993b652500ef7e48b4531369131d484, type: 3}
+  - {fileID: 2800000, guid: 4c3de884b0e38e74f9d3754f598a4cb3, type: 3}
+  - {fileID: 2800000, guid: a6a38ba196cf11645be5c8f2fc161f26, type: 3}
+  - {fileID: 2800000, guid: a3a871f87a1d3c34e91acb737b00833a, type: 3}
+  - {fileID: 2800000, guid: 38b6eb4b9e322c54ea4efbf5da8afbce, type: 3}
+  mCharHoverTexture:
+  - {fileID: 2800000, guid: c5ae47370d043c140ad95da27c73ae8a, type: 3}
+  - {fileID: 2800000, guid: b4a5f83fb25fa5542a290fccd9e7abfe, type: 3}
+  - {fileID: 2800000, guid: 08612076394a065429b0c6879b0f2e42, type: 3}
+  - {fileID: 2800000, guid: 6135c53fd1ce2a146b9ecff2ead2e3bd, type: 3}
+  - {fileID: 2800000, guid: b1a0d29266909284198cc59aa62237b8, type: 3}
+  - {fileID: 2800000, guid: 0ce14a165eb5cb141bb63120c49ee1e7, type: 3}
+  mCharSelectedTexture:
+  - {fileID: 2800000, guid: be3141488f2cfe7428e957b21a22dd2d, type: 3}
+  - {fileID: 2800000, guid: 7dd5bbc1458f4bd438db97efaed78e5b, type: 3}
+  - {fileID: 2800000, guid: 284a5fb416571174694bd49469515f07, type: 3}
+  - {fileID: 2800000, guid: 19cc9b8a93bf60b46bc7a95212a00040, type: 3}
+  - {fileID: 2800000, guid: a4f9a9e7f6981de478224d63d1fd2ecd, type: 3}
+  - {fileID: 2800000, guid: 3fd6751a852981c4facfdbefcab235d5, type: 3}
   mActiveCharacters: 0
   mCharacters:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   mAttackImages:
@@ -3155,49 +3164,6 @@ MonoBehaviour:
   - {fileID: 114834636835214088}
   - {fileID: 114787435884296980}
   - {fileID: 114881632876356986}
-  mTexturesForAttacks:
-  - images:
-    - {fileID: 2800000, guid: 068a33129d6c40b4daa43939d2ceda4e, type: 3}
-    - {fileID: 2800000, guid: 5301a33eda248c147a21d2713beacefd, type: 3}
-    - {fileID: 2800000, guid: 3b88c3cfef1d9cd45bccb9ae53a3a514, type: 3}
-    - {fileID: 2800000, guid: 052fa8c5efdbfab4b95b6f61730f8421, type: 3}
-    - {fileID: 2800000, guid: 00fa4b086481cf74dbc6c9da23c692f0, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: 855fad5cb209f7b448fcd93f95e3938e, type: 3}
-    - {fileID: 2800000, guid: 0f40caf9fa8b1214c9ad36e5569c985c, type: 3}
-    - {fileID: 2800000, guid: 2d95f462347dd4f4ea1cde0d35ffefcd, type: 3}
-    - {fileID: 2800000, guid: ae22205fa0363cd41b2ad1fda9cc3e4c, type: 3}
-    - {fileID: 2800000, guid: 893a0763e4fe4bd41a6517ad4e12754e, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: a311137f197eeb64190a77ab5e03ff66, type: 3}
-    - {fileID: 2800000, guid: 9d57d1af4c928694184e174bea587a78, type: 3}
-    - {fileID: 2800000, guid: 13d701ca13a07fb4c8be7998f95db094, type: 3}
-    - {fileID: 2800000, guid: 826197a7ce382174486e1c9bf59a49e6, type: 3}
-    - {fileID: 2800000, guid: 317683d37b50f964cad36f374e229989, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: 1af328e1aa87d734d990e00088cc5f3d, type: 3}
-    - {fileID: 2800000, guid: 84c68dd254e2e8b45940ae8ab913f719, type: 3}
-    - {fileID: 2800000, guid: 0dbc45d7c28ec22428357ede20332ee8, type: 3}
-    - {fileID: 2800000, guid: b7a9a5697e95c0347aa2ac48ee17b046, type: 3}
-    - {fileID: 2800000, guid: f6309e8247b3cd647b3067797e7936b1, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: b909d8ac95ef182429161b0b45e754d8, type: 3}
-    - {fileID: 2800000, guid: 07758019b94545544b0052655e1a850a, type: 3}
-    - {fileID: 2800000, guid: e12346413947b2c4faea56c212c6e836, type: 3}
-    - {fileID: 2800000, guid: 1bb440243c0bcde4eabda5f6af5c12cc, type: 3}
-    - {fileID: 2800000, guid: 03b1e9c1a22e59e4a876d8dfafdbbdbc, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
   mBubbles:
   - {fileID: 1706418954828490}
   - {fileID: 1703480492494522}
@@ -3651,75 +3617,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114193871814161820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1925976226409982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: OnCharEnter1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: SetCurrentHover1
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: HideCharacterHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: ResetCurrentHover1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &114205785341459146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3869,75 +3766,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114217997674818360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1944892284667862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: OnCharEnter1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: SetCurrentHover1
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: HideCharacterHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: ResetCurrentHover1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &114221889691795624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5152,7 +4980,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: bae5afb1b1b624d4e850b67e049a6a41, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1d4af8b354773264090801c7c21b6a78, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6092,7 +5920,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346065597034442}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -6105,7 +5933,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 1d4af8b354773264090801c7c21b6a78, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6503,75 +6331,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 0
---- !u!114 &114688474661206414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1023166006413354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: OnCharEnter1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: SetCurrentHover1
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: HideCharacterHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: ResetCurrentHover1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &114695387123967632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7221,7 +6980,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 00fa4b086481cf74dbc6c9da23c692f0, type: 3}
+  m_Texture: {fileID: 2800000, guid: d9faa5edda82cef44940f102f9e3ce54, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7423,75 +7182,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114824323571738458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1346065597034442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: OnCharEnter1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: SetCurrentHover1
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: HideCharacterHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 114101303764164040}
-          m_MethodName: ResetCurrentHover1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
 --- !u!114 &114826130609181110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7559,7 +7249,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 052fa8c5efdbfab4b95b6f61730f8421, type: 3}
+  m_Texture: {fileID: 2800000, guid: ec37da7c344125e4ea5f5e89276897e5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7819,7 +7509,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1944892284667862}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -7832,7 +7522,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 55e0fb3cde1847d44bd3147ba8f29f7e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7858,7 +7548,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b541202055ffdc34cada04453b7cdf3c, type: 3}
+  m_Texture: {fileID: 2800000, guid: 55e0fb3cde1847d44bd3147ba8f29f7e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -8064,7 +7754,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925976226409982}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -8077,7 +7767,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ec37da7c344125e4ea5f5e89276897e5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -8169,7 +7859,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023166006413354}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -8182,7 +7872,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: d9faa5edda82cef44940f102f9e3ce54, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

@@ -39,15 +39,15 @@ public class YellowBlueDuoAttack : Attack {
     public override void Execute(IntVector2 pos)
     {
         Transform newTransform = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
-        GameObject mCloud = Instantiate(GameManager.sInstance.mUIManager.mElectricHailstorm, newTransform.position, new Quaternion(0, 0, 0, 0));
+        //GameObject mCloud = Instantiate(GameManager.sInstance.mUIManager.mElectricHailstorm, newTransform.position, new Quaternion(0, 0, 0, 0));
 
-        Destroy(mCloud, 10.0f);
+        //Destroy(mCloud, 10.0f);
 
         mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
         EffectParameters effectParm = new EffectParameters();
 
-        effectParm.Effect = cellEffect.nothing;
+        effectParm.Effect = cellEffect.ElectricHailStorm;
         effectParm.CellAction = CellActionType.EveryStep;
         effectParm.Damage = GetDamage();
         effectParm.Slow = GetSlow();

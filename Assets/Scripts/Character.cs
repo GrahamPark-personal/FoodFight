@@ -556,8 +556,6 @@ public class Character : MonoBehaviour
     }
 
 
-
-
     void Update()
     {
         if (mAnimator != null)
@@ -596,7 +594,6 @@ public class Character : MonoBehaviour
 
                 if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].HasCellTag(CellTag.Fire))
                 {
-                    //set player on fire
                     if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].mTypeOnCell == TypeOnCell.enemy)
                     {
                         Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].GetDamageFromTag(CellTag.Fire));
@@ -616,6 +613,18 @@ public class Character : MonoBehaviour
                     }
                 }
 
+                if (GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].HasCellTag(CellTag.ElectricHailStorm))
+                {
+                    Debug.Log("Walked on a hailstorm cell");
+                    if (mCharacterType == CharacterType.None)
+                    {
+                        Debug.Log("Goet affected by hailstorm");
+
+                        Damage(GameManager.sInstance.mCurrGrid.rows[nextBlock.y].cols[nextBlock.x].GetDamageFromTag(CellTag.ElectricHailStorm));
+                        AddAilment(AilmentID.Slow, 2, 1); //2 and 1 are hardcoded numbers takes from YellowBlueDuoAttack
+                    }
+                }
+
                 if (patientZero)
                 {
                     //find characters around
@@ -631,8 +640,14 @@ public class Character : MonoBehaviour
                     }
 
                 }
-
-
+                //if (mCharacterType == CharacterType.None)
+                //{
+                //    GameManager.sInstance.MoveEnemySlot(nextBlock, this);
+                //}
+                //else
+                //{
+                //    GameManager.sInstance.MoveCharacterSlot(nextBlock, this);
+                //}
                 mMoving = true;
             }
 

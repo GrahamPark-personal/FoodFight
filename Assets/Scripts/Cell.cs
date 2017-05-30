@@ -17,7 +17,8 @@ public enum CellTag
     Fire,
     Ice,
     Enchanted,
-    Poison
+    Poison,
+    ElectricHailStorm
 
 }
 
@@ -176,21 +177,30 @@ public class Cell : MonoBehaviour
         else if (parm.Effect == cellEffect.Ice)
         {
             //mCellTag = CellTag.Ice;
-            mCellEffects.Add(CellTag.Ice, parm.Damage);
+            if (!mCellEffects.ContainsKey(CellTag.Ice))
+            {
+                mCellEffects.Add(CellTag.Ice, parm.Damage);
+            }
         }
         else if (parm.Effect == cellEffect.Poison)
         {
-            mCellEffects.Add(CellTag.Ice, parm.Damage);
+            if (!mCellEffects.ContainsKey(CellTag.Poison))
+            {
+                mCellEffects.Add(CellTag.Poison, parm.Damage);
+            }
             //mCellTag = CellTag.Poison;
         }
         else if (parm.Effect == cellEffect.ElectricHailStorm)
         {
-            mCellEffects.Add(CellTag.Enchanted, parm.Damage);
+            if (!mCellEffects.ContainsKey(CellTag.ElectricHailStorm))
+            {
+                mCellEffects.Add(CellTag.ElectricHailStorm, parm.Damage);
+            }
         }
 
 
-
         mEffectParameters.Add(parm);
+
         int index = mEffectParameters.Count - 1;
         DoEffect(index);
     }
@@ -334,27 +344,32 @@ public class Cell : MonoBehaviour
                 Debug.Log("Getting to this point in the script");
                 if (mTypeOnCell == TypeOnCell.character && GameManager.sInstance.mGameTurn == GameTurn.Player)
                 {
-                    if (mEffectParameters[i].Damage != 0)
-                    {
-                        mCharacterObj.Damage(mEffectParameters[i].Damage);
-                    }
-                    if (mEffectParameters[i].Health != 0)
-                    {
-                        mCharacterObj.Heal(mEffectParameters[i].Health);
-                    }
 
-                    if (mEffectParameters[i].Poison != 0)
-                    {
-                        mCharacterObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
-                    }
-                    if (mEffectParameters[i].Stun != 0)
-                    {
-                        mCharacterObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
-                    }
-                    if (mEffectParameters[i].Slow != 0)
-                    {
-                        mCharacterObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
-                    }
+                    //TURN the first part on for characters being affected by effects
+
+                    //if (mEffectParameters[i].Damage != 0)
+                    //{
+                    //    mCharacterObj.Damage(mEffectParameters[i].Damage);
+                    //}
+                    //if (mEffectParameters[i].Health != 0)
+                    //{
+                    //    mCharacterObj.Heal(mEffectParameters[i].Health);
+                    //}
+
+                    //if (mEffectParameters[i].Poison != 0)
+                    //{
+                    //    mCharacterObj.AddAilment(AilmentID.Poison, mEffectParameters[i].EffectDuration, mEffectParameters[i].Poison);
+                    //}
+                    //if (mEffectParameters[i].Stun != 0)
+                    //{
+                    //    mCharacterObj.AddAilment(AilmentID.Stun, mEffectParameters[i].EffectDuration, 0);
+                    //}
+                    //if (mEffectParameters[i].Slow != 0)
+                    //{
+                    //    mCharacterObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                    //}
+
+
                     //EffectParameters temp = mEffectParameters[i];
                     //temp.EffectDuration--;
                     //mEffectParameters[i] = temp;
@@ -610,7 +625,17 @@ public class Cell : MonoBehaviour
 
                     Character mTempChar = GameManager.sInstance.mCharacterObj;
                     GameManager.sInstance.MoveTo(mPos);
-                    StartCoroutine(waitToReset(mTempChar));
+                    bool finishCharacter = false;
+                    if (mTempChar.mAttacked && mTempChar.mMoved)
+                    {
+                        finishCharacter = true;
+                    }
+                    else
+                    {
+                        GameManager.sInstance.mCharacterObj = mTempChar;
+                    }
+                    GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
+                    //StartCoroutine(waitToReset(mTempChar));
                 }
             }
 

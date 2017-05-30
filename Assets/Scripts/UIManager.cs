@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public struct CharacterAttackImages
-{
-    public Texture2D[] images;
-}
+//[System.Serializable]
+//public struct CharacterAttackImages
+//{
+//    public Texture2D[] images;
+//}
 
 public enum StarLevel
 {
@@ -35,6 +35,10 @@ public class UIManager : MonoBehaviour
 
     public RawImage[] mCharImage;
 
+    //[Space(10)]
+
+    //public RawImage[] mCharPopUpImage;
+
     [Space(10)]
 
     public Slider[] mCharHealth;
@@ -52,6 +56,14 @@ public class UIManager : MonoBehaviour
 
     public Texture2D[] mCharHiddenTexture;
 
+    [Space(10)]
+
+    public Texture2D[] mCharHoverTexture;
+
+    [Space(10)]
+
+    public Texture2D[] mCharSelectedTexture;
+
     [HideInInspector]
     public int mActiveCharacters;
 
@@ -59,7 +71,7 @@ public class UIManager : MonoBehaviour
 
     public RawImage[] mAttackImages;
 
-    public CharacterAttackImages[] mTexturesForAttacks;
+    //public CharacterAttackImages[] mTexturesForAttacks;
 
     public GameObject[] mBubbles;
 
@@ -111,7 +123,7 @@ public class UIManager : MonoBehaviour
     int mAttackHover2 = -1;
     bool mAttackShown = false;
 
-    public GameObject mElectricHailstorm;
+    //public GameObject mElectricHailstorm;
 
 
     void Start()
@@ -134,6 +146,27 @@ public class UIManager : MonoBehaviour
         {
             mSavedCharImage[i] = mCharTexture[i];
         }
+
+        for (int i = 0; i < mCharacters.Length; i++)
+        {
+            mCharImage[i].texture = mCharTexture[i];
+        }
+
+        for (int i = 0; i < mCharacters.Length; i++)
+        {
+            if (i < GameManager.sInstance.mCharacters.Length)
+            {
+                if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+                {
+                    mCharImage[i].texture = mCharHiddenTexture[i];
+                }
+                else if (mCharImage[i].texture == mCharHiddenTexture[i])
+                {
+                    mCharImage[i].texture = mCharTexture[i];
+                }
+            }
+        }
+
     }
 
     //No One Selected
@@ -173,6 +206,14 @@ public class UIManager : MonoBehaviour
     public void SetCurrentHover1(int slot)
     {
         ResetCurrentHover1();
+
+        if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
+        {
+            return;
+        }
+
+        mCharImage[slot].texture = mCharHoverTexture[slot];
+
         mCurrentHover1 = slot;
         mSavedHover1 = slot;
         mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
@@ -180,12 +221,16 @@ public class UIManager : MonoBehaviour
 
     public void SaveCurrentHover1()
     {
-        if(mCharacters[mSavedHover1].mAttacked)
+        if(mSavedHover1 == -1)
+        {
+            return;
+        }
+        if (mCharacters[mSavedHover1].mAttacked && mCharacters[mSavedHover1].mMoved)
         {
             for (int i = 0; i < mCharFrame.Length; i++)
             {
                 mCharFrame[i].SetActive(false);
-                if(i != mSavedHover1)
+                if (i != mSavedHover1)
                 {
                     mAttackImages[i].texture = mCharHiddenTexture[i];
                 }
@@ -200,6 +245,19 @@ public class UIManager : MonoBehaviour
         {
             mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
         }
+
+        for (int i = 0; i < mCharacters.Length; i++)
+        {
+            if(mCharacters[i].mAttacked && mCharacters[i].mMoved)
+            {
+                mCharImage[i].texture = mCharHiddenTexture[i];
+            }
+            else
+            {
+                mCharImage[i].texture = mCharTexture[i];
+            }
+        }
+
     }
 
     public void SetCurrentHover2(int slot)
@@ -212,6 +270,13 @@ public class UIManager : MonoBehaviour
                 mCharacterBigGlow[slot].color = new Color(mCharacterBigGlow[slot].color.r, mCharacterBigGlow[slot].color.g, mCharacterBigGlow[slot].color.b, 100);
             }
             mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
+
+            //mCharPopUpImage
+
+            if (slot != mSavedHover1)
+            {
+                mAttackImages[slot].texture = mCharHoverTexture[slot];
+            }
 
             mCurrentHover2 = slot;
             mSavedHover2 = slot;
@@ -229,6 +294,17 @@ public class UIManager : MonoBehaviour
             for (int i = 0; i < mCharacterBigGlow.Length; i++)
             {
                 mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+            }
+            for (int i = 0; i < mCharacters.Length; i++)
+            {
+                if(i != mSavedHover1)
+                {
+                    if(mCharacters[i].mAttacked && mCharacters[i].mMoved)
+                    {
+                        continue;
+                    }
+                    mAttackImages[i].texture = mCharTexture[i];
+                }
             }
         }
     }
@@ -272,6 +348,8 @@ public class UIManager : MonoBehaviour
             mCharFrame[i].SetActive(false);
         }
 
+        mAttackImages[mSavedHover2].texture = mCharSelectedTexture[mSavedHover2];
+
         SetAttackHover(mSavedHover1, mSavedHover2);
     }
 
@@ -290,13 +368,13 @@ public class UIManager : MonoBehaviour
         mCharacterAttack[slot2].color = new Color(mCharacterAttack[slot2].color.r, mCharacterAttack[slot2].color.g, mCharacterAttack[slot2].color.b, 100);
     }
 
-    public void RevertHover()
+    public void RevertHover(bool finishedCharacter)
     {
-        StartCoroutine(DelayCleanUp());
+        StartCoroutine(DelayCleanUp(finishedCharacter));
         //StartCoroutine(DelayCleanUp());
     }
 
-    IEnumerator DelayCleanUp()
+    IEnumerator DelayCleanUp(bool characterFinished)
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -314,10 +392,17 @@ public class UIManager : MonoBehaviour
 
         mAttackShown = false;
 
+        for (int i = 0; i < mChararcterGlow.Length; i++)
+        {
+            mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
+            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+        }
+
+
         for (int i = 0; i < mCharacters.Length; i++)
         {
 
-            if (mCharacters[i].mAttacked)
+            if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
             {
                 mAttackImages[i].texture = mCharHiddenTexture[i];
                 mCharFrame[i].SetActive(false);
@@ -327,11 +412,23 @@ public class UIManager : MonoBehaviour
                 mCharFrame[i].SetActive(true);
             }
         }
-
         GameManager.sInstance.mMouseMode = MouseMode.None;
-        GameManager.sInstance.ResetSelected();
+        if (characterFinished)
+        {
+            GameManager.sInstance.mCharacterObj = null;
+            GameManager.sInstance.ResetSelected();
+        }
+        else
+        {
+            if (GameManager.sInstance.mCharacterObj != null)
+            {
+                SelectCharacter(GameManager.sInstance.mCharacterObj.mCellPos);
+            }
+        }
 
     }
+
+
 
     IEnumerator ShowMainGlow()
     {
@@ -482,25 +579,25 @@ public class UIManager : MonoBehaviour
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-            mCharImage[i].texture = mCharTexture[i];
-        }
+        //for (int i = 0; i < mCharacters.Length; i++)
+        //{
+        //    mCharImage[i].texture = mCharTexture[i];
+        //}
 
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-            if (i < GameManager.sInstance.mCharacters.Length)
-            {
-                if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
-                {
-                    mCharImage[i].texture = mCharHiddenTexture[i];
-                }
-                else if (mCharImage[i].texture == mCharHiddenTexture[i])
-                {
-                    mCharImage[i].texture = mCharTexture[i];
-                }
-            }
-        }
+        //for (int i = 0; i < mCharacters.Length; i++)
+        //{
+        //    if (i < GameManager.sInstance.mCharacters.Length)
+        //    {
+        //        if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+        //        {
+        //            mCharImage[i].texture = mCharHiddenTexture[i];
+        //        }
+        //        else if (mCharImage[i].texture == mCharHiddenTexture[i])
+        //        {
+        //            mCharImage[i].texture = mCharTexture[i];
+        //        }
+        //    }
+        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -544,15 +641,30 @@ public class UIManager : MonoBehaviour
 
             for (int i = 0; i < mCharacters.Length; i++)
             {
-                mAttackImages[i].texture = mTexturesForAttacks[mCurrentCharacter].images[i];
+                if(i != mCurrentHover1)
+                {
+                    if(!mCharacters[i].mAttacked && !mCharacters[i].mMoved)
+                    {
+                        mAttackImages[i].texture = mCharTexture[i];
+                    }
+                    else
+                    {
+                        mAttackImages[i].texture = mCharHiddenTexture[i];
+                    }
+
+                }
+                else
+                {
+                    mAttackImages[i].texture = mCharSelectedTexture[i];
+                }
             }
+
 
             for (int i = 0; i < mCharacters.Length; i++)
             {
-
-                if(mCharacters[i].mAttacked && mSavedHover1 != i)
+                if (mCharacters[i].mAttacked && mCharacters[i].mAttacked && mSavedHover1 != i)
                 {
-                    mAttackImages[i].texture = mCharHiddenTexture[i];
+                    //mAttackImages[i].texture = mCharHiddenTexture[i];
                     mCharFrame[i].SetActive(false);
                 }
                 else
@@ -630,7 +742,10 @@ public class UIManager : MonoBehaviour
         //character 1
         if (mActiveCharacters >= 1)
         {
-
+            if (mCharacters[0].mAttacked && mCharacters[0].mMoved)
+            {
+                return;
+            }
             SelectCharacter(0, moveCam);
         }
 
@@ -642,6 +757,10 @@ public class UIManager : MonoBehaviour
 
         if (mActiveCharacters >= 2)
         {
+            if (mCharacters[1].mAttacked && mCharacters[1].mMoved)
+            {
+                return;
+            }
             SelectCharacter(1, moveCam);
         }
     }
@@ -651,6 +770,10 @@ public class UIManager : MonoBehaviour
         //character 3
         if (mActiveCharacters >= 3)
         {
+            if (mCharacters[2].mAttacked && mCharacters[2].mMoved)
+            {
+                return;
+            }
             SelectCharacter(2, moveCam);
         }
     }
@@ -660,6 +783,10 @@ public class UIManager : MonoBehaviour
         //character 4
         if (mActiveCharacters >= 4)
         {
+            if (mCharacters[3].mAttacked && mCharacters[3].mMoved)
+            {
+                return;
+            }
             SelectCharacter(3, moveCam);
         }
     }
@@ -669,6 +796,10 @@ public class UIManager : MonoBehaviour
         //character 5
         if (mActiveCharacters >= 5)
         {
+            if (mCharacters[4].mAttacked && mCharacters[4].mMoved)
+            {
+                return;
+            }
             SelectCharacter(4, moveCam);
         }
     }
@@ -678,6 +809,10 @@ public class UIManager : MonoBehaviour
         //character 6
         if (mActiveCharacters >= 6)
         {
+            if (mCharacters[5].mAttacked && mCharacters[5].mMoved)
+            {
+                return;
+            }
             SelectCharacter(5, moveCam);
         }
     }
@@ -686,6 +821,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 0)
         {
+            if (mCharacters[0].mAttacked && mCharacters[0].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(0);
         }
     }
@@ -694,6 +835,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 1)
         {
+            if (mCharacters[1].mAttacked && mCharacters[1].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(1);
         }
     }
@@ -702,6 +849,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 2)
         {
+            if (mCharacters[2].mAttacked && mCharacters[2].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(2);
         }
     }
@@ -710,6 +863,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 3)
         {
+            if (mCharacters[3].mAttacked && mCharacters[3].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(3);
         }
     }
@@ -718,6 +877,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 4)
         {
+            if (mCharacters[4].mAttacked && mCharacters[4].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(4);
         }
     }
@@ -726,6 +891,12 @@ public class UIManager : MonoBehaviour
     {
         if (mActiveCharacters >= 5)
         {
+            if (mCharacters[5].mAttacked && mCharacters[5].mMoved)
+            {
+                mCurrentHover1 = -1;
+                mSavedHover1 = -1;
+                return;
+            }
             MoveCharacterHover(5);
         }
     }
@@ -1168,10 +1339,17 @@ public class UIManager : MonoBehaviour
 
     public void SelectCharacter(int character, bool moveCam)
     {
+
+        if (mCharacters[character].mAttacked && mCharacters[character].mMoved)
+        {
+            ResetCurrentHover1();
+            return;
+        }
         if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
         {
             return;
         }
+
 
         Debug.Log("Character: " + character);
 
@@ -1197,7 +1375,7 @@ public class UIManager : MonoBehaviour
 
     public void SelectCharacter(IntVector2 mNewPos)
     {
-        
+
         for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
         {
             if (GameManager.sInstance.mCharacters[i].mCellPos.x == mNewPos.x && GameManager.sInstance.mCharacters[i].mCellPos.y == mNewPos.y)
@@ -1208,6 +1386,11 @@ public class UIManager : MonoBehaviour
                 //SetCurrentHover1(i);
                 //SaveCurrentHover1();
                 //SelectCharacter(i, false);
+                if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
+                {
+                    return;
+                }
+
                 SelectCharacter(i, false);
                 SetCurrentHover1(i);
                 SaveCurrentHover1();

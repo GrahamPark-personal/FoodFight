@@ -352,7 +352,7 @@ public class GameManager : MonoBehaviour
         {
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover();
+            mUIManager.RevertHover(true);
             ResetSelected();
 
         }
@@ -477,7 +477,7 @@ public class GameManager : MonoBehaviour
             AIManager.sInstance.RunAIMove();
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover();
+            mUIManager.RevertHover(true);
             mUIManager.ResetPopUp(false);
             ResetSelected();
 
@@ -523,7 +523,7 @@ public class GameManager : MonoBehaviour
 
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover();
+            mUIManager.RevertHover(true);
             mUIManager.ResetPopUp(false);
             ResetSelected();
 

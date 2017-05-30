@@ -42,7 +42,12 @@ public class AttackManager : MonoBehaviour {
         GameManager.sInstance.CheckWin();
 
         GameManager.sInstance.mMouseMode = MouseMode.None;
-        GameManager.sInstance.mUIManager.RevertHover();
+        bool finishCharacter = false;
+        if (GameManager.sInstance.mCharacterObj.mMoved)
+        {
+            finishCharacter = true;
+        }
+        GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
         //GameManager.sInstance.ResetSelected();
 
     }

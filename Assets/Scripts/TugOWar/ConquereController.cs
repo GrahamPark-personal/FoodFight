@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public enum ZoneMode
@@ -10,6 +11,24 @@ public enum ZoneMode
     EnemiesOwnIt,
     Contested
 }
+
+[System.Serializable]
+public struct Location
+{
+    public int x;
+    public int y;
+}
+
+[System.Serializable]
+public struct SpecificLocations
+{
+    public bool UseSpecificSpots;
+
+    [Space(10)]
+    public Location[] mZoneSpots;
+}
+
+
 
 public class ConquereController : MonoBehaviour
 {
@@ -28,14 +47,22 @@ public class ConquereController : MonoBehaviour
 
     public static ConquereController sInstance = null;
 
+    [Header("Count Numbers")]
+    public Text mCharacterText;
+    public Text mEnemyText;
 
     [Header("Attributes for the Conquere areas")]
 
     [Space(10)]
     [Header("The middle of the 3x3 area")]
-    public IntVector2 mZoneMiddle;
+    public Location mZoneMiddle;
 
     [Space(10)]
+    [Header("Only used for specific locations, used zonepoints to set the locations")]
+    public SpecificLocations mLocations;
+
+
+    [Space(20)]
     [Header("Counters for each team")]
     public int mCharacterTurnCounter;
     public int mEnemyTurnCounter;
@@ -53,6 +80,8 @@ public class ConquereController : MonoBehaviour
     List<Cell> mZoneLocations = new List<Cell>();
     ZoneMode mZoneMode = ZoneMode.NobodyOwnsIt;
 
+    bool mEnteredZone = false;
+
 
     void Awake()
     {
@@ -68,8 +97,32 @@ public class ConquereController : MonoBehaviour
 
     void Start()
     {
-        GetArea();
+        if(mLocations.UseSpecificSpots)
+        {
+            GetSpecificAreas();
+        }
+        else
+        {
+            GetArea();
+        }
+
         UpdateZone();
+    }
+
+    void GetSpecificAreas()
+    {
+        foreach (Location vect in mLocations.mZoneSpots)
+        {
+            IntVector2 temp = new IntVector2();
+
+            temp.x = vect.x;
+            temp.y = vect.y;
+
+            if (GameManager.sInstance.IsOnGridAndCanMoveTo(temp))
+            {
+                mZoneLocations.Add(GameManager.sInstance.mCurrGrid.rows[vect.y].cols[vect.x]);
+            }
+        }
     }
 
     void GetArea()
@@ -104,13 +157,23 @@ public class ConquereController : MonoBehaviour
 
     void Update()
     {
-
+        mCharacterText.text = "Character: " + mCharacterTurnCounter;
+        mEnemyText.text = "Enemy: " + mEnemyTurnCounter;
     }
 
     public void UpdateZone()
     {
         FindZoneMode();
         UpdateTextures();
+    }
+
+    void ActivateAllAI()
+    {
+        AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
+        foreach (AIActor actor in actors)
+        {
+            actor.mActivationRange = 100;
+        }
     }
 
     void UpdateTextures()
@@ -121,6 +184,11 @@ public class ConquereController : MonoBehaviour
                 mCurrentTexture = mIdleTexture;
                 break;
             case ZoneMode.CharactersOwnIt:
+                if(!mEnteredZone)
+                {
+                    ActivateAllAI();
+                }
+                mEnteredZone = true;
                 mCurrentTexture = mCharacterTeamTexture;
                 break;
             case ZoneMode.EnemiesOwnIt:

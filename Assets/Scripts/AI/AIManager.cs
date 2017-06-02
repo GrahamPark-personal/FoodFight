@@ -11,6 +11,7 @@ public class AIManager : MonoBehaviour
     Stack<Transform> mPath = new Stack<Transform>();
     Stack<IntVector2> mPosPath = new Stack<IntVector2>();
 
+    AIActor mCurrentActor;
 
     void Awake()
     {
@@ -45,6 +46,7 @@ public class AIManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(2.0f);
+            mCurrentActor = actor;
             Calculate(actor.mCharacter);
         }
 
@@ -403,6 +405,7 @@ public class AIManager : MonoBehaviour
         //is active
         if (HasEnemyInArea(character.mCellPos, character.mActorComp.mActivationRange, character))
         {
+            mCurrentActor.mActivationRange = 100;
             Debug.Log("Has enemy in area");
 
             //Is able to attack

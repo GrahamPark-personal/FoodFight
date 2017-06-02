@@ -791,7 +791,6 @@ public class Character : MonoBehaviour
         mAnimation = CharacterAnimations.Hit;
         AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
-
         //TODO:: Deal with attack based abilities
         if (mMaterialRend != null)
         {
@@ -803,17 +802,22 @@ public class Character : MonoBehaviour
             CharacterLink.Heal(amount);
         }
 
+        ConquereController.sInstance.UpdateZone();
+
         mHealth -= amount;
         if (mHealth <= 0)
         {
-            ConquereController.sInstance.UpdateZone();
             mHealth = 0;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCharacterObj = null;
+            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mEnemyObj = null;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
             if (this.tag == "Boss")
             {
                 GameManager.sInstance.CheckWin();
             }
+
+            ConquereController.sInstance.UpdateZone();
             Destroy(this.gameObject);
         }
 
@@ -846,7 +850,7 @@ public class Character : MonoBehaviour
             Transform mFinalLocation = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
             GameObject go = Instantiate(mSelectedParticle, transform.position, mSelectedParticle.transform.rotation);
             ParticleControl partControl = go.GetComponent<ParticleControl>();
-            if(partControl.mAction == mParticleAction.Stationary_DestroyOnCall || partControl.mAction == mParticleAction.Stationary_DestroyAfterTime)
+            if (partControl.mAction == mParticleAction.Stationary_DestroyOnCall || partControl.mAction == mParticleAction.Stationary_DestroyAfterTime)
             {
                 go.transform.position = mFinalLocation.position;
             }
@@ -861,6 +865,7 @@ public class Character : MonoBehaviour
         }
         GameManager.sInstance.mCurrentPartical = null;
         AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
+        ConquereController.sInstance.UpdateZone();
         StartCoroutine(TurnBackToIdleAfter());
     }
 

@@ -506,7 +506,7 @@ public class GameManager : MonoBehaviour
             ResetSelected();
 
             ConquereController.sInstance.UpdateZone();
-
+            ConquereController.sInstance.DecrementCounters();
 
         }
         else

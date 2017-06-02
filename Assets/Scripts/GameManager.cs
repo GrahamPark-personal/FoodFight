@@ -442,6 +442,30 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public void WonGame()
+    {
+        if (mLevelType == TypeOfLevel.KillTheBoss)
+        {
+            Debug.Log("Got here");
+            CutSceneManager.sInstance.SetScene(CutSceneManager.sInstance.mSeconaryScene);
+            CutSceneManager.sInstance.mCurrentPhrase = 0;
+            CutSceneManager.sInstance.mLastPhrase = true;
+            CutSceneManager.sInstance.SetActive(true);
+        }
+        else if (mLevelType == TypeOfLevel.KillAllEnemies)
+        {
+            //Debug.Log("Got here 2");
+            mFinishedLastCutScene = true;
+        }
+
+        mWinScreen1.enabled = true;
+    }
+
+    public void LostGame()
+    {
+        mLoseScreen1.enabled = true;
+    }
+
     #endregion
 
     #region EndTurns
@@ -480,6 +504,9 @@ public class GameManager : MonoBehaviour
             mUIManager.RevertHover(true);
             mUIManager.ResetPopUp(false);
             ResetSelected();
+
+            ConquereController.sInstance.UpdateZone();
+
 
         }
         else
@@ -650,8 +677,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        if (!mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere) { }
-        else
+        if (mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere)
         {
             return false;
         }

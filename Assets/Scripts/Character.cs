@@ -654,6 +654,7 @@ public class Character : MonoBehaviour
 
             if (mPath.Count == 0 && !mMoving)
             {
+                ConquereController.sInstance.UpdateZone();
                 mRunPath = false;
                 onIce = false;
             }
@@ -805,6 +806,7 @@ public class Character : MonoBehaviour
         mHealth -= amount;
         if (mHealth <= 0)
         {
+            ConquereController.sInstance.UpdateZone();
             mHealth = 0;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
             GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;

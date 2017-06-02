@@ -37,6 +37,13 @@ public class AIManager : MonoBehaviour
         AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
         foreach (AIActor actor in actors)
         {
+            IntVector2 slot = ConquereController.sInstance.FindOpenSpot();
+
+            if (slot.x != -1 && slot.y != -1)
+            {
+                actor.mDesiredDestination = slot;
+            }
+
             yield return new WaitForSeconds(2.0f);
             Calculate(actor.mCharacter);
         }
@@ -203,6 +210,8 @@ public class AIManager : MonoBehaviour
     void AStar(Character character, IntVector2 start, IntVector2 end, int movementPoints)
     {
 
+        bool mNotFullPath = false;
+
         mPath.Clear();
         mPosPath.Clear();
         character.mPath.Clear();
@@ -245,7 +254,7 @@ public class AIManager : MonoBehaviour
 
                 if (!HasLocation(mOpenList, pos) && !HasLocation(mClosedList, pos))
                 {
-                    if (GameManager.sInstance.IsOnGridAndCanMoveTo(pos))
+                    if (GameManager.sInstance.IsOnGridAndCanMoveTo(pos) && GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].GetCharacterObject() == null)
                     {
                         pos.parent = new IntVector2[1];
                         pos.parent[0] = mCurrent;
@@ -258,13 +267,37 @@ public class AIManager : MonoBehaviour
                         {
                             //stop
                             Debug.Log("Found the end");
+                            Debug.Log("End: " + end.x + "," + end.y);
                             found = true;
                             break;
                         }
 
                         mOpenList.Add(pos);
                     }
+                    else
+                    {
+                        if (IsEqual(pos, end))// || GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].GetCharacterObject() != null
+                        {
 
+                            pos.parent = new IntVector2[1];
+                            pos.parent[0] = mCurrent;
+                            pos.G = mCurrent.G + GameManager.sInstance.GCost;
+                            pos.H = GameManager.sInstance.FindH(pos, end);
+                            pos.F = pos.G + pos.H;
+
+                            found = true;
+                            mNotFullPath = true;
+                            break;
+                        }
+                        else if(GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].GetCharacterObject() != null)
+                        {
+                            pos.parent = new IntVector2[1];
+                            pos.parent[0] = mCurrent;
+                            pos.G = mCurrent.G + GameManager.sInstance.GCost;
+                            pos.H = GameManager.sInstance.FindH(pos, end);
+                            pos.F = pos.G + pos.H;
+                        }
+                    }
 
                 }
 
@@ -297,38 +330,40 @@ public class AIManager : MonoBehaviour
             }
             while (parcer.parent != null);
 
-            while (mPath.Count > 0 && posMoved < movementPoints)
+            while (mPath.Count > 0 && posMoved < (movementPoints))
             {
-                posMoved++;
-
                 Transform temp = mPath.Pop();
                 intTemp = mPosPath.Pop();
+                if (!GameManager.sInstance.IsOnGridAndHasNoOneOnBlock(intTemp))
+                {
+                    break;
+                }
+
+                posMoved++;
+
 
                 //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
-                if (GameManager.sInstance.IsOnGridAndHasNoOneOnBlock(intTemp))
+                mFinalPos = intTemp;
+                Debug.Log("Path Pos: " + intTemp.x + "," + intTemp.y);
+                character.mPosPath.Enqueue(intTemp);
+                character.mPath.Enqueue(temp);
+
+
+
+                if (mFinalPos.x != -1 && mFinalPos.y != -1 && (found))
                 {
-                    mFinalPos = intTemp;
-                    Debug.Log("Path Pos: " + intTemp.x + "," + intTemp.y);
-                    character.mPosPath.Enqueue(intTemp);
-                    character.mPath.Enqueue(temp);
+                    Debug.Log("Broke-between");
+                    Debug.Log("finalPos: " + mFinalPos.x + "," + mFinalPos.y);
+                    character.mRunPath = true;
+                    GameManager.sInstance.MoveEnemySlot(mFinalPos, character);
+                    Debug.Log("Broke-between");
+
                 }
                 else
                 {
-                    Debug.Log("Broke at: " + intTemp.x + "," + intTemp.y);
-                    break;
+                    Debug.Log("Couldnt find a path");
                 }
-            }
 
-
-
-            character.mRunPath = true;
-            if(mFinalPos.x != -1 && mFinalPos.y != -1)
-            {
-                GameManager.sInstance.MoveEnemySlot(mFinalPos, character);
-            }
-            else
-            {
-                Debug.Log("Couldnt find a path");
             }
 
         }
@@ -463,6 +498,11 @@ public class AIManager : MonoBehaviour
 
                     }
 
+                }
+                else
+                {
+                    Debug.Log("Moving to predefined destination");
+                    AStar(character, character.mCellPos, character.mActorComp.mCurrentDestination, character.mMoveDistance);
                 }
             }
             else

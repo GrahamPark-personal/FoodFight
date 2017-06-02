@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Sound\AudioObject.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
+    <Compile Include="Assets\Scripts\TugOWar\ConquereController.cs" />
     <Compile Include="Assets\Scripts\UI\BackgroundReset.cs" />
     <Compile Include="Assets\Scripts\UI\EffectManager.cs" />
     <Compile Include="Assets\Scripts\UI\EffectScript.cs" />

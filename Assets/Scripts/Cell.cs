@@ -65,6 +65,9 @@ public class Cell : MonoBehaviour
 {
 
     [HideInInspector]
+    public bool mConquereArea;
+
+    [HideInInspector]
     public Transform mCellTransform;
 
     //[HideInInspector]
@@ -624,6 +627,7 @@ public class Cell : MonoBehaviour
                 {
 
                     Character mTempChar = GameManager.sInstance.mCharacterObj;
+                    GameManager.sInstance.mCurrGrid.rows[mTempChar.mCellPos.y].cols[mTempChar.mCellPos.x].mCharacterObj = null;
                     GameManager.sInstance.MoveTo(mPos);
                     bool finishCharacter = false;
                     if (mTempChar.mAttacked && mTempChar.mMoved)

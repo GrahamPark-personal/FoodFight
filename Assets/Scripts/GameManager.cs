@@ -328,7 +328,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        mCounter.text = "Counter: " + mTurnCounter;
+        if(mCounter)
+        {
+            mCounter.text = "Counter: " + mTurnCounter;
+        }
         if (mFinishedLastCutScene)
         {
             //do end of level

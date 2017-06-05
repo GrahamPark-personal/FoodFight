@@ -33,7 +33,11 @@ public class CutSceneManager : MonoBehaviour
     [HideInInspector]
     public int mCurrentPhrase = 0;
 
+    [HideInInspector]
+    public bool mReplaceLeft = false;
 
+    [HideInInspector]
+    public bool mReplaceRight = false;
 
 
     void Awake()
@@ -90,6 +94,11 @@ public class CutSceneManager : MonoBehaviour
             mTopOfRightBubbles.SetActive(false);
             mCurrentPhrase = 0;
             SetScreenUp();
+
+            mReplaceLeft = true;
+
+            mReplaceRight = true;
+
         }
         else
         {
@@ -152,12 +161,28 @@ public class CutSceneManager : MonoBehaviour
 
     void SetLeftPortrait()
     {
-        mLeftCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+        Texture newText = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+
+        if (newText != mLeftCharacter.texture)
+        {
+            mReplaceLeft = true;
+        }
+
+        mLeftCharacter.texture = newText;
     }
 
     void SetRightPortrait()
     {
-        mRightCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+        Texture newText = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
+
+        if (newText != mRightCharacter.texture)
+        {
+            Debug.Log("[CutsceneManager] replace right");
+            mReplaceRight = true;
+        }
+
+        mRightCharacter.texture = newText;
+
     }
 
     void SetSceneWithCurrentCharacter()
@@ -208,7 +233,7 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
-            if(mLastPhrase)
+            if (mLastPhrase)
             {
                 GameManager.sInstance.mFinishedLastCutScene = true;
             }

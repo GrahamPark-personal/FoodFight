@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\UI\EffectScript.cs" />
     <Compile Include="Assets\Scripts\UI\FinalStarAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\UI\MovePortrait.cs" />
     <Compile Include="Assets\Scripts\UI\ParticleControl.cs" />
     <Compile Include="Assets\Scripts\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />

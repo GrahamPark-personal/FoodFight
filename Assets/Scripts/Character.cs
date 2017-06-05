@@ -654,7 +654,10 @@ public class Character : MonoBehaviour
 
             if (mPath.Count == 0 && !mMoving)
             {
-                ConquereController.sInstance.UpdateZone();
+                if (ConquereController.sInstance)
+                {
+                    ConquereController.sInstance.UpdateZone();
+                }
                 mRunPath = false;
                 onIce = false;
             }
@@ -865,7 +868,10 @@ public class Character : MonoBehaviour
         }
         GameManager.sInstance.mCurrentPartical = null;
         AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
-        ConquereController.sInstance.UpdateZone();
+        if(ConquereController.sInstance)
+        {
+            ConquereController.sInstance.UpdateZone();
+        }
         StartCoroutine(TurnBackToIdleAfter());
     }
 

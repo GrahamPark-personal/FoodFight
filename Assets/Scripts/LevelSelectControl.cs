@@ -64,8 +64,7 @@ public class LevelSelectControl : MonoBehaviour
 
     public void LoadBossLevel()
     {
-        SceneManager.LoadScene(10);
-
+        SceneManager.LoadScene(12);
     }
 
 }

@@ -579,6 +579,11 @@ public class UIManager : MonoBehaviour
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
+        if(Input.GetKeyDown(KeyCode.End))
+        {
+            OnEndTurnDown();
+        }
+
         //for (int i = 0; i < mCharacters.Length; i++)
         //{
         //    mCharImage[i].texture = mCharTexture[i];

@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     int mTurnCounter = 0;
 
     [HideInInspector]
-    public GameObject mCurrentPartical;
+    public string mCurrentPartical;
 
     [HideInInspector]
     public Character mSavedCharacter;

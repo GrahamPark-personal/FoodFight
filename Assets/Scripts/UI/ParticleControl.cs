@@ -10,7 +10,7 @@ public enum mParticleAction
     Stationary_DestroyOnCall
 }
 
-
+[System.Serializable]
 public class ParticleControl : MonoBehaviour
 {
     [Header("Base Information")]
@@ -30,7 +30,6 @@ public class ParticleControl : MonoBehaviour
 
     float mCurrentTime;
     bool initalized = false;
-
 
     public void Init(Transform point)
     {
@@ -52,7 +51,7 @@ public class ParticleControl : MonoBehaviour
             }
             else if(mAction != mParticleAction.Stationary_DestroyOnCall)
             {
-                Vector3.Lerp(transform.position, mFinalPositon.position, mSpeed * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, mFinalPositon.position, mSpeed * Time.deltaTime);
                 if (mAction == mParticleAction.Destination_DestroyOnEnter)
                 {
                     if (Vector3.Distance(transform.position, mFinalPositon.position) <= 1.0f)
@@ -71,6 +70,11 @@ public class ParticleControl : MonoBehaviour
         }
     }
 
+
+    public void SetEndPosition(Transform position)
+    {
+        mFinalPositon = position;
+    }
 
     void FinishParticle()
     {

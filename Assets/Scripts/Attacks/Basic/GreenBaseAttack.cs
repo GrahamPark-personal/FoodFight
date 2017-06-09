@@ -15,7 +15,7 @@ public class GreenBaseAttack : Attack
         CreateID();
         SetHealth(4);
         SetRange(4);
-        SetRadius(2);
+        SetRadius(3);
         SetAOE(9);
 
         SetStartPos(GameManager.sInstance.mSelectedCell);

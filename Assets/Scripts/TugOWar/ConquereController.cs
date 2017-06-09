@@ -48,8 +48,8 @@ public class ConquereController : MonoBehaviour
     public static ConquereController sInstance = null;
 
     [Header("Count Numbers")]
-    public Text mCharacterText;
-    public Text mEnemyText;
+    //public Text mCharacterText;
+    //public Text mEnemyText;
 
     [Header("Attributes for the Conquere areas")]
 
@@ -157,8 +157,8 @@ public class ConquereController : MonoBehaviour
 
     void Update()
     {
-        mCharacterText.text = "Character: " + mCharacterTurnCounter;
-        mEnemyText.text = "Enemy: " + mEnemyTurnCounter;
+        //mCharacterText.text = "Character: " + mCharacterTurnCounter;
+        //mEnemyText.text = "Enemy: " + mEnemyTurnCounter;
     }
 
     public void UpdateZone()

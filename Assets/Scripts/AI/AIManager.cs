@@ -91,7 +91,6 @@ public class AIManager : MonoBehaviour
         List<Character> tempCharArea = new List<Character>();
         foreach (IntVector2 item in area)
         {
-            //Debug.Log("pos: " + item.x + ", " + item.y);
             if (GameManager.sInstance.IsOnGrid(item))
             {
                 Cell tempCell = GameManager.sInstance.mCurrGrid.rows[item.y].cols[item.x];
@@ -109,7 +108,6 @@ public class AIManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Couldnt get cell");
                 }
             }
         }
@@ -127,12 +125,8 @@ public class AIManager : MonoBehaviour
     IntVector2 FindClosestEnemy(Character character, IntVector2 pos, int range)
     {
         //mTauntCharacter
-        Debug.Log("Pos: " + pos.x + "," + pos.y);
-        Debug.Log("Range: " + range);
-        Debug.Log("Character: " + character);
         List<Character> mCharacterList = GetAllEnemiesAround(pos, range, character);
 
-        //Debug.Log("total Characters: " + mCharacterList.Count + " ,Character: " + mCharacterList[0]);
 
         if (character.mTauntCharacter != null)
         {
@@ -238,7 +232,6 @@ public class AIManager : MonoBehaviour
 
         bool found = false;
 
-        Debug.Log("---------BEGIN-PATHFINDING---------");
 
         while (mOpenList.Count > 0)
         {
@@ -268,8 +261,6 @@ public class AIManager : MonoBehaviour
                         if (IsEqual(pos, end))
                         {
                             //stop
-                            Debug.Log("Found the end");
-                            Debug.Log("End: " + end.x + "," + end.y);
                             found = true;
                             break;
                         }
@@ -344,9 +335,7 @@ public class AIManager : MonoBehaviour
                 posMoved++;
 
 
-                //Debug.Log("pos: " + intTemp.x + ", " + intTemp.y);
                 mFinalPos = intTemp;
-                Debug.Log("Path Pos: " + intTemp.x + "," + intTemp.y);
                 character.mPosPath.Enqueue(intTemp);
                 character.mPath.Enqueue(temp);
 
@@ -354,24 +343,18 @@ public class AIManager : MonoBehaviour
 
                 if (mFinalPos.x != -1 && mFinalPos.y != -1 && (found))
                 {
-                    Debug.Log("Broke-between");
-                    Debug.Log("finalPos: " + mFinalPos.x + "," + mFinalPos.y);
                     character.mRunPath = true;
                     GameManager.sInstance.MoveEnemySlot(mFinalPos, character);
-                    Debug.Log("Broke-between");
 
                 }
                 else
                 {
-                    Debug.Log("Couldnt find a path");
                 }
 
             }
 
         }
 
-        Debug.Log("ended with: " + intTemp.x + "," + intTemp.y);
-        Debug.Log("---------END-PATHFINDING---------");
     }
 
     void AddToPath(IntVector2 pos)
@@ -391,14 +374,11 @@ public class AIManager : MonoBehaviour
 
     public void Calculate(Character character)
     {
-        Debug.Log("-------------------------BEGIN OF CALCULATE----------------------------");
-        Debug.Log("Character: " + character);
 
         //calculate
 
         if (character.ContainsAilment(AilmentID.Stun))
         {
-            Debug.Log("Stunned");
             return;
         }
 
@@ -406,14 +386,12 @@ public class AIManager : MonoBehaviour
         if (HasEnemyInArea(character.mCellPos, character.mActorComp.mActivationRange, character))
         {
             mCurrentActor.mActivationRange = 100;
-            Debug.Log("Has enemy in area");
 
             //Is able to attack
             int mOffset = (character.mAttackType == AttackType.Melee) ? -2 : 0; //why -2 though?
             if (HasEnemyInArea(character.mCellPos, (character.mMoveDistance + character.mDamageDistance) - mOffset, character))
             {
 
-                Debug.Log("Can attack");
 
                 IntVector2 mCurrentEnemy = FindClosestEnemy(character, character.mCellPos, (character.mMoveDistance + character.mDamageDistance));
 
@@ -422,14 +400,12 @@ public class AIManager : MonoBehaviour
 
 
 
-                    //Debug.Log("Current Targer: " + GameManager.sInstance.mCurrGrid.rows[mCurrentEnemy.y].cols[mCurrentEnemy.x].mCharacterObj.gameObject);
 
                     //int TotalMovement = (((Distance(character.mCellPos, mCurrentEnemy)) - ((character.mDamageDistance)) + mOffset)) + 4; //why 4 though?
                     int TotalMovement = 0;
 
                     int distanceBetweenUnits = Distance(character.mCellPos, mCurrentEnemy);
 
-                    Debug.Log("Distance: " + distanceBetweenUnits);
 
                     if (distanceBetweenUnits == 1)
                     {
@@ -453,14 +429,12 @@ public class AIManager : MonoBehaviour
                         }
                     }
 
-                    Debug.Log("Total Movement: " + TotalMovement);
 
                     //Debug.Log("dist away: " + Distance(character.mCellPos, mCurrentEnemy));
                     //Debug.Log("damage dist: " + character.mDamageDistance);
 
                     if (TotalMovement == 0)
                     {
-                        Debug.Log("just attack");
                         //attack
                         if (CanAttackPos(character, mCurrentEnemy))
                         {
@@ -472,15 +446,12 @@ public class AIManager : MonoBehaviour
                         //move back, if ranged attack.
                         if (mOffset == 0)
                         {
-                            Debug.Log("melee total movement < 0");
                             //melee, nothing happens here
                         }
                         else
                         {
-                            Debug.Log("Ranged total movement < 0");
                             if (CanAttackPos(character, mCurrentEnemy))
                             {
-                                Debug.Log("     |_ and can attack the enemy");
                                 Attack(character, mCurrentEnemy);
                             }
                         }
@@ -489,13 +460,10 @@ public class AIManager : MonoBehaviour
                     else
                     {
                         //A* until no more points, then attack.
-                        Debug.Log("Move towards enemy, then attack if possible");
-
                         AStar(character, character.mCellPos, mCurrentEnemy, TotalMovement);
 
                         if (CanAttackPos(character, mCurrentEnemy))
                         {
-                            Debug.Log("     |_moved towards then attacked");
                             StartCoroutine(WaitToAttack(1.0f, character, mCurrentEnemy));
                         }
 
@@ -504,14 +472,12 @@ public class AIManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Moving to predefined destination");
                     AStar(character, character.mCellPos, character.mActorComp.mCurrentDestination, character.mMoveDistance);
                 }
             }
             else
             {
                 //move to current destination
-                Debug.Log("Moving to predefined destination");
                 AStar(character, character.mCellPos, character.mActorComp.mCurrentDestination, character.mMoveDistance);
             }
 

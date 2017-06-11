@@ -51,9 +51,11 @@ public class ParticleManager : MonoBehaviour
     {
         if (!mParticalContainer.ContainsKey(key))
         {
-            Debug.Assert(false, "[ParticalManager] Couldn't find key: " + key);
+            Debug.Log("[ParticalManager] Couldn't find key: " + key);
             return null;
         }
+
+        Debug.Log("Got into partical creation");
 
         GamePartical gamePart = mParticalContainer[key];
 

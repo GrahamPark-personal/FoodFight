@@ -54,26 +54,31 @@ public enum CharacterAnimations
 [System.Serializable]
 public struct DualAbilities
 {
+    [Space(30)]
     public Attack mDuoAbility1;
     public string mAttackPartical1;
     public CharacterType ability1Character1;
     public CharacterType ability1Character2;
 
+    [Space(30)]
     public Attack mDuoAbility2;
     public string mAttackPartical2;
     public CharacterType ability2Character1;
     public CharacterType ability2Character2;
 
+    [Space(30)]
     public Attack mDuoAbility3;
     public string mAttackPartical3;
     public CharacterType ability3Character1;
     public CharacterType ability3Character2;
 
+    [Space(30)]
     public Attack mDuoAbility4;
     public string mAttackPartical4;
     public CharacterType ability4Character1;
     public CharacterType ability4Character2;
 
+    [Space(30)]
     public Attack mDuoAbility5;
     public string mAttackPartical5;
     public CharacterType ability5Character1;
@@ -850,7 +855,7 @@ public class Character : MonoBehaviour
         string mSelectedParticle = GameManager.sInstance.mCurrentPartical;
         if (mSelectedParticle != null)
         {
-            Transform mFinalLocation = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
+            //Transform mFinalLocation = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
             //GameObject go = Instantiate(mSelectedParticle, transform.position, mSelectedParticle.transform.rotation);
             GameObject go = ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform);
             //add it here

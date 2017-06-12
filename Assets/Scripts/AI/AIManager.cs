@@ -282,7 +282,7 @@ public class AIManager : MonoBehaviour
                             mNotFullPath = true;
                             break;
                         }
-                        else if(GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].GetCharacterObject() != null)
+                        else if (GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].GetCharacterObject() != null)
                         {
                             pos.parent = new IntVector2[1];
                             pos.parent[0] = mCurrent;
@@ -368,7 +368,9 @@ public class AIManager : MonoBehaviour
     void Attack(Character character, IntVector2 pos)
     {
         Character mCharToAttack = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj;
+
         character.Attacking(pos);
+
         StartCoroutine(WaitToShowDamage(1.5f, character, mCharToAttack));
     }
 

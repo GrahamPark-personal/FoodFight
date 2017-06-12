@@ -18,22 +18,22 @@ public class EffectManager : MonoBehaviour
     void Update()
     {
 
-        if(mCharacter.ContainsAilment(AilmentID.Stun))
+        if (mCharacter.ContainsAilment(AilmentID.Stun))
         {
-            if(!AilmentPositions.ContainsKey(AilmentID.Stun))
+            if (!AilmentPositions.ContainsKey(AilmentID.Stun))
             {
                 //add image
-                GameObject newEffect = Instantiate(GameManager.sInstance.mStunnedObject, mParent.transform);
+                GameObject newEffect = Instantiate(ParticleManager.sInstance.mStunnedObject, mParent.transform);
                 newEffect.transform.position = new Vector3(0, 0, 0);
                 newEffect.transform.localPosition = new Vector3(0, 0, 0);
                 AilmentPositions.Add(AilmentID.Stun, newEffect);
             }
         }
-        else if(AilmentPositions.ContainsKey(AilmentID.Stun))
+        else if (AilmentPositions.ContainsKey(AilmentID.Stun))
         {
             //remove image
             GameObject Getobj = AilmentPositions[AilmentID.Stun];
-            if(Getobj != null)
+            if (Getobj != null)
             {
                 AilmentPositions.Remove(AilmentID.Stun);
                 Destroy(Getobj.gameObject);
@@ -47,7 +47,7 @@ public class EffectManager : MonoBehaviour
             {
                 Debug.Log("Doesnt have stun Slow");
                 //add image
-                GameObject newEffect = Instantiate(GameManager.sInstance.mSlowedObject, mParent.transform);
+                GameObject newEffect = Instantiate(ParticleManager.sInstance.mSlowedObject, mParent.transform);
                 newEffect.transform.position = new Vector3(0, -1.103f, 0);
                 newEffect.transform.localPosition = new Vector3(0, -1.103f, 0);
                 AilmentPositions.Add(AilmentID.Slow, newEffect);
@@ -62,6 +62,37 @@ public class EffectManager : MonoBehaviour
                 AilmentPositions.Remove(AilmentID.Slow);
                 Destroy(Getobj.gameObject);
                 Getobj = null;
+            }
+        }
+
+        bool buffFound = false;
+
+        foreach (var item in mCharacter.buffs)
+        {
+            if (item.ID == BuffID.ThunderCloak)
+            {
+                buffFound = true;
+                if (!AilmentPositions.ContainsKey(AilmentID.TunderCloak))
+                {
+                    GameObject newEffect = Instantiate(ParticleManager.sInstance.mStormCloak, mParent.transform);
+                    newEffect.transform.position = new Vector3(0, 0, 0);
+                    newEffect.transform.localPosition = new Vector3(0, 0, 0);
+                    AilmentPositions.Add(AilmentID.TunderCloak, newEffect);
+                }
+            }
+        }
+
+        if (!buffFound)
+        {
+            if (AilmentPositions.ContainsKey(AilmentID.TunderCloak))
+            {
+                GameObject Getobj = AilmentPositions[AilmentID.TunderCloak];
+                if (Getobj != null)
+                {
+                    AilmentPositions.Remove(AilmentID.TunderCloak);
+                    Destroy(Getobj.gameObject);
+                    Getobj = null;
+                }
             }
         }
 

@@ -921,13 +921,18 @@ public class UIManager : MonoBehaviour
 
         atkData.char1 = (int)characterType;
         atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+        GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
+
 
         if (((currAbilities.ability1Character1 == characterType) || (currAbilities.ability1Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
             && ((currAbilities.ability1Character2 == characterType) || (currAbilities.ability1Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
         {
             //ability = 1
             atkData.atk = currAbilities.mDuoAbility1;
-            GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical1;
+            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical1;
+
+            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[0];
+
 
             return atkData;
         }
@@ -936,7 +941,11 @@ public class UIManager : MonoBehaviour
         {
             //ability = 2
             atkData.atk = currAbilities.mDuoAbility2;
-            GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical2;
+            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical2;
+
+            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[1];
+
+
             return atkData;
         }
         if (((currAbilities.ability3Character1 == characterType) || (currAbilities.ability3Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
@@ -944,7 +953,11 @@ public class UIManager : MonoBehaviour
         {
             //ability = 3
             atkData.atk = currAbilities.mDuoAbility3;
-            GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical3;
+            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical3;
+
+            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[2];
+
+
             return atkData;
         }
         if (((currAbilities.ability4Character1 == characterType) || (currAbilities.ability4Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
@@ -952,7 +965,11 @@ public class UIManager : MonoBehaviour
         {
             //ability = 4
             atkData.atk = currAbilities.mDuoAbility4;
-            GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical4;
+            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical4;
+
+            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[3];
+
+
             return atkData;
         }
         if (((currAbilities.ability5Character1 == characterType) || (currAbilities.ability5Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
@@ -960,7 +977,11 @@ public class UIManager : MonoBehaviour
         {
             //ability = 5
             atkData.atk = currAbilities.mDuoAbility5;
-            GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical5;
+            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical5;
+
+            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[4];
+
+
             return atkData;
         }
 
@@ -982,9 +1003,11 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1046,9 +1069,11 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1107,9 +1132,12 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1169,9 +1197,13 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1231,9 +1263,13 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1294,9 +1330,13 @@ public class UIManager : MonoBehaviour
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
-                GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+                //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
+
+                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1459,11 +1499,20 @@ public class UIManager : MonoBehaviour
 
     void MoveCharacterHover(int character)
     {
+        if(character == 2)
+        {
+            character = 3;
+        }
+        else if(character == 3)
+        {
+            character = 2;
+        }
 
         if (character < GameManager.sInstance.mCharacters.Length)
         {
             IntVector2 tempPos = GameManager.sInstance.mCharacters[character].mCellPos;
             GameManager.sInstance.MoveCharacterHover(tempPos);
+            GameManager.sInstance.ChangeHoverObject(character);
         }
     }
 

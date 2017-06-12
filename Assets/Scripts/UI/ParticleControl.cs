@@ -7,7 +7,9 @@ public enum mParticleAction
     Destination_DestroyAftertime,
     Destination_DestroyOnEnter,
     Stationary_DestroyAfterTime,
-    Stationary_DestroyOnCall
+    Stationary_DestroyOnCall,
+    StartAtEnemyMoveTowardsCharacter,
+    StartOnCharacter
 }
 
 [System.Serializable]
@@ -40,6 +42,7 @@ public class ParticleControl : MonoBehaviour
 
     void Update()
     {
+
         if (initalized)
         {
             if (mAction == mParticleAction.Stationary_DestroyAfterTime)
@@ -49,10 +52,12 @@ public class ParticleControl : MonoBehaviour
                     FinishParticle();
                 }
             }
-            else if(mAction != mParticleAction.Stationary_DestroyOnCall)
+            else if(mAction != mParticleAction.Stationary_DestroyOnCall && mAction != mParticleAction.StartOnCharacter)
             {
+
                 transform.position = Vector3.Lerp(transform.position, mFinalPositon.position, mSpeed * Time.deltaTime);
-                if (mAction == mParticleAction.Destination_DestroyOnEnter)
+
+                if (mAction == mParticleAction.Destination_DestroyOnEnter || mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
                 {
                     if (Vector3.Distance(transform.position, mFinalPositon.position) <= 1.0f)
                     {

@@ -81,6 +81,9 @@ public class GameManager : MonoBehaviour
     public string mCurrentPartical;
 
     [HideInInspector]
+    public int mOtherCharacterIndex = -1;
+
+    [HideInInspector]
     public Character mSavedCharacter;
 
     #region ManagersAndClassReferences
@@ -236,11 +239,10 @@ public class GameManager : MonoBehaviour
     [Header("HeathBarStuff")]
     public bool mHealthBarIsVisual;
 
-    [Header("Status")]
-    public GameObject mStunnedObject;
-
-    [Header("Status")]
-    public GameObject mSlowedObject;
+    //[Header("Status")]
+    //public GameObject mStunnedObject;
+    //public GameObject mSlowedObject;
+    //public GameObject mStormCloak;
 
     TurnBar mTurnBar;
 
@@ -1155,6 +1157,15 @@ public class GameManager : MonoBehaviour
 
     #region VisualHoverBlocks
 
+    public void ChangeHoverObject(int character)
+    {
+        Debug.Log("got here");
+        Transform currTransform = mPlayerSelectBlock.transform;
+        Destroy(mPlayerSelectBlock);
+        mPlayerSelectBlock = Instantiate(ParticleManager.sInstance.mCharacterParticals[character], currTransform.position, currTransform.rotation);
+
+    }
+
     public void SetHover(IntVector2 pos)
     {
         if (IsOnGridAndCanMoveTo(pos) && mOverBlock)
@@ -1169,7 +1180,7 @@ public class GameManager : MonoBehaviour
     public void MoveCharacterHover(IntVector2 pos)
     {
         HideCharacterHover(true);
-        mPlayerSelectBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position;
+        mPlayerSelectBlock.transform.position = mCurrGrid.rows[pos.y].cols[pos.x].mCellTransform.position + new Vector3(0, 1, 0);
     }
 
     public void HideCharacterHover(bool hide)

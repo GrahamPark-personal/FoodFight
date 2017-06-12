@@ -12,13 +12,34 @@ public struct GamePartical
     public ParticleControl mControl;
 }
 
+[System.Serializable]
+public struct PlayerPartical
+{
+    public string mCharacter;
+    public string mBasicPartical;
+    public string[] mDuoPartical;
+}
+
 
 public class ParticleManager : MonoBehaviour
 {
-
     static public ParticleManager sInstance = null;
 
+    [Header("Character Particals")]
+    public GameObject[] mCharacterParticals;
+
+    [Space(10)]
+    [Header("Effects")]
+    public GameObject mStunnedObject;
+    public GameObject mSlowedObject;
+    public GameObject mStormCloak;
+
+    [Space(10)]
+    [Header("Attack Particals")]
     public GamePartical[] mParticals;
+
+    public PlayerPartical[] mPlayerParticals;
+
 
     Dictionary<string, GamePartical> mParticalContainer = new Dictionary<string, GamePartical>();
 
@@ -42,43 +63,57 @@ public class ParticleManager : MonoBehaviour
         for (int i = 0; i < mParticals.Length; i++)
         {
             mParticalContainer[mParticals[i].mKey] = mParticals[i];
-            mParticals[i].mControl = mParticals[i].mPartical.GetComponent<ParticleControl>();
+            mParticals[i].mControl = mParticals[i].mPartical.gameObject.GetComponent<ParticleControl>();
         }
     }
 
 
-    public GameObject SpawnPartical(string key, Transform mStart, Transform mEnd)
+    public void SpawnPartical(string key, Transform mStart, Transform mEnd)
     {
         if (!mParticalContainer.ContainsKey(key))
         {
             Debug.Log("[ParticalManager] Couldn't find key: " + key);
-            return null;
+            return;
         }
+        
+        StartCoroutine(SpawnParticalAfterTime(key, mStart, mEnd));
 
-        Debug.Log("Got into partical creation");
+    }
 
+    IEnumerator SpawnParticalAfterTime(string key, Transform mStart, Transform mEnd)
+    {
         GamePartical gamePart = mParticalContainer[key];
+
+        yield return new WaitForSeconds(1.6f);
+
 
         GameObject obj;
 
         obj = Instantiate(gamePart.mPartical, mEnd.position + new Vector3(0, 1, 0), gamePart.mPartical.gameObject.transform.rotation);
         ParticleControl pCon = obj.GetComponent<ParticleControl>();
 
-        Debug.Log("Action: " + pCon.mAction);
 
         if (pCon.mAction == mParticleAction.Stationary_DestroyAfterTime || pCon.mAction == mParticleAction.Stationary_DestroyOnCall)
         {
             obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
             pCon.Init(mEnd);
         }
+        else if(pCon.mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
+        {
+            obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
+            pCon.Init(mStart);
+        }
+        else if(pCon.mAction == mParticleAction.StartOnCharacter)
+        {
+            obj.transform.position = mStart.position + new Vector3(0, 1, 0);
+            pCon.Init(mStart);
+        }
         else
         {
-            Debug.Log("Else");
             obj.transform.position = mStart.position + new Vector3(0, 1, 0);
             pCon.Init(mEnd);
         }
 
-        return obj;
     }
 
 

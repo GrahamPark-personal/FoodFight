@@ -671,6 +671,12 @@ public class Cell : MonoBehaviour
                 {
                     //Debug.Log("Got here");
                     GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                    if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                    {
+                        Debug.Log("Got into the index");
+                        GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                        GameManager.sInstance.mOtherCharacterIndex = -1;
+                    }
                     GameManager.sInstance.AttackPos(mPos);
                     StartCoroutine(WaitToFixAttack());
 
@@ -698,6 +704,12 @@ public class Cell : MonoBehaviour
                         {
                             AttackManager.sInstance.RunAttack(mPos);
                             GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                            if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                            {
+                                Debug.Log("Got into the index");
+                                GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                                GameManager.sInstance.mOtherCharacterIndex = -1;
+                            }
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                             GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -718,6 +730,12 @@ public class Cell : MonoBehaviour
             {
                 AttackManager.sInstance.RunAttack(mPos);
                 GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                {
+                    Debug.Log("Got into the index");
+                    GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                    GameManager.sInstance.mOtherCharacterIndex = -1;
+                }
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -738,6 +756,12 @@ public class Cell : MonoBehaviour
                 //attack based on clicking on another character
                 AttackManager.sInstance.RunAttack(mPos);
                 GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                {
+                    Debug.Log("Got into the index");
+                    GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                    GameManager.sInstance.mOtherCharacterIndex = -1;
+                }
                 GameManager.sInstance.mMouseMode = MouseMode.Move;
                 GameManager.sInstance.mAttackShape = AttackShape.Area;
                 GameManager.sInstance.mCharacterObj.mAttacked = true;
@@ -761,6 +785,12 @@ public class Cell : MonoBehaviour
                         {
                             GameManager.sInstance.AttackPos(mPos);
                             GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                            if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                            {
+                                Debug.Log("Got into the index");
+                                GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                                GameManager.sInstance.mOtherCharacterIndex = -1;
+                            }
                             GameManager.sInstance.ClearAttack();
                         }
                     }
@@ -774,6 +804,12 @@ public class Cell : MonoBehaviour
                         {
                             AttackManager.sInstance.RunAttack(mPos);
                             GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                            if (GameManager.sInstance.mOtherCharacterIndex != -1)
+                            {
+                                Debug.Log("Got into the index");
+                                GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
+                                GameManager.sInstance.mOtherCharacterIndex = -1;
+                            }
                             GameManager.sInstance.ClearAttack();
                         }
                     }
@@ -789,6 +825,7 @@ public class Cell : MonoBehaviour
     {
 
         GameManager.sInstance.mHoverBlock.SetActive(true);
+        //GameManager.sInstance.ChangeHoverObject();
 
         //if (GameManager.sInstance.IsOnGridAndCanMoveTo(mPos) && !GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCannotMoveHere && GameManager.sInstance.mMouseMode != MouseMode.AbilityAttack)
         //{

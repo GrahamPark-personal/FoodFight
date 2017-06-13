@@ -162,23 +162,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
-    mAttackPartical1: ':'
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 44505662}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 44505664}
-    mAttackPartical3: R
     ability3Character1: 1
     ability3Character2: 3
     mDuoAbility4: {fileID: 44505663}
-    mAttackPartical4: ^
     ability4Character1: 1
     ability4Character2: 4
     mDuoAbility5: {fileID: 44505665}
-    mAttackPartical5: j
     ability5Character1: 1
     ability5Character2: 5
   mPosition: {fileID: 0}
@@ -1084,23 +1079,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 216331908}
   mDualAbilities:
     mDuoAbility1: {fileID: 216331907}
-    mAttackPartical1: ':'
     ability1Character1: 5
     ability1Character2: 0
     mDuoAbility2: {fileID: 216331906}
-    mAttackPartical2: F
     ability2Character1: 5
     ability2Character2: 1
     mDuoAbility3: {fileID: 216331905}
-    mAttackPartical3: R
     ability3Character1: 5
     ability3Character2: 2
     mDuoAbility4: {fileID: 216331904}
-    mAttackPartical4: ^
     ability4Character1: 5
     ability4Character2: 3
     mDuoAbility5: {fileID: 216331903}
-    mAttackPartical5: j
     ability5Character1: 5
     ability5Character2: 4
   mPosition: {fileID: 0}
@@ -1368,23 +1358,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 267179054}
-    mAttackPartical1: ':'
     ability1Character1: 3
     ability1Character2: 0
     mDuoAbility2: {fileID: 267179053}
-    mAttackPartical2: F
     ability2Character1: 3
     ability2Character2: 1
     mDuoAbility3: {fileID: 267179052}
-    mAttackPartical3: R
     ability3Character1: 3
     ability3Character2: 2
     mDuoAbility4: {fileID: 267179051}
-    mAttackPartical4: ^
     ability4Character1: 3
     ability4Character2: 4
     mDuoAbility5: {fileID: 267179055}
-    mAttackPartical5: j
     ability5Character1: 3
     ability5Character2: 5
   mPosition: {fileID: 0}
@@ -2094,23 +2079,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 384067147}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 2
     mDuoAbility3: {fileID: 384067150}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 3
     mDuoAbility4: {fileID: 384067148}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 4
     mDuoAbility5: {fileID: 384067149}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 5
   mPosition: {fileID: 0}
@@ -7027,7 +7007,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400110, guid: 30266104c85ed8e419e8daa8d24bf4c7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731478665}
-  m_LocalRotation: {x: 0.6534865, y: 0.33678353, z: -0.30997965, w: 0.602864}
+  m_LocalRotation: {x: 0.65348643, y: 0.3367835, z: -0.30997962, w: 0.60286397}
   m_LocalPosition: {x: 0.012011811, y: -0.003553795, z: 0.021300644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10817,33 +10797,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255269daf410cf441b3b9b289313f8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mLeftCharacter: 0
-  mRightCharacter: 1
+  mLeftCharacter: 3
+  mRightCharacter: 0
   mConvo:
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 3
+    mSide: 0
+    mSentence: So when you said watch your step...
+  - mBlank: 0
+    mCharacter: 0
     mSide: 1
-    mSentence: He is nearby...
+    mSentence: Did I know about the invisible blocks?
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 0
+    mSentence: Yeah...
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: I did...
   - mBlank: 0
     mCharacter: 1
-    mSide: 1
-    mSentence: I can feel his energy, but it seems like the White Mage was here.
+    mSide: 0
+    mSentence: But how?
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 2
     mSide: 1
-    mSentence: He may not be very happy when we reactivate him.
+    mSentence: Is there something you're not telling us Sir Goat?
   - mBlank: 0
     mCharacter: 0
     mSide: 0
-    mSentence: That's OK, nothing a good zzzzap can't solve!
+    mSentence: None of your business!!!
+  - mBlank: 0
+    mCharacter: 5
+    mSide: 1
+    mSentence: Does someone need to be tortured for information?
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: Noooo!
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: Don't hurt him!
+  - mBlank: 0
+    mCharacter: 5
+    mSide: 1
+    mSentence: FIIIIIIIIINE...
+  - mBlank: 0
+    mCharacter: 5
+    mSide: 1
+    mSentence: You guys are just NO FUN!
   - mBlank: 0
     mCharacter: 1
+    mSide: 0
+    mSentence: You truly are a despicable being...
+  - mBlank: 0
+    mCharacter: 5
     mSide: 1
-    mSentence: Is that your answer to everything? Zapping people?
+    mSentence: Why thank you!
+  - mBlank: 0
+    mCharacter: 5
+    mSide: 1
+    mSentence: You're not half good yourself Milady...
+  - mBlank: 0
+    mCharacter: 1
+    mSide: 0
+    mSentence: Well I never...
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 1
+    mSentence: Hey hey hey!
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 1
+    mSentence: I still want to know what you're hiding from us old man!
   - mBlank: 0
     mCharacter: 0
     mSide: 0
-    mSentence: Yes.
+    mSentence: Nothing!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 0
+    mSentence: Leave me alone!
+  - mBlank: 0
+    mCharacter: 2
+    mSide: 1
+    mSentence: I think we should give him some time Sir Hotrod.
+  - mBlank: 0
+    mCharacter: 2
+    mSide: 1
+    mSentence: He hasn't had a nap in a long time, and he seems to be getting cranky...
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 0
+    mSentence: I'm not cranky! And I'm not old!!!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 0
+    mSentence: Just keep moving!
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 1
+    mSentence: Fine... but we'll find out at some point anyway...
 --- !u!1 &1087913840
 GameObject:
   m_ObjectHideFlags: 0
@@ -15901,23 +15957,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1542064496}
   mDualAbilities:
     mDuoAbility1: {fileID: 1542064505}
-    mAttackPartical1: ':'
     ability1Character1: 4
     ability1Character2: 0
     mDuoAbility2: {fileID: 1542064504}
-    mAttackPartical2: F
     ability2Character1: 4
     ability2Character2: 1
     mDuoAbility3: {fileID: 1542064503}
-    mAttackPartical3: R
     ability3Character1: 4
     ability3Character2: 2
     mDuoAbility4: {fileID: 1542064502}
-    mAttackPartical4: ^
     ability4Character1: 4
     ability4Character2: 3
     mDuoAbility5: {fileID: 1542064506}
-    mAttackPartical5: j
     ability5Character1: 4
     ability5Character2: 5
   mPosition: {fileID: 0}
@@ -19368,23 +19419,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 1716735084}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 2
     mDuoAbility2: {fileID: 1716735083}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 1716735086}
-    mAttackPartical3: R
     ability3Character1: 2
     ability3Character2: 3
     mDuoAbility4: {fileID: 1716735085}
-    mAttackPartical4: ^
     ability4Character1: 2
     ability4Character2: 4
     mDuoAbility5: {fileID: 1716735087}
-    mAttackPartical5: j
     ability5Character1: 2
     ability5Character2: 5
   mPosition: {fileID: 0}
@@ -19403,7 +19449,7 @@ MonoBehaviour:
   mCharacterType: 2
   mAttackType: 0
   mDirection: 0
-  mAnimation: 0
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -26193,6 +26239,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -26276,10 +26323,6 @@ MonoBehaviour:
   mFinishedLastCutScene: 0
   mStarObject: {fileID: 0}
   mHealthBarIsVisual: 0
-  mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
-    type: 2}
-  mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
-    type: 2}
   mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:

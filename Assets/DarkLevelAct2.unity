@@ -132,29 +132,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
-    mAttackPartical1: ':'
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 44505662}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 44505664}
-    mAttackPartical3: R
     ability3Character1: 1
     ability3Character2: 3
     mDuoAbility4: {fileID: 44505663}
-    mAttackPartical4: ^
     ability4Character1: 1
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 10
-    y: 1
+    x: 0
+    y: 7
     F: 0
     G: 0
     H: 0
@@ -166,7 +161,7 @@ MonoBehaviour:
   mDamageDistance: 4
   mCharacterType: 1
   mAttackType: 1
-  mDirection: 0
+  mDirection: 1
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -1087,29 +1082,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 267179054}
-    mAttackPartical1: ':'
     ability1Character1: 3
     ability1Character2: 0
     mDuoAbility2: {fileID: 267179053}
-    mAttackPartical2: F
     ability2Character1: 3
     ability2Character2: 1
     mDuoAbility3: {fileID: 267179052}
-    mAttackPartical3: R
     ability3Character1: 3
     ability3Character2: 2
     mDuoAbility4: {fileID: 267179051}
-    mAttackPartical4: ^
     ability4Character1: 3
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 9
-    y: 2
+    x: 0
+    y: 9
     F: 0
     G: 0
     H: 0
@@ -1121,7 +1111,7 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 3
   mAttackType: 0
-  mDirection: 2
+  mDirection: 1
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -1703,29 +1693,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 384067147}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 2
     mDuoAbility3: {fileID: 384067149}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 3
     mDuoAbility4: {fileID: 384067148}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 9
-    y: 0
+    x: 10
+    y: 9
     F: 0
     G: 0
     H: 0
@@ -1737,7 +1722,7 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 0
   mAttackType: 0
-  mDirection: 0
+  mDirection: 3
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -9946,6 +9931,371 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23634069154881324, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65268333744824010, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114032506333689266, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114438624480447040, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23645813659263044, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23943093912278150, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65719720521442422, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795551551827798, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65399628247661664, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114450909457150592, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23356931814921082, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65739258587735094, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022915502212900, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23456057652337488, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23528840985047074, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65094941832675348, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65264254660719780, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114777776593205624, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23826849844504388, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23108182140261068, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65808457860231874, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504820144616124, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65730007002140382, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114451189362822352, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23629348101448044, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23763059841206188, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114960553890206626, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65627913502598576, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65407240375502366, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114474352433694474, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23053284343507450, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23161907358013036, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65641563003840516, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775521849676872, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23073781350563746, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65504421427684540, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857986838800100, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65289394028920048, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114590816622199384, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23294335425847104, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23843270288998406, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375978176613292, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65592866736029306, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65063471476392310, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461509210904060, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23818495191996352, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65121906898610842, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23344687221870108, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114769494409530654, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65492531640044388, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114661366532486510, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23379768189910028, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23229697564072182, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65783626440395178, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691500540121862, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65205541217566794, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114209972438978036, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23090520103635058, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23995901116205112, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65131443641554880, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114031908219990536, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65257878248313156, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667398638091212, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23532065705458530, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23462177066684904, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517965113324776, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65349964923711096, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65538482888239946, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114277871938921260, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23059719184402396, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23388141767133600, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114118826555634458, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: mCannotMoveHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65025311920763768, guid: a0ffba08d9348f04689dcea1fbd18b41,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0ffba08d9348f04689dcea1fbd18b41, type: 2}
   m_IsPrefabParent: 0
@@ -10245,33 +10595,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255269daf410cf441b3b9b289313f8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mLeftCharacter: 0
-  mRightCharacter: 1
+  mLeftCharacter: 3
+  mRightCharacter: 4
   mConvo:
   - mBlank: 0
-    mCharacter: 1
-    mSide: 1
-    mSentence: He is nearby...
+    mCharacter: 3
+    mSide: 0
+    mSentence: Ok... so your healing may be much more useful than I had expected...
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 4
     mSide: 1
-    mSentence: I can feel his energy, but it seems like the White Mage was here.
+    mSentence: 'I told you! '
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 4
     mSide: 1
-    mSentence: He may not be very happy when we reactivate him.
+    mSentence: It's my job protecting people from nasties.
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 0
+    mSentence: Like the old man?
   - mBlank: 0
     mCharacter: 0
-    mSide: 0
-    mSentence: That's OK, nothing a good zzzzap can't solve!
+    mSide: 1
+    mSentence: I swear on the rock's head that I will zap anyone who calls me old
+      again!
   - mBlank: 0
     mCharacter: 1
-    mSide: 1
-    mSentence: Is that your answer to everything? Zapping people?
+    mSide: 0
+    mSentence: How old are you exactly?
   - mBlank: 0
     mCharacter: 0
+    mSide: 1
+    mSentence: Seven hundred and thirty-two...
+  - mBlank: 0
+    mCharacter: 2
     mSide: 0
-    mSentence: Yes.
+    mSentence: That's old...
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: GHAAAAAAAA!!!!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: First he takes my pudding, and then he forces me to work with YOU?!?!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: When I see the White Mage, I'm going to ZAP him into outer-space!
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: Please don't get angry mister...
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: It makes me sad when people get angry...
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: Aaaaaw...
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: I'm so sorry little miss...
+  - mBlank: 0
+    mCharacter: 2
+    mSide: 0
+    mSentence: Did you just apologize Sir Goat?
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: Wha.. wait... NO!!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: GHAAAAAAAA!!!!
 --- !u!1 &1087913840
 GameObject:
   m_ObjectHideFlags: 0
@@ -14835,23 +15234,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -15228,29 +15622,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1542064496}
   mDualAbilities:
     mDuoAbility1: {fileID: 1542064505}
-    mAttackPartical1: ':'
     ability1Character1: 4
     ability1Character2: 0
     mDuoAbility2: {fileID: 1542064504}
-    mAttackPartical2: F
     ability2Character1: 4
     ability2Character2: 1
     mDuoAbility3: {fileID: 1542064503}
-    mAttackPartical3: R
     ability3Character1: 4
     ability3Character2: 2
     mDuoAbility4: {fileID: 1542064502}
-    mAttackPartical4: ^
     ability4Character1: 4
     ability4Character2: 3
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 9
-    y: 1
+    x: 10
+    y: 7
     F: 0
     G: 0
     H: 0
@@ -15262,7 +15651,7 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 4
   mAttackType: 0
-  mDirection: 0
+  mDirection: 3
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -16135,29 +16524,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 1716735084}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 2
     mDuoAbility2: {fileID: 1716735083}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 1716735086}
-    mAttackPartical3: R
     ability3Character1: 2
     ability3Character2: 3
     mDuoAbility4: {fileID: 1716735085}
-    mAttackPartical4: ^
     ability4Character1: 2
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 8
-    y: 1
+    x: 1
+    y: 8
     F: 0
     G: 0
     H: 0
@@ -16169,8 +16553,8 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 2
   mAttackType: 0
-  mDirection: 0
-  mAnimation: 0
+  mDirection: 1
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -22758,6 +23142,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -22826,10 +23211,6 @@ MonoBehaviour:
   mFinishedLastCutScene: 0
   mStarObject: {fileID: 0}
   mHealthBarIsVisual: 0
-  mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
-    type: 2}
-  mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
-    type: 2}
   mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:

@@ -132,23 +132,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
-    mAttackPartical1: ':'
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 44505662}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 44505664}
-    mAttackPartical3: R
     ability3Character1: 1
     ability3Character2: 3
     mDuoAbility4: {fileID: 44505663}
-    mAttackPartical4: ^
     ability4Character1: 1
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -166,7 +161,7 @@ MonoBehaviour:
   mDamageDistance: 4
   mCharacterType: 1
   mAttackType: 1
-  mDirection: 0
+  mDirection: 2
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -1087,29 +1082,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 267179054}
-    mAttackPartical1: ':'
     ability1Character1: 3
     ability1Character2: 0
     mDuoAbility2: {fileID: 267179053}
-    mAttackPartical2: F
     ability2Character1: 3
     ability2Character2: 1
     mDuoAbility3: {fileID: 267179052}
-    mAttackPartical3: R
     ability3Character1: 3
     ability3Character2: 2
     mDuoAbility4: {fileID: 267179051}
-    mAttackPartical4: ^
     ability4Character1: 3
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 5
-    y: 1
+    x: 7
+    y: 2
     F: 0
     G: 0
     H: 0
@@ -1721,29 +1711,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 384067147}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 2
     mDuoAbility3: {fileID: 384067149}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 3
     mDuoAbility4: {fileID: 384067148}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
-    x: 3
-    y: 1
+    x: 1
+    y: 2
     F: 0
     G: 0
     H: 0
@@ -1755,7 +1740,7 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 0
   mAttackType: 0
-  mDirection: 0
+  mDirection: 2
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -9970,6 +9955,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 114276253733260854, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061678727108256, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671082133809674, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872719516700840, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4af96f1838980dc4eb0a65d3bb30d7ae, type: 2}
   m_IsPrefabParent: 0
@@ -10203,33 +10208,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255269daf410cf441b3b9b289313f8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mLeftCharacter: 0
-  mRightCharacter: 1
+  mLeftCharacter: 4
+  mRightCharacter: 3
   mConvo:
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 4
+    mSide: 0
+    mSentence: I don't like this place...
+  - mBlank: 0
+    mCharacter: 3
     mSide: 1
-    mSentence: He is nearby...
+    mSentence: I'll protect you my lovely!
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: 'I don''t need you to protect me. '
+  - mBlank: 0
+    mCharacter: 4
+    mSide: 0
+    mSentence: I'm the one who can heal you, so I'm the one protecting YOU.
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 1
+    mSentence: What? That's not how this works!
   - mBlank: 0
     mCharacter: 1
+    mSide: 0
+    mSentence: Chill...
+  - mBlank: 0
+    mCharacter: 2
     mSide: 1
-    mSentence: I can feel his energy, but it seems like the White Mage was here.
+    mSentence: Lady Snowflake, did you just make a pun?
   - mBlank: 0
     mCharacter: 1
+    mSide: 0
+    mSentence: I believe I did King Francis...
+  - mBlank: 0
+    mCharacter: 1
+    mSide: 0
+    mSentence: I guess it's starting to rub off on me...
+  - mBlank: 0
+    mCharacter: 3
+    mSide: 0
+    mSentence: I can rub off on you too, if you want...
+  - mBlank: 0
+    mCharacter: 4
     mSide: 1
-    mSentence: He may not be very happy when we reactivate him.
+    mSentence: Hey!!!
+  - mBlank: 0
+    mCharacter: 1
+    mSide: 0
+    mSentence: It's OK, I would never let such a rambunxious youngster rub off on
+      me.
+  - mBlank: 0
+    mCharacter: 1
+    mSide: 0
+    mSentence: Besides... I would probably melt...
   - mBlank: 0
     mCharacter: 0
-    mSide: 0
-    mSentence: That's OK, nothing a good zzzzap can't solve!
-  - mBlank: 0
-    mCharacter: 1
     mSide: 1
-    mSentence: Is that your answer to everything? Zapping people?
+    mSentence: Wow, now everyone's punning around...
   - mBlank: 0
     mCharacter: 0
+    mSide: 1
+    mSentence: I hate all of you equally!!!
+  - mBlank: 0
+    mCharacter: 2
     mSide: 0
-    mSentence: Yes.
+    mSentence: Oh, lighten up Sir Goat!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: Stop calling me that!!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: Let's just go, we have a way to go before reaching the crazy maniac
+      that is... The Dark Mage!
 --- !u!1 &1087913840
 GameObject:
   m_ObjectHideFlags: 0
@@ -14852,23 +14907,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -15245,29 +15295,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1542064496}
   mDualAbilities:
     mDuoAbility1: {fileID: 1542064505}
-    mAttackPartical1: ':'
     ability1Character1: 4
     ability1Character2: 0
     mDuoAbility2: {fileID: 1542064504}
-    mAttackPartical2: F
     ability2Character1: 4
     ability2Character2: 1
     mDuoAbility3: {fileID: 1542064503}
-    mAttackPartical3: R
     ability3Character1: 4
     ability3Character2: 2
     mDuoAbility4: {fileID: 1542064502}
-    mAttackPartical4: ^
     ability4Character1: 4
     ability4Character2: 3
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
     x: 4
-    y: 1
+    y: 2
     F: 0
     G: 0
     H: 0
@@ -15279,7 +15324,7 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 4
   mAttackType: 0
-  mDirection: 0
+  mDirection: 2
   mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
@@ -16111,29 +16156,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 1716735084}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 2
     mDuoAbility2: {fileID: 1716735083}
-    mAttackPartical2: F
     ability2Character1: 1
     ability2Character2: 2
     mDuoAbility3: {fileID: 1716735086}
-    mAttackPartical3: R
     ability3Character1: 2
     ability3Character2: 3
     mDuoAbility4: {fileID: 1716735085}
-    mAttackPartical4: ^
     ability4Character1: 2
     ability4Character2: 4
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
   mCellPos:
     x: 4
-    y: 2
+    y: 4
     F: 0
     G: 0
     H: 0
@@ -16145,8 +16185,8 @@ MonoBehaviour:
   mDamageDistance: 1
   mCharacterType: 2
   mAttackType: 0
-  mDirection: 0
-  mAnimation: 0
+  mDirection: 2
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -22740,6 +22780,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -22807,10 +22848,6 @@ MonoBehaviour:
   mFinishedLastCutScene: 0
   mStarObject: {fileID: 0}
   mHealthBarIsVisual: 0
-  mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
-    type: 2}
-  mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
-    type: 2}
   mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:

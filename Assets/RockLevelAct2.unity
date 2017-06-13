@@ -1655,23 +1655,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 44505660}
   mDualAbilities:
     mDuoAbility1: {fileID: 44505661}
-    mAttackPartical1: ':'
     ability1Character1: 1
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: J
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: V
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: b
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: n
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -4810,23 +4805,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -10682,23 +10672,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -11394,23 +11379,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 267179050}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -15089,23 +15069,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 384067145}
   mDualAbilities:
     mDuoAbility1: {fileID: 384067146}
-    mAttackPartical1: '>'
     ability1Character1: 0
     ability1Character2: 1
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: N
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: Z
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: f
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: r
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -27993,23 +27968,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: '>'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: J
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: V
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: b
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: n
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -28074,23 +28044,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: '>'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: J
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: V
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: b
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: n
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -28155,23 +28120,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: '>'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: J
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: V
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: b
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: n
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -28236,29 +28196,24 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: '>'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: J
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: V
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: b
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: n
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
   mCellPos:
-    x: 7
-    y: 2
+    x: 6
+    y: 1
     F: 0
     G: 0
     H: 0
@@ -29022,7 +28977,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400110, guid: 30266104c85ed8e419e8daa8d24bf4c7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731478665}
-  m_LocalRotation: {x: 0.65348643, y: 0.3367835, z: -0.30997962, w: 0.60286397}
+  m_LocalRotation: {x: 0.6534865, y: 0.33678353, z: -0.30997965, w: 0.602864}
   m_LocalPosition: {x: 0.012011811, y: -0.003553795, z: 0.021300644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44981,23 +44936,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -49696,23 +49646,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -53220,23 +53165,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -67117,23 +67057,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -68393,23 +68328,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -71157,23 +71087,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -72988,23 +72913,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -73295,23 +73215,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}
@@ -73777,23 +73692,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 1716735082}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 6
     ability1Character2: 6
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 6
     ability2Character2: 6
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 6
     ability3Character2: 6
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 6
     ability4Character2: 6
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 6
     ability5Character2: 6
   mPosition: {fileID: 0}
@@ -89671,6 +89581,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
   mCamRotation: {fileID: 2007593995}
@@ -89730,10 +89641,6 @@ MonoBehaviour:
   mFinishedLastCutScene: 0
   mStarObject: {fileID: 0}
   mHealthBarIsVisual: 0
-  mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
-    type: 2}
-  mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
-    type: 2}
   mCounter: {fileID: 1928938618}
 --- !u!222 &2034261689
 CanvasRenderer:
@@ -92264,23 +92171,18 @@ MonoBehaviour:
   mBasicAbility: {fileID: 0}
   mDualAbilities:
     mDuoAbility1: {fileID: 0}
-    mAttackPartical1: ':'
     ability1Character1: 0
     ability1Character2: 0
     mDuoAbility2: {fileID: 0}
-    mAttackPartical2: F
     ability2Character1: 0
     ability2Character2: 0
     mDuoAbility3: {fileID: 0}
-    mAttackPartical3: R
     ability3Character1: 0
     ability3Character2: 0
     mDuoAbility4: {fileID: 0}
-    mAttackPartical4: ^
     ability4Character1: 0
     ability4Character2: 0
     mDuoAbility5: {fileID: 0}
-    mAttackPartical5: j
     ability5Character1: 0
     ability5Character2: 0
   mPosition: {fileID: 0}

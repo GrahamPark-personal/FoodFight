@@ -36340,7 +36340,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400110, guid: 30266104c85ed8e419e8daa8d24bf4c7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731478665}
-  m_LocalRotation: {x: 0.6534865, y: 0.33678353, z: -0.30997965, w: 0.602864}
+  m_LocalRotation: {x: 0.65348643, y: 0.3367835, z: -0.30997962, w: 0.60286397}
   m_LocalPosition: {x: 0.012011811, y: -0.003553795, z: 0.021300644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60396,29 +60396,46 @@ MonoBehaviour:
   mRightCharacter: 1
   mConvo:
   - mBlank: 0
-    mCharacter: 1
-    mSide: 1
-    mSentence: He is nearby...
+    mCharacter: 0
+    mSide: 0
+    mSentence: Hey Boulderbrain, are we there yet?
   - mBlank: 0
-    mCharacter: 1
+    mCharacter: 2
     mSide: 1
-    mSentence: I can feel his energy, but it seems like the White Mage was here.
-  - mBlank: 0
-    mCharacter: 1
-    mSide: 1
-    mSentence: He may not be very happy when we reactivate him.
+    mSentence: Yes, we have reached the Fire Realm.
   - mBlank: 0
     mCharacter: 0
     mSide: 0
-    mSentence: That's OK, nothing a good zzzzap can't solve!
+    mSentence: Well it's about time! I was about to go for another nap.
   - mBlank: 0
     mCharacter: 1
     mSide: 1
-    mSentence: Is that your answer to everything? Zapping people?
+    mSentence: All you ever do is sleep old man. Is there nothing else you know how
+      to do?
   - mBlank: 0
     mCharacter: 0
     mSide: 0
-    mSentence: Yes.
+    mSentence: Eat pudding and zap people!
+  - mBlank: 0
+    mCharacter: 2
+    mSide: 1
+    mSentence: Haha, a feisty old man! You remind me of a grumpy old goat.
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 0
+    mSentence: What did you just say?
+  - mBlank: 0
+    mCharacter: 2
+    mSide: 1
+    mSentence: Sir Goat! That will be your new nickname!
+  - mBlank: 0
+    mCharacter: 1
+    mSide: 0
+    mSentence: How fitting!
+  - mBlank: 0
+    mCharacter: 0
+    mSide: 1
+    mSentence: Just you wait until this is all over... I'll zap all of you!
 --- !u!1001 &1082735146
 Prefab:
   m_ObjectHideFlags: 0
@@ -89977,7 +89994,7 @@ MonoBehaviour:
   mCharacterType: 2
   mAttackType: 0
   mDirection: 0
-  mAnimation: 0
+  mAnimation: 4
   mRotationSpeed: 900
   returnLocation: {fileID: 0}
   needsToReturn: 0
@@ -112068,6 +112085,36 @@ Prefab:
     - target: {fileID: 4927071268952284, guid: ea7e17e9108c64847891782ed4180728, type: 2}
       propertyPath: m_RootOrder
       value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621042192217286, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809643958341146, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mCellPos.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809643958341146, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mCellPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621042192217286, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mCellPos.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621042192217286, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114809643958341146, guid: ea7e17e9108c64847891782ed4180728,
+        type: 2}
+      propertyPath: mDirection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea7e17e9108c64847891782ed4180728, type: 2}

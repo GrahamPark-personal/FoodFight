@@ -22,7 +22,7 @@ public class ParticleControl : MonoBehaviour
     [Space(10)]
     [Header("Only needed if its not stationary")]
     public Transform mFinalPositon;
-    
+
     [Space(10)]
     [Header("Extra Functions")]
     public float mLifetime;

@@ -36,8 +36,33 @@ public class AIManager : MonoBehaviour
     IEnumerator RunActors()
     {
         AIActor[] actors = FindObjectsOfType(typeof(AIActor)) as AIActor[];
+
         foreach (AIActor actor in actors)
         {
+            int range = actor.mActivationRange;
+
+            List<Character> charsAround = GetAllEnemiesAround(actor.mCharacter.mCellPos, range, actor.mCharacter);
+
+            if (charsAround.Count > 0)
+            {
+                if (!actor.mCharacter.mActivated)
+                {
+                    actor.mCharacter.mActivated = true;
+                    StartCoroutine(actor.mCharacter.FoundPlayer());
+                }
+            }
+
+        }
+
+        yield return new WaitForSeconds(3.0f);
+
+        foreach (AIActor actor in actors)
+        {
+            if(actor == null)
+            {
+                continue;
+            }
+
             IntVector2 slot = ConquereController.sInstance.FindOpenSpot();
 
             if (slot.x != -1 && slot.y != -1)
@@ -45,13 +70,16 @@ public class AIManager : MonoBehaviour
                 actor.mDesiredDestination = slot;
             }
 
-            yield return new WaitForSeconds(2.0f);
-            mCurrentActor = actor;
-            Calculate(actor.mCharacter);
+            if (actor.mCharacter.mActivated)
+            {
+                yield return new WaitForSeconds(1.0f);
+                mCurrentActor = actor;
+                Calculate(actor.mCharacter);
+            }
         }
 
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(3.0f);
         GameManager.sInstance.FinishEnemyTurn();
     }
 

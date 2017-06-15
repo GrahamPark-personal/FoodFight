@@ -914,7 +914,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    private AttackData GetDuoAttack(CharacterType characterType)
+    public AttackData GetDuoAttack(CharacterType characterType)
     {
         DualAbilities currAbilities = GameManager.sInstance.mCharacterObj.mDualAbilities;
         AttackData atkData = new AttackData();
@@ -930,7 +930,6 @@ public class UIManager : MonoBehaviour
         {
             atkData.char1 = 2;
         }
-
 
         GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
 

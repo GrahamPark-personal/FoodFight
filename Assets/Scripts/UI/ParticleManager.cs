@@ -8,6 +8,7 @@ public struct GamePartical
     public string mKey;
     [Space(10)]
     public GameObject mPartical;
+    public bool mDelayed;
     [Space(10)]
     public AudioClip[] mAttackSounds;
     [HideInInspector]
@@ -38,6 +39,7 @@ public struct PlayerPartical
 
 public class ParticleManager : MonoBehaviour
 {
+
     static public ParticleManager sInstance = null;
 
     [Header("Player Sounds(NOT implemented yet)")]
@@ -48,6 +50,10 @@ public class ParticleManager : MonoBehaviour
 
     [Header("Character Particals")]
     public GameObject[] mCharacterParticals;
+
+    [Space(10)]
+    [Header("Extra Stuff")]
+    public GameObject mExclaim;
 
     [Space(10)]
     [Header("Effects")]
@@ -101,7 +107,6 @@ public class ParticleManager : MonoBehaviour
             Debug.Log("[ParticalManager] Couldn't find key: " + key);
             return;
         }
-
         StartCoroutine(SpawnParticalAfterTime(key, mStart, mEnd, true));
 
     }
@@ -109,8 +114,15 @@ public class ParticleManager : MonoBehaviour
     IEnumerator SpawnParticalAfterTime(string key, Transform mStart, Transform mEnd, bool playSound)
     {
         GamePartical gamePart = mParticalContainer[key];
-
-        yield return new WaitForSeconds(1.6f);
+        Debug.Log("Partical: " + key);
+        if(gamePart.mDelayed)
+        {
+            yield return new WaitForSeconds(1.6f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.0f);
+        }
 
 
         GameObject obj;

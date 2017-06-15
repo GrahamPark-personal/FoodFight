@@ -87,6 +87,21 @@ class RedBlueDuoAttack : Attack
 
         CheckNeighbors(RedNeighborCells, AilmentID.None);
 
+        
+            string part = GameManager.sInstance.mCurrentPartical;
+
+        if(!RedMage.mCellPos.Equals(pos))
+        {
+            //red
+            ParticleManager.sInstance.SpawnPartical(part, RedMage.transform, RedMage.transform, false);
+        }
+        else
+        {
+            //blue
+            GameManager.sInstance.mUIManager.GetDuoAttack(BlueMage.mCharacterType);
+            ParticleManager.sInstance.SpawnPartical(part, BlueMage.transform, BlueMage.transform, false);
+        }
+
     }
 
 

@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: 1194495219618882, guid: a1c279299447a714e9ae11f5f91345ca, type: 2}
   - {fileID: 1650563586394996, guid: 55c8669011967794ca70d2160a95c84c, type: 2}
   - {fileID: 1054190571547216, guid: e93af885a39f05043b380d1948b3aa83, type: 2}
+  mExclaim: {fileID: 1336306028093332, guid: d9dd19f2b4173164f802106b4b05dc87, type: 2}
   mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
     type: 2}
   mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,
@@ -113,16 +114,19 @@ MonoBehaviour:
   - mKey: ELECTRIC_HAIL_STORM
     mPartical: {fileID: 1201200900392170, guid: f4ad93f8d1dfebd46bc13f1cec400d05,
       type: 2}
+    mDelayed: 1
     mAttackSounds: []
     mControl: {fileID: 0}
   - mKey: LIGHTNING_STRIKE
     mPartical: {fileID: 1128349894840400, guid: 2f3569318cebcb441933e464ca4e5635,
       type: 2}
+    mDelayed: 1
     mAttackSounds: []
     mControl: {fileID: 0}
   - mKey: BLUE_BASIC
     mPartical: {fileID: 1011728063569454, guid: 97dded24e77042b45b14b3a7ec47b16c,
       type: 2}
+    mDelayed: 1
     mAttackSounds:
     - {fileID: 8300000, guid: 413da52e41076354a8905be677bdaa60, type: 3}
     - {fileID: 8300000, guid: f5eef8471be9323428c07c9fca3e50d6, type: 3}
@@ -131,6 +135,7 @@ MonoBehaviour:
   - mKey: BLUE_RED
     mPartical: {fileID: 1546026146299352, guid: c88d8499407149c4caeef7524aebb515,
       type: 2}
+    mDelayed: 0
     mAttackSounds:
     - {fileID: 8300000, guid: 413da52e41076354a8905be677bdaa60, type: 3}
     - {fileID: 8300000, guid: f5eef8471be9323428c07c9fca3e50d6, type: 3}
@@ -150,15 +155,7 @@ MonoBehaviour:
     mDuoPartical:
     - ELECTRIC_HAIL_STORM
     - 
-    - 
     - BLUE_RED
-    - 
-  - mCharacter: Brown
-    mBasicPartical: 
-    mDuoPartical:
-    - 
-    - 
-    - 
     - 
     - 
   - mCharacter: Red
@@ -166,6 +163,14 @@ MonoBehaviour:
     mDuoPartical:
     - 
     - BLUE_RED
+    - 
+    - 
+    - 
+  - mCharacter: Brown
+    mBasicPartical: 
+    mDuoPartical:
+    - 
+    - 
     - 
     - 
     - 

@@ -81,12 +81,12 @@ public struct DualAbilities
     public CharacterType ability5Character2;
 }
 
-[System.Serializable]
-public struct AudioClips
-{
-    public AudioClip mHitSound;
-    public AudioClip mAttackSound;
-}
+//[System.Serializable]
+//public struct AudioClips
+//{
+//    public AudioClip mHitSound;
+//    public AudioClip mAttackSound;
+//}
 
 
 
@@ -229,8 +229,8 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public bool hasVirus = false;
 
-    [Header("Audio")]
-    public AudioClips mAudioClips;
+    //[Header("Audio")]
+    //public AudioClips mAudioClips;
 
     bool onIce = false;
 
@@ -794,7 +794,8 @@ public class Character : MonoBehaviour
     public void Damage(int amount)
     {
         mAnimation = CharacterAnimations.Hit;
-        AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
+        //TODO:: Replace with hit sound from ParticleManager
+        //AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
         //TODO:: Deal with attack based abilities
         if (mMaterialRend != null)
@@ -853,10 +854,10 @@ public class Character : MonoBehaviour
 
         if (mSelectedParticle != null)
         {
-            ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform);
+            ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform,true);
         }
         GameManager.sInstance.mCurrentPartical = null;
-        AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
+        //AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
         if(ConquereController.sInstance)
         {
             ConquereController.sInstance.UpdateZone();

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class AttackManager : MonoBehaviour {
+public class AttackManager : MonoBehaviour
+{
 
     /*
     
@@ -19,35 +20,47 @@ public class AttackManager : MonoBehaviour {
 
 
     public Attack mCurrentAttack;
-	
+
+    [HideInInspector]
+    public bool mRemoveAttack = true;
 
     void Awake()
     {
-        if(sInstance == null)
+        if (sInstance == null)
         {
             sInstance = this;
         }
     }
-    
+
     public void RunAttack(IntVector2 pos)
     {
 
-        if(mCurrentAttack != null)
+        if (mCurrentAttack != null)
         {
 
             mCurrentAttack.Execute(pos);
-            RemoveAttack();
+            if (mRemoveAttack)
+            {
+                RemoveAttack();
+            }
         }
-        GameManager.sInstance.CheckLose();
-        GameManager.sInstance.CheckWin();
-
-        GameManager.sInstance.mMouseMode = MouseMode.None;
-        bool finishCharacter = false;
-        if (GameManager.sInstance.mCharacterObj.mMoved)
+        if (mRemoveAttack)
         {
-            finishCharacter = true;
+            GameManager.sInstance.CheckLose();
+            GameManager.sInstance.CheckWin();
+
+            GameManager.sInstance.mMouseMode = MouseMode.None;
+            bool finishCharacter = false;
+            if (GameManager.sInstance.mCharacterObj.mMoved)
+            {
+                finishCharacter = true;
+            }
+            GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
         }
-        GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
+        else
+        {
+            mRemoveAttack = true;
+        }
         //GameManager.sInstance.ResetSelected();
 
     }
@@ -58,14 +71,14 @@ public class AttackManager : MonoBehaviour {
 
         mCurrentAttack.Init();
     }
-    
+
     public void RemoveAttack()
     {
         mCurrentAttack.Exit();
 
         mCurrentAttack = null;
 
-        foreach(GameObject go in GameManager.sInstance.mPreviewBlocks)
+        foreach (GameObject go in GameManager.sInstance.mPreviewBlocks)
         {
             Destroy(go);
         }

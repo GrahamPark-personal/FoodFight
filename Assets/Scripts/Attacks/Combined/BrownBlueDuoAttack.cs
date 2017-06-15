@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrownBlueDuoAttack : Attack {
+public class BrownBlueDuoAttack : Attack
+{
 
     Cell mCell;
 
@@ -80,19 +81,22 @@ public class BrownBlueDuoAttack : Attack {
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCannotMoveHere = false;
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj = null;
 
+        Debug.Log("Enemy: " + tempEnemy);
+        Debug.Log("TargetCell: " + targetCell.x + "," + targetCell.y);
+        if (tempEnemy)
+        {
+            tempEnemy.mPosition.position = GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].transform.position + new Vector3(0, 1, 0);
 
-        tempEnemy.mPosition.position = GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].transform.position + new Vector3(0, 1, 0);
+            tempEnemy.mCellPos = targetCell;
 
-        tempEnemy.mCellPos = targetCell;
-        
-        GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mTypeOnCell = TypeOnCell.enemy;
-        GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mEnemyObj = tempEnemy;
-
+            GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mTypeOnCell = TypeOnCell.enemy;
+            GameManager.sInstance.mCurrGrid.rows[targetCell.y].cols[targetCell.x].mEnemyObj = tempEnemy;
+        }
 
 
 
 
 
-        
+
     }
 }

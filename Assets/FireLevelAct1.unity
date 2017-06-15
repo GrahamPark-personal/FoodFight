@@ -2113,9 +2113,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &44505656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2181,7 +2178,7 @@ Transform:
   - {fileID: 1126779960}
   - {fileID: 892576437}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &44505660
 MonoBehaviour:
@@ -4445,7 +4442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400206, guid: 81514f2dddc277244a8ea7ac618bc065, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 400206, guid: 81514f2dddc277244a8ea7ac618bc065, type: 3}
       propertyPath: m_LocalScale.x
@@ -6848,9 +6845,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &137976903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6915,7 +6909,7 @@ Transform:
   - {fileID: 264137324}
   - {fileID: 519567667}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &138763413
 Prefab:
@@ -8708,7 +8702,7 @@ Transform:
   m_LocalScale: {x: 2.0079005, y: 1.6736394, z: 2.0060263}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187752015
 GameObject:
@@ -8889,7 +8883,7 @@ Transform:
   m_LocalScale: {x: 8.001759, y: 1, z: 4.112579}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &189561369
 Prefab:
@@ -13517,9 +13511,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &244130004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13584,7 +13575,7 @@ Transform:
   - {fileID: 1240122931}
   - {fileID: 783779964}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &244819868
 Prefab:
@@ -14385,9 +14376,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &267179046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14451,7 +14439,7 @@ Transform:
   - {fileID: 1364258848}
   - {fileID: 1921824715}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &267179050
 MonoBehaviour:
@@ -15052,7 +15040,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014230755106, guid: 56e8542574131e1428ebce8a57c7aa33, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1000014141468846, guid: 56e8542574131e1428ebce8a57c7aa33, type: 2}
       propertyPath: m_IsActive
@@ -16798,7 +16786,7 @@ Transform:
   m_LocalScale: {x: 8.001759, y: 1, z: 4.112579}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &324939939
 Prefab:
@@ -17627,7 +17615,7 @@ Transform:
   m_LocalScale: {x: 0.098525956, y: 1.6736394, z: 0.49119407}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &343153228
 Prefab:
@@ -17854,7 +17842,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4149707108897298, guid: ca7c204bc17938849b51ee6dc12c6af8, type: 2}
       propertyPath: m_RootOrder
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1781306214470118, guid: ca7c204bc17938849b51ee6dc12c6af8, type: 2}
       propertyPath: m_IsActive
@@ -19616,9 +19604,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &384067141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19684,7 +19669,7 @@ Transform:
   - {fileID: 446034265}
   - {fileID: 792111807}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &384067145
 MonoBehaviour:
@@ -20780,7 +20765,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: 54f3f02e049e123439903e46dfd82410, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: 54f3f02e049e123439903e46dfd82410, type: 3}
       propertyPath: m_LocalScale.x
@@ -22905,7 +22890,7 @@ RectTransform:
   - {fileID: 1321572551}
   - {fileID: 1056534477}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -26157,7 +26142,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4110486531608904, guid: 9884faca881eadb40be9ddc587fc8fe0, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1220793190393288, guid: 9884faca881eadb40be9ddc587fc8fe0, type: 2}
       propertyPath: m_Name
@@ -35964,7 +35949,7 @@ Transform:
   m_LocalScale: {x: 0.11417698, y: 1, z: 1.1986012}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1001 &726240051
 Prefab:
@@ -36150,7 +36135,7 @@ Transform:
   m_LocalScale: {x: 0.098525956, y: 1.6736394, z: 0.09733349}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: -269.999, z: -90.00001}
 --- !u!1001 &728498384
 Prefab:
@@ -52136,6 +52121,55 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 23049384}
   m_Script: {fileID: 11500000, guid: 22d4c48043fe2fd469b0a62c2dd7d3cb, type: 3}
+--- !u!1 &895702362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1128349894840400, guid: 9dae17926938f8e43a112ae62d5d7ede,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 895702364}
+  - component: {fileID: 895702363}
+  m_Layer: 0
+  m_Name: MudRopeParticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &895702363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114728697236767952, guid: 9dae17926938f8e43a112ae62d5d7ede,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 895702362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1e9550f897fa64a957e65a61a5c666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAction: 4
+  mSpeed: 10
+  mFinalPositon: {fileID: 0}
+  mLifetime: 30
+  mPlaceOtherParticleOnArrival: 0
+  mSecondaryParticle: {fileID: 0}
+--- !u!4 &895702364
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4766988257952754, guid: 9dae17926938f8e43a112ae62d5d7ede,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 895702362}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -18.75647, y: 7.6541233, z: 48.500854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &898042023 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -53246,7 +53280,7 @@ Transform:
   m_Children:
   - {fileID: 819768339}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &927284058
 MonoBehaviour:
@@ -53320,9 +53354,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
 --- !u!1001 &929309277
 Prefab:
   m_ObjectHideFlags: 0
@@ -59628,9 +59659,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &1060570662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59695,7 +59723,7 @@ Transform:
   - {fileID: 1095085926}
   - {fileID: 565476179}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1063262754
 Prefab:
@@ -59801,7 +59829,7 @@ Transform:
   - {fileID: 159370616}
   - {fileID: 809206666}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!1001 &1066649122
 Prefab:
@@ -61042,7 +61070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4798079874322200, guid: 9eec3229ed71e0a46869f069a994a2d7, type: 2}
       propertyPath: m_RootOrder
-      value: 47
+      value: 48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9eec3229ed71e0a46869f069a994a2d7, type: 2}
@@ -63183,7 +63211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 80.221, y: -88.878006, z: -105.732}
 --- !u!1001 &1149228464
 Prefab:
@@ -64805,9 +64833,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &1188408016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64872,7 +64897,7 @@ Transform:
   - {fileID: 1046322206}
   - {fileID: 356186298}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1191359053 stripped
 Transform:
@@ -66825,7 +66850,7 @@ Transform:
   m_LocalScale: {x: 0.1183468, y: 1, z: 1.1986012}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: -90.00001}
 --- !u!1 &1242990068
 GameObject:
@@ -68045,7 +68070,7 @@ Transform:
   m_LocalScale: {x: 0.098525956, y: 1.6736394, z: 0.49119407}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1001 &1270441467
 Prefab:
@@ -75921,7 +75946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606594586526898, guid: 26617e4ad9053f8479998d40693cac25, type: 2}
       propertyPath: m_RootOrder
-      value: 43
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 114355383812578014, guid: 26617e4ad9053f8479998d40693cac25,
         type: 2}
@@ -77955,7 +77980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1413825588
 Prefab:
@@ -80613,9 +80638,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
 --- !u!23 &1505749548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80678,7 +80700,7 @@ Transform:
   m_Children:
   - {fileID: 122512993}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1507348509 stripped
 Transform:
@@ -82147,7 +82169,7 @@ Transform:
   - {fileID: 786054887}
   - {fileID: 1777903817}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1536550491
 MonoBehaviour:
@@ -82221,9 +82243,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!114 &1536766419 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000010786207988, guid: 00096ea014063494a94b212272662183,
@@ -82365,7 +82384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1539359217
 MonoBehaviour:
@@ -84363,7 +84382,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4674289887547438, guid: 16921086e649e4f4bbfce21ba896924e, type: 2}
       propertyPath: m_RootOrder
-      value: 44
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4052036131974666, guid: 16921086e649e4f4bbfce21ba896924e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -85884,7 +85903,7 @@ Transform:
   - {fileID: 653229261}
   - {fileID: 2108780546}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1642047797
 MonoBehaviour:
@@ -85958,9 +85977,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!4 &1642308812 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -86960,7 +86976,7 @@ Transform:
   m_LocalScale: {x: 2.0575047, y: 2.0575047, z: 2.0575047}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 87.12701, y: -44.751003, z: 0}
 --- !u!4 &1673333375 stripped
 Transform:
@@ -87901,7 +87917,7 @@ Transform:
   m_LocalScale: {x: 0.098525956, y: 1.6736394, z: 0.09733349}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!1001 &1694892186
 Prefab:
@@ -88037,7 +88053,7 @@ Transform:
   - {fileID: 251763406}
   - {fileID: 600657137}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1695464824
 MonoBehaviour:
@@ -88111,9 +88127,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!1 &1695746828
 GameObject:
   m_ObjectHideFlags: 0
@@ -89411,9 +89424,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &1705453823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -89478,7 +89488,7 @@ Transform:
   - {fileID: 1562746942}
   - {fileID: 1812617844}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1707370660
 Prefab:
@@ -90019,9 +90029,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
 --- !u!23 &1716735078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -90087,7 +90094,7 @@ Transform:
   - {fileID: 2011557573}
   - {fileID: 1571900597}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1716735082
 MonoBehaviour:
@@ -92016,7 +92023,7 @@ Transform:
   m_LocalScale: {x: 0.098525956, y: 1.6736394, z: 0.49119407}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: -90.00001}
 --- !u!1 &1749378946
 GameObject:
@@ -94145,7 +94152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1812617843
 Prefab:
@@ -95372,7 +95379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1848276764
 MonoBehaviour:
@@ -95386,6 +95393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mCurrentAttack: {fileID: 0}
+  mRemoveAttack: 1
 --- !u!1 &1849461945
 GameObject:
   m_ObjectHideFlags: 0
@@ -99164,7 +99172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 80.221, y: -88.878006, z: -105.732}
 --- !u!1001 &1915278686
 Prefab:
@@ -99312,7 +99320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2.9638133}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: -89.981, y: 0, z: 0}
 --- !u!199 &1919435146
 ParticleSystemRenderer:
@@ -108273,7 +108281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606273769095100, guid: 3d05a9561dfad5445a40afa1c6e6afcf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1793952423395382, guid: 3d05a9561dfad5445a40afa1c6e6afcf, type: 2}
       propertyPath: m_Name
@@ -108604,7 +108612,7 @@ Transform:
   - {fileID: 1475023761}
   - {fileID: 2127241694}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 44.751003, z: 0}
 --- !u!114 &2007593997
 MonoBehaviour:
@@ -109203,6 +109211,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mCurrentAudio: {fileID: 0}
   mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
@@ -109284,7 +109293,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -111988,7 +111997,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4927071268952284, guid: ea7e17e9108c64847891782ed4180728, type: 2}
       propertyPath: m_RootOrder
-      value: 46
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 114621042192217286, guid: ea7e17e9108c64847891782ed4180728,
         type: 2}
@@ -112486,9 +112495,6 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
 --- !u!23 &2120397830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -112553,7 +112559,7 @@ Transform:
   - {fileID: 297332252}
   - {fileID: 1952873945}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2120584279
 Prefab:

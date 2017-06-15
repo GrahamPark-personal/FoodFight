@@ -51,7 +51,7 @@ public class MovePortrait : MonoBehaviour
 
     IEnumerator moveBack()
     {
-        Debug.Log("[MovePortrait] MoveBackCalled");
+        //Debug.Log("[MovePortrait] MoveBackCalled");
         while (Vector3.Distance(mRect.position, mStartPos) > 1.0f)
         {
             yield return new WaitForSeconds(0.001f);

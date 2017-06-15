@@ -921,6 +921,17 @@ public class UIManager : MonoBehaviour
 
         atkData.char1 = (int)characterType;
         atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+        if(atkData.char1 == 2)
+        {
+            atkData.char1 = 3;
+        }
+        else if (atkData.char1 == 3)
+        {
+            atkData.char1 = 2;
+        }
+
+
         GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
 
 
@@ -932,6 +943,7 @@ public class UIManager : MonoBehaviour
             //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical1;
 
             GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[0];
+
 
 
             return atkData;

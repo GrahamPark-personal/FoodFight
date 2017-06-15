@@ -18,7 +18,8 @@ public enum CellTag
     Ice,
     Enchanted,
     Poison,
-    ElectricHailStorm
+    ElectricHailStorm,
+    ElectricAvenue
 
 }
 
@@ -30,7 +31,9 @@ public enum cellEffect
     LightningRod,
     Wall,
     Ice,
-    Poison
+    Poison,
+    Fire,
+    ElectricAvenue
 }
 
 public enum CellActionType
@@ -170,7 +173,14 @@ public class Cell : MonoBehaviour
         if (AreaEffectBlock == null)
         {
             //will have different blocks for each one
-            AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+            if(parm.Effect == cellEffect.ElectricHailStorm)
+            {
+                AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricHailStorm, transform.position, transform.rotation);
+            }
+            else if(parm.Effect == cellEffect.ElectricAvenue)
+            {
+                AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricAvenue, transform.position, transform.rotation);
+            }
         }
         if (parm.Effect == cellEffect.Wall)
         {
@@ -208,9 +218,16 @@ public class Cell : MonoBehaviour
         DoEffect(index);
     }
 
-    public void AddVisualBlock()
+    public void AddVisualBlock(CellTag tag)
     {
-        AreaEffectBlock = Instantiate(GameManager.sInstance.mAreaEffectBlock, transform.position, transform.rotation);
+        if(tag == CellTag.ElectricHailStorm)
+        {
+            AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricHailStorm, transform.position, transform.rotation);
+        }
+        else if(tag == CellTag.ElectricAvenue)
+        {
+            AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricAvenue, transform.position, transform.rotation);
+        }
     }
 
     public void AddBanana()

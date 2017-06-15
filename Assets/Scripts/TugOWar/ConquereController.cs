@@ -149,7 +149,7 @@ public class ConquereController : MonoBehaviour
 
         foreach (Cell item in mZoneLocations)
         {
-            Debug.Log("[ConquereController] Contains Location:" + item.mPos.x + "," + item.mPos.y);
+            //Debug.Log("[ConquereController] Contains Location:" + item.mPos.x + "," + item.mPos.y);
             item.mConquereArea = true;
         }
 

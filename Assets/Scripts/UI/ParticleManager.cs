@@ -6,11 +6,26 @@ using UnityEngine;
 public struct GamePartical
 {
     public string mKey;
+    [Space(10)]
     public GameObject mPartical;
-
+    [Space(10)]
+    public AudioClip[] mAttackSounds;
     [HideInInspector]
     public ParticleControl mControl;
 }
+
+[System.Serializable]
+public struct PlayerSpecificSounds
+{
+
+    public string mName;
+    public AudioClip[] mDamageSounds;
+
+    [Header("Only use for minions, or npc's")]
+    public AudioClip[] mAttackSounds;
+
+}
+
 
 [System.Serializable]
 public struct PlayerPartical
@@ -25,6 +40,12 @@ public class ParticleManager : MonoBehaviour
 {
     static public ParticleManager sInstance = null;
 
+    [Header("Player Sounds(NOT implemented yet)")]
+    public PlayerSpecificSounds[] mPlayerSounds;
+
+    [Header("Minion Sounds(NOT implemented yet)")]
+    public PlayerSpecificSounds[] mMinions;
+
     [Header("Character Particals")]
     public GameObject[] mCharacterParticals;
 
@@ -33,6 +54,11 @@ public class ParticleManager : MonoBehaviour
     public GameObject mStunnedObject;
     public GameObject mSlowedObject;
     public GameObject mStormCloak;
+
+    [Space(10)]
+    [Header("Partical Blocks")]
+    public GameObject ElectricHailStorm;
+    public GameObject ElectricAvenue;
 
     [Space(10)]
     [Header("Attack Particals")]
@@ -68,19 +94,19 @@ public class ParticleManager : MonoBehaviour
     }
 
 
-    public void SpawnPartical(string key, Transform mStart, Transform mEnd)
+    public void SpawnPartical(string key, Transform mStart, Transform mEnd, bool playSound)
     {
         if (!mParticalContainer.ContainsKey(key))
         {
             Debug.Log("[ParticalManager] Couldn't find key: " + key);
             return;
         }
-        
-        StartCoroutine(SpawnParticalAfterTime(key, mStart, mEnd));
+
+        StartCoroutine(SpawnParticalAfterTime(key, mStart, mEnd, true));
 
     }
 
-    IEnumerator SpawnParticalAfterTime(string key, Transform mStart, Transform mEnd)
+    IEnumerator SpawnParticalAfterTime(string key, Transform mStart, Transform mEnd, bool playSound)
     {
         GamePartical gamePart = mParticalContainer[key];
 
@@ -98,12 +124,12 @@ public class ParticleManager : MonoBehaviour
             obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
             pCon.Init(mEnd);
         }
-        else if(pCon.mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
+        else if (pCon.mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
         {
             obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
             pCon.Init(mStart);
         }
-        else if(pCon.mAction == mParticleAction.StartOnCharacter)
+        else if (pCon.mAction == mParticleAction.StartOnCharacter)
         {
             obj.transform.position = mStart.position + new Vector3(0, 1, 0);
             pCon.Init(mStart);
@@ -112,6 +138,26 @@ public class ParticleManager : MonoBehaviour
         {
             obj.transform.position = mStart.position + new Vector3(0, 1, 0);
             pCon.Init(mEnd);
+        }
+
+
+        AudioClip clip;
+
+        int audioLength = gamePart.mAttackSounds.Length;
+
+        if (playSound && audioLength > 0)
+        {
+            if (audioLength > 1)
+            {
+                int rnd = Random.Range(0, (audioLength - 1));
+                clip = gamePart.mAttackSounds[rnd];
+            }
+            else
+            {
+                clip = gamePart.mAttackSounds[0];
+            }
+
+            AudioManager.sInstance.CreateAudioAtPosition(clip, this.transform);
         }
 
     }

@@ -59,8 +59,8 @@ class RedBlueDuoAttack : Attack
         Character StartCharacter = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].mCharacterObj;
         Character OtherCharacter = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj;
 
-        BlueMage.GetComponent<MeshRenderer>().enabled = false;
-        RedMage.GetComponent<MeshRenderer>().enabled = false;
+        //BlueMage.GetComponent<MeshRenderer>().enabled = false;
+        //RedMage.GetComponent<MeshRenderer>().enabled = false;
 
 
         StartCharacter.mCellPos = pos;
@@ -70,10 +70,10 @@ class RedBlueDuoAttack : Attack
         OtherCharacter.transform.position = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].transform.position + new Vector3(0, 1, 0);
 
 
-        BlueMage.GetComponent<MeshRenderer>().enabled = true;
-        RedMage.GetComponent<MeshRenderer>().enabled = true;
+        //BlueMage.GetComponent<MeshRenderer>().enabled = true;
+        //RedMage.GetComponent<MeshRenderer>().enabled = true;
 
-      
+
 
         List<IntVector2> BlueNeighborCells = new List<IntVector2>();
         GetNeighbors(BlueMage, BlueNeighborCells);
@@ -82,10 +82,10 @@ class RedBlueDuoAttack : Attack
         GetNeighbors(RedMage, RedNeighborCells);
 
 
-        CheckNeighbors(BlueNeighborCells,AilmentID.Slow);
+        CheckNeighbors(BlueNeighborCells, AilmentID.Slow);
 
 
-        CheckNeighbors(RedNeighborCells,AilmentID.None);
+        CheckNeighbors(RedNeighborCells, AilmentID.None);
 
     }
 
@@ -109,22 +109,26 @@ class RedBlueDuoAttack : Attack
         }
     }
 
-    public void CheckNeighbors(List<IntVector2> neighbors,AilmentID ID)
+    public void CheckNeighbors(List<IntVector2> neighbors, AilmentID ID)
     {
 
         foreach (var cellPos in neighbors)
         {
-            Character nextEnemy = GameManager.sInstance.mCurrGrid.rows[cellPos.y].cols[cellPos.x].mEnemyObj;
-
-            if (nextEnemy != null)
+            if (GameManager.sInstance.IsOnGrid(cellPos))
             {
-                if(ID == AilmentID.Slow)
+
+                Character nextEnemy = GameManager.sInstance.mCurrGrid.rows[cellPos.y].cols[cellPos.x].mEnemyObj;
+
+                if (nextEnemy != null)
                 {
-                    nextEnemy.mMoveDistance -= GetSlow();
-                }
-                else if(ID == AilmentID.None)
-                {
-                    nextEnemy.Damage(gameObject.GetComponent<Character>(), GetDamage());
+                    if (ID == AilmentID.Slow)
+                    {
+                        nextEnemy.mMoveDistance -= GetSlow();
+                    }
+                    else if (ID == AilmentID.None)
+                    {
+                        nextEnemy.Damage(gameObject.GetComponent<Character>(), GetDamage());
+                    }
                 }
             }
         }

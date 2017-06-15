@@ -65,7 +65,7 @@ class YellowRedDuoAttack : Attack
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mTypeOnCell = TypeOnCell.character;
         GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj = tempCharacter;
 
-        GameManager.sInstance.CreateRowEffect(GetStartPos(), pos, CellTag.Fire, GetDamage());
+        GameManager.sInstance.CreateRowEffect(GetStartPos(), pos, CellTag.ElectricAvenue, GetDamage());
 
         tempCharacter.mCellPos = pos;
 

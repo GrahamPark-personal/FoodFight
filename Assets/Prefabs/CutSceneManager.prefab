@@ -455,12 +455,12 @@ MonoBehaviour:
   - {fileID: 1966532847331574}
   - {fileID: 1283969761671066}
   mCharacterPortraits:
-  - {fileID: 2800000, guid: 3aae5eb74ce003d4eab5c293ce80c3c3, type: 3}
-  - {fileID: 2800000, guid: 55b770c5881b1454cb1704d954fe9b80, type: 3}
-  - {fileID: 2800000, guid: cd44a5ac91946374a972496cfcdb1afa, type: 3}
-  - {fileID: 2800000, guid: c24e7c093e68c1c42ae086e1a9e16eba, type: 3}
-  - {fileID: 2800000, guid: eb34587fcb23de94fadba2f884233fa9, type: 3}
-  - {fileID: 2800000, guid: 9bc0f830135fef34390ac15f2e78fb3c, type: 3}
+  - {fileID: 2800000, guid: d982bba905a6fc043b8e56954d27a72f, type: 3}
+  - {fileID: 2800000, guid: 4541c372deca44d4db32f3c47476e789, type: 3}
+  - {fileID: 2800000, guid: 4e021a01ca8a9bf4c9a957661c4c381d, type: 3}
+  - {fileID: 2800000, guid: f11ee3881ea87534dab7747c4f33aca0, type: 3}
+  - {fileID: 2800000, guid: 6fe31134444127f4fbc2579792cd3591, type: 3}
+  - {fileID: 2800000, guid: 31f6d55e1c9e5d64e8237f7560b33184, type: 3}
   mLeftCharacter: {fileID: 114720379221736126}
   mRightCharacter: {fileID: 114593263882610184}
   mLeftText: {fileID: 114123843085037880}
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: 1}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!114 &114281955993737072
 MonoBehaviour:
@@ -895,7 +895,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: ff372573968513e4f87f003960911b62, type: 3}
+  m_Texture: {fileID: 2800000, guid: fffe22a46c20ea64192058705ea6a5b7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: 1}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!114 &114981848902777780
 MonoBehaviour:

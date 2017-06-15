@@ -1105,7 +1105,7 @@ MonoBehaviour:
     H: 0
     parent: []
   mCharNumber: 0
-  mHealth: 10
+  mHealth: 65
   mDamage: 2
   mMoveDistance: 6
   mDamageDistance: 1
@@ -9975,6 +9975,51 @@ Prefab:
       propertyPath: mCellPos.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114702479354115012, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114884803762882168, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125200431975244, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114680404656597896, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114459911130572234, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945823705477590, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114897793510742320, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668597991659174, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627416121305458, guid: 4af96f1838980dc4eb0a65d3bb30d7ae,
+        type: 2}
+      propertyPath: mActivationRange
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4af96f1838980dc4eb0a65d3bb30d7ae, type: 2}
   m_IsPrefabParent: 0
@@ -11203,7 +11248,7 @@ Prefab:
     - target: {fileID: 114552416725155640, guid: c59340962f2b62144b27c6a9c5a6d050,
         type: 2}
       propertyPath: mZoneMiddle.y
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c59340962f2b62144b27c6a9c5a6d050, type: 2}
@@ -22418,6 +22463,11 @@ Prefab:
       propertyPath: m_EffectDistance.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114793569315054690, guid: 05a956568a978a848ae078f82f99a977,
+        type: 2}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: c04f578dd7e5a7948808354f161e5bbe, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05a956568a978a848ae078f82f99a977, type: 2}
   m_IsPrefabParent: 0

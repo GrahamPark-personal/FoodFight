@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edebd45a951f6b34c87e581b084b3221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  YourturnImage: {fileID: 2800000, guid: 8924e0c1694e0bb4e839cb35ed92adb0, type: 3}
-  EnemyTurnImage: {fileID: 2800000, guid: 1f2e59d952380ad45ab23e2d20395cd6, type: 3}
+  YourturnImage: {fileID: 2800000, guid: 5d19020b93f3f714f992feea81230d1d, type: 3}
+  EnemyTurnImage: {fileID: 2800000, guid: 5142031a30ac2024896947731c5986d1, type: 3}
 --- !u!222 &222379439101377910
 CanvasRenderer:
   m_ObjectHideFlags: 1

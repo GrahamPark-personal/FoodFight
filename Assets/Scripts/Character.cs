@@ -34,6 +34,7 @@ public enum CharacterType
     Red = 3,
     Green = 4,
     Black = 5,
+    White,
     None
 }
 
@@ -818,18 +819,30 @@ public class Character : MonoBehaviour
         if (mHealth <= 0)
         {
             mHealth = 0;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCharacterObj = null;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mEnemyObj = null;
-            GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
-            if (this.tag == "Boss")
-            {
-                GameManager.sInstance.CheckWin();
-            }
+            Transform trForm = transform;
+            ParticleManager.sInstance.SpawnPartical("DEATH", trForm, trForm, true);
 
-            ConquereController.sInstance.UpdateZone();
-            Destroy(this.gameObject);
+            StartCoroutine(DeleteAfterTime());
+
         }
+
+    }
+
+    IEnumerator DeleteAfterTime()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCannotMoveHere = false;
+        GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mCharacterObj = null;
+        GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mEnemyObj = null;
+        GameManager.sInstance.mCurrGrid.rows[mCellPos.y].cols[mCellPos.x].mTypeOnCell = TypeOnCell.nothing;
+        if (this.tag == "Boss")
+        {
+            GameManager.sInstance.CheckWin();
+        }
+
+        ConquereController.sInstance.UpdateZone();
+        Destroy(this.gameObject);
 
     }
 

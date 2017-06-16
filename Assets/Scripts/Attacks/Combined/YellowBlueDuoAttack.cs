@@ -9,8 +9,8 @@ public class YellowBlueDuoAttack : Attack {
     public override void Init()
     {
         CreateID();
-        SetDamage(5);
-        SetSlow(1);
+        SetDamage(3);
+        SetSlow(2);
         SetRange(5);
         SetRadius(2);
         SetEffectDuration(2);

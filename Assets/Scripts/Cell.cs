@@ -403,10 +403,6 @@ public class Cell : MonoBehaviour
                 }
                 else if (mTypeOnCell == TypeOnCell.enemy && GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
-                    if (mEffectParameters[i].Damage != 0)
-                    {
-                        mEnemyObj.Damage(mEffectParameters[i].Damage);
-                    }
                     if (mEffectParameters[i].Health != 0)
                     {
                         mEnemyObj.Heal(mEffectParameters[i].Health);
@@ -423,6 +419,10 @@ public class Cell : MonoBehaviour
                     if (mEffectParameters[i].Slow != 0)
                     {
                         mEnemyObj.AddAilment(AilmentID.Slow, mEffectParameters[i].EffectDuration, mEffectParameters[i].Slow);
+                    }
+                    if (mEffectParameters[i].Damage != 0)
+                    {
+                        mEnemyObj.Damage(mEffectParameters[i].Damage);
                     }
                     //EffectParameters temp = mEffectParameters[i];
                     //temp.EffectDuration--;

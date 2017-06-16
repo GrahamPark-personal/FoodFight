@@ -138,7 +138,7 @@ public class UIManager : MonoBehaviour
 
         ResetBubbles();
 
-        mActiveCharacters = GameManager.sInstance.mCharacters.Length;
+        mActiveCharacters = mCharacters.Length;
 
         mSavedCharImage = new Texture2D[mCharTexture.Length];
 
@@ -154,9 +154,9 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < mCharacters.Length; i++)
         {
-            if (i < GameManager.sInstance.mCharacters.Length)
+            if (i < mCharacters.Length)
             {
-                if (GameManager.sInstance.mCharacters[i].mAttacked && GameManager.sInstance.mCharacters[i].mMoved)
+                if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
                 {
                     mCharImage[i].texture = mCharHiddenTexture[i];
                 }
@@ -207,6 +207,11 @@ public class UIManager : MonoBehaviour
     {
         ResetCurrentHover1();
 
+        if(mCharacters.Length < slot)
+        {
+            return;
+        }
+
         if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
         {
             return;
@@ -221,7 +226,7 @@ public class UIManager : MonoBehaviour
 
     public void SaveCurrentHover1()
     {
-        if(mSavedHover1 == -1)
+        if (mSavedHover1 == -1)
         {
             return;
         }
@@ -248,7 +253,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < mCharacters.Length; i++)
         {
-            if(mCharacters[i].mAttacked && mCharacters[i].mMoved)
+            if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
             {
                 mCharImage[i].texture = mCharHiddenTexture[i];
             }
@@ -262,9 +267,16 @@ public class UIManager : MonoBehaviour
 
     public void SetCurrentHover2(int slot)
     {
-        if (!mAttackShown && !mCharacters[mSavedHover1].mAttacked)
+
+        if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
         {
-            ResetCurrentHover2();
+            return;
+        }
+
+
+        if (!mAttackShown && !mCharacters[slot].mAttacked)
+        {
+            //ResetCurrentHover2();
             if (slot == mSavedHover1)
             {
                 mCharacterBigGlow[slot].color = new Color(mCharacterBigGlow[slot].color.r, mCharacterBigGlow[slot].color.g, mCharacterBigGlow[slot].color.b, 100);
@@ -281,7 +293,12 @@ public class UIManager : MonoBehaviour
             mCurrentHover2 = slot;
             mSavedHover2 = slot;
         }
+
+
+
     }
+
+    //TODO::Character frame
 
     public void ResetCurrentHover2()
     {
@@ -295,14 +312,17 @@ public class UIManager : MonoBehaviour
             {
                 mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
             }
-            for (int i = 0; i < mCharacters.Length; i++)
+        }
+        for (int i = 0; i < mCharacters.Length; i++)
+        {
+            if (i != mSavedHover1)
             {
-                if(i != mSavedHover1)
+                if (mCharacters[i].mAttacked)// || mCharacters[i].mMoved
                 {
-                    if(mCharacters[i].mAttacked && mCharacters[i].mMoved)
-                    {
-                        continue;
-                    }
+                    mAttackImages[i].texture = mCharHiddenTexture[i];
+                }
+                else
+                {
                     mAttackImages[i].texture = mCharTexture[i];
                 }
             }
@@ -319,7 +339,9 @@ public class UIManager : MonoBehaviour
         if (mSavedHover1 == -1)
         {
             AttackData data = GetDuoAttack((CharacterType)mSavedHover2);
+
             mSavedHover1 = data.char1;
+
             SetCurrentHover1(mSavedHover1);
             for (int i = 0; i < mCharacterBigGlow.Length; i++)
             {
@@ -345,7 +367,15 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < mCharFrame.Length; i++)
         {
-            mCharFrame[i].SetActive(false);
+            //here
+            if(mCharacters[i].mAttacked)
+            {
+                mCharFrame[i].SetActive(false);
+            }
+            else
+            {
+                mCharFrame[i].SetActive(true);
+            }
         }
 
         mAttackImages[mSavedHover2].texture = mCharSelectedTexture[mSavedHover2];
@@ -579,7 +609,7 @@ public class UIManager : MonoBehaviour
             mCharHealth[i].value = mCharacters[i].mHealth;
         }
 
-        if(Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(KeyCode.End))
         {
             OnEndTurnDown();
         }
@@ -646,9 +676,9 @@ public class UIManager : MonoBehaviour
 
             for (int i = 0; i < mCharacters.Length; i++)
             {
-                if(i != mCurrentHover1)
+                if (i != mCurrentHover1)
                 {
-                    if(!mCharacters[i].mAttacked && !mCharacters[i].mMoved)
+                    if (!mCharacters[i].mAttacked && !mCharacters[i].mMoved)
                     {
                         mAttackImages[i].texture = mCharTexture[i];
                     }
@@ -824,7 +854,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter1()
     {
-        if (mActiveCharacters >= 0)
+        if (mActiveCharacters >= 1)
         {
             if (mCharacters[0].mAttacked && mCharacters[0].mMoved)
             {
@@ -838,7 +868,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter2()
     {
-        if (mActiveCharacters >= 1)
+        if (mActiveCharacters >= 2)
         {
             if (mCharacters[1].mAttacked && mCharacters[1].mMoved)
             {
@@ -852,7 +882,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter3()
     {
-        if (mActiveCharacters >= 2)
+        if (mActiveCharacters >= 3)
         {
             if (mCharacters[2].mAttacked && mCharacters[2].mMoved)
             {
@@ -866,7 +896,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter4()
     {
-        if (mActiveCharacters >= 3)
+        if (mActiveCharacters >= 4)
         {
             if (mCharacters[3].mAttacked && mCharacters[3].mMoved)
             {
@@ -880,7 +910,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter5()
     {
-        if (mActiveCharacters >= 4)
+        if (mActiveCharacters >= 5)
         {
             if (mCharacters[4].mAttacked && mCharacters[4].mMoved)
             {
@@ -894,7 +924,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCharEnter6()
     {
-        if (mActiveCharacters >= 5)
+        if (mActiveCharacters >= 6)
         {
             if (mCharacters[5].mAttacked && mCharacters[5].mMoved)
             {
@@ -922,7 +952,7 @@ public class UIManager : MonoBehaviour
         atkData.char1 = (int)characterType;
         atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
-        if(atkData.char1 == 2)
+        if (atkData.char1 == 2)
         {
             atkData.char1 = 3;
         }
@@ -1409,7 +1439,24 @@ public class UIManager : MonoBehaviour
 
         Debug.Log("Character: " + character);
 
-        SetCurrentHover1(character);
+        int realSlot = -1;
+
+        if (character == 3)
+        {
+            //4
+            realSlot = 2;
+        }
+        else if (character == 2)
+        {
+            //3
+            realSlot = 3;
+        }
+        else
+        {
+            realSlot = character;
+        }
+
+        SetCurrentHover1(realSlot);
         SaveCurrentHover1();
 
         mCurrentCharacter = character;
@@ -1510,11 +1557,11 @@ public class UIManager : MonoBehaviour
 
     void MoveCharacterHover(int character)
     {
-        if(character == 2)
+        if (character == 2)
         {
             character = 3;
         }
-        else if(character == 3)
+        else if (character == 3)
         {
             character = 2;
         }

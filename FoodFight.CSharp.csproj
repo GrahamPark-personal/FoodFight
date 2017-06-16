@@ -144,6 +144,7 @@
     <Compile Include="Assets\Scripts\UI\MovePortrait.cs" />
     <Compile Include="Assets\Scripts\UI\ParticleControl.cs" />
     <Compile Include="Assets\Scripts\UI\ParticleManager.cs" />
+    <Compile Include="Assets\Scripts\UI\RemoveTutorial.cs" />
     <Compile Include="Assets\Scripts\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>

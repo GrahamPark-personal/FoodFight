@@ -10,12 +10,12 @@ public class BlueBaseAttack : Attack{
     {
         CreateID();
 
-        SetDamage(4);
+        SetDamage(6);
         SetSlow(2);
         SetRange(6);
         SetRadius(1);
         SetAOE(1);
-        SetEffectDuration(2);
+        SetEffectDuration(3);
         SetDamageDuration(1);
         GameManager.sInstance.mAttackShape = AttackShape.Area;
         GameManager.sInstance.mCurrentRange = GetRange();

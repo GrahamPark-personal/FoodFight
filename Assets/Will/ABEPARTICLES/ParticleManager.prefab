@@ -100,6 +100,13 @@ MonoBehaviour:
   - {fileID: 1650563586394996, guid: 55c8669011967794ca70d2160a95c84c, type: 2}
   - {fileID: 1054190571547216, guid: e93af885a39f05043b380d1948b3aa83, type: 2}
   mExclaim: {fileID: 1336306028093332, guid: d9dd19f2b4173164f802106b4b05dc87, type: 2}
+  mDeathPartical:
+    mKey: DEATH
+    mPartical: {fileID: 1475297828927734, guid: ac6683a8c7ee3134baeb6133ac20d2ca,
+      type: 2}
+    mDelayed: 0
+    mAttackSounds: []
+    mControl: {fileID: 0}
   mStunnedObject: {fileID: 1107031628817156, guid: 59f2092cf3a553b479ba10706cf514e5,
     type: 2}
   mSlowedObject: {fileID: 1856258633723630, guid: 8eb8cbec834bc0244b2109ec19818fb3,

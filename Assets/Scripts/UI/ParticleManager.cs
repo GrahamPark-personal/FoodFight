@@ -54,6 +54,7 @@ public class ParticleManager : MonoBehaviour
     [Space(10)]
     [Header("Extra Stuff")]
     public GameObject mExclaim;
+    public GamePartical mDeathPartical;
 
     [Space(10)]
     [Header("Effects")]
@@ -97,6 +98,7 @@ public class ParticleManager : MonoBehaviour
             mParticalContainer[mParticals[i].mKey] = mParticals[i];
             mParticals[i].mControl = mParticals[i].mPartical.gameObject.GetComponent<ParticleControl>();
         }
+        mParticalContainer["DEATH"] = mDeathPartical;
     }
 
 

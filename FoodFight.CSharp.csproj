@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\EditorStuff\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GoToNext.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\GroundDir.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />

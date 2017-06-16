@@ -68,6 +68,16 @@ public class ParticleManager : MonoBehaviour
     public GameObject ElectricAvenue;
 
     [Space(10)]
+    [Header("Talking Sounds")]
+    public AudioClip[] mYellow;
+    public AudioClip[] mBlue;
+    public AudioClip[] mBrown;
+    public AudioClip[] mRed;
+    public AudioClip[] mGreen;
+    public AudioClip[] mBlack;
+    public AudioClip[] mWhite;
+
+    [Space(10)]
     [Header("Attack Particals")]
     public GamePartical[] mParticals;
 

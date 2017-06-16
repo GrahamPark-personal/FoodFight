@@ -1710,9 +1710,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &44505656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4860,9 +4858,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &137976903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10727,9 +10723,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &244130004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11434,9 +11428,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &267179046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15124,9 +15116,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &384067141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15868,6 +15858,11 @@ Prefab:
       propertyPath: mStarImageSlot
       value: 
       objectReference: {fileID: 1673468033}
+    - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: mCharTexture.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 7fa55e8c5a860e34faf1d944d5a1b065, type: 3}
     m_RemovedComponents:
     - {fileID: 114742672203078278, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
     - {fileID: 114392397808728992, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
@@ -28023,9 +28018,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!114 &698533970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28099,9 +28092,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!114 &698533971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28175,9 +28166,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!114 &698533972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28251,9 +28240,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!1001 &699470088
 Prefab:
   m_ObjectHideFlags: 0
@@ -28977,7 +28964,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400110, guid: 30266104c85ed8e419e8daa8d24bf4c7, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731478665}
-  m_LocalRotation: {x: 0.6534865, y: 0.33678353, z: -0.30997965, w: 0.602864}
+  m_LocalRotation: {x: 0.65348643, y: 0.3367835, z: -0.30997962, w: 0.60286397}
   m_LocalPosition: {x: 0.012011811, y: -0.003553795, z: 0.021300644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44991,9 +44978,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!1001 &930100038
 Prefab:
   m_ObjectHideFlags: 0
@@ -49701,9 +49686,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &1060570662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53220,9 +53203,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &1188408016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67112,9 +67093,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &1505749548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68383,9 +68362,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!114 &1536766419 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000010786207988, guid: 00096ea014063494a94b212272662183,
@@ -71142,9 +71119,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!4 &1642308812 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -72978,9 +72953,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!4 &1695907224 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012261176780, guid: 00096ea014063494a94b212272662183,
@@ -73280,9 +73253,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &1705453823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73757,9 +73728,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &1716735078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -77241,6 +77210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mCurrentAttack: {fileID: 0}
+  mRemoveAttack: 1
 --- !u!1 &1849461945
 GameObject:
   m_ObjectHideFlags: 0
@@ -89591,6 +89561,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mCurrentAudio: {fileID: 0}
   mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}
@@ -92236,9 +92207,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &2120397830
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -41,30 +41,30 @@ public class LevelSelectControl : MonoBehaviour
 
     public void LoadRockLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void LoadFireLevel()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
 
     }
 
     public void LoadNatureLevel()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
 
     }
 
     public void LoadDarkLevel()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(12);
 
     }
 
     public void LoadBossLevel()
     {
-        SceneManager.LoadScene(14);
+        SceneManager.LoadScene(15);
     }
 
 }

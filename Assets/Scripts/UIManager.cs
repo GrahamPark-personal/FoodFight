@@ -343,7 +343,10 @@ public class UIManager : MonoBehaviour
 
         if (mSavedHover1 == -1)
         {
+
             AttackData data = GetDuoAttack((CharacterType)mSavedHover2);
+
+
 
             mSavedHover1 = data.char1;
 
@@ -814,6 +817,10 @@ public class UIManager : MonoBehaviour
             {
                 return;
             }
+
+            //SetCurrentHover1(3);
+            //SaveCurrentHover1();
+
             SelectCharacter(2, moveCam);
         }
     }
@@ -827,6 +834,11 @@ public class UIManager : MonoBehaviour
             {
                 return;
             }
+
+            //ResetCurrentHover1();
+            //SetCurrentHover1(2);
+            //SaveCurrentHover1();
+
             SelectCharacter(3, moveCam);
         }
     }
@@ -957,14 +969,6 @@ public class UIManager : MonoBehaviour
         atkData.char1 = (int)characterType;
         atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
-        if (atkData.char1 == 2)
-        {
-            atkData.char1 = 3;
-        }
-        else if (atkData.char1 == 3)
-        {
-            atkData.char1 = 2;
-        }
 
         GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
 
@@ -1206,23 +1210,6 @@ public class UIManager : MonoBehaviour
                 int char1 = nAtkData.char1;
                 int char2 = nAtkData.char2;
 
-                if (char1 == 3)
-                {
-                    char1 = 2;
-                }
-                else if (char1 == 2)
-                {
-                    char1 = 3;
-                }
-
-                if (char2 == 3)
-                {
-                    char2 = 2;
-                }
-                else if (char2 == 2)
-                {
-                    char2 = 3;
-                }
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1289,24 +1276,6 @@ public class UIManager : MonoBehaviour
 
                 int char1 = nAtkData.char1;
                 int char2 = nAtkData.char2;
-
-                if(char1 == 3)
-                {
-                    char1 = 2;
-                }
-                else if(char1 == 2)
-                {
-                    char1 = 3;
-                }
-
-                if (char2 == 3)
-                {
-                    char2 = 2;
-                }
-                else if (char2 == 2)
-                {
-                    char2 = 3;
-                }
 
                 Debug.Log("Char1: " + char1);
                 Debug.Log("Char2: " + char2);
@@ -1473,7 +1442,7 @@ public class UIManager : MonoBehaviour
 
         if (mCharacters[character].mAttacked && mCharacters[character].mMoved)
         {
-            ResetCurrentHover1();
+            //ResetCurrentHover1();
             return;
         }
         if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
@@ -1486,26 +1455,31 @@ public class UIManager : MonoBehaviour
 
         int realSlot = -1;
 
-        if (character == 3)
-        {
-            //4
-            realSlot = 2;
-        }
-        else if (character == 2)
-        {
-            //3
-            realSlot = 3;
-        }
-        else
-        {
-            realSlot = character;
-        }
+        //if (character == 3)
+        //{
+        //    //4
+        //    realSlot = 2;
+        //}
+        //else if (character == 2)
+        //{
+        //    //3
+        //    realSlot = 3;
+        //}
+        //else
+        //{
+        //    realSlot = character;
+        //}
 
-        SetCurrentHover1(realSlot);
-        SaveCurrentHover1();
+        //SetCurrentHover1(realSlot);
+        //SaveCurrentHover1();
 
         mCurrentCharacter = character;
+
+        ResetPopUp(true);
+
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
+
+
 
         if (moveCam)
         {
@@ -1513,7 +1487,14 @@ public class UIManager : MonoBehaviour
             GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
         }
 
-        ResetPopUp(true);
+        //if (character == 2)
+        //{
+        //    character = 3;
+        //}
+        //else if(character == 3)
+        //{
+        //    character = 2;
+        //}
 
         mTypeOnCell = TypeOnCell.character;
 

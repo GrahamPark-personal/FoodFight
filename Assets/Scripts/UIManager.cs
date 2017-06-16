@@ -205,9 +205,14 @@ public class UIManager : MonoBehaviour
 
     public void SetCurrentHover1(int slot)
     {
+
+        Debug.Log("Slot: " + slot);
+        Debug.Log("Length: " + mCharacters.Length);
+
         ResetCurrentHover1();
 
-        if(mCharacters.Length < slot)
+
+        if (slot >= mCharacters.Length)
         {
             return;
         }
@@ -365,7 +370,7 @@ public class UIManager : MonoBehaviour
             StartCoroutine(ShowBigGlow());
         }
 
-        for (int i = 0; i < mCharFrame.Length; i++)
+        for (int i = 0; i < mCharacters.Length; i++)
         {
             //here
             if(mCharacters[i].mAttacked)
@@ -1136,6 +1141,7 @@ public class UIManager : MonoBehaviour
                 int char1 = nAtkData.char1;
                 int char2 = nAtkData.char2;
 
+
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
                     return;
@@ -1199,6 +1205,24 @@ public class UIManager : MonoBehaviour
 
                 int char1 = nAtkData.char1;
                 int char2 = nAtkData.char2;
+
+                if (char1 == 3)
+                {
+                    char1 = 2;
+                }
+                else if (char1 == 2)
+                {
+                    char1 = 3;
+                }
+
+                if (char2 == 3)
+                {
+                    char2 = 2;
+                }
+                else if (char2 == 2)
+                {
+                    char2 = 3;
+                }
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1265,6 +1289,27 @@ public class UIManager : MonoBehaviour
 
                 int char1 = nAtkData.char1;
                 int char2 = nAtkData.char2;
+
+                if(char1 == 3)
+                {
+                    char1 = 2;
+                }
+                else if(char1 == 2)
+                {
+                    char1 = 3;
+                }
+
+                if (char2 == 3)
+                {
+                    char2 = 2;
+                }
+                else if (char2 == 2)
+                {
+                    char2 = 3;
+                }
+
+                Debug.Log("Char1: " + char1);
+                Debug.Log("Char2: " + char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {

@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 9e464c2f54a3ec24ba1dc57134d7f0f7
+timeCreated: 1497582138
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Ctrl
+    100002: Ball_Ctrl
+    100004: Ball_Jnt_1
+    100006: Ball_Jnt_2
+    100008: Chest
+    100010: Chest_Jnt
+    100012: COG_Jnt
+    100014: group1
+    100016: Head_Ctrl
+    100018: Head_Ctrl_2
+    100020: Head_Ctrl_3
+    100022: Head_Ctrl_4
+    100024: Head_Ctrl_5
+    100026: Head_Jnt_1
+    100028: Head_Jnt_2
+    100030: Head_Jnt_3
+    100032: Head_Jnt_4
+    100034: Head_Jnt_5
+    100036: LFt_Clav_Ctrl
+    100038: Lft_Clav_Jnt
+    100040: Lft_Elbow_Ctrl
+    100042: Lft_Elbow_Jnt
+    100044: Lft_Hand_Jnt
+    100046: Lft_Shlder_Ctrl
+    100048: Lft_Shlder_Jnt
+    100050: Lft_Wrist_Jnt
+    100052: Lft_Wrst_Ctrl
+    100054: //RootNode
+    100056: Neck_Ctrl
+    100058: Neck_Jnt_1
+    100060: Neck_Jnt_2
+    100062: nurbsCircle1
+    100064: Pivot_Ctrl
+    100066: Pivot_Jnt
+    100068: polySurface1
+    100070: polySurface4
+    100072: polySurface8
+    100074: pSphere1
+    100076: Rgt_Clav_Ctrl
+    100078: Rgt_Clav_Jnt
+    100080: Rgt_Elbow_Ctrl
+    100082: Rgt_Elbow_Jnt
+    100084: Rgt_Hand_Jnt
+    100086: Rgt_Shlder_Ctrl
+    100088: Rgt_Shlder_Jnt
+    100090: Rgt_Wrist_Jnt
+    100092: Rgt_Wrst_Ctrl
+    100094: Spine_Ctrl_1
+    100096: Spine_Ctrl_2
+    100098: Spine_Jnt
+    100100: Upper_Chest_Ctrl
+    400000: All_Ctrl
+    400002: Ball_Ctrl
+    400004: Ball_Jnt_1
+    400006: Ball_Jnt_2
+    400008: Chest
+    400010: Chest_Jnt
+    400012: COG_Jnt
+    400014: group1
+    400016: Head_Ctrl
+    400018: Head_Ctrl_2
+    400020: Head_Ctrl_3
+    400022: Head_Ctrl_4
+    400024: Head_Ctrl_5
+    400026: Head_Jnt_1
+    400028: Head_Jnt_2
+    400030: Head_Jnt_3
+    400032: Head_Jnt_4
+    400034: Head_Jnt_5
+    400036: LFt_Clav_Ctrl
+    400038: Lft_Clav_Jnt
+    400040: Lft_Elbow_Ctrl
+    400042: Lft_Elbow_Jnt
+    400044: Lft_Hand_Jnt
+    400046: Lft_Shlder_Ctrl
+    400048: Lft_Shlder_Jnt
+    400050: Lft_Wrist_Jnt
+    400052: Lft_Wrst_Ctrl
+    400054: //RootNode
+    400056: Neck_Ctrl
+    400058: Neck_Jnt_1
+    400060: Neck_Jnt_2
+    400062: nurbsCircle1
+    400064: Pivot_Ctrl
+    400066: Pivot_Jnt
+    400068: polySurface1
+    400070: polySurface4
+    400072: polySurface8
+    400074: pSphere1
+    400076: Rgt_Clav_Ctrl
+    400078: Rgt_Clav_Jnt
+    400080: Rgt_Elbow_Ctrl
+    400082: Rgt_Elbow_Jnt
+    400084: Rgt_Hand_Jnt
+    400086: Rgt_Shlder_Ctrl
+    400088: Rgt_Shlder_Jnt
+    400090: Rgt_Wrist_Jnt
+    400092: Rgt_Wrst_Ctrl
+    400094: Spine_Ctrl_1
+    400096: Spine_Ctrl_2
+    400098: Spine_Jnt
+    400100: Upper_Chest_Ctrl
+    4300000: polySurface1
+    4300002: polySurface4
+    4300004: pSphere1
+    4300006: polySurface8
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface1
+    13700002: polySurface4
+    13700004: polySurface8
+    13700006: pSphere1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 1
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

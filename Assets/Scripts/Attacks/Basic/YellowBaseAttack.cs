@@ -34,19 +34,21 @@ public class YellowBaseAttack : Attack {
 
     public override void Execute(IntVector2 pos)
     {
-        
+
+        Character mCharacter = GameManager.sInstance.mCharacterObj;
+
         mCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 
         if (mCell.mTypeOnCell == TypeOnCell.character)
         {
             mCell.mCharacterObj.AddAilment(AilmentID.Stun, GetEffectDuration(), 0);
-            mCell.mCharacterObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
+            mCell.mCharacterObj.Damage(mCharacter, GetDamage());
         }
         else if (mCell.mTypeOnCell == TypeOnCell.enemy)
         {
             print(GetEffectDuration() + "," + GetStun());
             mCell.mEnemyObj.AddAilment(AilmentID.Stun, GetEffectDuration(), 0);
-            mCell.mEnemyObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
+            mCell.mEnemyObj.Damage(mCharacter, GetDamage());
         }
 
     }

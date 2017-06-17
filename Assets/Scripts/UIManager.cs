@@ -85,14 +85,14 @@ public class UIManager : MonoBehaviour
 
     Texture2D[] mSavedCharImage;
 
-    public RawImage[] mChararcterGlow;
-    public RawImage[] mCharacterBigGlow;
-    public RawImage[] mCharacterAttack;
+    //public RawImage[] mChararcterGlow;
+    //public RawImage[] mCharacterBigGlow;
+    //public RawImage[] mCharacterAttack;
 
-    [HideInInspector]
-    public int mCurrentSlotSelected = -1;
-    [HideInInspector]
-    public int mSecondarySlotSelected = -1;
+    //[HideInInspector]
+    //public int mCurrentSlotSelected = -1;
+    //[HideInInspector]
+    //public int mSecondarySlotSelected = -1;
 
     [HideInInspector]
     public StarLevel mCurrentStar = StarLevel.Gold;
@@ -113,15 +113,15 @@ public class UIManager : MonoBehaviour
     public Text mStarText;
 
 
-    int mSavedHover1 = -1;
-    int mSavedHover2 = -1;
+    //int mSavedHover1 = -1;
+    //int mSavedHover2 = -1;
 
-    int mCurrentHover1 = -1;
-    int mCurrentHover2 = -1;
+    //int mCurrentHover1 = -1;
+    //int mCurrentHover2 = -1;
 
-    int mAttackHover1 = -1;
-    int mAttackHover2 = -1;
-    bool mAttackShown = false;
+    //int mAttackHover1 = -1;
+    //int mAttackHover2 = -1;
+    //bool mAttackShown = false;
 
     //public GameObject mElectricHailstorm;
 
@@ -129,9 +129,9 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        ResetAttackHovers();
-        ResetCurrentHover1();
-        ResetCurrentHover2();
+        //ResetAttackHovers();
+        //ResetCurrentHover1();
+        //ResetCurrentHover2();
         //ResetAttackHover();
         //SetHoverGlowToInvisible();
         mCurrentTurns = mGoldTurns;
@@ -203,282 +203,282 @@ public class UIManager : MonoBehaviour
     //Attack Selected
     //do nothing
 
-    public void SetCurrentHover1(int slot)
-    {
+    //public void SetCurrentHover1(int slot)
+    //{
 
-        Debug.Log("Slot: " + slot);
-        Debug.Log("Length: " + mCharacters.Length);
+    //    Debug.Log("Slot: " + slot);
+    //    Debug.Log("Length: " + mCharacters.Length);
 
-        ResetCurrentHover1();
-
-
-        if (slot >= mCharacters.Length)
-        {
-            return;
-        }
-
-        if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
-        {
-            return;
-        }
-
-        mCharImage[slot].texture = mCharHoverTexture[slot];
-
-        mCurrentHover1 = slot;
-        mSavedHover1 = slot;
-        mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
-    }
-
-    public void SaveCurrentHover1()
-    {
-        if (mSavedHover1 == -1)
-        {
-            return;
-        }
-        if (mCharacters[mSavedHover1].mAttacked && mCharacters[mSavedHover1].mMoved)
-        {
-            for (int i = 0; i < mCharFrame.Length; i++)
-            {
-                mCharFrame[i].SetActive(false);
-                if (i != mSavedHover1)
-                {
-                    mAttackImages[i].texture = mCharHiddenTexture[i];
-                }
-            }
-        }
-        StartCoroutine(ShowMainGlow());
-    }
-
-    public void ResetCurrentHover1()
-    {
-        for (int i = 0; i < mChararcterGlow.Length; i++)
-        {
-            mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
-        }
-
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-            if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
-            {
-                mCharImage[i].texture = mCharHiddenTexture[i];
-            }
-            else
-            {
-                mCharImage[i].texture = mCharTexture[i];
-            }
-        }
-
-    }
-
-    public void SetCurrentHover2(int slot)
-    {
-
-        if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
-        {
-            return;
-        }
+    //    ResetCurrentHover1();
 
 
-        if (!mAttackShown && !mCharacters[slot].mAttacked)
-        {
-            //ResetCurrentHover2();
-            if (slot == mSavedHover1)
-            {
-                mCharacterBigGlow[slot].color = new Color(mCharacterBigGlow[slot].color.r, mCharacterBigGlow[slot].color.g, mCharacterBigGlow[slot].color.b, 100);
-            }
-            mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
+    //    if (slot >= mCharacters.Length)
+    //    {
+    //        return;
+    //    }
 
-            //mCharPopUpImage
+    //    if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
+    //    {
+    //        return;
+    //    }
 
-            if (slot != mSavedHover1)
-            {
-                mAttackImages[slot].texture = mCharHoverTexture[slot];
-            }
+    //    mCharImage[slot].texture = mCharHoverTexture[slot];
 
-            mCurrentHover2 = slot;
-            mSavedHover2 = slot;
-        }
+    //    mCurrentHover1 = slot;
+    //    mSavedHover1 = slot;
+    //    mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
+    //}
+
+    //public void SaveCurrentHover1()
+    //{
+    //    if (mSavedHover1 == -1)
+    //    {
+    //        return;
+    //    }
+    //    if (mCharacters[mSavedHover1].mAttacked && mCharacters[mSavedHover1].mMoved)
+    //    {
+    //        for (int i = 0; i < mCharFrame.Length; i++)
+    //        {
+    //            mCharFrame[i].SetActive(false);
+    //            if (i != mSavedHover1)
+    //            {
+    //                mAttackImages[i].texture = mCharHiddenTexture[i];
+    //            }
+    //        }
+    //    }
+    //    StartCoroutine(ShowMainGlow());
+    //}
+
+    //public void ResetCurrentHover1()
+    //{
+    //    for (int i = 0; i < mChararcterGlow.Length; i++)
+    //    {
+    //        mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
+    //    }
+
+    //    for (int i = 0; i < mCharacters.Length; i++)
+    //    {
+    //        if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
+    //        {
+    //            mCharImage[i].texture = mCharHiddenTexture[i];
+    //        }
+    //        else
+    //        {
+    //            mCharImage[i].texture = mCharTexture[i];
+    //        }
+    //    }
+
+    //}
+
+    //public void SetCurrentHover2(int slot)
+    //{
+
+    //    if (mCharacters[slot].mAttacked && mCharacters[slot].mMoved)
+    //    {
+    //        return;
+    //    }
 
 
+    //    if (!mAttackShown && !mCharacters[slot].mAttacked)
+    //    {
+    //        //ResetCurrentHover2();
+    //        if (slot == mSavedHover1)
+    //        {
+    //            mCharacterBigGlow[slot].color = new Color(mCharacterBigGlow[slot].color.r, mCharacterBigGlow[slot].color.g, mCharacterBigGlow[slot].color.b, 100);
+    //        }
+    //        mChararcterGlow[slot].color = new Color(mChararcterGlow[slot].color.r, mChararcterGlow[slot].color.g, mChararcterGlow[slot].color.b, 100);
 
-    }
+    //        //mCharPopUpImage
 
-    //TODO::Character frame
+    //        if (slot != mSavedHover1)
+    //        {
+    //            mAttackImages[slot].texture = mCharHoverTexture[slot];
+    //        }
 
-    public void ResetCurrentHover2()
-    {
-        if (!mAttackShown)
-        {
-            if (mSavedHover1 != mSavedHover2 && mSavedHover2 != -1)
-            {
-                mChararcterGlow[mSavedHover2].color = new Color(mChararcterGlow[mSavedHover2].color.r, mChararcterGlow[mSavedHover2].color.g, mChararcterGlow[mSavedHover2].color.b, 0);
-            }
-            for (int i = 0; i < mCharacterBigGlow.Length; i++)
-            {
-                mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
-            }
-        }
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-            if (i != mSavedHover1)
-            {
-                if (mCharacters[i].mAttacked)// || mCharacters[i].mMoved
-                {
-                    mAttackImages[i].texture = mCharHiddenTexture[i];
-                }
-                else
-                {
-                    mAttackImages[i].texture = mCharTexture[i];
-                }
-            }
-        }
-    }
-
-    public void SaveCurrentHover2()
-    {
-        mAttackShown = true;
-        ResetAttackHovers();
-        //ResetCurrentHover1();
-        //ResetCurrentHover2();
-
-        if (mSavedHover1 == -1)
-        {
-
-            AttackData data = GetDuoAttack((CharacterType)mSavedHover2);
+    //        mCurrentHover2 = slot;
+    //        mSavedHover2 = slot;
+    //    }
 
 
 
-            mSavedHover1 = data.char1;
+    //}
 
-            SetCurrentHover1(mSavedHover1);
-            for (int i = 0; i < mCharacterBigGlow.Length; i++)
-            {
-                mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
-            }
-        }
-        else if (mSavedHover2 == -1)
-        {
-            AttackData data = GetDuoAttack((CharacterType)mSavedHover1);
-            mSavedHover2 = data.char2;
-            SetCurrentHover2(mSavedHover2);
-        }
+    ////TODO::Character frame
 
-        for (int i = 0; i < mCharacterBigGlow.Length; i++)
-        {
-            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
-        }
+    //public void ResetCurrentHover2()
+    //{
+    //    if (!mAttackShown)
+    //    {
+    //        if (mSavedHover1 != mSavedHover2 && mSavedHover2 != -1)
+    //        {
+    //            mChararcterGlow[mSavedHover2].color = new Color(mChararcterGlow[mSavedHover2].color.r, mChararcterGlow[mSavedHover2].color.g, mChararcterGlow[mSavedHover2].color.b, 0);
+    //        }
+    //        for (int i = 0; i < mCharacterBigGlow.Length; i++)
+    //        {
+    //            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+    //        }
+    //    }
+    //    for (int i = 0; i < mCharacters.Length; i++)
+    //    {
+    //        if (i != mSavedHover1)
+    //        {
+    //            if (mCharacters[i].mAttacked)// || mCharacters[i].mMoved
+    //            {
+    //                mAttackImages[i].texture = mCharHiddenTexture[i];
+    //            }
+    //            else
+    //            {
+    //                mAttackImages[i].texture = mCharTexture[i];
+    //            }
+    //        }
+    //    }
+    //}
 
-        if (mSavedHover1 == mSavedHover2)
-        {
-            StartCoroutine(ShowBigGlow());
-        }
+    //public void SaveCurrentHover2()
+    //{
+    //    mAttackShown = true;
+    //    ResetAttackHovers();
+    //    //ResetCurrentHover1();
+    //    //ResetCurrentHover2();
 
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-            //here
-            if(mCharacters[i].mAttacked)
-            {
-                mCharFrame[i].SetActive(false);
-            }
-            else
-            {
-                mCharFrame[i].SetActive(true);
-            }
-        }
+    //    if (mSavedHover1 == -1)
+    //    {
 
-        mAttackImages[mSavedHover2].texture = mCharSelectedTexture[mSavedHover2];
-
-        SetAttackHover(mSavedHover1, mSavedHover2);
-    }
-
-    public void ResetAttackHovers()
-    {
-        for (int i = 0; i < mCharacterAttack.Length; i++)
-        {
-            mCharacterAttack[i].color = new Color(mCharacterAttack[i].color.r, mCharacterAttack[i].color.g, mCharacterAttack[i].color.b, 0);
-        }
-    }
-
-    public void SetAttackHover(int slot1, int slot2)
-    {
-
-        mCharacterAttack[slot1].color = new Color(mCharacterAttack[slot1].color.r, mCharacterAttack[slot1].color.g, mCharacterAttack[slot1].color.b, 100);
-        mCharacterAttack[slot2].color = new Color(mCharacterAttack[slot2].color.r, mCharacterAttack[slot2].color.g, mCharacterAttack[slot2].color.b, 100);
-    }
-
-    public void RevertHover(bool finishedCharacter)
-    {
-        StartCoroutine(DelayCleanUp(finishedCharacter));
-        //StartCoroutine(DelayCleanUp());
-    }
-
-    IEnumerator DelayCleanUp(bool characterFinished)
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        mCurrentHover2 = -1;
-        mSavedHover2 = -1;
-        mCurrentHover1 = -1;
-        mSavedHover1 = -1;
-        mAttackHover1 = -1;
-        mAttackHover2 = -1;
-        ResetAttackHovers();
-        ResetCurrentHover1();
-        ResetCurrentHover2();
-
-        ResetPopUp(false);
-
-        mAttackShown = false;
-
-        for (int i = 0; i < mChararcterGlow.Length; i++)
-        {
-            mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
-            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
-        }
-
-
-        for (int i = 0; i < mCharacters.Length; i++)
-        {
-
-            if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
-            {
-                mAttackImages[i].texture = mCharHiddenTexture[i];
-                mCharFrame[i].SetActive(false);
-            }
-            else
-            {
-                mCharFrame[i].SetActive(true);
-            }
-        }
-        GameManager.sInstance.mMouseMode = MouseMode.None;
-        if (characterFinished)
-        {
-            GameManager.sInstance.mCharacterObj = null;
-            GameManager.sInstance.ResetSelected();
-        }
-        else
-        {
-            if (GameManager.sInstance.mCharacterObj != null)
-            {
-                SelectCharacter(GameManager.sInstance.mCharacterObj.mCellPos);
-            }
-        }
-
-    }
+    //        AttackData data = GetDuoAttack((CharacterType)mSavedHover2);
 
 
 
-    IEnumerator ShowMainGlow()
-    {
-        yield return new WaitForSeconds(0.1f);
-        mChararcterGlow[mSavedHover1].color = new Color(mChararcterGlow[mSavedHover1].color.r, mChararcterGlow[mSavedHover1].color.g, mChararcterGlow[mSavedHover1].color.b, 100);
-    }
+    //        mSavedHover1 = data.char1;
 
-    IEnumerator ShowBigGlow()
-    {
-        yield return new WaitForSeconds(0.1f);
-        mCharacterBigGlow[mSavedHover2].color = new Color(mCharacterBigGlow[mSavedHover2].color.r, mCharacterBigGlow[mSavedHover2].color.g, mCharacterBigGlow[mSavedHover2].color.b, 100);
-    }
+    //        SetCurrentHover1(mSavedHover1);
+    //        for (int i = 0; i < mCharacterBigGlow.Length; i++)
+    //        {
+    //            mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+    //        }
+    //    }
+    //    else if (mSavedHover2 == -1)
+    //    {
+    //        AttackData data = GetDuoAttack((CharacterType)mSavedHover1);
+    //        mSavedHover2 = data.char2;
+    //        SetCurrentHover2(mSavedHover2);
+    //    }
+
+    //    for (int i = 0; i < mCharacterBigGlow.Length; i++)
+    //    {
+    //        mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+    //    }
+
+    //    if (mSavedHover1 == mSavedHover2)
+    //    {
+    //        StartCoroutine(ShowBigGlow());
+    //    }
+
+    //    for (int i = 0; i < mCharacters.Length; i++)
+    //    {
+    //        //here
+    //        if(mCharacters[i].mAttacked)
+    //        {
+    //            mCharFrame[i].SetActive(false);
+    //        }
+    //        else
+    //        {
+    //            mCharFrame[i].SetActive(true);
+    //        }
+    //    }
+
+    //    mAttackImages[mSavedHover2].texture = mCharSelectedTexture[mSavedHover2];
+
+    //    SetAttackHover(mSavedHover1, mSavedHover2);
+    //}
+
+    //public void ResetAttackHovers()
+    //{
+    //    for (int i = 0; i < mCharacterAttack.Length; i++)
+    //    {
+    //        mCharacterAttack[i].color = new Color(mCharacterAttack[i].color.r, mCharacterAttack[i].color.g, mCharacterAttack[i].color.b, 0);
+    //    }
+    //}
+
+    //public void SetAttackHover(int slot1, int slot2)
+    //{
+
+    //    mCharacterAttack[slot1].color = new Color(mCharacterAttack[slot1].color.r, mCharacterAttack[slot1].color.g, mCharacterAttack[slot1].color.b, 100);
+    //    mCharacterAttack[slot2].color = new Color(mCharacterAttack[slot2].color.r, mCharacterAttack[slot2].color.g, mCharacterAttack[slot2].color.b, 100);
+    //}
+
+    //public void RevertHover(bool finishedCharacter)
+    //{
+    //    StartCoroutine(DelayCleanUp(finishedCharacter));
+    //    //StartCoroutine(DelayCleanUp());
+    //}
+
+    //IEnumerator DelayCleanUp(bool characterFinished)
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+
+    //    mCurrentHover2 = -1;
+    //    mSavedHover2 = -1;
+    //    mCurrentHover1 = -1;
+    //    mSavedHover1 = -1;
+    //    mAttackHover1 = -1;
+    //    mAttackHover2 = -1;
+    //    ResetAttackHovers();
+    //    ResetCurrentHover1();
+    //    ResetCurrentHover2();
+
+    //    ResetPopUp(false);
+
+    //    mAttackShown = false;
+
+    //    for (int i = 0; i < mChararcterGlow.Length; i++)
+    //    {
+    //        mChararcterGlow[i].color = new Color(mChararcterGlow[i].color.r, mChararcterGlow[i].color.g, mChararcterGlow[i].color.b, 0);
+    //        mCharacterBigGlow[i].color = new Color(mCharacterBigGlow[i].color.r, mCharacterBigGlow[i].color.g, mCharacterBigGlow[i].color.b, 0);
+    //    }
+
+
+    //    for (int i = 0; i < mCharacters.Length; i++)
+    //    {
+
+    //        if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
+    //        {
+    //            mAttackImages[i].texture = mCharHiddenTexture[i];
+    //            mCharFrame[i].SetActive(false);
+    //        }
+    //        else
+    //        {
+    //            mCharFrame[i].SetActive(true);
+    //        }
+    //    }
+    //    GameManager.sInstance.mMouseMode = MouseMode.None;
+    //    if (characterFinished)
+    //    {
+    //        GameManager.sInstance.mCharacterObj = null;
+    //        GameManager.sInstance.ResetSelected();
+    //    }
+    //    else
+    //    {
+    //        if (GameManager.sInstance.mCharacterObj != null)
+    //        {
+    //            SelectCharacter(GameManager.sInstance.mCharacterObj.mCellPos);
+    //        }
+    //    }
+
+    //}
+
+
+
+    //IEnumerator ShowMainGlow()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+    //    mChararcterGlow[mSavedHover1].color = new Color(mChararcterGlow[mSavedHover1].color.r, mChararcterGlow[mSavedHover1].color.g, mChararcterGlow[mSavedHover1].color.b, 100);
+    //}
+
+    //IEnumerator ShowBigGlow()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+    //    mCharacterBigGlow[mSavedHover2].color = new Color(mCharacterBigGlow[mSavedHover2].color.r, mCharacterBigGlow[mSavedHover2].color.g, mCharacterBigGlow[mSavedHover2].color.b, 100);
+    //}
 
 
     //public void ResetAttackHover()
@@ -678,52 +678,52 @@ public class UIManager : MonoBehaviour
 
     public void ResetPopUp(bool open)
     {
-        if (open)
-        {
-            //change images
+        //if (open)
+        //{
+        //    //change images
 
-            for (int i = 0; i < mCharacters.Length; i++)
-            {
-                if (i != mCurrentHover1)
-                {
-                    if (!mCharacters[i].mAttacked && !mCharacters[i].mMoved)
-                    {
-                        mAttackImages[i].texture = mCharTexture[i];
-                    }
-                    else
-                    {
-                        mAttackImages[i].texture = mCharHiddenTexture[i];
-                    }
+        //    for (int i = 0; i < mCharacters.Length; i++)
+        //    {
+        //        if (i != mCurrentHover1)
+        //        {
+        //            if (!mCharacters[i].mAttacked && !mCharacters[i].mMoved)
+        //            {
+        //                mAttackImages[i].texture = mCharTexture[i];
+        //            }
+        //            else
+        //            {
+        //                mAttackImages[i].texture = mCharHiddenTexture[i];
+        //            }
 
-                }
-                else
-                {
-                    mAttackImages[i].texture = mCharSelectedTexture[i];
-                }
-            }
+        //        }
+        //        else
+        //        {
+        //            mAttackImages[i].texture = mCharSelectedTexture[i];
+        //        }
+        //    }
 
 
-            for (int i = 0; i < mCharacters.Length; i++)
-            {
-                if (mCharacters[i].mAttacked && mCharacters[i].mAttacked && mSavedHover1 != i)
-                {
-                    //mAttackImages[i].texture = mCharHiddenTexture[i];
-                    mCharFrame[i].SetActive(false);
-                }
-                else
-                {
-                    mCharFrame[i].SetActive(true);
-                }
-            }
+        //    for (int i = 0; i < mCharacters.Length; i++)
+        //    {
+        //        if (mCharacters[i].mAttacked && mCharacters[i].mAttacked && mSavedHover1 != i)
+        //        {
+        //            //mAttackImages[i].texture = mCharHiddenTexture[i];
+        //            mCharFrame[i].SetActive(false);
+        //        }
+        //        else
+        //        {
+        //            mCharFrame[i].SetActive(true);
+        //        }
+        //    }
 
-            mEnemyPopUpBarShown = true;
-            ResetBubbles();
-        }
-        else
-        {
-            Debug.Log("Bar not shown");
-            mEnemyPopUpBarShown = false;
-        }
+        //    mEnemyPopUpBarShown = true;
+        //    ResetBubbles();
+        //}
+        //else
+        //{
+        //    Debug.Log("Bar not shown");
+        //    mEnemyPopUpBarShown = false;
+        //}
     }
 
     IEnumerator WaitForReset()
@@ -875,8 +875,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[0].mAttacked && mCharacters[0].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(0);
@@ -889,8 +887,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[1].mAttacked && mCharacters[1].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(1);
@@ -903,8 +899,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[2].mAttacked && mCharacters[2].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(2);
@@ -917,8 +911,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[3].mAttacked && mCharacters[3].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(3);
@@ -931,8 +923,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[4].mAttacked && mCharacters[4].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(4);
@@ -945,8 +935,6 @@ public class UIManager : MonoBehaviour
         {
             if (mCharacters[5].mAttacked && mCharacters[5].mMoved)
             {
-                mCurrentHover1 = -1;
-                mSavedHover1 = -1;
                 return;
             }
             MoveCharacterHover(5);
@@ -960,83 +948,190 @@ public class UIManager : MonoBehaviour
         public int char2;
     }
 
-
-    public AttackData GetDuoAttack(CharacterType characterType)
+    public void ShowCharacterHover(int character)
     {
-        DualAbilities currAbilities = GameManager.sInstance.mCharacterObj.mDualAbilities;
-        AttackData atkData = new AttackData();
-
-        atkData.char1 = (int)characterType;
-        atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
-
-
-        GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
-
-
-        if (((currAbilities.ability1Character1 == characterType) || (currAbilities.ability1Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
-            && ((currAbilities.ability1Character2 == characterType) || (currAbilities.ability1Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
-        {
-            //ability = 1
-            atkData.atk = currAbilities.mDuoAbility1;
-            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical1;
-
-            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[0];
-
-
-
-            return atkData;
-        }
-        if (((currAbilities.ability2Character1 == characterType) || (currAbilities.ability2Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
-            && ((currAbilities.ability2Character2 == characterType) || (currAbilities.ability2Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
-        {
-            //ability = 2
-            atkData.atk = currAbilities.mDuoAbility2;
-            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical2;
-
-            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[1];
-
-
-            return atkData;
-        }
-        if (((currAbilities.ability3Character1 == characterType) || (currAbilities.ability3Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
-            && ((currAbilities.ability3Character2 == characterType) || (currAbilities.ability3Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
-        {
-            //ability = 3
-            atkData.atk = currAbilities.mDuoAbility3;
-            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical3;
-
-            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[2];
-
-
-            return atkData;
-        }
-        if (((currAbilities.ability4Character1 == characterType) || (currAbilities.ability4Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
-            && ((currAbilities.ability4Character2 == characterType) || (currAbilities.ability4Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
-        {
-            //ability = 4
-            atkData.atk = currAbilities.mDuoAbility4;
-            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical4;
-
-            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[3];
-
-
-            return atkData;
-        }
-        if (((currAbilities.ability5Character1 == characterType) || (currAbilities.ability5Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
-            && ((currAbilities.ability5Character2 == characterType) || (currAbilities.ability5Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
-        {
-            //ability = 5
-            atkData.atk = currAbilities.mDuoAbility5;
-            //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical5;
-
-            GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[4];
-
-
-            return atkData;
-        }
-
-        return atkData;
+        SelectionBar.sInstance.SetHover(character, true);
     }
+
+    public void HideCharacterHover(int character)
+    {
+        SelectionBar.sInstance.SetHover(character, false);
+    }
+
+    public void SelectYellow()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(0);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnBasicAbilityDown();
+            }
+            else
+            {
+                SelectCharacter(0, false);
+            }
+        }
+    }
+    public void SelectBlue()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(1);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnDuoAbility1Down();
+            }
+            else
+            {
+                SelectCharacter(1, false);
+            }
+        }
+    }
+    public void SelectBrown()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(2);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnDuoAbility2Down();
+            }
+            else
+            {
+                SelectCharacter(2, false);
+            }
+        }
+    }
+    public void SelectRed()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(3);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnDuoAbility3Down();
+            }
+            else
+            {
+                SelectCharacter(3, false);
+            }
+        }
+    }
+    public void SelectGreen()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(4);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnDuoAbility4Down();
+            }
+            else
+            {
+                SelectCharacter(4, false);
+            }
+        }
+    }
+    public void SelectBlack()
+    {
+        bool awn = SelectionBar.sInstance.SelectCharacter(5);
+        if (awn)
+        {
+
+            if (SelectionBar.sInstance.IsAttacking())
+            {
+                OnDuoAbility5Down();
+            }
+            else
+            {
+                SelectCharacter(5, false);
+            }
+        }
+    }
+
+
+    //public AttackData GetDuoAttack(CharacterType characterType)
+    //{
+    //    DualAbilities currAbilities = GameManager.sInstance.mCharacterObj.mDualAbilities;
+    //    AttackData atkData = new AttackData();
+
+    //    atkData.char1 = (int)characterType;
+    //    atkData.char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+
+    //    GameManager.sInstance.mOtherCharacterIndex = atkData.char1;
+
+
+    //    if (((currAbilities.ability1Character1 == characterType) || (currAbilities.ability1Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+    //        && ((currAbilities.ability1Character2 == characterType) || (currAbilities.ability1Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+    //    {
+    //        //ability = 1
+    //        atkData.atk = currAbilities.mDuoAbility1;
+    //        //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical1;
+
+    //        GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[0];
+
+
+
+    //        return atkData;
+    //    }
+    //    if (((currAbilities.ability2Character1 == characterType) || (currAbilities.ability2Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+    //        && ((currAbilities.ability2Character2 == characterType) || (currAbilities.ability2Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+    //    {
+    //        //ability = 2
+    //        atkData.atk = currAbilities.mDuoAbility2;
+    //        //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical2;
+
+    //        GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[1];
+
+
+    //        return atkData;
+    //    }
+    //    if (((currAbilities.ability3Character1 == characterType) || (currAbilities.ability3Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+    //        && ((currAbilities.ability3Character2 == characterType) || (currAbilities.ability3Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+    //    {
+    //        //ability = 3
+    //        atkData.atk = currAbilities.mDuoAbility3;
+    //        //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical3;
+
+    //        GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[2];
+
+
+    //        return atkData;
+    //    }
+    //    if (((currAbilities.ability4Character1 == characterType) || (currAbilities.ability4Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+    //        && ((currAbilities.ability4Character2 == characterType) || (currAbilities.ability4Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+    //    {
+    //        //ability = 4
+    //        atkData.atk = currAbilities.mDuoAbility4;
+    //        //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical4;
+
+    //        GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[3];
+
+
+    //        return atkData;
+    //    }
+    //    if (((currAbilities.ability5Character1 == characterType) || (currAbilities.ability5Character1 == GameManager.sInstance.mCharacterObj.mCharacterType))
+    //        && ((currAbilities.ability5Character2 == characterType) || (currAbilities.ability5Character2 == GameManager.sInstance.mCharacterObj.mCharacterType)))
+    //    {
+    //        //ability = 5
+    //        atkData.atk = currAbilities.mDuoAbility5;
+    //        //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[(int)characterType].mDualAbilities.mAttackPartical5;
+
+    //        GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mDuoPartical[4];
+
+
+    //        return atkData;
+    //    }
+
+    //    return atkData;
+    //}
 
     public void OnBasicAbilityDown()
     {
@@ -1052,12 +1147,13 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                //Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1075,23 +1171,26 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Yellow);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Yellow);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Yellow;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
                     return;
                 }
 
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
                 //find the ability associated with both of the characters.s
                 //in this case it is whatever the character is mixed with yellow.
                 //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                AttackManager.sInstance.SetAttack(thisAttack);
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1118,12 +1217,12 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1140,10 +1239,10 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Blue);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Blue);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Blue;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
@@ -1152,11 +1251,11 @@ public class UIManager : MonoBehaviour
                 }
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                //find the ability associated with both of the characters.s
-                //in this case it is whatever the character is mixed with yellow.
-                //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
+
+                AttackManager.sInstance.SetAttack(thisAttack);
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1182,12 +1281,12 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
@@ -1205,10 +1304,10 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Red);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Red);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Brown;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
@@ -1217,11 +1316,14 @@ public class UIManager : MonoBehaviour
                 }
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                //find the ability associated with both of the characters.s
-                //in this case it is whatever the character is mixed with yellow.
-                //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+
+                AttackManager.sInstance.SetAttack(thisAttack);
+
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
+
+
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1248,14 +1350,14 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
 
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
-
+                //GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1272,10 +1374,10 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Brown);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Brown);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Red;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
                 Debug.Log("Char1: " + char1);
                 Debug.Log("Char2: " + char2);
@@ -1286,11 +1388,11 @@ public class UIManager : MonoBehaviour
                 }
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                //find the ability associated with both of the characters.s
-                //in this case it is whatever the character is mixed with yellow.
-                //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
+
+                AttackManager.sInstance.SetAttack(thisAttack);
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1317,13 +1419,13 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
 
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
@@ -1341,10 +1443,10 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Green);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Green);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Green;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1352,11 +1454,11 @@ public class UIManager : MonoBehaviour
                 }
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                //find the ability associated with both of the characters.s
-                //in this case it is whatever the character is mixed with yellow.
-                //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
+
+                AttackManager.sInstance.SetAttack(thisAttack);
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1369,7 +1471,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
     public void OnDuoAbility5Down()
     {
 
@@ -1384,13 +1485,13 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                Attack temp = GameManager.sInstance.mCharacterObj.mBasicAbility;
+                Attack temp = AbilityManager.sInstance.GetAttack((int)GameManager.sInstance.mCharacterObj.mCharacterType);
                 GameManager.sInstance.mOtherCharacterIndex = -1;
                 AttackManager.sInstance.SetAttack(temp);
                 GameManager.sInstance.ResetSelected();
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
 
-                GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
@@ -1408,10 +1509,10 @@ public class UIManager : MonoBehaviour
             if (GameManager.sInstance.mCharacterObj.mAttacked == false)
             {
 
-                AttackData nAtkData = GetDuoAttack(CharacterType.Black);
+                //AttackData nAtkData = GetDuoAttack(CharacterType.Black);
 
-                int char1 = nAtkData.char1;
-                int char2 = nAtkData.char2;
+                int char1 = (int)CharacterType.Black;
+                int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1419,11 +1520,11 @@ public class UIManager : MonoBehaviour
                 }
 
                 GameManager.sInstance.mMouseMode = MouseMode.AbilityAttack;
-                //find the ability associated with both of the characters.s
-                //in this case it is whatever the character is mixed with yellow.
-                //
 
-                AttackManager.sInstance.SetAttack(nAtkData.atk);
+                Attack thisAttack = AbilityManager.sInstance.GetAttack(char2, char1);
+                GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical(char2, char1);
+
+                AttackManager.sInstance.SetAttack(thisAttack);
                 GameManager.sInstance.ResetSelected();
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1442,7 +1543,6 @@ public class UIManager : MonoBehaviour
 
         if (mCharacters[character].mAttacked && mCharacters[character].mMoved)
         {
-            //ResetCurrentHover1();
             return;
         }
         if (GameManager.sInstance.mMouseMode == MouseMode.Attack || GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack)
@@ -1450,51 +1550,19 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-
         Debug.Log("Character: " + character);
-
-        int realSlot = -1;
-
-        //if (character == 3)
-        //{
-        //    //4
-        //    realSlot = 2;
-        //}
-        //else if (character == 2)
-        //{
-        //    //3
-        //    realSlot = 3;
-        //}
-        //else
-        //{
-        //    realSlot = character;
-        //}
-
-        //SetCurrentHover1(realSlot);
-        //SaveCurrentHover1();
 
         mCurrentCharacter = character;
 
-        ResetPopUp(true);
+        ResetPopUp(false);
 
         mPos = GameManager.sInstance.mCharacters[character].mCellPos;
-
-
 
         if (moveCam)
         {
             Vector3 camMovePos = GameManager.sInstance.mCharacters[character].mPosition.position;
             GameManager.sInstance.mCamControl.MoveToPosition(camMovePos);
         }
-
-        //if (character == 2)
-        //{
-        //    character = 3;
-        //}
-        //else if(character == 3)
-        //{
-        //    character = 2;
-        //}
 
         mTypeOnCell = TypeOnCell.character;
 
@@ -1509,88 +1577,23 @@ public class UIManager : MonoBehaviour
         {
             if (GameManager.sInstance.mCharacters[i].mCellPos.x == mNewPos.x && GameManager.sInstance.mCharacters[i].mCellPos.y == mNewPos.y)
             {
-
-                //ResetCurrentHover1();
-                //MoveCharacterHover(i);
-                //SetCurrentHover1(i);
-                //SaveCurrentHover1();
-                //SelectCharacter(i, false);
                 if (mCharacters[i].mAttacked && mCharacters[i].mMoved)
                 {
                     return;
                 }
 
+                SelectionBar.sInstance.AttackReset();
+                SelectionBar.sInstance.SelectCharacter(i);
                 SelectCharacter(i, false);
-                SetCurrentHover1(i);
-                SaveCurrentHover1();
+
                 return;
             }
         }
         return;
-        //Character temp = null;
-
-        //if (GameManager.sInstance.mGameTurn == GameTurn.Player)
-        //{
-        //    temp = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj;
-        //}
-        //else if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
-        //{
-        //    temp = GameManager.sInstance.mBoss;
-        //}
-
-        //if (temp == null)
-        //{
-        //    Debug.Log("Selecting a null character");
-        //    return;
-        //}
-
-
-        //for (int i = 0; i < GameManager.sInstance.mCharacters.Length; i++)
-        //{
-        //    if (temp == GameManager.sInstance.mCharacters[i])
-        //    {
-        //        mCurrentCharacter = i;
-        //        break;
-        //    }
-        //}
-
-        //int number = temp.mCharNumber;
-        ////int number = GameManager.sInstance.mCurrGrid.rows[mNewPos.y].cols[mNewPos.x].mCharacterObj.mCharNumber;
-
-        //switch (number)
-        //{
-        //    case 0:
-        //        OnCharacter1Down(false);
-        //        break;
-        //    case 1:
-        //        OnCharacter2Down(false);
-        //        break;
-        //    case 2:
-        //        OnCharacter3Down(false);
-        //        break;
-        //    case 3:
-        //        OnCharacter4Down(false);
-        //        break;
-        //    case 4:
-        //        OnCharacter5Down(false);
-        //        break;
-        //    case 5:
-        //        OnCharacter6Down(false);
-        //        break;
-
-        //}
     }
 
     void MoveCharacterHover(int character)
     {
-        if (character == 2)
-        {
-            character = 3;
-        }
-        else if (character == 3)
-        {
-            character = 2;
-        }
 
         if (character < GameManager.sInstance.mCharacters.Length)
         {

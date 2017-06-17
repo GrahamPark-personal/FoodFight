@@ -28,7 +28,7 @@ class RedBlueDuoAttack : Attack
         SetStartPos(GameManager.sInstance.mSelectedCell);
 
         GameManager.sInstance.mTargetChars[0] = GameManager.sInstance.mCharacters[1];
-        GameManager.sInstance.mTargetChars[1] = GameManager.sInstance.mCharacters[2];
+        GameManager.sInstance.mTargetChars[1] = GameManager.sInstance.mCharacters[3];
 
         GameManager.sInstance.mAttackShape = AttackShape.OtherCharacter;
 
@@ -54,7 +54,7 @@ class RedBlueDuoAttack : Attack
         mCell = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x];
 
         Character BlueMage = GameManager.sInstance.mCharacters[1];
-        Character RedMage = GameManager.sInstance.mCharacters[2];
+        Character RedMage = GameManager.sInstance.mCharacters[3];
 
         Character StartCharacter = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].mCharacterObj;
         Character OtherCharacter = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mCharacterObj;
@@ -98,7 +98,7 @@ class RedBlueDuoAttack : Attack
         else
         {
             //blue
-            GameManager.sInstance.mUIManager.GetDuoAttack(BlueMage.mCharacterType);
+            //GameManager.sInstance.mUIManager.GetDuoAttack(BlueMage.mCharacterType);
             ParticleManager.sInstance.SpawnPartical(part, BlueMage.transform, BlueMage.transform, false);
         }
 

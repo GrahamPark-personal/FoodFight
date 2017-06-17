@@ -49,7 +49,7 @@ public class TurnBar : MonoBehaviour
     IEnumerator WaitToShow(bool enemyTurn)
     {
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.0f);
 
         if (enemyTurn)
         {

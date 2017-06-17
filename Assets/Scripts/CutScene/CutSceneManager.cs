@@ -166,6 +166,8 @@ public class CutSceneManager : MonoBehaviour
         if (newText != mLeftCharacter.texture)
         {
             mReplaceLeft = true;
+            ResetBubbles();
+            SetLeftBubble();
         }
 
         mLeftCharacter.texture = newText;
@@ -177,8 +179,9 @@ public class CutSceneManager : MonoBehaviour
 
         if (newText != mRightCharacter.texture)
         {
-            Debug.Log("[CutsceneManager] replace right");
             mReplaceRight = true;
+            ResetBubbles();
+            SetRightBubble();
         }
 
         mRightCharacter.texture = newText;

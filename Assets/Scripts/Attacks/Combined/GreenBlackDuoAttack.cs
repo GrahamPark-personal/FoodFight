@@ -33,7 +33,7 @@ public class GreenBlackDuoAttack : Attack
     public override void Execute(IntVector2 pos)
     {
 
-        Character mCharOnCell = GetComponent<Character>();
+        Character mCharOnCell = GameManager.sInstance.mCharacterObj;
         Character tempChar = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].mEnemyObj;
       
         tempChar.AddAilment(AilmentID.Poison, GetEffectDuration(), GetDamage());

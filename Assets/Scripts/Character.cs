@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+//using System;
 
 
 public enum AttackType
@@ -123,14 +123,11 @@ public class Character : MonoBehaviour
 
     //public GameManager mGM = null;
 
-    bool damageOnce = true;
-
-    [Space(30)]
-    public string mBasicPartical;
     public Attack mBasicAbility;
 
-    [Space(10)]
-    public DualAbilities mDualAbilities;
+    public DualAbilities[] mDuoAbilities;
+
+    bool damageOnce = true;
 
     [HideInInspector]
     public Transform mPosition;
@@ -186,7 +183,6 @@ public class Character : MonoBehaviour
     public float speed;
 
     float StartSpeed;
-
 
     IntVector2 nextBlock;
     [HideInInspector]
@@ -798,6 +794,32 @@ public class Character : MonoBehaviour
 
     public void Damage(int amount)
     {
+
+        int rand = Random.Range(0, 2);
+
+        if (mCharacterType == CharacterType.None)
+        {
+            if (rand == 0)
+            {
+                GameSounds.sInstance.PlayAudio("ENEMY_HIT_ONE");//ENEMY_HIT_TWO
+            }
+            else
+            {
+                GameSounds.sInstance.PlayAudio("ENEMY_HIT_TWO");
+            }
+        }
+        else
+        {
+            if (rand == 0)
+            {
+                GameSounds.sInstance.PlayAudio("PLAYER_HIT_ONE");//PLAYER_HIT_TWO
+            }
+            else
+            {
+                GameSounds.sInstance.PlayAudio("PLAYER_HIT_TWO");
+            }
+        }
+
         mAnimation = CharacterAnimations.Hit;
         //TODO:: Replace with hit sound from ParticleManager
         //AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
@@ -866,6 +888,25 @@ public class Character : MonoBehaviour
 
     public void Attacking(IntVector2 pos)
     {
+
+        if (pos.x > mCellPos.x)
+        {
+            mDirection = Direction.pos2;
+        }
+        else if (pos.x < mCellPos.x)
+        {
+            mDirection = Direction.pos4;
+        }
+
+        if (pos.y > mCellPos.y)
+        {
+            mDirection = Direction.pos3;
+        }
+        else if (pos.y < mCellPos.y)
+        {
+            mDirection = Direction.pos1;
+        }
+
         mAnimation = CharacterAnimations.Attack1;
         string mSelectedParticle = GameManager.sInstance.mCurrentPartical;
 

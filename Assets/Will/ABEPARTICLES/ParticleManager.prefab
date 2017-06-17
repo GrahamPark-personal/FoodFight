@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f91f28ffdbdb94e989f84849e2f4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mHover: {fileID: 2800000, guid: 5655f73166773e3449f6bde6039155ac, type: 3}
+  mClick: {fileID: 2800000, guid: 98685745f41e7744aa8ee7624ffe3149, type: 3}
   mPlayerSounds:
   - mName: 
     mDamageSounds: []
@@ -95,8 +97,8 @@ MonoBehaviour:
   mCharacterParticals:
   - {fileID: 1968782658407478, guid: 77f3c61d9c733564899076021e4a04c8, type: 2}
   - {fileID: 1069786792529884, guid: f5f268485efc40c49981bc5e0dbb7b59, type: 2}
-  - {fileID: 1928552100853506, guid: 8d219abc4e40dc447b0c1deeb2aeff96, type: 2}
   - {fileID: 1194495219618882, guid: a1c279299447a714e9ae11f5f91345ca, type: 2}
+  - {fileID: 1928552100853506, guid: 8d219abc4e40dc447b0c1deeb2aeff96, type: 2}
   - {fileID: 1650563586394996, guid: 55c8669011967794ca70d2160a95c84c, type: 2}
   - {fileID: 1054190571547216, guid: e93af885a39f05043b380d1948b3aa83, type: 2}
   mExclaim: {fileID: 1336306028093332, guid: d9dd19f2b4173164f802106b4b05dc87, type: 2}
@@ -117,6 +119,13 @@ MonoBehaviour:
     type: 2}
   ElectricAvenue: {fileID: 1748128260532596, guid: 76f11ac6bf8be774997894cf4152905a,
     type: 2}
+  mYellow: []
+  mBlue: []
+  mBrown: []
+  mRed: []
+  mGreen: []
+  mBlack: []
+  mWhite: []
   mParticals:
   - mKey: ELECTRIC_HAIL_STORM
     mPartical: {fileID: 1201200900392170, guid: f4ad93f8d1dfebd46bc13f1cec400d05,
@@ -135,65 +144,16 @@ MonoBehaviour:
       type: 2}
     mDelayed: 1
     mAttackSounds:
-    - {fileID: 8300000, guid: 413da52e41076354a8905be677bdaa60, type: 3}
-    - {fileID: 8300000, guid: f5eef8471be9323428c07c9fca3e50d6, type: 3}
-    - {fileID: 8300000, guid: 17c9b886d675bd64e85fbc960f3f9867, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     mControl: {fileID: 0}
   - mKey: BLUE_RED
     mPartical: {fileID: 1546026146299352, guid: c88d8499407149c4caeef7524aebb515,
       type: 2}
     mDelayed: 0
     mAttackSounds:
-    - {fileID: 8300000, guid: 413da52e41076354a8905be677bdaa60, type: 3}
-    - {fileID: 8300000, guid: f5eef8471be9323428c07c9fca3e50d6, type: 3}
-    - {fileID: 8300000, guid: 17c9b886d675bd64e85fbc960f3f9867, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     mControl: {fileID: 0}
-  mPlayerParticals:
-  - mCharacter: Yellow
-    mBasicPartical: LIGHTNING_STRIKE
-    mDuoPartical:
-    - ELECTRIC_HAIL_STORM
-    - 
-    - 
-    - 
-    - 
-  - mCharacter: Blue
-    mBasicPartical: BLUE_BASIC
-    mDuoPartical:
-    - ELECTRIC_HAIL_STORM
-    - 
-    - BLUE_RED
-    - 
-    - 
-  - mCharacter: Red
-    mBasicPartical: 
-    mDuoPartical:
-    - 
-    - BLUE_RED
-    - 
-    - 
-    - 
-  - mCharacter: Brown
-    mBasicPartical: 
-    mDuoPartical:
-    - 
-    - 
-    - 
-    - 
-    - 
-  - mCharacter: Green
-    mBasicPartical: 
-    mDuoPartical:
-    - 
-    - 
-    - 
-    - 
-    - 
-  - mCharacter: Black
-    mBasicPartical: 
-    mDuoPartical:
-    - 
-    - 
-    - 
-    - 
-    - 

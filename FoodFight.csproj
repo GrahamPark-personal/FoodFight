@@ -85,6 +85,8 @@
     <Compile Include="Assets\Scripts\AI\AIManager.cs" />
     <Compile Include="Assets\Scripts\Animation\AnimationControl.cs" />
     <Compile Include="Assets\Scripts\Animation\StarAnimation.cs" />
+    <Compile Include="Assets\Scripts\AssetStuff\RotateObject.cs" />
+    <Compile Include="Assets\Scripts\Attacks\AbilityManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Attack.cs" />
     <Compile Include="Assets\Scripts\Attacks\AttackManager.cs" />
     <Compile Include="Assets\Scripts\Attacks\Basic\BlackBaseAttack.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Assets\Scripts\EditorStuff\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GoToNext.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\GroundDir.cs" />
     <Compile Include="Assets\Scripts\IntVector2.cs" />
@@ -132,14 +135,22 @@
     <Compile Include="Assets\Scripts\PopUpBarControl.cs" />
     <Compile Include="Assets\Scripts\Sound\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Sound\AudioObject.cs" />
+    <Compile Include="Assets\Scripts\Sound\GameSounds.cs" />
     <Compile Include="Assets\Scripts\SquareDamageDuration.cs" />
+    <Compile Include="Assets\Scripts\TugOWar\ConquereComponents.cs" />
+    <Compile Include="Assets\Scripts\TugOWar\ConquereController.cs" />
     <Compile Include="Assets\Scripts\UI\BackgroundReset.cs" />
     <Compile Include="Assets\Scripts\UI\EffectManager.cs" />
     <Compile Include="Assets\Scripts\UI\EffectScript.cs" />
     <Compile Include="Assets\Scripts\UI\FinalStarAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\UI\MovePortrait.cs" />
     <Compile Include="Assets\Scripts\UI\ParticleControl.cs" />
+    <Compile Include="Assets\Scripts\UI\ParticleManager.cs" />
+    <Compile Include="Assets\Scripts\UI\RemoveTutorial.cs" />
     <Compile Include="Assets\Scripts\UI\TurnBar.cs" />
+    <Compile Include="Assets\Scripts\UIBar\CharacterSelection.cs" />
+    <Compile Include="Assets\Scripts\UIBar\SelectionBar.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>

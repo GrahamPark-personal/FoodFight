@@ -360,7 +360,10 @@ public class GameManager : MonoBehaviour
         {
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover(true);
+
+            SelectionBar.sInstance.AttackReset();
+
+
             ResetSelected();
 
         }
@@ -482,6 +485,9 @@ public class GameManager : MonoBehaviour
     {
         if (mGameTurn == GameTurn.Player)
         {
+
+            GameSounds.sInstance.PlayAudio("ENEMY_TURN");
+
             sInstance.CheckLose();
             sInstance.CheckWin();
 
@@ -509,7 +515,9 @@ public class GameManager : MonoBehaviour
             AIManager.sInstance.RunAIMove();
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover(true);
+
+            SelectionBar.sInstance.RoundCleanUp();
+
             mUIManager.ResetPopUp(false);
             ResetSelected();
 
@@ -558,11 +566,15 @@ public class GameManager : MonoBehaviour
 
 
             mMouseMode = MouseMode.None;
-            mUIManager.RevertHover(true);
+
+            SelectionBar.sInstance.RoundCleanUp();
+
+
             mUIManager.ResetPopUp(false);
             ResetSelected();
 
             mUIManager.IncrementTurn();
+            GameSounds.sInstance.PlayAudio("YOUR_TURN");
 
         }
         else

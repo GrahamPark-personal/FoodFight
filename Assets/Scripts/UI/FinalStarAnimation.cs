@@ -21,7 +21,7 @@ public class FinalStarAnimation : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.sInstance.mFinishedLastCutScene)
+        if (GameManager.sInstance.mFinishedLastCutScene)
         {
             //make them active
             mAnim.SetBool("Shown", true);
@@ -35,14 +35,33 @@ public class FinalStarAnimation : MonoBehaviour
 
     IEnumerator WaitAndShowStars()
     {
+
+
+
+
         yield return new WaitForSeconds(2f);
+
+        switch (GameManager.sInstance.mUIManager.mCurrentStar)
+        {
+            case StarLevel.Gold:
+                GameSounds.sInstance.PlayAudio("STAR_THREE");
+                break;
+            case StarLevel.Silver:
+                GameSounds.sInstance.PlayAudio("STAR_TWO");
+                break;
+            case StarLevel.Bronze:
+                GameSounds.sInstance.PlayAudio("STAR_ONE");
+                break;
+            default:
+                break;
+        }
 
         mStarObj.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         //maybe interpolate
         mBronzeStar.color = new Color(100, 100, 100);
         StarLevel mCurrentLevel = GameManager.sInstance.mUIManager.mCurrentStar;
-        if (mCurrentLevel == StarLevel.Silver || mCurrentLevel == StarLevel.Gold )
+        if (mCurrentLevel == StarLevel.Silver || mCurrentLevel == StarLevel.Gold)
         {
             yield return new WaitForSeconds(0.7f);
             mSilverStar.color = new Color(100, 100, 100);

@@ -11,8 +11,10 @@ EditorBuildSettings:
     path: Assets/JustStory.unity
   - enabled: 0
     path: Assets/Intro.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/IntroLevel.unity
+  - enabled: 1
+    path: Assets/IntroToGame.unity
   - enabled: 1
     path: Assets/RockLevelAct1.unity
   - enabled: 1

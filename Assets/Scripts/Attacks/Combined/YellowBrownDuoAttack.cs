@@ -31,7 +31,7 @@ public class YellowBrownDuoAttack : Attack
 
     public override void Execute(IntVector2 pos)
     {
-        Character tempCharacter = GameManager.sInstance.mCharacters[2];
+        Character tempCharacter = GameManager.sInstance.mCharacters[3];
         //actually find the rock
 
         //What does this skill do?

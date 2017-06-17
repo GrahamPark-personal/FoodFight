@@ -37,7 +37,7 @@ namespace Assets.Scripts.Attacks.Basic
         public override void Execute(IntVector2 pos)
         {
 
-            Character temp = gameObject.GetComponent<Character>();
+            Character temp = GameManager.sInstance.mCharacterObj;
             //Character temp = GameManager.sInstance.mCurrGrid.rows[GetStartPos().y].cols[GetStartPos().x].mCharacterObj;
 
             IntVector2 destination = pos;
@@ -111,7 +111,7 @@ namespace Assets.Scripts.Attacks.Basic
 
             if (GameManager.sInstance.mCurrGrid.rows[destination.y].cols[destination.x].mTypeOnCell == TypeOnCell.enemy)
             {
-                mCell.mEnemyObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
+                mCell.mEnemyObj.Damage(GameManager.sInstance.mCharacterObj, GetDamage());
             }
 
 

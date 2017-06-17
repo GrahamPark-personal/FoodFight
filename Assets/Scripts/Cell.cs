@@ -654,9 +654,11 @@ public class Cell : MonoBehaviour
                     else
                     {
                         GameManager.sInstance.mCharacterObj = mTempChar;
+                        StartCoroutine(waitToReset(mTempChar));
                     }
-                    GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
-                    //StartCoroutine(waitToReset(mTempChar));
+                    
+                    SelectionBar.sInstance.AttackReset();
+
                 }
             }
 
@@ -697,6 +699,8 @@ public class Cell : MonoBehaviour
                     GameManager.sInstance.AttackPos(mPos);
                     StartCoroutine(WaitToFixAttack());
 
+                    SelectionBar.sInstance.Attacked();
+
                     //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                 }
             }
@@ -730,7 +734,7 @@ public class Cell : MonoBehaviour
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
                             GameManager.sInstance.mCharacterObj.mAttacked = true;
-                            //GameManager.sInstance.mCharacterObj = null;
+                            GameManager.sInstance.mCharacterObj = null;
                             //GameManager.sInstance.mCharacterSelected = false;
                             //GameManager.sInstance.mEnemySelected = false;
                             GameManager.sInstance.ResetSelected();
@@ -961,8 +965,9 @@ public class Cell : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (mChar != null)
         {
-            GameManager.sInstance.mUIManager.SelectCharacter(mChar.mCellPos);
-            GameManager.sInstance.mUIManager.ResetPopUp(true);
+            int mchar = (int)mChar.mCharacterType;
+            SelectionBar.sInstance.SelectCharacter(mchar);
+            GameManager.sInstance.SetSelected(GameManager.sInstance.mCharacters[mchar].mCellPos, TypeOnCell.character, GameManager.sInstance.mCharacters[mchar]);
         }
         else
         {

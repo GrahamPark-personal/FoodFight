@@ -40,7 +40,7 @@ public class RedBlackDuoAttack : Attack
         // check ailment at the end of the turn. (apply damage to surrounding enemies)
         // if the ailment's duration == 0 apply the larger damage
 
-        Character mCharOnCell = GetComponent<Character>();
+        Character mCharOnCell = GameManager.sInstance.mCharacterObj;
                
         mCharOnCell.AddAilment(AilmentID.TimeBomb, GetEffectDuration(), GetDamage());
 

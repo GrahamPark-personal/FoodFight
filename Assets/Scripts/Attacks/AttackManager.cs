@@ -51,17 +51,31 @@ public class AttackManager : MonoBehaviour
 
             GameManager.sInstance.mMouseMode = MouseMode.None;
             bool finishCharacter = false;
+            int character = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
             if (GameManager.sInstance.mCharacterObj.mMoved)
             {
                 finishCharacter = true;
+
             }
-            GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
+            if(finishCharacter)
+            {
+                SelectionBar.sInstance.Attacked();
+                SelectionBar.sInstance.AttackReset();
+                GameManager.sInstance.mMouseMode = MouseMode.None;
+            }
+            else
+            {
+                SelectionBar.sInstance.Attacked();
+                SelectionBar.sInstance.AttackReset();
+                StartCoroutine(WaitForReset(character));
+            }
+            //TODO:: instead of a whole reset, only revert back to character 1 being selected
+            //GameManager.sInstance.mUIManager.RevertHover(finishCharacter);
         }
         else
         {
             mRemoveAttack = true;
         }
-        //GameManager.sInstance.ResetSelected();
 
     }
 
@@ -86,6 +100,13 @@ public class AttackManager : MonoBehaviour
         GameManager.sInstance.mPreviewBlocks.Clear();
 
 
+    }
+
+    IEnumerator WaitForReset(int character)
+    {
+        yield return new WaitForSeconds(0.1f);
+        SelectionBar.sInstance.SelectCharacter(character);
+        GameManager.sInstance.SetSelected(GameManager.sInstance.mCharacters[character].mCellPos, TypeOnCell.character, GameManager.sInstance.mCharacters[character]);
     }
 
 

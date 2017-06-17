@@ -97,7 +97,7 @@ public class ConquereController : MonoBehaviour
 
     void Start()
     {
-        if(mLocations.UseSpecificSpots)
+        if (mLocations.UseSpecificSpots)
         {
             GetSpecificAreas();
         }
@@ -184,7 +184,7 @@ public class ConquereController : MonoBehaviour
                 mCurrentTexture = mIdleTexture;
                 break;
             case ZoneMode.CharactersOwnIt:
-                if(!mEnteredZone)
+                if (!mEnteredZone)
                 {
                     ActivateAllAI();
                 }
@@ -232,16 +232,29 @@ public class ConquereController : MonoBehaviour
         if (numEnemies > 0 && numCharacters == 0)
         {
             //enemy got it
+            if (mZoneMode != ZoneMode.EnemiesOwnIt)
+            {
+                GameSounds.sInstance.PlayAudio("ENEMY_CAPTURED_ZONE");
+            }
             mZoneMode = ZoneMode.EnemiesOwnIt;
         }
         else if (numCharacters > 0 && numEnemies == 0)
         {
             //characters got it
+            if (mZoneMode != ZoneMode.CharactersOwnIt)
+            {
+                GameSounds.sInstance.PlayAudio("PLAYER_CAPTURED");
+            }
+
             mZoneMode = ZoneMode.CharactersOwnIt;
         }
         else if (numEnemies > 0 && numCharacters > 0)
         {
             //contested
+            if (mZoneMode != ZoneMode.Contested)
+            {
+                GameSounds.sInstance.PlayAudio("ZONE_CONTESTED");
+            }
             mZoneMode = ZoneMode.Contested;
         }
         else
@@ -257,7 +270,7 @@ public class ConquereController : MonoBehaviour
     {
         foreach (Cell item in mZoneLocations)
         {
-            if(item.GetCharacterObject() == null)
+            if (item.GetCharacterObject() == null)
             {
                 return item.mPos;
             }
@@ -276,9 +289,11 @@ public class ConquereController : MonoBehaviour
                 break;
             case ZoneMode.CharactersOwnIt:
                 mCharacterTurnCounter--;
+                GameSounds.sInstance.PlayAudio("BLUE_STAR");
                 break;
             case ZoneMode.EnemiesOwnIt:
                 mEnemyTurnCounter--;
+                GameSounds.sInstance.PlayAudio("RED_STAR");
                 break;
             case ZoneMode.Contested:
 

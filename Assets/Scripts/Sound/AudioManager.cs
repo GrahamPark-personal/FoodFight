@@ -47,11 +47,12 @@ public class AudioManager : MonoBehaviour
         mMusic.volume = Mathf.Lerp(mMusic.volume, mCurrentVolume, Time.deltaTime * 10);
     }
     
-    public void CreateAudioAtPosition(AudioClip clip, Transform tr)
+    public GameObject CreateAudioAtPosition(AudioClip clip, Transform tr)
     {
-        if(clip != null)
+        GameObject tempObj =  new GameObject();
+        if (clip != null)
         {
-            GameObject tempObj = Instantiate(mAudioObj, tr.position, tr.rotation);
+            tempObj = Instantiate(mAudioObj, tr.position, tr.rotation);
             //Debug.Log("Got here 1");
             AudioObject audObj = tempObj.GetComponent<AudioObject>();
             //Debug.Log("Got here 2");
@@ -59,5 +60,7 @@ public class AudioManager : MonoBehaviour
             //Debug.Log("Got here 3");
             audObj.StartAudio();
         }
+
+        return tempObj;
     }
 }

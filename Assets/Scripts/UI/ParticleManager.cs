@@ -42,6 +42,10 @@ public class ParticleManager : MonoBehaviour
 
     static public ParticleManager sInstance = null;
 
+    [Header("Cursors")]
+    public Texture2D mHover;
+    public Texture2D mClick;
+
     [Header("Player Sounds(NOT implemented yet)")]
     public PlayerSpecificSounds[] mPlayerSounds;
 
@@ -81,7 +85,7 @@ public class ParticleManager : MonoBehaviour
     [Header("Attack Particals")]
     public GamePartical[] mParticals;
 
-    public PlayerPartical[] mPlayerParticals;
+    //public PlayerPartical[] mPlayerParticals;
 
 
     Dictionary<string, GamePartical> mParticalContainer = new Dictionary<string, GamePartical>();
@@ -100,9 +104,23 @@ public class ParticleManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            Cursor.SetCursor(mClick, new Vector2(100, 84), CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(mHover, new Vector2(100, 84), CursorMode.Auto);
+        }
+    }
 
     void Start()
     {
+
+        Cursor.SetCursor(mHover, new Vector2(0, 0), CursorMode.Auto);
+
         for (int i = 0; i < mParticals.Length; i++)
         {
             mParticalContainer[mParticals[i].mKey] = mParticals[i];
@@ -175,6 +193,7 @@ public class ParticleManager : MonoBehaviour
             {
                 int rnd = Random.Range(0, (audioLength - 1));
                 clip = gamePart.mAttackSounds[rnd];
+
             }
             else
             {

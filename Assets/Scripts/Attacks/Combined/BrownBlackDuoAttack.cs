@@ -32,7 +32,7 @@ public class BrownBlackDuoAttack : Attack {
     public override void Execute(IntVector2 pos)
     {
 
-        Character mCharOnCell = GetComponent<Character>();
+        Character mCharOnCell = GameManager.sInstance.mCharacterObj;
 
         Cell myCell = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x];
 

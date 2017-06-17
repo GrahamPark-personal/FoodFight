@@ -6,12 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectControl : MonoBehaviour
 {
-
+    public GameObject mActBar;
+    public GameObject mLoading;
     public Animator mAnimator;
+
+    int currLevelStart = 0;
+    bool mActBarUp = false;
 
     void Start()
     {
-
+        mActBar.SetActive(false);
+        mLoading.SetActive(false);
     }
 
     void Update()
@@ -34,37 +39,70 @@ public class LevelSelectControl : MonoBehaviour
         Application.Quit();
     }
 
+    public void LoadAct1()
+    {
+        mLoading.SetActive(true);
+        SceneManager.LoadScene(currLevelStart);
+    }
+
+    public void LoadAct2()
+    {
+        mLoading.SetActive(true);
+        SceneManager.LoadScene(currLevelStart+1);
+    }
+
+    public void LoadAct3()
+    {
+        mLoading.SetActive(true);
+        SceneManager.LoadScene(currLevelStart+2);
+    }
+
     public void LoadIntroLevel()
     {
-        SceneManager.LoadScene(1);
+        currLevelStart = 1;
+        mActBar.SetActive(true);
+        mActBarUp = true;
     }
 
     public void LoadRockLevel()
     {
-        SceneManager.LoadScene(3);
+        currLevelStart = 3;
+        mActBar.SetActive(true);
+        mActBarUp = true;
+
     }
 
     public void LoadFireLevel()
     {
-        SceneManager.LoadScene(6);
+        currLevelStart = 6;
+        mActBar.SetActive(true);
+        mActBarUp = true;
+
 
     }
 
     public void LoadNatureLevel()
     {
-        SceneManager.LoadScene(9);
+        currLevelStart = 9;
+        mActBar.SetActive(true);
+        mActBarUp = true;
 
     }
 
     public void LoadDarkLevel()
     {
-        SceneManager.LoadScene(12);
+        currLevelStart = 12;
+        mActBar.SetActive(true);
+        mActBarUp = true;
 
     }
 
     public void LoadBossLevel()
     {
-        SceneManager.LoadScene(15);
+        currLevelStart = 15;
+        mActBar.SetActive(true);
+        mActBarUp = true;
+
     }
 
 }

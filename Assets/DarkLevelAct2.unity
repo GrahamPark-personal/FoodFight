@@ -128,24 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 892576436}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 44505660}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 44505661}
-    ability1Character1: 1
-    ability1Character2: 0
-    mDuoAbility2: {fileID: 44505662}
-    ability2Character1: 1
-    ability2Character2: 2
-    mDuoAbility3: {fileID: 44505664}
-    ability3Character1: 1
-    ability3Character2: 3
-    mDuoAbility4: {fileID: 44505663}
-    ability4Character1: 1
-    ability4Character2: 4
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -187,9 +171,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &44505656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1078,24 +1060,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1921824714}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 267179050}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 267179054}
-    ability1Character1: 3
-    ability1Character2: 0
-    mDuoAbility2: {fileID: 267179053}
-    ability2Character1: 3
-    ability2Character2: 1
-    mDuoAbility3: {fileID: 267179052}
-    ability3Character1: 3
-    ability3Character2: 2
-    mDuoAbility4: {fileID: 267179051}
-    ability4Character1: 3
-    ability4Character2: 4
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: 0
@@ -1137,9 +1103,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &267179046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1689,24 +1653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 792111806}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 384067145}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 384067146}
-    ability1Character1: 0
-    ability1Character2: 1
-    mDuoAbility2: {fileID: 384067147}
-    ability2Character1: 0
-    ability2Character2: 2
-    mDuoAbility3: {fileID: 384067149}
-    ability3Character1: 0
-    ability3Character2: 3
-    mDuoAbility4: {fileID: 384067148}
-    ability4Character1: 0
-    ability4Character2: 4
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: 10
@@ -1748,9 +1696,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &384067141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14856,7 +14802,7 @@ Prefab:
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -360.5
       objectReference: {fileID: 0}
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
@@ -14876,7 +14822,7 @@ Prefab:
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
@@ -14886,7 +14832,7 @@ Prefab:
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224163943263162836, guid: 5a57dc55d2a85624090255da01b58922,
         type: 2}
@@ -15280,24 +15226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 0}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 0}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 0}
-    ability1Character1: 6
-    ability1Character2: 6
-    mDuoAbility2: {fileID: 0}
-    ability2Character1: 6
-    ability2Character2: 6
-    mDuoAbility3: {fileID: 0}
-    ability3Character1: 6
-    ability3Character2: 6
-    mDuoAbility4: {fileID: 0}
-    ability4Character1: 6
-    ability4Character2: 6
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: -1
@@ -15339,9 +15269,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 0}
-    mAttackSound: {fileID: 0}
+  mActivated: 0
 --- !u!23 &1505749548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15668,24 +15596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 960700381}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 1542064496}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 1542064505}
-    ability1Character1: 4
-    ability1Character2: 0
-    mDuoAbility2: {fileID: 1542064504}
-    ability2Character1: 4
-    ability2Character2: 1
-    mDuoAbility3: {fileID: 1542064503}
-    ability3Character1: 4
-    ability3Character2: 2
-    mDuoAbility4: {fileID: 1542064502}
-    ability4Character1: 4
-    ability4Character2: 3
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: 10
@@ -15727,9 +15639,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &1542064498
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16570,24 +16480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1571900596}
   mActorComp: {fileID: 0}
-  mBasicPartical: ','
   mBasicAbility: {fileID: 1716735082}
-  mDualAbilities:
-    mDuoAbility1: {fileID: 1716735084}
-    ability1Character1: 0
-    ability1Character2: 2
-    mDuoAbility2: {fileID: 1716735083}
-    ability2Character1: 1
-    ability2Character2: 2
-    mDuoAbility3: {fileID: 1716735086}
-    ability3Character1: 2
-    ability3Character2: 3
-    mDuoAbility4: {fileID: 1716735085}
-    ability4Character1: 2
-    ability4Character2: 4
-    mDuoAbility5: {fileID: 0}
-    ability5Character1: 6
-    ability5Character2: 6
+  mDuoAbilities: []
   mPosition: {fileID: 0}
   mCellPos:
     x: 1
@@ -16629,9 +16523,7 @@ MonoBehaviour:
   SpawnedMinion2: {fileID: 0}
   patientZero: 0
   hasVirus: 0
-  mAudioClips:
-    mHitSound: {fileID: 8300000, guid: eb5c9f93fd6b4ed4b8549bdca8d6f57f, type: 3}
-    mAttackSound: {fileID: 8300000, guid: 6674d34656f9eb644a372dfcfa71f58e, type: 3}
+  mActivated: 0
 --- !u!23 &1716735078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16996,6 +16888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mCurrentAttack: {fileID: 0}
+  mRemoveAttack: 1
 --- !u!4 &1867473424 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 0b0eff76efc63374689b0c13009cf8a3, type: 3}
@@ -22834,7 +22727,7 @@ Prefab:
         type: 2}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: c04f578dd7e5a7948808354f161e5bbe, type: 3}
+      objectReference: {fileID: 2800000, guid: 90c736107b069c24595a50525e35fb54, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05a956568a978a848ae078f82f99a977, type: 2}
   m_IsPrefabParent: 0
@@ -23197,6 +23090,7 @@ MonoBehaviour:
   mCurrentRange: 0
   mBoss: {fileID: 1716735077}
   mCurrentPartical: B
+  mCurrentAudio: {fileID: 0}
   mOtherCharacterIndex: -1
   mSavedCharacter: {fileID: 0}
   mCamControl: {fileID: 2007593997}

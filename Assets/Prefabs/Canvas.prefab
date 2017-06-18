@@ -2105,12 +2105,12 @@ MonoBehaviour:
   mBasicAttack: {fileID: 114646856530349562}
   mEndTurn: {fileID: 114917414847523704}
   mCharFrame:
-  - {fileID: 114270514908923082}
-  - {fileID: 114911717344477068}
-  - {fileID: 114503716260390362}
-  - {fileID: 114330237439266210}
-  - {fileID: 114850342449254666}
-  - {fileID: 114656238070809214}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   mCharImage:
   - {fileID: 114033867951590584}
   - {fileID: 114966118534471766}
@@ -2139,6 +2139,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: fb51fb79810095d40a069034bd93aacd, type: 3}
   - {fileID: 2800000, guid: b5e1a22939155a745b62c9edfc9fcbb5, type: 3}
   - {fileID: 2800000, guid: b4642c4838c0a9f4b893ec359b4a2b65, type: 3}
+  mCharHoverTexture: []
+  mCharSelectedTexture: []
   mActiveCharacters: 0
   mCharacters:
   - {fileID: 0}
@@ -2154,49 +2156,6 @@ MonoBehaviour:
   - {fileID: 114232918600746812}
   - {fileID: 114103102857345092}
   - {fileID: 114449810634205396}
-  mTexturesForAttacks:
-  - images:
-    - {fileID: 2800000, guid: 3001c7a9f679ea5488215132980f3f1f, type: 3}
-    - {fileID: 2800000, guid: bae5afb1b1b624d4e850b67e049a6a41, type: 3}
-    - {fileID: 2800000, guid: 3b88c3cfef1d9cd45bccb9ae53a3a514, type: 3}
-    - {fileID: 2800000, guid: 052fa8c5efdbfab4b95b6f61730f8421, type: 3}
-    - {fileID: 2800000, guid: 00fa4b086481cf74dbc6c9da23c692f0, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: 9a788e6bf95772545a330e0f0e52fc3e, type: 3}
-    - {fileID: 2800000, guid: 4ed229ec992f6834a9cd0e11179f4810, type: 3}
-    - {fileID: 2800000, guid: 2d95f462347dd4f4ea1cde0d35ffefcd, type: 3}
-    - {fileID: 2800000, guid: ae22205fa0363cd41b2ad1fda9cc3e4c, type: 3}
-    - {fileID: 2800000, guid: 893a0763e4fe4bd41a6517ad4e12754e, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: a311137f197eeb64190a77ab5e03ff66, type: 3}
-    - {fileID: 2800000, guid: 9d57d1af4c928694184e174bea587a78, type: 3}
-    - {fileID: 2800000, guid: 13d701ca13a07fb4c8be7998f95db094, type: 3}
-    - {fileID: 2800000, guid: 826197a7ce382174486e1c9bf59a49e6, type: 3}
-    - {fileID: 2800000, guid: 317683d37b50f964cad36f374e229989, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: 1af328e1aa87d734d990e00088cc5f3d, type: 3}
-    - {fileID: 2800000, guid: 84c68dd254e2e8b45940ae8ab913f719, type: 3}
-    - {fileID: 2800000, guid: 0dbc45d7c28ec22428357ede20332ee8, type: 3}
-    - {fileID: 2800000, guid: b7a9a5697e95c0347aa2ac48ee17b046, type: 3}
-    - {fileID: 2800000, guid: f6309e8247b3cd647b3067797e7936b1, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 2800000, guid: b909d8ac95ef182429161b0b45e754d8, type: 3}
-    - {fileID: 2800000, guid: 07758019b94545544b0052655e1a850a, type: 3}
-    - {fileID: 2800000, guid: e12346413947b2c4faea56c212c6e836, type: 3}
-    - {fileID: 2800000, guid: 1bb440243c0bcde4eabda5f6af5c12cc, type: 3}
-    - {fileID: 2800000, guid: 03b1e9c1a22e59e4a876d8dfafdbbdbc, type: 3}
-    - {fileID: 0}
-  - images:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
   mBubbles:
   - {fileID: 1837274502468062}
   - {fileID: 1323782616994078}
@@ -2205,12 +2164,14 @@ MonoBehaviour:
   - {fileID: 1772314977071628}
   - {fileID: 1685274503676848}
   mTextBubble: {fileID: 114273438829071438}
+  mCurrentStar: 2
   mStarImageSlot: {fileID: 114954942371289332}
   mGoldStarImage: {fileID: 2800000, guid: 602c3dcbeed9b8a4bb9838c0d619f59e, type: 3}
   mSilverStar: {fileID: 2800000, guid: a3af29b216d909b4984a20849b1b3acf, type: 3}
   mBronzeStar: {fileID: 2800000, guid: 4c2b7c6bc1f1da1488077aea9578ba5f, type: 3}
   mGoldTurns: 3
   mSilverTurns: 2
+  mStarText: {fileID: 0}
 --- !u!114 &114098660386433108
 MonoBehaviour:
   m_ObjectHideFlags: 1

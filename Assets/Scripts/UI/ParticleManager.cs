@@ -8,6 +8,7 @@ public struct GamePartical
     public string mKey;
     [Space(10)]
     public GameObject mPartical;
+    public string mSoundID;
     public bool mDelayed;
     [Space(10)]
     public AudioClip[] mAttackSounds;
@@ -153,6 +154,7 @@ public class ParticleManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.0f);
         }
+        GameSounds.sInstance.PlayAudio(gamePart.mSoundID);
 
 
         GameObject obj;

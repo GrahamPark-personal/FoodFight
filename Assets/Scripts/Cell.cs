@@ -117,6 +117,7 @@ public class Cell : MonoBehaviour
 
     int effectDuration;
 
+    bool mStartedHover = false;
 
     public int GetDamageFromTag(CellTag tag)
     {
@@ -173,11 +174,11 @@ public class Cell : MonoBehaviour
         if (AreaEffectBlock == null)
         {
             //will have different blocks for each one
-            if(parm.Effect == cellEffect.ElectricHailStorm)
+            if (parm.Effect == cellEffect.ElectricHailStorm)
             {
                 AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricHailStorm, transform.position, transform.rotation);
             }
-            else if(parm.Effect == cellEffect.ElectricAvenue)
+            else if (parm.Effect == cellEffect.ElectricAvenue)
             {
                 AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricAvenue, transform.position, transform.rotation);
             }
@@ -220,11 +221,11 @@ public class Cell : MonoBehaviour
 
     public void AddVisualBlock(CellTag tag)
     {
-        if(tag == CellTag.ElectricHailStorm)
+        if (tag == CellTag.ElectricHailStorm)
         {
             AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricHailStorm, transform.position, transform.rotation);
         }
-        else if(tag == CellTag.ElectricAvenue)
+        else if (tag == CellTag.ElectricAvenue)
         {
             AreaEffectBlock = Instantiate(ParticleManager.sInstance.ElectricAvenue, transform.position, transform.rotation);
         }
@@ -539,10 +540,20 @@ public class Cell : MonoBehaviour
 
     IEnumerator WaitToFixAttack()
     {
-        yield return new WaitForSeconds(0.1f);
-        GameManager.sInstance.mMouseMode = MouseMode.Move;
-        GameManager.sInstance.ResetSelected();
-        GameManager.sInstance.mUIManager.ResetPopUp(true);
+        Character mTempChar = GameManager.sInstance.mCharacterObj;
+        yield return new WaitForSeconds(0.2f);
+        if (mTempChar != null && mTempChar.mAttacked && mTempChar.mMoved)
+        {
+            SelectionBar.sInstance.AttackReset();
+            GameManager.sInstance.mCharacterObj = null;
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
+            StartCoroutine(waitToReset(mTempChar));
+        }
+        else
+        {
+            GameManager.sInstance.mCharacterObj = mTempChar;
+            GameManager.sInstance.mMouseMode = MouseMode.None;
+        }
     }
 
     void OnMouseOver()
@@ -644,20 +655,22 @@ public class Cell : MonoBehaviour
                 {
 
                     Character mTempChar = GameManager.sInstance.mCharacterObj;
-                    GameManager.sInstance.mCurrGrid.rows[mTempChar.mCellPos.y].cols[mTempChar.mCellPos.x].mCharacterObj = null;
+                    //GameManager.sInstance.mCurrGrid.rows[mTempChar.mCellPos.y].cols[mTempChar.mCellPos.x].mCharacterObj = null;
                     GameManager.sInstance.MoveTo(mPos);
                     bool finishCharacter = false;
                     if (mTempChar.mAttacked && mTempChar.mMoved)
                     {
                         finishCharacter = true;
+                        SelectionBar.sInstance.AttackReset();
+                        GameManager.sInstance.mCharacterObj = null;
+                        GameManager.sInstance.mMouseMode = MouseMode.None;
                     }
                     else
                     {
-                        GameManager.sInstance.mCharacterObj = mTempChar;
                         StartCoroutine(waitToReset(mTempChar));
                     }
-                    
-                    SelectionBar.sInstance.AttackReset();
+
+                    //SelectionBar.sInstance.AttackReset();
 
                 }
             }
@@ -672,8 +685,6 @@ public class Cell : MonoBehaviour
                 {
                     if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                     {
-                        Character mTempChar = GameManager.sInstance.mCharacterObj;
-                        StartCoroutine(waitToReset(mTempChar));
                         GameManager.sInstance.MoveTo(mPos);
                     }
                 }
@@ -705,6 +716,7 @@ public class Cell : MonoBehaviour
                 }
             }
 
+
             if (Input.GetMouseButtonUp(0)
                 && GameManager.sInstance.mMouseMode == MouseMode.AbilityAttack
                 && GameManager.sInstance.mCharacterSelected
@@ -723,8 +735,8 @@ public class Cell : MonoBehaviour
                         if (GameManager.sInstance.mAttackAreaLocations[i].x == mPos.x
                             && GameManager.sInstance.mAttackAreaLocations[i].y == mPos.y)
                         {
-                            AttackManager.sInstance.RunAttack(mPos);
                             GameManager.sInstance.mCharacterObj.Attacking(mPos);
+                            AttackManager.sInstance.RunAttack(mPos);
                             if (GameManager.sInstance.mOtherCharacterIndex != -1)
                             {
                                 Debug.Log("Got into the index");
@@ -733,7 +745,7 @@ public class Cell : MonoBehaviour
                             }
                             GameManager.sInstance.mMouseMode = MouseMode.Move;
                             //GameManager.sInstance.mCharacterObj.mAnimControl.mState = CharAnimState.Attack;
-                            GameManager.sInstance.mCharacterObj.mAttacked = true;
+                            //GameManager.sInstance.mCharacterObj.mAttacked = true;
                             GameManager.sInstance.mCharacterObj = null;
                             //GameManager.sInstance.mCharacterSelected = false;
                             //GameManager.sInstance.mEnemySelected = false;
@@ -844,6 +856,16 @@ public class Cell : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (GameManager.sInstance.mGameTurn == GameTurn.Player)
+        {
+
+            Character tempCharHover = GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCharacterObj;
+            if (tempCharHover != null && !mStartedHover)
+            {
+                mStartedHover = true;
+                SelectionBar.sInstance.SetHover((int)tempCharHover.mCharacterType, true, true, true);
+            }
+        }
 
         GameManager.sInstance.mHoverBlock.SetActive(true);
         //GameManager.sInstance.ChangeHoverObject();
@@ -958,6 +980,16 @@ public class Cell : MonoBehaviour
             Destroy(item.gameObject);
         }
         GameManager.sInstance.mPreviewBlocks.Clear();
+
+
+        Character tempCharHover = GameManager.sInstance.mCurrGrid.rows[mPos.y].cols[mPos.x].mCharacterObj;
+        if (tempCharHover != null)
+        {
+            mStartedHover = false;
+            SelectionBar.sInstance.SetHover((int)tempCharHover.mCharacterType, false);
+
+        }
+
     }
 
     IEnumerator waitToReset(Character mChar)
@@ -966,12 +998,14 @@ public class Cell : MonoBehaviour
         if (mChar != null)
         {
             int mchar = (int)mChar.mCharacterType;
-            SelectionBar.sInstance.SelectCharacter(mchar);
-            GameManager.sInstance.SetSelected(GameManager.sInstance.mCharacters[mchar].mCellPos, TypeOnCell.character, GameManager.sInstance.mCharacters[mchar]);
+            SelectionBar.sInstance.SelectCharacter(mchar, false, false);
+            GameManager.sInstance.mUIManager.SelectCharacter(mChar.mCellPos);
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
         }
         else
         {
             Debug.Log("character object is null");
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
         }
 
     }

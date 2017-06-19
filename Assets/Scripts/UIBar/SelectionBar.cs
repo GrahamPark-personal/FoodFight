@@ -119,6 +119,76 @@ public class SelectionBar : MonoBehaviour
         return false;
     }
 
+    public void PlayAttackSound(int character)
+    {
+        if (character >= 0 && character < mPortraits.Length)
+        {
+            mPortraits[character].PlayAttackSounds();
+        }
+    }
+
+    public void PlayHitSound(int character)
+    {
+        if (character >= 0 && character < mPortraits.Length)
+        {
+            mPortraits[character].PlayHitSounds();
+        }
+    }
+
+    public bool SelectCharacter(int character, bool playSound, bool onlyFirst)
+    {
+        if (GameManager.sInstance.mCharacters[character].mMoved && GameManager.sInstance.mCharacters[character].mAttacked)
+        {
+            mPortraits[character].SetCharacterUsed();
+            return false;
+        }
+
+        //if none set to mCharacter1
+        if (mUIState == UIState.None)
+        {
+            mPortraits[character].SelectCharacter(playSound, onlyFirst);
+            mCharacter1 = character;
+
+            GameObject partical = ParticleManager.sInstance.mCharacterParticals[character];
+
+            IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
+
+            GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position, partical.transform.rotation);
+
+            mPortraits[character].SetHoverPartical(obj);
+
+            if (mPortraits[character].GetCharacterMode() == CharMode.Attacked)
+            {
+                TemporaryHideExcept(character);
+            }
+
+            mUIState = UIState.FirstCharacterSelected;
+            return true;
+        }
+        else if (mUIState == UIState.FirstCharacterSelected)
+        {
+            if (mPortraits[character].GetCharacterMode() == CharMode.None)
+            {
+                mPortraits[character].SelectCharacter(playSound, onlyFirst);
+                mCharacter2 = character;
+                mUIState = UIState.Attacking;
+                SetAttackUp();
+
+                GameObject partical = ParticleManager.sInstance.mCharacterParticals[character];
+
+                IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
+
+                GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+
+                mPortraits[character].SetHoverPartical(obj);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void SetPlayerAttacked(int character)
     {
         mPortraits[character].SetCharacterAttacked();
@@ -146,7 +216,7 @@ public class SelectionBar : MonoBehaviour
         if (character < GameManager.sInstance.mCharacters.Length)
         {
 
-            if (hovering)
+            if (hovering && mPortraits[character].GetCharacterMode() != CharMode.Used && mPortraits[character].GetCharacterMode() != CharMode.TemporaryUsed && mPortraits[character].GetCharacterMode() != CharMode.Locked)
             {
                 if (mPortraits[character].GetState() == SelectionState.NotSelected)
                 {
@@ -159,14 +229,61 @@ public class SelectionBar : MonoBehaviour
 
                     mPortraits[character].SetHoverPartical(obj);
                 }
+
+                mPortraits[character].SetHover(hovering);
+
+            }
+            else
+            {
+                mPortraits[character].SetHover(false);
             }
 
 
-            mPortraits[character].SetHover(hovering);
         }
 
     }
 
+
+    public void SetHover(int character, bool hovering, bool onlyFirstHover, bool playSound)
+    {
+        if (character < GameManager.sInstance.mCharacters.Length)
+        {
+
+            if (hovering && mPortraits[character].GetCharacterMode() != CharMode.Used && mPortraits[character].GetCharacterMode() != CharMode.TemporaryUsed && mPortraits[character].GetCharacterMode() != CharMode.Locked)
+            {
+                if (mPortraits[character].GetState() == SelectionState.NotSelected)
+                {
+
+                    GameObject partical = ParticleManager.sInstance.mCharacterParticals[character];
+
+                    IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
+
+                    GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+
+                    mPortraits[character].SetHoverPartical(obj);
+                }
+
+                if (onlyFirstHover)
+                {
+                    if (mPortraits[character].GetState() == SelectionState.NotSelected)
+                    {
+                        mPortraits[character].SetHover(hovering, playSound);
+                    }
+                }
+                else
+                {
+                    mPortraits[character].SetHover(hovering, playSound);
+                }
+            }
+            else
+            {
+                mPortraits[character].SetHover(false, false);
+            }
+
+
+        }
+
+    }
 
     void SetAttackUp()
     {

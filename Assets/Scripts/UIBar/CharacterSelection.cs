@@ -28,6 +28,16 @@ public enum CharMode
     TemporaryUsed = 4
 }
 
+[System.Serializable]
+public struct StandaloneSound
+{
+    public string mName;
+    public AudioClip mAudio;
+    [Space(10)]
+    public bool mUseDefaultSettings;
+    public AudioSetting mSettings;
+}
+
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -51,7 +61,13 @@ public class CharacterSelection : MonoBehaviour
     public RawImage mAttackingImage; //to show they are apart of the attack
 
     [Space(10)]
-    public AudioClip[] mTalkingSounds;
+    public StandaloneSound[] mTalkingSounds;
+    public StandaloneSound[] mSelectedSounds;
+
+    [Space(10)]
+    public StandaloneSound[] mAttackingSounds;
+    public StandaloneSound[] mGettingHitSounds;
+
 
     bool mHovering = false; // makes glow one up from current selection state
     bool mAttacking = false; // makes it have an attack image
@@ -68,9 +84,81 @@ public class CharacterSelection : MonoBehaviour
 
     }
 
+    public void PlayHitSounds()
+    {
+        StandaloneSound clip;
+
+        int audioLength = mGettingHitSounds.Length;
+
+        if (audioLength > 0)
+        {
+            if (audioLength > 1)
+            {
+                int rnd = mLastSound;
+
+
+                while (rnd == mLastSound)
+                {
+                    rnd = Random.Range(0, (audioLength - 1));
+                }
+
+                clip = mGettingHitSounds[rnd];
+            }
+            else
+            {
+                clip = mGettingHitSounds[0];
+            }
+
+            if (clip.mUseDefaultSettings)
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform);
+            }
+            else
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform, clip.mSettings);
+            }
+        }
+    }
+
+    public void PlayAttackSounds()
+    {
+        StandaloneSound clip;
+
+        int audioLength = mAttackingSounds.Length;
+
+        if (audioLength > 0)
+        {
+            if (audioLength > 1)
+            {
+                int rnd = mLastSound;
+
+
+                while (rnd == mLastSound)
+                {
+                    rnd = Random.Range(0, (audioLength - 1));
+                }
+
+                clip = mAttackingSounds[rnd];
+            }
+            else
+            {
+                clip = mAttackingSounds[0];
+            }
+
+            if (clip.mUseDefaultSettings)
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform);
+            }
+            else
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform, clip.mSettings);
+            }
+        }
+    }
+
     public void SetHoverPartical(GameObject partical)
     {
-        if(mHoverObject != null)
+        if (mHoverObject != null)
         {
             Destroy(partical);
         }
@@ -129,6 +217,33 @@ public class CharacterSelection : MonoBehaviour
         }
     }
 
+    public void SetHover(bool hovering, bool mPlaySounds)
+    {
+        mHovering = hovering;
+        if (hovering)
+        {
+            if (mCharacterMode != CharMode.Locked)
+            {
+                if (mPlaySounds)
+                {
+                    PlaySounds();
+                }
+            }
+        }
+        else
+        {
+            Destroy(mCurrentSoundObject);
+            if (mSelectionState == SelectionState.NotSelected)
+            {
+
+                if (mHoverObject != null)
+                {
+                    Destroy(mHoverObject.gameObject);
+                }
+            }
+        }
+    }
+
     public void DestroyHoverPartical()
     {
         if (mHoverObject != null)
@@ -139,7 +254,7 @@ public class CharacterSelection : MonoBehaviour
 
     void PlaySounds()
     {
-        AudioClip clip;
+        StandaloneSound clip;
 
         int audioLength = mTalkingSounds.Length;
 
@@ -162,7 +277,50 @@ public class CharacterSelection : MonoBehaviour
                 clip = mTalkingSounds[0];
             }
 
-            mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip, this.transform);
+            if (clip.mUseDefaultSettings)
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform);
+            }
+            else
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform, clip.mSettings);
+            }
+        }
+    }
+
+    void PlaySelectionSounds()
+    {
+        StandaloneSound clip;
+
+        int audioLength = mSelectedSounds.Length;
+
+        if (audioLength > 0)
+        {
+            if (audioLength > 1)
+            {
+                int rnd = mLastSound;
+
+
+                while (rnd == mLastSound)
+                {
+                    rnd = Random.Range(0, (audioLength - 1));
+                }
+
+                clip = mSelectedSounds[rnd];
+            }
+            else
+            {
+                clip = mSelectedSounds[0];
+            }
+
+            if (clip.mUseDefaultSettings)
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform);
+            }
+            else
+            {
+                mCurrentSoundObject = AudioManager.sInstance.CreateAudioAtPosition(clip.mAudio, this.transform, clip.mSettings);
+            }
         }
     }
 
@@ -183,6 +341,7 @@ public class CharacterSelection : MonoBehaviour
             {
                 //first selection(give it a glow, change its image to selected)
                 mSelectionState = SelectionState.FirstSelection;
+                PlaySelectionSounds();
             }
             else if (mSelectionState == SelectionState.FirstSelection)
             {
@@ -190,6 +349,36 @@ public class CharacterSelection : MonoBehaviour
                 if (mCharacterMode != CharMode.Attacked)
                 {
                     mSelectionState = SelectionState.SecondSelection;
+                    PlaySelectionSounds();
+                }
+            }
+        }
+    }
+    public void SelectCharacter(bool playSound, bool onlyFirst)
+    {
+        if (mCharacterMode != CharMode.Locked)
+        {
+
+            //based on selection state
+            if (mSelectionState == SelectionState.NotSelected && mCharacterMode != CharMode.Used)
+            {
+                //first selection(give it a glow, change its image to selected)
+                mSelectionState = SelectionState.FirstSelection;
+                if (playSound)
+                {
+                    PlaySelectionSounds();
+                }
+            }
+            else if (mSelectionState == SelectionState.FirstSelection)
+            {
+                //second selection(give it another glow)
+                if (mCharacterMode != CharMode.Attacked && !onlyFirst)
+                {
+                    mSelectionState = SelectionState.SecondSelection;
+                    if (playSound)
+                    {
+                        PlaySelectionSounds();
+                    }
                 }
             }
         }

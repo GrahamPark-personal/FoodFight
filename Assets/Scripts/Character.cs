@@ -451,7 +451,7 @@ public class Character : MonoBehaviour
         {
             if (buffs[i].ID == BuffID.ThunderCloak)
             {
-                
+
                 attacker.mMoved = true;
                 attacker.mMoveDistance = 0;
                 attacker.mHealth -= buffs[i].returnedDamage;
@@ -810,17 +810,21 @@ public class Character : MonoBehaviour
         }
         else
         {
-            if (rand == 0)
-            {
-                GameSounds.sInstance.PlayAudio("PLAYER_HIT_ONE");//PLAYER_HIT_TWO
-            }
-            else
-            {
-                GameSounds.sInstance.PlayAudio("PLAYER_HIT_TWO");
-            }
+            //if (rand == 0)
+            //{
+            //    GameSounds.sInstance.PlayAudio("PLAYER_HIT_ONE");//PLAYER_HIT_TWO
+            //}
+            //else
+            //{
+            //    GameSounds.sInstance.PlayAudio("PLAYER_HIT_TWO");
+            //}
+
+            SelectionBar.sInstance.PlayHitSound((int)mCharacterType);
+
         }
 
         mAnimation = CharacterAnimations.Hit;
+
         //TODO:: Replace with hit sound from ParticleManager
         //AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mHitSound, transform);
         StartCoroutine(TurnBackToIdleAfter());
@@ -912,11 +916,17 @@ public class Character : MonoBehaviour
 
         if (mSelectedParticle != null)
         {
-            ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform,true);
+            ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform, true);
         }
+
+        if(mCharacterType != CharacterType.None)
+        {
+            SelectionBar.sInstance.PlayAttackSound((int)mCharacterType);
+        }
+
         GameManager.sInstance.mCurrentPartical = null;
         //AudioManager.sInstance.CreateAudioAtPosition(mAudioClips.mAttackSound, transform);
-        if(ConquereController.sInstance)
+        if (ConquereController.sInstance)
         {
             ConquereController.sInstance.UpdateZone();
         }
@@ -925,7 +935,6 @@ public class Character : MonoBehaviour
 
     public void Heal(int amount)
     {
-        //TODO:: Deal with heal based abilities
 
         mHealth += amount;
         if (mHealth > mMaxHealth)
@@ -933,14 +942,12 @@ public class Character : MonoBehaviour
             mHealth = mMaxHealth;
         }
 
-
     }
 
     void FixedUpdate()
     {
         if (mMoving)
         {
-
             transform.position = Vector3.MoveTowards(transform.position, tempV, speed * Time.deltaTime);
         }
     }
@@ -949,9 +956,9 @@ public class Character : MonoBehaviour
     {
         Debug.Log("Found Enemy");
         //spawn
-        GameObject SpawnExclaim = Instantiate(ParticleManager.sInstance.mExclaim,transform);
-        SpawnExclaim.transform.position = new Vector3(0.0f,1.0f,0.0f);
-        SpawnExclaim.transform.localPosition = new Vector3(0.0f,2.0f,0.0f);
+        GameObject SpawnExclaim = Instantiate(ParticleManager.sInstance.mExclaim, transform);
+        SpawnExclaim.transform.position = new Vector3(0.0f, 1.0f, 0.0f);
+        SpawnExclaim.transform.localPosition = new Vector3(0.0f, 2.0f, 0.0f);
 
         yield return new WaitForSeconds(3.0f);
 

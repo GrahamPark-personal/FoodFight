@@ -5012,6 +5012,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 465428668}
     m_Modifications:
+    - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: mCharacters.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 224452735409330394, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -5291,6 +5296,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114056642684360532, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectRed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
@@ -19410,7 +19420,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dcf8075b06a904f8706b655c804d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mdefaultSetting:
+    mPriority: 0
+    mVolume: 0
+    mPitch: 0
+    mReverb: 0
   mAudioObj: {fileID: 1530233377946024, guid: 4e37cea2e73d14d429859cfb1e758eb9, type: 2}
+  mMusic: {fileID: 0}
 --- !u!1 &1542064495
 GameObject:
   m_ObjectHideFlags: 0

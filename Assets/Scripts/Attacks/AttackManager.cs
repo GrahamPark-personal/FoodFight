@@ -52,6 +52,9 @@ public class AttackManager : MonoBehaviour
             GameManager.sInstance.mMouseMode = MouseMode.None;
             bool finishCharacter = false;
             int character = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+            GameManager.sInstance.mCharacterObj.mAttacked = true;
+
             if (GameManager.sInstance.mCharacterObj.mMoved)
             {
                 finishCharacter = true;
@@ -61,6 +64,7 @@ public class AttackManager : MonoBehaviour
             {
                 SelectionBar.sInstance.Attacked();
                 SelectionBar.sInstance.AttackReset();
+                GameManager.sInstance.mCharacterObj = null;
                 GameManager.sInstance.mMouseMode = MouseMode.None;
             }
             else
@@ -105,8 +109,10 @@ public class AttackManager : MonoBehaviour
     IEnumerator WaitForReset(int character)
     {
         yield return new WaitForSeconds(0.1f);
-        SelectionBar.sInstance.SelectCharacter(character);
-        GameManager.sInstance.SetSelected(GameManager.sInstance.mCharacters[character].mCellPos, TypeOnCell.character, GameManager.sInstance.mCharacters[character]);
+        SelectionBar.sInstance.SelectCharacter(character,false,false);
+        GameManager.sInstance.mUIManager.SelectCharacter(GameManager.sInstance.mCharacters[character].mCellPos);
+        GameManager.sInstance.mMouseMode = MouseMode.Move;
+        //GameManager.sInstance.SetSelected(GameManager.sInstance.mCharacters[character].mCellPos, TypeOnCell.character, GameManager.sInstance.mCharacters[character]);
     }
 
 

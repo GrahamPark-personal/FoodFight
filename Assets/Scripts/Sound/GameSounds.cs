@@ -7,6 +7,9 @@ public struct MainSounds
 {
     public string ID;
     public AudioClip mAudio;
+    [Space(10)]
+    public bool mUseDefaultSettings;
+    public AudioSetting mSettings;
 }
 
 
@@ -56,7 +59,14 @@ public class GameSounds : MonoBehaviour
         {
             if(item.ID.Equals(audioID))
             {
-                AudioManager.sInstance.CreateAudioAtPosition(item.mAudio, this.transform);
+                if(item.mUseDefaultSettings)
+                {
+                    AudioManager.sInstance.CreateAudioAtPosition(item.mAudio, this.transform);
+                }
+                else
+                {
+                    AudioManager.sInstance.CreateAudioAtPosition(item.mAudio, this.transform,item.mSettings);
+                }
                 return;
             }
         }

@@ -13,6 +13,8 @@ public class FinalStarAnimation : MonoBehaviour
     public RawImage mSilverStar;
     public RawImage mGoldStar;
 
+    bool showedStart = false;
+
     void Start()
     {
         mAnim = GetComponent<Animator>();
@@ -21,8 +23,9 @@ public class FinalStarAnimation : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.sInstance.mFinishedLastCutScene)
+        if (GameManager.sInstance.mFinishedLastCutScene && !showedStart)
         {
+            showedStart = true;
             //make them active
             mAnim.SetBool("Shown", true);
             //play animation where the go from small to large
@@ -40,6 +43,8 @@ public class FinalStarAnimation : MonoBehaviour
 
 
         yield return new WaitForSeconds(2f);
+
+        AudioManager.sInstance.mMusic.volume = 0;
 
         switch (GameManager.sInstance.mUIManager.mCurrentStar)
         {

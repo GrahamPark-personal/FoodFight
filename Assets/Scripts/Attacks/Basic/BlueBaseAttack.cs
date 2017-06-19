@@ -44,7 +44,7 @@ public class BlueBaseAttack : Attack{
                 mCell.mEnemyObj.AddAilment(AilmentID.Slow, GetEffectDuration(), GetSlow());
                 mCell.mEnemyObj.Damage(gameObject.GetComponent<Character>(), GetDamage());
             }
-        
+
     }
 
 }

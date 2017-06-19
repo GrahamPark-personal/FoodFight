@@ -2761,12 +2761,12 @@ Prefab:
     - target: {fileID: 114238376394818596, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCharacter4Down
+      value: SelectBrown
       objectReference: {fileID: 0}
     - target: {fileID: 114056642684360532, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCharacter3Down
+      value: SelectRed
       objectReference: {fileID: 0}
     - target: {fileID: 114193871814161820, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
@@ -2851,12 +2851,12 @@ Prefab:
     - target: {fileID: 114713993404973660, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCharEnter4
+      value: ShowCharacterHover
       objectReference: {fileID: 0}
     - target: {fileID: 114686017278534004, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCharEnter3
+      value: ShowCharacterHover
       objectReference: {fileID: 0}
     - target: {fileID: 1944892284667862, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
       propertyPath: m_IsActive
@@ -2899,22 +2899,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4999805199224420, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
       propertyPath: m_RootOrder
-      value: 27
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4547430301071306, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 224875127002193160, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: mCharacters.Array.data[5]
       value: 
       objectReference: {fileID: 216331902}
+    - target: {fileID: 4606245906961994, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743142265819060, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058775853997708, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710956766384920, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114238376394818596, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
   m_IsPrefabParent: 0
@@ -10616,10 +10637,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 1496186792727506, guid: 64147de85cb30704d8cbf073fb2f49cd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64147de85cb30704d8cbf073fb2f49cd, type: 2}
   m_IsPrefabParent: 0
@@ -15866,7 +15883,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dcf8075b06a904f8706b655c804d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mdefaultSetting:
+    mPriority: 0
+    mVolume: 0
+    mPitch: 0
+    mReverb: 0
   mAudioObj: {fileID: 1530233377946024, guid: 4e37cea2e73d14d429859cfb1e758eb9, type: 2}
+  mMusic: {fileID: 0}
 --- !u!1 &1542064495
 GameObject:
   m_ObjectHideFlags: 0

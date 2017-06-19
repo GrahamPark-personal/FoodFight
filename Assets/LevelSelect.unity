@@ -2646,6 +2646,9 @@ MonoBehaviour:
   mActBar: {fileID: 521349198}
   mLoading: {fileID: 1347957330}
   mAnimator: {fileID: 1715442507}
+  mMusic: {fileID: 1988155906}
+  mCurrVolume: 0.1
+  mTime: 0.1
 --- !u!114 &1521304828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3446,6 +3449,7 @@ MonoBehaviour:
     mPitch: 0
     mReverb: 0
   mAudioObj: {fileID: 1530233377946024, guid: 4e37cea2e73d14d429859cfb1e758eb9, type: 2}
+  mMusic: {fileID: 0}
 --- !u!82 &1988155906
 AudioSource:
   m_ObjectHideFlags: 0

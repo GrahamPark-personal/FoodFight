@@ -88,8 +88,7 @@ public class ParticleManager : MonoBehaviour
 
     //public PlayerPartical[] mPlayerParticals;
 
-
-    Dictionary<string, GamePartical> mParticalContainer = new Dictionary<string, GamePartical>();
+    Dictionary<string, GamePartical> mParticalContainer;
 
 
     void Awake()
@@ -107,7 +106,7 @@ public class ParticleManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             Cursor.SetCursor(mClick, new Vector2(100, 84), CursorMode.Auto);
         }
@@ -120,15 +119,23 @@ public class ParticleManager : MonoBehaviour
     void Start()
     {
 
+        mParticalContainer = new Dictionary<string, GamePartical>(mParticals.Length);
+
         Cursor.SetCursor(mHover, new Vector2(0, 0), CursorMode.Auto);
 
         for (int i = 0; i < mParticals.Length; i++)
         {
-            mParticalContainer[mParticals[i].mKey] = mParticals[i];
-            mParticals[i].mControl = mParticals[i].mPartical.gameObject.GetComponent<ParticleControl>();
+            Debug.Log("times through");
+            if (mParticals[i].mPartical != null)
+            {
+                mParticals[i].mControl = mParticals[i].mPartical.gameObject.GetComponent<ParticleControl>();
+            }
+            mParticalContainer.Add(mParticals[i].mKey, mParticals[i]);
         }
-        mParticalContainer["DEATH"] = mDeathPartical;
+        mParticalContainer.Add("DEATH", mDeathPartical);
+
     }
+
 
 
     public void SpawnPartical(string key, Transform mStart, Transform mEnd, bool playSound)
@@ -146,7 +153,7 @@ public class ParticleManager : MonoBehaviour
     {
         GamePartical gamePart = mParticalContainer[key];
         Debug.Log("Partical: " + key);
-        if(gamePart.mDelayed)
+        if (gamePart.mDelayed)
         {
             yield return new WaitForSeconds(1.6f);
         }
@@ -159,31 +166,33 @@ public class ParticleManager : MonoBehaviour
 
         GameObject obj;
 
-        obj = Instantiate(gamePart.mPartical, mEnd.position + new Vector3(0, 1, 0), gamePart.mPartical.gameObject.transform.rotation);
-        ParticleControl pCon = obj.GetComponent<ParticleControl>();
+        if (gamePart.mPartical != null)
+        {
+            obj = Instantiate(gamePart.mPartical, mEnd.position + new Vector3(0, 1, 0), gamePart.mPartical.gameObject.transform.rotation);
+            ParticleControl pCon = obj.GetComponent<ParticleControl>();
 
 
-        if (pCon.mAction == mParticleAction.Stationary_DestroyAfterTime || pCon.mAction == mParticleAction.Stationary_DestroyOnCall)
-        {
-            obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
-            pCon.Init(mEnd);
+            if (pCon.mAction == mParticleAction.Stationary_DestroyAfterTime || pCon.mAction == mParticleAction.Stationary_DestroyOnCall)
+            {
+                obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
+                pCon.Init(mEnd);
+            }
+            else if (pCon.mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
+            {
+                obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
+                pCon.Init(mStart);
+            }
+            else if (pCon.mAction == mParticleAction.StartOnCharacter)
+            {
+                obj.transform.position = mStart.position + new Vector3(0, 1, 0);
+                pCon.Init(mStart);
+            }
+            else
+            {
+                obj.transform.position = mStart.position + new Vector3(0, 1, 0);
+                pCon.Init(mEnd);
+            }
         }
-        else if (pCon.mAction == mParticleAction.StartAtEnemyMoveTowardsCharacter)
-        {
-            obj.transform.position = mEnd.position + new Vector3(0, 1, 0);
-            pCon.Init(mStart);
-        }
-        else if (pCon.mAction == mParticleAction.StartOnCharacter)
-        {
-            obj.transform.position = mStart.position + new Vector3(0, 1, 0);
-            pCon.Init(mStart);
-        }
-        else
-        {
-            obj.transform.position = mStart.position + new Vector3(0, 1, 0);
-            pCon.Init(mEnd);
-        }
-
 
         AudioClip clip;
 

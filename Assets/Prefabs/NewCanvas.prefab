@@ -4238,7 +4238,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   mAttackImages:
   - {fileID: 114761514773227212}
   - {fileID: 114556174715954500}
@@ -4261,7 +4260,7 @@ MonoBehaviour:
   mBronzeStar: {fileID: 2800000, guid: ed4a0d2ddea71cd47927b669419db7d8, type: 3}
   mGoldTurns: 7
   mSilverTurns: 5
-  mStarText: {fileID: 114336806877595982}
+  mStarText: {fileID: 0}
 --- !u!114 &114103278818533928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5020,7 +5019,7 @@ MonoBehaviour:
     - mAbility: {fileID: 114229972213472668}
       mPartical: 
     - mAbility: {fileID: 114142922884627188}
-      mPartical: 
+      mPartical: RED_YELLOW
     - mAbility: {fileID: 114355852276458810}
       mPartical: 
     - mAbility: {fileID: 114000307519506050}
@@ -5044,7 +5043,7 @@ MonoBehaviour:
     - mAbility: {fileID: 114950779534876394}
       mPartical: 
     - mAbility: {fileID: 114119115962493422}
-      mPartical: 
+      mPartical: BROWN_BASIC
     - mAbility: {fileID: 114649394888125320}
       mPartical: 
     - mAbility: {fileID: 114692197089281904}
@@ -5053,13 +5052,13 @@ MonoBehaviour:
       mPartical: 
   - mAbilities:
     - mAbility: {fileID: 114142922884627188}
-      mPartical: 
+      mPartical: RED_YELLOW
     - mAbility: {fileID: 114934387816184006}
       mPartical: BLUE_RED
     - mAbility: {fileID: 114649394888125320}
       mPartical: 
     - mAbility: {fileID: 114197783102114000}
-      mPartical: 
+      mPartical: RED_BASIC
     - mAbility: {fileID: 114178630812510320}
       mPartical: 
     - mAbility: {fileID: 114255901298731708}
@@ -11976,6 +11975,46 @@ MonoBehaviour:
       mReverb: 0
   - ID: ICE_BASIC
     mAudio: {fileID: 8300000, guid: f09303887ff931946aa6d1a98edcdb7c, type: 3}
+    mUseDefaultSettings: 0
+    mSettings:
+      mPriority: 118
+      mVolume: 0.336
+      mPitch: 1
+      mReverb: 0
+  - ID: BROWN_BASIC
+    mAudio: {fileID: 8300000, guid: 21eb51106ed5c134fbbc9e6bdde54fea, type: 3}
+    mUseDefaultSettings: 0
+    mSettings:
+      mPriority: 118
+      mVolume: 0.336
+      mPitch: 0.11
+      mReverb: 0
+  - ID: ICE_AND_THUNDER
+    mAudio: {fileID: 8300000, guid: c0527a15b17af2d48a45abbd5ecfb2b3, type: 3}
+    mUseDefaultSettings: 0
+    mSettings:
+      mPriority: 118
+      mVolume: 0.336
+      mPitch: 1
+      mReverb: 0
+  - ID: RED_BASIC
+    mAudio: {fileID: 8300000, guid: 0e0340a2f0b64d048bddded9d8d01578, type: 3}
+    mUseDefaultSettings: 0
+    mSettings:
+      mPriority: 118
+      mVolume: 0.336
+      mPitch: 1
+      mReverb: 0
+  - ID: RED_BLUE
+    mAudio: {fileID: 8300000, guid: c4c032428288fe44c9d459507a2c57d6, type: 3}
+    mUseDefaultSettings: 0
+    mSettings:
+      mPriority: 118
+      mVolume: 0.336
+      mPitch: 1
+      mReverb: 0
+  - ID: RED_YELLOW
+    mAudio: {fileID: 8300000, guid: d31e1dde8db9c1c4d9f339bf711a1296, type: 3}
     mUseDefaultSettings: 0
     mSettings:
       mPriority: 118

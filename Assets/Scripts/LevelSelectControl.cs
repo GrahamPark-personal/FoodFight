@@ -10,18 +10,25 @@ public class LevelSelectControl : MonoBehaviour
     public GameObject mLoading;
     public Animator mAnimator;
 
+    public AudioSource mMusic;
+
     int currLevelStart = 0;
     bool mActBarUp = false;
+
+    public float mCurrVolume;
+    public float mTime;
 
     void Start()
     {
         mActBar.SetActive(false);
         mLoading.SetActive(false);
+        mMusic.volume = mCurrVolume;
     }
 
     void Update()
     {
-
+        mCurrVolume =  Mathf.Lerp(mCurrVolume, 1.0f, mTime * Time.deltaTime);
+        mMusic.volume = mCurrVolume;
     }
 
     public void OpenLevelSelect()

@@ -131,7 +131,7 @@ MonoBehaviour:
   - mKey: ELECTRIC_HAIL_STORM
     mPartical: {fileID: 1201200900392170, guid: f4ad93f8d1dfebd46bc13f1cec400d05,
       type: 2}
-    mSoundID: 
+    mSoundID: ICE_AND_THUNDER
     mDelayed: 1
     mAttackSounds: []
     mControl: {fileID: 0}
@@ -155,7 +155,35 @@ MonoBehaviour:
   - mKey: BLUE_RED
     mPartical: {fileID: 1546026146299352, guid: c88d8499407149c4caeef7524aebb515,
       type: 2}
-    mSoundID: 
+    mSoundID: RED_BLUE
+    mDelayed: 0
+    mAttackSounds:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    mControl: {fileID: 0}
+  - mKey: BROWN_BASIC
+    mPartical: {fileID: 0}
+    mSoundID: BROWN_BASIC
+    mDelayed: 1
+    mAttackSounds:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    mControl: {fileID: 0}
+  - mKey: RED_BASIC
+    mPartical: {fileID: 1656676588105618, guid: 6eabeba8b08489c40a18dfce823cd8d4,
+      type: 2}
+    mSoundID: RED_BASIC
+    mDelayed: 0
+    mAttackSounds:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    mControl: {fileID: 0}
+  - mKey: RED_YELLOW
+    mPartical: {fileID: 0}
+    mSoundID: RED_YELLOW
     mDelayed: 0
     mAttackSounds:
     - {fileID: 0}

@@ -540,20 +540,49 @@ public class Cell : MonoBehaviour
 
     IEnumerator WaitToFixAttack()
     {
-        Character mTempChar = GameManager.sInstance.mCharacterObj;
-        yield return new WaitForSeconds(0.2f);
-        if (mTempChar != null && mTempChar.mAttacked && mTempChar.mMoved)
+        //Character mTempChar = GameManager.sInstance.mCharacterObj;
+        //yield return new WaitForSeconds(0.2f);
+        //if (mTempChar != null && mTempChar.mAttacked && mTempChar.mMoved)
+        //{
+        //    SelectionBar.sInstance.AttackReset();
+        //    GameManager.sInstance.mCharacterObj = null;
+        //    GameManager.sInstance.mMouseMode = MouseMode.Move;
+        //    StartCoroutine(waitToReset(mTempChar));
+        //}
+        //else
+        //{
+        //    GameManager.sInstance.mCharacterObj = mTempChar;
+        //    GameManager.sInstance.mMouseMode = MouseMode.None;
+        //}
+
+        int character = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+        GameManager.sInstance.mCharacterObj.mAttacked = true;
+
+
+        bool finishCharacter = false;
+
+
+        if (GameManager.sInstance.mCharacterObj.mMoved && GameManager.sInstance.mCharacterObj.mAttacked)
         {
+            finishCharacter = true;
+
+        }
+        yield return new WaitForSeconds(0.0f);
+
+        if (finishCharacter)
+        {
+            SelectionBar.sInstance.Attacked();
             SelectionBar.sInstance.AttackReset();
             GameManager.sInstance.mCharacterObj = null;
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
-            StartCoroutine(waitToReset(mTempChar));
+            GameManager.sInstance.mMouseMode = MouseMode.None;
         }
         else
         {
-            GameManager.sInstance.mCharacterObj = mTempChar;
-            GameManager.sInstance.mMouseMode = MouseMode.None;
+            SelectionBar.sInstance.Attacked();
+            SelectionBar.sInstance.AttackReset();
+            StartCoroutine(waitToReset(character));
         }
+
     }
 
     void OnMouseOver()
@@ -570,7 +599,7 @@ public class Cell : MonoBehaviour
             }
 
             //select block
-            if (Input.GetMouseButton(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character
+            if (Input.GetMouseButtonDown(0) && !mCannotMoveHere && mTypeOnCell == TypeOnCell.character
                 && (GameManager.sInstance.mAttackShape != AttackShape.Heal
                 && GameManager.sInstance.mAttackShape != AttackShape.OtherCharacter
                 && GameManager.sInstance.mAttackShape != AttackShape.AllCharacters
@@ -655,6 +684,7 @@ public class Cell : MonoBehaviour
                 {
 
                     Character mTempChar = GameManager.sInstance.mCharacterObj;
+                    GameManager.sInstance.mCurrGrid.rows[mTempChar.mCellPos.y].cols[mTempChar.mCellPos.x].mCharacterObj = null;
                     //GameManager.sInstance.mCurrGrid.rows[mTempChar.mCellPos.y].cols[mTempChar.mCellPos.x].mCharacterObj = null;
                     GameManager.sInstance.MoveTo(mPos);
                     bool finishCharacter = false;
@@ -707,8 +737,8 @@ public class Cell : MonoBehaviour
                         GameManager.sInstance.mCharacters[GameManager.sInstance.mOtherCharacterIndex].Attacking(mPos);
                         GameManager.sInstance.mOtherCharacterIndex = -1;
                     }
-                    GameManager.sInstance.AttackPos(mPos);
                     StartCoroutine(WaitToFixAttack());
+                    GameManager.sInstance.AttackPos(mPos);
 
                     SelectionBar.sInstance.Attacked();
 
@@ -865,6 +895,7 @@ public class Cell : MonoBehaviour
                 mStartedHover = true;
                 SelectionBar.sInstance.SetHover((int)tempCharHover.mCharacterType, true, true, true);
             }
+
         }
 
         GameManager.sInstance.mHoverBlock.SetActive(true);
@@ -994,19 +1025,43 @@ public class Cell : MonoBehaviour
 
     IEnumerator waitToReset(Character mChar)
     {
+        SelectionBar.sInstance.AttackReset();
+        SelectionBar.sInstance.SelectCharacter((int)mChar.mCharacterType, false, false);
+
         yield return new WaitForSeconds(0.1f);
-        if (mChar != null)
+
+        if (GameManager.sInstance.mCharacters[(int)mChar.mCharacterType].mAttacked && GameManager.sInstance.mCharacters[(int)mChar.mCharacterType].mMoved)
         {
-            int mchar = (int)mChar.mCharacterType;
-            SelectionBar.sInstance.SelectCharacter(mchar, false, false);
-            GameManager.sInstance.mUIManager.SelectCharacter(mChar.mCellPos);
-            GameManager.sInstance.mMouseMode = MouseMode.Move;
+            GameManager.sInstance.mMouseMode = MouseMode.None;
         }
         else
         {
-            Debug.Log("character object is null");
             GameManager.sInstance.mMouseMode = MouseMode.Move;
         }
 
+        GameManager.sInstance.mUIManager.SelectCharacter(GameManager.sInstance.mCharacters[(int)mChar.mCharacterType].mCellPos);
+
     }
+
+
+
+    IEnumerator waitToReset(int mChar)
+    {
+
+        SelectionBar.sInstance.AttackReset();
+        SelectionBar.sInstance.SelectCharacter(mChar, false, false);
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (GameManager.sInstance.mCharacters[mChar].mAttacked && GameManager.sInstance.mCharacters[mChar].mMoved)
+        {
+            GameManager.sInstance.mMouseMode = MouseMode.None;
+        }
+        else
+        {
+            GameManager.sInstance.mMouseMode = MouseMode.Move;
+        }
+        GameManager.sInstance.mUIManager.SelectCharacter(GameManager.sInstance.mCharacters[mChar].mCellPos);
+    }
+
 }

@@ -205,10 +205,9 @@ public class CharacterSelection : MonoBehaviour
         }
         else
         {
-            Destroy(mCurrentSoundObject);
+            //Destroy(mCurrentSoundObject);
             if (mSelectionState == SelectionState.NotSelected)
             {
-
                 if (mHoverObject != null)
                 {
                     Destroy(mHoverObject.gameObject);
@@ -232,7 +231,7 @@ public class CharacterSelection : MonoBehaviour
         }
         else
         {
-            Destroy(mCurrentSoundObject);
+            //Destroy(mCurrentSoundObject);
             if (mSelectionState == SelectionState.NotSelected)
             {
 
@@ -416,7 +415,7 @@ public class CharacterSelection : MonoBehaviour
         //reset visuals
         HideAllGlows();
         SetAttackImage(false);
-        if (mHoverObject != null)
+        if (mHoverObject != null && !mHovering)
         {
             Destroy(mHoverObject.gameObject);
         }

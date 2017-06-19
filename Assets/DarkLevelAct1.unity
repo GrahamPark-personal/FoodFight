@@ -1888,6 +1888,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 465428668}
     m_Modifications:
+    - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: mCharacters.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 224452735409330394, guid: 434cfbba120bab04aac57e7e2210c06c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -2158,6 +2163,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114101303764164040, guid: 434cfbba120bab04aac57e7e2210c06c,
+        type: 2}
+      propertyPath: mStarText
+      value: 
+      objectReference: {fileID: 1237430040}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 434cfbba120bab04aac57e7e2210c06c, type: 2}
   m_IsPrefabParent: 0
@@ -10473,6 +10483,12 @@ Transform:
   m_Father: {fileID: 2144943465}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237430040 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114318621327695026, guid: c59340962f2b62144b27c6a9c5a6d050,
+    type: 2}
+  m_PrefabInternal: {fileID: 1316078985}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1241502818
 GameObject:
   m_ObjectHideFlags: 0

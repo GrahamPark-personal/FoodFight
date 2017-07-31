@@ -4,9 +4,9 @@ using System.Collections;
 public enum Direction
 {
     pos1 = 0,
-    pos2,
-    pos3,
-    pos4
+    pos2 = 1,
+    pos3 = 2,
+    pos4 = 3
 }
 
 public class CameraRotation : MonoBehaviour {

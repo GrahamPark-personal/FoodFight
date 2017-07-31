@@ -83,6 +83,11 @@ public class ConquereController : MonoBehaviour
     bool mEnteredZone = false;
 
 
+    GameObject mNeutralConquestPartical;
+    GameObject mYourConquestPartical;
+    GameObject mEnemyConquestPartical;
+    GameObject mContestedConquestPartical;
+
     void Awake()
     {
         if (sInstance == null)
@@ -125,6 +130,31 @@ public class ConquereController : MonoBehaviour
         }
     }
 
+    void UpdateZoneParticals()
+    {
+        mYourConquestPartical.SetActive(false);
+        mEnemyConquestPartical.SetActive(false);
+        mContestedConquestPartical.SetActive(false);
+        mNeutralConquestPartical.SetActive(false);
+        switch (mZoneMode)
+        {
+            case ZoneMode.NobodyOwnsIt:
+                mNeutralConquestPartical.SetActive(true);
+                break;
+            case ZoneMode.CharactersOwnIt:
+                mYourConquestPartical.SetActive(true);
+                break;
+            case ZoneMode.EnemiesOwnIt:
+                mEnemyConquestPartical.SetActive(true);
+                break;
+            case ZoneMode.Contested:
+                mContestedConquestPartical.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
     void GetArea()
     {
         IntVector2 temp = new IntVector2();
@@ -152,6 +182,16 @@ public class ConquereController : MonoBehaviour
             //Debug.Log("[ConquereController] Contains Location:" + item.mPos.x + "," + item.mPos.y);
             item.mConquereArea = true;
         }
+        Transform middleLocation = GameManager.sInstance.mCurrGrid.rows[mZoneMiddle.y].cols[mZoneMiddle.x].transform;
+        Quaternion particalRotation = TexturesManager.sInstance.mNeutralConquestPartical.transform.rotation;
+        mNeutralConquestPartical = Instantiate(TexturesManager.sInstance.mNeutralConquestPartical, middleLocation.position, particalRotation);
+        mYourConquestPartical = Instantiate(TexturesManager.sInstance.mYourConquestPartical, middleLocation.position, particalRotation);
+        mEnemyConquestPartical = Instantiate(TexturesManager.sInstance.mEnemyConquestPartical, middleLocation.position, particalRotation);
+        mContestedConquestPartical = Instantiate(TexturesManager.sInstance.mContestedConquestPartical, middleLocation.position, particalRotation);
+
+        mYourConquestPartical.SetActive(false);
+        mEnemyConquestPartical.SetActive(false);
+        mContestedConquestPartical.SetActive(false);
 
     }
 
@@ -207,7 +247,7 @@ public class ConquereController : MonoBehaviour
             item.gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", mCurrentTexture);
         }
 
-        Debug.Log("ZoneMode: " + mZoneMode);
+        //Debug.Log("ZoneMode: " + mZoneMode);
 
     }
 
@@ -263,7 +303,7 @@ public class ConquereController : MonoBehaviour
             mZoneMode = ZoneMode.NobodyOwnsIt;
         }
 
-
+        UpdateZoneParticals();
     }
 
     public IntVector2 FindOpenSpot()

@@ -1155,6 +1155,8 @@ public class UIManager : MonoBehaviour
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
+
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
                     GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
@@ -1175,6 +1177,9 @@ public class UIManager : MonoBehaviour
 
                 int char1 = (int)CharacterType.Yellow;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1224,6 +1229,8 @@ public class UIManager : MonoBehaviour
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
+
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
                     GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
@@ -1244,6 +1251,8 @@ public class UIManager : MonoBehaviour
                 int char1 = (int)CharacterType.Blue;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1288,6 +1297,7 @@ public class UIManager : MonoBehaviour
                 //GameManager.sInstance.mCurrentPartical = GameManager.sInstance.mCharacters[mCurrentCharacter].mBasicPartical;
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1309,6 +1319,8 @@ public class UIManager : MonoBehaviour
                 int char1 = (int)CharacterType.Brown;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1359,6 +1371,8 @@ public class UIManager : MonoBehaviour
                 //GameManager.sInstance.mCurrentPartical = ParticleManager.sInstance.mPlayerParticals[mCurrentCharacter].mBasicPartical;
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
+
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
                     GameManager.sInstance.SetSelected(mPos, mTypeOnCell, GameManager.sInstance.mCharacterObj);
@@ -1379,8 +1393,9 @@ public class UIManager : MonoBehaviour
                 int char1 = (int)CharacterType.Red;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
 
-                Debug.Log("Char1: " + char1);
-                Debug.Log("Char2: " + char2);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
+
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1427,6 +1442,8 @@ public class UIManager : MonoBehaviour
 
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
+
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1447,6 +1464,9 @@ public class UIManager : MonoBehaviour
 
                 int char1 = (int)CharacterType.Green;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1493,6 +1513,7 @@ public class UIManager : MonoBehaviour
 
                 GameManager.sInstance.mCurrentPartical = AbilityManager.sInstance.GetPartical((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex((int)GameManager.sInstance.mCharacterObj.mCharacterType);
 
                 if (GameManager.sInstance.mGameTurn == GameTurn.Enemy)
                 {
@@ -1513,6 +1534,9 @@ public class UIManager : MonoBehaviour
 
                 int char1 = (int)CharacterType.Black;
                 int char2 = (int)GameManager.sInstance.mCharacterObj.mCharacterType;
+
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char1);
+                ParticleManager.sInstance.AddGameObjectParticalFromIndex(char2);
 
                 if (GameManager.sInstance.mCharacters[char1].mAttacked || GameManager.sInstance.mCharacters[char2].mAttacked)
                 {
@@ -1550,7 +1574,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Character: " + character);
+        //Debug.Log("Character: " + character);
 
         mCurrentCharacter = character;
 

@@ -94,13 +94,20 @@ MonoBehaviour:
   - mName: 
     mDamageSounds: []
     mAttackSounds: []
-  mCharacterParticals:
+  mPowerUpParticals:
   - {fileID: 1968782658407478, guid: 77f3c61d9c733564899076021e4a04c8, type: 2}
   - {fileID: 1069786792529884, guid: f5f268485efc40c49981bc5e0dbb7b59, type: 2}
   - {fileID: 1194495219618882, guid: a1c279299447a714e9ae11f5f91345ca, type: 2}
   - {fileID: 1928552100853506, guid: 8d219abc4e40dc447b0c1deeb2aeff96, type: 2}
   - {fileID: 1650563586394996, guid: 55c8669011967794ca70d2160a95c84c, type: 2}
   - {fileID: 1054190571547216, guid: e93af885a39f05043b380d1948b3aa83, type: 2}
+  mCharacterParticals:
+  - {fileID: 1492091326169058, guid: 12cc76c52a074f049b902811dc210ca0, type: 2}
+  - {fileID: 1888435139270406, guid: 89ebfcca683ca664a9edfcc6c57e6cc6, type: 2}
+  - {fileID: 1857250449436402, guid: 3c2966a518d92724799cfbec89660094, type: 2}
+  - {fileID: 1249964164308248, guid: 1da174408de29784d85def53126c59eb, type: 2}
+  - {fileID: 1919488032566330, guid: 531a5a67964321f45aea4dc6137fbd98, type: 2}
+  - {fileID: 1109353156423810, guid: 12d62b1866af4644db1f8c197960a5ad, type: 2}
   mExclaim: {fileID: 1336306028093332, guid: d9dd19f2b4173164f802106b4b05dc87, type: 2}
   mDeathPartical:
     mKey: DEATH

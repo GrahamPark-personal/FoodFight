@@ -142,6 +142,21 @@ public class CutSceneManager : MonoBehaviour
                 mRightText.text = mPhrase.mSentence;
 
             }
+            if(mPhrase.mRemoveOtherCharacter)
+            {
+                if(mPhrase.mSide == CutSceneSide.Left)
+                {
+                    mRightCharacter.texture = TexturesManager.sInstance.mBlankTexture;
+                }
+                else
+                {
+                    mLeftCharacter.texture = TexturesManager.sInstance.mBlankTexture;
+                }
+            }
+            if(mPhrase.mPhraseAudio.Length > 0)
+            {
+                StartCoroutine(PlaySounds(mPhrase));
+            }
         }
         else
         {
@@ -150,6 +165,15 @@ public class CutSceneManager : MonoBehaviour
 
             mTopOfRightBubbles.SetActive(false);
             mRightText.enabled = false;
+        }
+    }
+
+    IEnumerator PlaySounds(Phrase phrase)
+    {
+        foreach (AudioClip clip in phrase.mPhraseAudio)
+        {
+            AudioManager.sInstance.CreateAudioAtPosition(clip, transform);
+            yield return new WaitForSeconds(clip.length);
         }
     }
 

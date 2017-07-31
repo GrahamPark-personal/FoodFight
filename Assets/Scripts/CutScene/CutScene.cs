@@ -16,6 +16,8 @@ public struct Phrase
     public CharacterType mCharacter;
     public CutSceneSide mSide;
     public string mSentence;
+    public bool mRemoveOtherCharacter;
+    public AudioClip[] mPhraseAudio;
 }
 
 

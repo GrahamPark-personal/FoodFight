@@ -54,6 +54,7 @@ public class ParticleManager : MonoBehaviour
     public PlayerSpecificSounds[] mMinions;
 
     [Header("Character Particals")]
+    public GameObject[] mPowerUpParticals;
     public GameObject[] mCharacterParticals;
 
     [Space(10)]
@@ -86,10 +87,11 @@ public class ParticleManager : MonoBehaviour
     [Header("Attack Particals")]
     public GamePartical[] mParticals;
 
+    List<GameObject> mTempParticals = new List<GameObject>();
+
     //public PlayerPartical[] mPlayerParticals;
 
     Dictionary<string, GamePartical> mParticalContainer;
-
 
     void Awake()
     {
@@ -102,6 +104,31 @@ public class ParticleManager : MonoBehaviour
             Debug.Assert(false, "[ParticalManager]Cannot have two particle managers");
             Destroy(this);
         }
+    }
+
+    public void AddGameObjectParticalFromIndex(int character)
+    {
+        Transform charTransform = GameManager.sInstance.mCharacters[character].transform;
+        GameObject mSpawnPartical1 = Instantiate(mPowerUpParticals[character], charTransform.position - new Vector3(0, 0.25f, 0), mPowerUpParticals[character].transform.rotation);
+        AddGameObjectToList(mSpawnPartical1);
+    }
+
+    public void AddGameObjectToList(GameObject obj)
+    {
+        if (obj != null)
+        {
+            mTempParticals.Add(obj);
+        }
+    }
+
+    public void RemoveAllObjectsFromList()
+    {
+        foreach (GameObject obj in mTempParticals)
+        {
+            Destroy(obj.gameObject);
+        }
+
+        mTempParticals.Clear();
     }
 
     void Update()
@@ -125,7 +152,7 @@ public class ParticleManager : MonoBehaviour
 
         for (int i = 0; i < mParticals.Length; i++)
         {
-            Debug.Log("times through");
+            //Debug.Log("times through");
             if (mParticals[i].mPartical != null)
             {
                 mParticals[i].mControl = mParticals[i].mPartical.gameObject.GetComponent<ParticleControl>();

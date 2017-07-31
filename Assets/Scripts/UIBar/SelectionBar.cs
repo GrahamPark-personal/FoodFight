@@ -83,7 +83,7 @@ public class SelectionBar : MonoBehaviour
 
             IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-            GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position, partical.transform.rotation);
+            GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0,0.5f,0), partical.transform.rotation);
 
             mPortraits[character].SetHoverPartical(obj);
 
@@ -108,7 +108,7 @@ public class SelectionBar : MonoBehaviour
 
                 IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-                GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+                GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 0.5f, 0), partical.transform.rotation);
 
                 mPortraits[character].SetHoverPartical(obj);
 
@@ -153,7 +153,7 @@ public class SelectionBar : MonoBehaviour
 
             IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-            GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position, partical.transform.rotation);
+            GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 0.5f, 0), partical.transform.rotation);
 
             mPortraits[character].SetHoverPartical(obj);
 
@@ -178,7 +178,7 @@ public class SelectionBar : MonoBehaviour
 
                 IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-                GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+                GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 0.5f, 0), partical.transform.rotation);
 
                 mPortraits[character].SetHoverPartical(obj);
 
@@ -225,7 +225,7 @@ public class SelectionBar : MonoBehaviour
 
                     IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-                    GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+                    GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 0.5f, 0), partical.transform.rotation);
 
                     mPortraits[character].SetHoverPartical(obj);
                 }
@@ -258,7 +258,7 @@ public class SelectionBar : MonoBehaviour
 
                     IntVector2 pos = GameManager.sInstance.mCharacters[character].mCellPos;
 
-                    GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 1, 0), partical.transform.rotation);
+                    GameObject obj = Instantiate(partical, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform.position + new Vector3(0, 0.5f, 0), partical.transform.rotation);
 
                     mPortraits[character].SetHoverPartical(obj);
                 }

@@ -283,6 +283,7 @@ public class GameManager : MonoBehaviour
             sInstance = this;
         }
         mWinScreen1.enabled = false;
+        mWinScreen1.GetComponentInChildren<Image>().gameObject.SetActive(false);
         mLoseScreen1.enabled = false;
     }
 
@@ -333,7 +334,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(mCounter)
+        if (mCounter)
         {
             mCounter.text = "Counter: " + mTurnCounter;
         }
@@ -435,6 +436,8 @@ public class GameManager : MonoBehaviour
         }
 
         mWinScreen1.enabled = true;
+        mWinScreen1.GetComponentInChildren<Image>().gameObject.SetActive(true);
+
 
         return true;
     }
@@ -470,6 +473,7 @@ public class GameManager : MonoBehaviour
         }
 
         mWinScreen1.enabled = true;
+        mWinScreen1.GetComponentInChildren<Image>().gameObject.SetActive(true);
     }
 
     public void LostGame()
@@ -649,7 +653,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        if(mCurrGrid.rows == null)
+        if (mCurrGrid.rows == null)
         {
             return false;
         }
@@ -1177,7 +1181,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("got here");
         Transform currTransform = mPlayerSelectBlock.transform;
         Destroy(mPlayerSelectBlock);
-        mPlayerSelectBlock = Instantiate(ParticleManager.sInstance.mCharacterParticals[character], currTransform.position, currTransform.rotation);
+        mPlayerSelectBlock = Instantiate(ParticleManager.sInstance.mCharacterParticals[character], currTransform.position + new Vector3(0, 0.5f, 0), currTransform.rotation);
 
     }
 
@@ -1851,7 +1855,7 @@ public class GameManager : MonoBehaviour
                 {
                     // mCurrGrid.rows[temp.y].cols[temp.x].AddEffect(effectParm);
                     //mCellDamage
-                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag,damage);
+                    mCurrGrid.rows[temp.y].cols[temp.x].AddCellTag(tag, damage);
                     mCurrGrid.rows[temp.y].cols[temp.x].AddVisualBlock(tag);
                 }
 
@@ -2727,6 +2731,12 @@ public class GameManager : MonoBehaviour
         SetSelected(mSelectedCell, tempType, mCharacterObj);
     }
 
+    IEnumerator removeAllParticles()
+    {
+        yield return new WaitForSeconds(8.0f);
+        ParticleManager.sInstance.RemoveAllObjectsFromList();
+    }
+
     public void SetSelected(IntVector2 pos, TypeOnCell objOnCell, Character charObj)
     {
         if (objOnCell == TypeOnCell.character && mGameTurn == GameTurn.Player && mMouseMode != MouseMode.Attack)
@@ -2737,11 +2747,15 @@ public class GameManager : MonoBehaviour
         {
             mUIManager.ResetPopUp(false);
         }
-        if(mMouseMode == MouseMode.Move)
+        if (mMouseMode == MouseMode.Move)
         {
             mPreviewShape = HoverShape.SingleSpot;
         }
 
+        if (mMouseMode != MouseMode.AbilityAttack)
+        {
+            StartCoroutine(removeAllParticles());
+        }
 
 
         mSelectedCell = pos;
@@ -2776,7 +2790,7 @@ public class GameManager : MonoBehaviour
         mAttackAreaLocations.Clear();
         mAttackAreaObjArray.Clear();
 
-        if(mMouseMode == MouseMode.None)
+        if (mMouseMode == MouseMode.None)
         {
             return;
         }

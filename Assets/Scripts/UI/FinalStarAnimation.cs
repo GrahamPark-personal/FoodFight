@@ -17,7 +17,7 @@ public class FinalStarAnimation : MonoBehaviour
 
     void Start()
     {
-        mAnim = GetComponent<Animator>();
+        //mAnim = GetComponent<Animator>();
         mStarObj.SetActive(false);
     }
 
@@ -27,7 +27,7 @@ public class FinalStarAnimation : MonoBehaviour
         {
             showedStart = true;
             //make them active
-            mAnim.SetBool("Shown", true);
+            //mAnim.SetBool("Shown", true);
             //play animation where the go from small to large
             //set the hue to 100 for each color on the ones they got
             StartCoroutine(WaitAndShowStars());

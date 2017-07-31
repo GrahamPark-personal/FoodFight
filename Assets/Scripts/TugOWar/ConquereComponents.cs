@@ -22,6 +22,11 @@ public class ConquereComponents : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.sInstance.mFinishedLastCutScene)
+        {
+            gameObject.SetActive(false);
+        }
+
         int charTurnCount = ConquereController.sInstance.mCharacterTurnCounter;
         int enemyTurnCount = ConquereController.sInstance.mEnemyTurnCounter;
 

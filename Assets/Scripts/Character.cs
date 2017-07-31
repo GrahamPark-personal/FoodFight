@@ -234,6 +234,8 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public bool mActivated = false;
 
+    Dictionary<int, Vector3> mDirectionMap = new Dictionary<int, Vector3>();
+
 
     IEnumerator TurnBackToIdleAfter()
     {
@@ -485,6 +487,11 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        mDirectionMap[0] = new Vector3(1, 0, 0);
+        mDirectionMap[1] = new Vector3(0, 0, -1);
+        mDirectionMap[2] = new Vector3(-1, 0, 0);
+        mDirectionMap[3] = new Vector3(0, 0, 1);
+
         mMaterialRend = GetComponentsInChildren<Renderer>();
 
         mPosition = transform;
@@ -590,6 +597,7 @@ public class Character : MonoBehaviour
                 tempV = tempT.position + new Vector3(0, 1, 0);
                 nextBlock = mPosPath.Dequeue();
 
+
                 IntVector2 direction = new IntVector2();
 
                 direction.x = nextBlock.x - lastBlock.x;
@@ -665,25 +673,26 @@ public class Character : MonoBehaviour
                 onIce = false;
             }
 
-        }
 
-        //changes direction of character
+            //changes direction of character
 
-        if (nextBlock.x > lastBlock.x)
-        {
-            mDirection = Direction.pos2;
-        }
-        else if (nextBlock.x < lastBlock.x)
-        {
-            mDirection = Direction.pos4;
-        }
-        else if (nextBlock.y > lastBlock.y)
-        {
-            mDirection = Direction.pos3;
-        }
-        else if (nextBlock.y < lastBlock.y)
-        {
-            mDirection = Direction.pos1;
+            if (nextBlock.x > lastBlock.x)
+            {
+                mDirection = Direction.pos2;
+            }
+            else if (nextBlock.x < lastBlock.x)
+            {
+                mDirection = Direction.pos4;
+            }
+            else if (nextBlock.y > lastBlock.y)
+            {
+                mDirection = Direction.pos3;
+            }
+            else if (nextBlock.y < lastBlock.y)
+            {
+                mDirection = Direction.pos1;
+            }
+
         }
 
         if (transform.position == tempV)
@@ -890,27 +899,117 @@ public class Character : MonoBehaviour
         Damage(amount);
     }
 
+    void RotateTowardsPosition(IntVector2 pos)
+    {
+        Vector3 characterWorldPosition = transform.position;
+        characterWorldPosition.y = 0;
+        Transform enemyTransform = GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform;
+        Vector3 enemyWorldPosition = enemyTransform.position;
+        enemyWorldPosition.y = 0;
+
+        Vector2 characterPos = new Vector2(mCellPos.x, mCellPos.y);
+        Vector2 enemyPos = new Vector2(pos.x, pos.y);
+
+        Debug.Log("Old Direction: " + mDirection);
+
+
+        //get forward facing vector of the character
+        Vector3 playerDirection = mDirectionMap[(int)mDirection];
+
+        //get the vector towards the attack pos
+        Vector3 directionToEnemy = enemyWorldPosition - characterWorldPosition;
+        Debug.Log("PlayerDirection: " + playerDirection.x + ", " + playerDirection.y + ", " + playerDirection.z);
+        Debug.Log("DirectionToEnemy: " + directionToEnemy.x + ", " + directionToEnemy.y + ", " + directionToEnemy.z);
+
+        //normalize the vectors
+        directionToEnemy.Normalize();
+        //dot the two vectors
+        float dotValue = Vector3.Dot(playerDirection, directionToEnemy);
+        //if the dot value equals 1
+        if (dotValue == 1)
+        {
+            //do nothing, facing the direction already
+        }
+        //if the dot value is -1
+        else if (dotValue == -1)
+        {
+            //rotate 180
+            switch (mDirection)
+            {
+                case Direction.pos1:
+                    mDirection = Direction.pos3;
+                    break;
+                case Direction.pos2:
+                    mDirection = Direction.pos4;
+                    break;
+                case Direction.pos3:
+                    mDirection = Direction.pos1;
+                    break;
+                case Direction.pos4:
+                    mDirection = Direction.pos2;
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        //it is one of the sides
+        else
+        {
+            //if the direction's side vector is greater than your position
+            if ((enemyTransform.localPosition.x - transform.localPosition.x) >= 0)
+            {
+                //rotate 90
+                switch (mDirection)
+                {
+                    case Direction.pos1:
+                        mDirection = Direction.pos2;
+                        break;
+                    case Direction.pos2:
+                        mDirection = Direction.pos3;
+                        break;
+                    case Direction.pos3:
+                        mDirection = Direction.pos4;
+                        break;
+                    case Direction.pos4:
+                        mDirection = Direction.pos1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (mDirection)
+                {
+                    case Direction.pos1:
+                        mDirection = Direction.pos4;
+                        break;
+                    case Direction.pos2:
+                        mDirection = Direction.pos1;
+                        break;
+                    case Direction.pos3:
+                        mDirection = Direction.pos2;
+                        break;
+                    case Direction.pos4:
+                        mDirection = Direction.pos3;
+                        break;
+                    default:
+                        break;
+                }
+                //rotate -90
+            }
+
+        }
+        Debug.Log("DotValue: " + dotValue);
+        Debug.Log("New Direction: " + mDirection);
+    }
+
     public void Attacking(IntVector2 pos)
     {
 
-        if (pos.x > mCellPos.x)
-        {
-            mDirection = Direction.pos2;
-        }
-        else if (pos.x < mCellPos.x)
-        {
-            mDirection = Direction.pos4;
-        }
 
-        if (pos.y > mCellPos.y)
-        {
-            mDirection = Direction.pos3;
-        }
-        else if (pos.y < mCellPos.y)
-        {
-            mDirection = Direction.pos1;
-        }
-
+        RotateTowardsPosition(pos);
         mAnimation = CharacterAnimations.Attack1;
         string mSelectedParticle = GameManager.sInstance.mCurrentPartical;
 
@@ -919,7 +1018,7 @@ public class Character : MonoBehaviour
             ParticleManager.sInstance.SpawnPartical(mSelectedParticle, transform, GameManager.sInstance.mCurrGrid.rows[pos.y].cols[pos.x].transform, true);
         }
 
-        if(mCharacterType != CharacterType.None)
+        if (mCharacterType != CharacterType.None)
         {
             SelectionBar.sInstance.PlayAttackSound((int)mCharacterType);
         }
@@ -931,6 +1030,16 @@ public class Character : MonoBehaviour
             ConquereController.sInstance.UpdateZone();
         }
         StartCoroutine(TurnBackToIdleAfter());
+
+        StartCoroutine(RemoveParticles());
+
+    }
+
+    IEnumerator RemoveParticles()
+    {
+        yield return new WaitForSeconds(5.0f);
+        //ParticleManager.sInstance.RemoveAllObjectsFromList();
+
     }
 
     public void Heal(int amount)

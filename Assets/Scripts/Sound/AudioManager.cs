@@ -11,7 +11,7 @@ public struct AudioSetting
     public float mVolume;
     [Range(-3.0f, 3.0f)]
     public float mPitch;
-    [Range(0.0f,1.1f)]
+    [Range(0.0f, 1.1f)]
     public float mReverb;
 
 }
@@ -29,9 +29,12 @@ public class AudioManager : MonoBehaviour
     float mMaxVolume;
     float mLowerVolume = 0.3f;
 
+
+    bool mLowered = false;
+
     void Awake()
     {
-        if(!sInstance)
+        if (!sInstance)
         {
             sInstance = this;
         }
@@ -50,8 +53,25 @@ public class AudioManager : MonoBehaviour
 
     public void LowerMusicFor(float time)
     {
-        mCurrentVolume = mLowerVolume;
-        StartCoroutine(WaitForSound(time));
+        if (!mLowered)
+        {
+            mCurrentVolume = mLowerVolume;
+            StartCoroutine(WaitForSound(time));
+        }
+    }
+
+    public void LowerTheMusic(bool lower)
+    {
+        mLowered = lower;
+        if (lower)
+        {
+            mCurrentVolume = mLowerVolume;
+        }
+        else
+        {
+            mCurrentVolume = mMaxVolume;
+        }
+
     }
 
     IEnumerator WaitForSound(float time)
@@ -72,10 +92,10 @@ public class AudioManager : MonoBehaviour
         clip.pitch = settings.mPitch;
         clip.reverbZoneMix = settings.mReverb;
     }
-    
+
     public GameObject CreateAudioAtPosition(AudioClip clip, Transform tr)
     {
-        GameObject tempObj =  new GameObject();
+        GameObject tempObj = new GameObject();
         if (clip != null)
         {
             tempObj = Instantiate(mAudioObj, tr.position, tr.rotation);
@@ -105,7 +125,7 @@ public class AudioManager : MonoBehaviour
             audObj.SetAudio(clip);
 
 
-            Debug.Log("About to play");
+            //Debug.Log("About to play");
 
             //Debug.Log("Got here 3");
             audObj.StartAudio();

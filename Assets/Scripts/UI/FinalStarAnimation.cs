@@ -18,7 +18,12 @@ public class FinalStarAnimation : MonoBehaviour
     void Start()
     {
         //mAnim = GetComponent<Animator>();
-        mStarObj.SetActive(false);
+
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+
+
     }
 
     void Update()

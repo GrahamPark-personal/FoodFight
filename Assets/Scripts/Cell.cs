@@ -886,6 +886,17 @@ public class Cell : MonoBehaviour
 
     void OnMouseEnter()
     {
+
+        //if(CutSceneManager.sInstance.IsCutSceneActive())
+        //{
+        //    return;
+        //}
+
+        //if(GameManager.sInstance.GameFinished)
+        //{
+        //    return;
+        //}
+
         if (GameManager.sInstance.mGameTurn == GameTurn.Player)
         {
 

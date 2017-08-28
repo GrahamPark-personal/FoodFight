@@ -177,6 +177,10 @@ public class ConquereController : MonoBehaviour
             Debug.Log("[ConquereController]Zone Didnt get a full.. Count = " + mZoneLocations.Count);
         }
 
+        if(mZoneMiddle.x != -1 || mZoneMiddle.y != -1)
+        {
+
+
         foreach (Cell item in mZoneLocations)
         {
             //Debug.Log("[ConquereController] Contains Location:" + item.mPos.x + "," + item.mPos.y);
@@ -192,6 +196,13 @@ public class ConquereController : MonoBehaviour
         mYourConquestPartical.SetActive(false);
         mEnemyConquestPartical.SetActive(false);
         mContestedConquestPartical.SetActive(false);
+
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            Debug.Log("no zone location");
+        }
 
     }
 
@@ -269,7 +280,16 @@ public class ConquereController : MonoBehaviour
 
         }
 
-        if (numEnemies > 0 && numCharacters == 0)
+        if (numEnemies > 0 && numCharacters > 0)
+        {
+            //contested
+            if (mZoneMode != ZoneMode.Contested)
+            {
+                GameSounds.sInstance.PlayAudio("ZONE_CONTESTED");
+            }
+            mZoneMode = ZoneMode.Contested;
+        }
+        else if (numEnemies > 0 && numCharacters == 0)
         {
             //enemy got it
             if (mZoneMode != ZoneMode.EnemiesOwnIt)
@@ -287,15 +307,6 @@ public class ConquereController : MonoBehaviour
             }
 
             mZoneMode = ZoneMode.CharactersOwnIt;
-        }
-        else if (numEnemies > 0 && numCharacters > 0)
-        {
-            //contested
-            if (mZoneMode != ZoneMode.Contested)
-            {
-                GameSounds.sInstance.PlayAudio("ZONE_CONTESTED");
-            }
-            mZoneMode = ZoneMode.Contested;
         }
         else
         {

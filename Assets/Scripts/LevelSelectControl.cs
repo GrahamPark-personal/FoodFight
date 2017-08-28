@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectControl : MonoBehaviour
 {
-    public GameObject mActBar;
+    public GameObject[] mLevelsObjs;
+    public GameObject[] mActsObjs;
+
     public GameObject mLoading;
     public Animator mAnimator;
 
@@ -20,16 +22,44 @@ public class LevelSelectControl : MonoBehaviour
 
     void Start()
     {
-        mActBar.SetActive(false);
         mLoading.SetActive(false);
         mMusic.volume = mCurrVolume;
+
+        foreach (GameObject obj in mActsObjs)
+        {
+            obj.SetActive(false);
+        }
+    }
+
+    void SwitchActiveObjs()
+    {
+        mActBarUp = !mActBarUp;
+
+        foreach (GameObject obj in mLevelsObjs)
+        {
+            obj.SetActive(!mActBarUp);
+        }
+
+        foreach (GameObject obj in mActsObjs)
+        {
+            obj.SetActive(mActBarUp);
+        }
     }
 
     void Update()
     {
+
+        if ((Input.GetMouseButtonDown(1) && mActBarUp ))
+        {
+            SwitchActiveObjs();
+        }
+
+
         mCurrVolume =  Mathf.Lerp(mCurrVolume, 1.0f, mTime * Time.deltaTime);
         mMusic.volume = mCurrVolume;
     }
+
+
 
     public void OpenLevelSelect()
     {
@@ -66,50 +96,43 @@ public class LevelSelectControl : MonoBehaviour
 
     public void LoadIntroLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 1;
-        mActBar.SetActive(true);
-        mActBarUp = true;
     }
 
     public void LoadRockLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 3;
-        mActBar.SetActive(true);
-        mActBarUp = true;
 
     }
 
     public void LoadFireLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 6;
-        mActBar.SetActive(true);
-        mActBarUp = true;
 
 
     }
 
     public void LoadNatureLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 9;
-        mActBar.SetActive(true);
-        mActBarUp = true;
 
     }
 
     public void LoadDarkLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 12;
-        mActBar.SetActive(true);
-        mActBarUp = true;
 
     }
 
     public void LoadBossLevel()
     {
+        SwitchActiveObjs();
         currLevelStart = 15;
-        mActBar.SetActive(true);
-        mActBarUp = true;
-
     }
 
 }

@@ -506,7 +506,7 @@ public class Character : MonoBehaviour
     public void ResetTurn()
     {
         //mAnimation = CharacterAnimations.Idle;
-
+        
         mMoveDistance = mTotalMove;
         mMoved = false;
         mAttacked = false;
@@ -922,9 +922,9 @@ public class Character : MonoBehaviour
         Debug.Log("DirectionToEnemy: " + directionToEnemy.x + ", " + directionToEnemy.y + ", " + directionToEnemy.z);
 
         //normalize the vectors
-        directionToEnemy.Normalize();
+        Vector3 normalizedDirection = directionToEnemy.normalized;
         //dot the two vectors
-        float dotValue = Vector3.Dot(playerDirection, directionToEnemy);
+        float dotValue = Vector3.Dot(playerDirection, normalizedDirection);
         //if the dot value equals 1
         if (dotValue == 1)
         {
@@ -952,13 +952,28 @@ public class Character : MonoBehaviour
                     break;
             }
 
+
+
         }
         //it is one of the sides
         else
         {
+            Debug.Log("rotatin 90");
+
+
+            bool bIsRightSide;
+
+            //playerDirection
+            //directionToEnemy
+            Vector3 rightVector = Vector3.Cross(playerDirection,Vector3.up);
+            
+
+
             //if the direction's side vector is greater than your position
-            if ((enemyTransform.localPosition.x - transform.localPosition.x) >= 0)
+            if (Vector3.Dot(rightVector,directionToEnemy) < 0)
             {
+                Debug.Log("one");
+
                 //rotate 90
                 switch (mDirection)
                 {
@@ -980,6 +995,8 @@ public class Character : MonoBehaviour
             }
             else
             {
+                Debug.Log("two");
+
                 switch (mDirection)
                 {
                     case Direction.pos1:
@@ -1001,8 +1018,8 @@ public class Character : MonoBehaviour
             }
 
         }
-        Debug.Log("DotValue: " + dotValue);
-        Debug.Log("New Direction: " + mDirection);
+
+        Debug.Log("Direction: " + mDirection);
     }
 
     public void Attacking(IntVector2 pos)

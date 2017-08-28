@@ -39,6 +39,11 @@ public class CutSceneManager : MonoBehaviour
     [HideInInspector]
     public bool mReplaceRight = false;
 
+    public bool IsCutSceneActive()
+    {
+        Debug.Log("active" + mActive);
+        return mActive;
+    }
 
     void Awake()
     {

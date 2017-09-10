@@ -29,6 +29,8 @@ public class AIActor : MonoBehaviour
     
     [HideInInspector]
     public IntVector2 mCurrentDestination;
+
+    bool activated = false;
     
     #endregion
 

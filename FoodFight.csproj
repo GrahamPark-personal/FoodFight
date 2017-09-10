@@ -160,6 +160,7 @@
     <Compile Include="Assets\Scripts\UI\ParticleControl.cs" />
     <Compile Include="Assets\Scripts\UI\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\UI\RemoveTutorial.cs" />
+    <Compile Include="Assets\Scripts\UI\StartCutSceneLater.cs" />
     <Compile Include="Assets\Scripts\UI\TurnBar.cs" />
     <Compile Include="Assets\Scripts\UIBar\CharacterSelection.cs" />
     <Compile Include="Assets\Scripts\UIBar\SelectionBar.cs" />

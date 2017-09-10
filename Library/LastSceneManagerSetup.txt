@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/DarkLevelAct1.unity
+- path: Assets/IntroToGame.unity
   isLoaded: 1
   isActive: 1

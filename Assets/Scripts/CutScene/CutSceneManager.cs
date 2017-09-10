@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CutSceneManager : MonoBehaviour
 {
+    public bool mStartAfterEnemy;
+
     public static CutSceneManager sInstance = null;
 
     public GameObject mWholeScreen;
@@ -57,9 +59,24 @@ public class CutSceneManager : MonoBehaviour
         }
     }
 
+    bool alreadyStatedOne = false;
+
+    public void StartCutscene()
+    {
+        if(!alreadyStatedOne)
+        {
+            SetActive(true);
+        }
+        alreadyStatedOne = true;
+    }
+
     void Start()
     {
-        SetActive(true);
+        Debug.Log(mStartAfterEnemy);
+        if(!mStartAfterEnemy)
+        {
+            SetActive(true);
+        }
     }
 
     public void SetActive(bool active)
@@ -82,6 +99,11 @@ public class CutSceneManager : MonoBehaviour
 
     void InitScene()
     {
+
+        if (!mActive)
+        {
+            return;
+        }
         if (mCurrentScene)
         {
             mWholeScreen.SetActive(true);
@@ -113,9 +135,16 @@ public class CutSceneManager : MonoBehaviour
 
     void SetScreenUp()
     {
+
+        if(!mActive)
+        {
+            return;
+        }
+
         if (!mCurrentScene.mConvo[mCurrentPhrase].mBlank)
         {
             Phrase mPhrase = mCurrentScene.mConvo[mCurrentPhrase];
+
             if (mPhrase.mSide == CutSceneSide.Left)
             {
                 mTopOfLeftBubbles.SetActive(true);
@@ -158,7 +187,7 @@ public class CutSceneManager : MonoBehaviour
                     mLeftCharacter.texture = TexturesManager.sInstance.mBlankTexture;
                 }
             }
-            if(mPhrase.mPhraseAudio.Length > 0)
+            if(mPhrase.mPhraseAudio != null && mPhrase.mPhraseAudio.Length > 0)
             {
                 StartCoroutine(PlaySounds(mPhrase));
             }
@@ -184,12 +213,20 @@ public class CutSceneManager : MonoBehaviour
 
     void SetPortraits()
     {
+        if (!mActive)
+        {
+            return;
+        }
         mLeftCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mLeftCharacter];
         mRightCharacter.texture = mCharacterPortraits[(int)mCurrentScene.mRightCharacter];
     }
 
     void SetLeftPortrait()
     {
+        if (!mActive)
+        {
+            return;
+        }
         Texture newText = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
 
         if (newText != mLeftCharacter.texture)
@@ -204,6 +241,10 @@ public class CutSceneManager : MonoBehaviour
 
     void SetRightPortrait()
     {
+        if (!mActive)
+        {
+            return;
+        }
         Texture newText = mCharacterPortraits[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter];
 
         if (newText != mRightCharacter.texture)
@@ -224,6 +265,10 @@ public class CutSceneManager : MonoBehaviour
 
     void ResetBubbles()
     {
+        if (!mActive)
+        {
+            return;
+        }
         foreach (GameObject item in mLeftBubbles)
         {
             item.SetActive(false);
@@ -236,11 +281,19 @@ public class CutSceneManager : MonoBehaviour
 
     void SetLeftBubble()
     {
+        if (!mActive)
+        {
+            return;
+        }
         mLeftBubbles[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter].SetActive(true);
     }
 
     void SetRightBubble()
     {
+        if (!mActive)
+        {
+            return;
+        }
         mRightBubbles[(int)mCurrentScene.mConvo[mCurrentPhrase].mCharacter].SetActive(true);
     }
 

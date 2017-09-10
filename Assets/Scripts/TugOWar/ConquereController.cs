@@ -132,26 +132,29 @@ public class ConquereController : MonoBehaviour
 
     void UpdateZoneParticals()
     {
-        mYourConquestPartical.SetActive(false);
-        mEnemyConquestPartical.SetActive(false);
-        mContestedConquestPartical.SetActive(false);
-        mNeutralConquestPartical.SetActive(false);
-        switch (mZoneMode)
+        if (mYourConquestPartical)
         {
-            case ZoneMode.NobodyOwnsIt:
-                mNeutralConquestPartical.SetActive(true);
-                break;
-            case ZoneMode.CharactersOwnIt:
-                mYourConquestPartical.SetActive(true);
-                break;
-            case ZoneMode.EnemiesOwnIt:
-                mEnemyConquestPartical.SetActive(true);
-                break;
-            case ZoneMode.Contested:
-                mContestedConquestPartical.SetActive(true);
-                break;
-            default:
-                break;
+            mYourConquestPartical.SetActive(false);
+            mEnemyConquestPartical.SetActive(false);
+            mContestedConquestPartical.SetActive(false);
+            mNeutralConquestPartical.SetActive(false);
+            switch (mZoneMode)
+            {
+                case ZoneMode.NobodyOwnsIt:
+                    mNeutralConquestPartical.SetActive(true);
+                    break;
+                case ZoneMode.CharactersOwnIt:
+                    mYourConquestPartical.SetActive(true);
+                    break;
+                case ZoneMode.EnemiesOwnIt:
+                    mEnemyConquestPartical.SetActive(true);
+                    break;
+                case ZoneMode.Contested:
+                    mContestedConquestPartical.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

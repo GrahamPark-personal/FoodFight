@@ -1388,7 +1388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1452569774306984
 GameObject:
   m_ObjectHideFlags: 1
@@ -2194,7 +2194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1713386042820388
 GameObject:
   m_ObjectHideFlags: 1
@@ -2314,7 +2314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1751169345155610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1939916265834290
 GameObject:
   m_ObjectHideFlags: 1
@@ -4397,10 +4397,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 3fd6751a852981c4facfdbefcab235d5, type: 3}
   mActiveCharacters: 0
   mCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   mAttackImages:
   - {fileID: 114761514773227212}

@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class EndButtonControl : MonoBehaviour
 {
-    private RawImage mButtonImage;
+    private Image mButtonImage;
 
     void Start()
     {
-        mButtonImage = GetComponent<RawImage>();
+        mButtonImage = GetComponent<Image>();
+        Debug.Assert(mButtonImage, "[EndButtonControl]");
         mButtonImage.enabled = false;
     }
 
     void Update()
     {
-        if(GameManager.sInstance.GameLost)
+        if (GameManager.sInstance.GameLost)
         {
             mButtonImage.enabled = true;
         }

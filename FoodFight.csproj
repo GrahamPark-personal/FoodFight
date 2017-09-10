@@ -153,6 +153,7 @@
     <Compile Include="Assets\Scripts\UI\BackgroundReset.cs" />
     <Compile Include="Assets\Scripts\UI\EffectManager.cs" />
     <Compile Include="Assets\Scripts\UI\EffectScript.cs" />
+    <Compile Include="Assets\Scripts\UI\EndButtonControl.cs" />
     <Compile Include="Assets\Scripts\UI\FinalStarAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\MovePortrait.cs" />

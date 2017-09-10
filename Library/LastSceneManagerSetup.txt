@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/FireLevelAct1.unity
+- path: Assets/DarkLevelAct1.unity
   isLoaded: 1
   isActive: 1

@@ -96,8 +96,8 @@ public class LevelSelectControl : MonoBehaviour
 
     public void LoadIntroLevel()
     {
-        SwitchActiveObjs();
-        currLevelStart = 1;
+        mLoading.SetActive(true);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadRockLevel()

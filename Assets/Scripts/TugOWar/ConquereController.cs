@@ -289,6 +289,7 @@ public class ConquereController : MonoBehaviour
             if (mZoneMode != ZoneMode.Contested)
             {
                 GameSounds.sInstance.PlayAudio("ZONE_CONTESTED");
+                TurnBar.sInstance.ShowBar(TurnBar.BarId.ContestedCap);
             }
             mZoneMode = ZoneMode.Contested;
         }
@@ -298,6 +299,7 @@ public class ConquereController : MonoBehaviour
             if (mZoneMode != ZoneMode.EnemiesOwnIt)
             {
                 GameSounds.sInstance.PlayAudio("ENEMY_CAPTURED_ZONE");
+                TurnBar.sInstance.ShowBar(TurnBar.BarId.EnemyCap);
             }
             mZoneMode = ZoneMode.EnemiesOwnIt;
         }
@@ -307,6 +309,7 @@ public class ConquereController : MonoBehaviour
             if (mZoneMode != ZoneMode.CharactersOwnIt)
             {
                 GameSounds.sInstance.PlayAudio("PLAYER_CAPTURED");
+                TurnBar.sInstance.ShowBar(TurnBar.BarId.TeamCap);
             }
 
             mZoneMode = ZoneMode.CharactersOwnIt;
